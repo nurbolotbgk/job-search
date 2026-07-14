@@ -29,7 +29,7 @@ public class ResumeController {
     }
 
     @GetMapping("{applicationId}")
-    public ResponseEntity<Resumes> searchAppliacant(@PathVariable Integer applicationId) {
+    public ResponseEntity<Resumes> searchApplicant(@PathVariable Integer applicationId) {
         for (Resumes resume : storage) {
             if (resume.getApplication_id() == applicationId) {
                 return ResponseEntity.ok(resume);
@@ -37,6 +37,11 @@ public class ResumeController {
         }
 
         return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteResume(@PathVariable Integer id) {
+        return ResponseEntity.noContent().build();
     }
 
 }
