@@ -16,7 +16,7 @@ public class VacancyController {
         return HttpStatus.OK;
     }
 
-    @PostMapping("update")
+    @PutMapping("update")
     public HttpStatus updateVacancy(@RequestParam Integer id, VacancyDto dto) {
         System.out.println(dto.toString());
         return HttpStatus.OK;
