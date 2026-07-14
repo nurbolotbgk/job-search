@@ -4,6 +4,7 @@ import com.example.demo.dto.VacancyDto;
 import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,15 +18,13 @@ public class VacancyController {
     }
 
     @PutMapping("update")
-    public HttpStatus updateVacancy(@RequestParam Integer id, VacancyDto dto) {
-        System.out.println(dto.toString());
-        return HttpStatus.OK;
+    public ResponseEntity<Void> updateVacancy(@RequestParam Integer id, @RequestBody VacancyDto dto) {
+        return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("delete")
-    public HttpStatus deleteVacancy(@RequestParam Integer id) {
-
-        return HttpStatus.OK;
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteVacancy(@PathVariable Integer id) {
+        return ResponseEntity.noContent().build();
     }
 
     }
