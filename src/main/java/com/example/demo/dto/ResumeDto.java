@@ -1,15 +1,10 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Resumes {
+public class ResumeDto {
     private int application_id;
     private String name;
     private int category_id;
@@ -18,5 +13,4 @@ public class Resumes {
     private Date created_date;
     private Date update_time;
     private int id;
-
 }

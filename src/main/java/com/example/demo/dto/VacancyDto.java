@@ -1,15 +1,11 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Vacancies {
+public class VacancyDto {
     private String name;
     private String description;
     private Integer category_id;
