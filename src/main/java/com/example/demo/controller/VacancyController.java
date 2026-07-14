@@ -27,4 +27,8 @@ public class VacancyController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("resumes")
+        public ResponseEntity<void> getAllresumes() {
+        return ResponseEntity.ok().build();
+    }
     }
