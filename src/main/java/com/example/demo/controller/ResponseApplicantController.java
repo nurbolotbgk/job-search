@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.ResumeDto;
-import com.example.demo.dto.VacancyDto;
-import com.example.demo.model.Resumes;
-import com.example.demo.model.Vacancies;
+import com.example.demo.model.Vacancy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping("applicant")
 @RequiredArgsConstructor
-public class ApplicantController {
-    private final List<Vacancies> vacanciesStorage = new ArrayList<>();
+public class ResponseApplicantController {
+    private final List<Vacancy> vacancyStorage = new ArrayList<>();
 
     @PostMapping("create")
     public HttpStatus createResume(ResumeDto dto) {
@@ -35,10 +33,10 @@ public class ApplicantController {
     }
 
     @GetMapping("vacancies/active")
-    public ResponseEntity<List<Vacancies>> getActiveVacancies() {
-        List<Vacancies> activeVacancies = new ArrayList<>();
+    public ResponseEntity<List<Vacancy>> getActiveVacancies() {
+        List<Vacancy> activeVacancies = new ArrayList<>();
 
-        for (Vacancies vacancy : vacanciesStorage) {
+        for (Vacancy vacancy : vacancyStorage) {
             if (vacancy.is_active()) {
                 activeVacancies.add(vacancy);
             }
@@ -47,8 +45,8 @@ public class ApplicantController {
     }
 
     @GetMapping("vacancies/categoryId")
-    public ResponseEntity<Vacancies> searchVacancy(@PathVariable Integer categoryId) {
-        for (Vacancies vacancy : vacanciesStorage) {
+    public ResponseEntity<Vacancy> searchVacancy(@PathVariable Integer categoryId) {
+        for (Vacancy vacancy : vacancyStorage) {
             if (vacancy.getCategory_id() == categoryId) {
                 return ResponseEntity.ok(vacancy);
             }
