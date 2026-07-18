@@ -32,27 +32,6 @@ public class ResponseApplicantController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("vacancies/active")
-    public ResponseEntity<List<Vacancy>> getActiveVacancies() {
-        List<Vacancy> activeVacancies = new ArrayList<>();
-
-        for (Vacancy vacancy : vacancyStorage) {
-            if (vacancy.is_active()) {
-                activeVacancies.add(vacancy);
-            }
-        }
-        return ResponseEntity.ok(activeVacancies);
-    }
-
-    @GetMapping("vacancies/categoryId")
-    public ResponseEntity<Vacancy> searchVacancy(@PathVariable Integer categoryId) {
-        for (Vacancy vacancy : vacancyStorage) {
-            if (vacancy.getCategory_id() == categoryId) {
-                return ResponseEntity.ok(vacancy);
-            }
-        }
-        return ResponseEntity.notFound().build();
-    }
 
 
 }

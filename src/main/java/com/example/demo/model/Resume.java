@@ -4,19 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Resumes {
-    private Integer application_id;
+public class Resume {
+    private Integer userId;
     private String name;
-    private Integer category_id;
+    private Integer categoryId;
     private double salary;
     private boolean isActive;
-    private Date created_date;
-    private Date update_time;
+    private LocalDateTime createdDate;
+    private LocalDateTime updateTime;
     private Integer id;
-
 }

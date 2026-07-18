@@ -1,20 +1,25 @@
 package com.example.demo.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
-import java.util.Date;
+import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class VacancyDto {
     private String name;
     private String description;
-    private Integer category_id;
+    private Integer categoryId;
     private double salary;
-    private Integer exp_from;
-    private Integer exp_to;
-    private boolean is_active;
-    private Integer author_id;
-    private Date createdDate;
-    private Date update_time;
+    private Integer expFrom;
+    private Integer expTo;
+    private boolean isActive;
+    private Integer userId;
+    private LocalDateTime createdDate;
+    private LocalDateTime updateTime;
     private Integer id;
 }

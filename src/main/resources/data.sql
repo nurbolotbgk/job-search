@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS vacancies (
           created_date TIMESTAMP NOT NULL,
           update_time TIMESTAMP,
           category_id INT NOT NULL,
-          user_id INT NOT NULL,
+          user_id INT,
           CONSTRAINT fk_vacancy_category FOREIGN KEY (category_id) REFERENCES categories(id),
           CONSTRAINT fk_vacancy_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.ResumeDto;
 import com.example.demo.dto.VacancyDto;
 import com.example.demo.model.RespondedApplicants;
+import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,17 @@ import java.util.List;
 public class VacancyController {
 
     private final List<RespondedApplicants> responseStorage = new ArrayList<>();
+    private final VacancyService vacancyService;
+
+    @GetMapping("/withUsers")
+    public List<VacancyDto> findVacanciesWithUsers() {
+        return vacancyService.getVacanciesWithUsers();
+    }
+
+    @GetMapping
+    public List<VacancyDto> findAllVacancies() {
+        return vacancyService.getAllVacancies();
+    }
 
     @PostMapping("create")
     public HttpStatus createVacancy(VacancyDto dto) {
