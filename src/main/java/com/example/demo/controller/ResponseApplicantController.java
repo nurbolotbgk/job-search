@@ -54,8 +54,5 @@ public class ResponseApplicantController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("employers")
-    public ResponseEntity<List<Employer>> getAllEmployers() {
-        return ResponseEntity.ok(employersStorage);
-    }
+
 }

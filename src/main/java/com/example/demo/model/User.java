@@ -1,6 +1,15 @@
 package com.example.demo.model;
 
-public class Users {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
     private String name;
     private String surname;
     private Integer age;
@@ -8,6 +17,6 @@ public class Users {
     private String password;
     private String phone_number;
     private String avatar;
-    private String account_type;
+    private Integer role_id;
     private Integer id;
 }
