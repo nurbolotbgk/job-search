@@ -23,4 +23,9 @@ public class VacancyDao {
         String sql = "SELECT * FROM vacancies;";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Vacancy.class));
     }
+
+    public List<Vacancy> getVacanciesByCategory(Integer category_id) {
+        String sql = "SELECT * FROM vacancies WHERE category_id = ?;";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Vacancy.class), category_id);
+    }
 }

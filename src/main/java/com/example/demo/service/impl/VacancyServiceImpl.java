@@ -57,4 +57,26 @@ public class VacancyServiceImpl implements VacancyService {
                 )
                 .toList();
     }
+
+    @Override
+    public List<VacancyDto> getVacanciesByCategoryId(Integer categoryId) {
+        List<Vacancy> vacanciesByCatId = vacancyDao.getVacanciesByCategory(categoryId);
+
+        return vacanciesByCatId.stream()
+                .map(e -> VacancyDto.builder()
+                        .id(e.getId())
+                        .name(e.getName())
+                        .description(e.getDescription())
+                        .categoryId(e.getCategoryId())
+                        .salary(e.getSalary())
+                        .expFrom(e.getExpFrom())
+                        .expTo(e.getExpTo())
+                        .isActive(e.isActive())
+                        .userId(e.getUserId())
+                        .createdDate(e.getCreatedDate())
+                        .updateTime(e.getUpdateTime())
+                        .build()
+                )
+                .toList();
+    }
 }

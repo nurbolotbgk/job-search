@@ -8,4 +8,6 @@ public interface VacancyService {
     List<VacancyDto> getVacanciesWithUsers();
 
     List<VacancyDto> getAllVacancies();
+
+    List<VacancyDto> getVacanciesByCategoryId(Integer categoryId);
 }
