@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.VacancyDto;
-import com.example.demo.model.Responded_applicants;
+import com.example.demo.model.RespondedApplicant;
 import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,23 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VacancyController {
 
-    private final List<Responded_applicants> responseStorage = new ArrayList<>();
+    private final List<RespondedApplicant> responseStorage = new ArrayList<>();
+    private final VacancyService vacancyService;
+
+    @GetMapping("/withUsers")
+    public List<VacancyDto> findVacanciesWithUsers() {
+        return vacancyService.getVacanciesWithUsers();
+    }
+
+    @GetMapping
+    public List<VacancyDto> findAllVacancies() {
+        return vacancyService.getAllVacancies();
+    }
+
+    @GetMapping("/categories/{categoryId}")
+    public List<VacancyDto> findVacanciesByCategory(@PathVariable Integer categoryId) {
+        return vacancyService.getVacanciesByCategoryId(categoryId);
+    }
 
     @PostMapping("create")
     public HttpStatus createVacancy(VacancyDto dto) {
@@ -35,7 +51,7 @@ public class VacancyController {
     }
 
     @GetMapping("{vacancyId}/responses")
-    public ResponseEntity<List<Responded_applicants>> getResponsesForVacancy(@PathVariable Integer vacancyId) {
+    public ResponseEntity<List<RespondedApplicant>> getResponsesForVacancy(@PathVariable Integer vacancyId) {
         return ResponseEntity.ok(responseStorage);
     }
     }

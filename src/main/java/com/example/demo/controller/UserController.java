@@ -1,17 +1,46 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.UserDto;
+import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("user")  // http://localhost:8089/main
+@RequestMapping("users")  // http://localhost:8089/main
 @RequiredArgsConstructor
 public class UserController {
 
-    @GetMapping("index")
-    public String index() {
-        return "Hello!!!";
+    private final UserService userService;
+
+    @GetMapping
+    public List<UserDto> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @GetMapping("/{id}")
+    public UserDto findUserById(@PathVariable Integer id) {
+        return userService.findUserById(id);
+    }
+
+    @GetMapping("/phone/{phoneNumber}")
+    public UserDto findUserByPhoneNumber(@PathVariable String phoneNumber) {
+        return userService.findByPhoneNumber(phoneNumber);
+    }
+
+    @GetMapping("/email/{email}")
+    public UserDto findUserByEmail(@PathVariable String email) {
+        return userService.findUserByEmail(email);
+    }
+
+    @GetMapping("/check-email")
+    public String checkByEmail(@RequestParam String email) {
+        boolean isExists = userService.emailExistsOrNot(email);
+        if (isExists) {
+            return "Такой пользователь есть";
+        } else {
+            return "Такого пользователя нет";
+        }
     }
 }

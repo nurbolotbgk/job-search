@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-public class Contact_types {
+public class ContactTypes {
     private String type;
-    private int id;
+    private Integer id;
 }

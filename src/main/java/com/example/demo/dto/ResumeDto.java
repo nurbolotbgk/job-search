@@ -1,16 +1,25 @@
 package com.example.demo.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
+
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class ResumeDto {
-    private int application_id;
+    private int userId;
     private String name;
-    private int category_id;
+    private int categoryId;
     private double salary;
     private boolean isActive;
-    private Date created_date;
-    private Date update_time;
+    private LocalDateTime createdDate;
+    private LocalDateTime updateTime;
     private int id;
 }

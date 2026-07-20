@@ -1,0 +1,14 @@
+package com.example.demo.service;
+
+
+import com.example.demo.dto.ResumeDto;
+
+import java.util.List;
+
+public interface ResumeService {
+
+
+    List<ResumeDto> getResumesByCategoryId(Integer categoryId);
+
+    List<ResumeDto> getAllResumes();
+}

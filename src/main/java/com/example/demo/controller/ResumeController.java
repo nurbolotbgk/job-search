@@ -1,6 +1,10 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Resumes;
+import com.example.demo.dto.ResumeDto;
+import com.example.demo.dto.UserDto;
+import com.example.demo.model.Resume;
+import com.example.demo.service.ResumeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,35 +13,22 @@ import java.util.List;
 
 @RestController
 @RequestMapping("resumes")
+@RequiredArgsConstructor
 public class ResumeController {
-    private final List<Resumes> storage = new ArrayList<>();
+    private final List<Resume> storage = new ArrayList<>();
+    private final ResumeService resumeService;
 
-    @GetMapping("resumes")
-    public ResponseEntity<List<Resumes>> getAllresumes() {
-        return ResponseEntity.ok(storage);
+    @GetMapping
+    public List<ResumeDto> getAllResumes() {
+        return resumeService.getAllResumes();
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Resumes> searchResumeById(@PathVariable Integer id) {
-        for (Resumes resume : storage) {
-            if (resume.getCategory_id() == id) {
-                return ResponseEntity.ok(resume);
-            }
-        }
-
-        return ResponseEntity.notFound().build();
+    @GetMapping("/resumes/{categoryId}")
+    public List<ResumeDto> findResumeByCategory(@PathVariable Integer categoryId) {
+        return resumeService.getResumesByCategoryId(categoryId);
     }
 
-    @GetMapping("{applicationId}")
-    public ResponseEntity<Resumes> searchApplicant(@PathVariable Integer applicationId) {
-        for (Resumes resume : storage) {
-            if (resume.getApplication_id() == applicationId) {
-                return ResponseEntity.ok(resume);
-            }
-        }
 
-        return ResponseEntity.notFound().build();
-    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteResume(@PathVariable Integer id) {
