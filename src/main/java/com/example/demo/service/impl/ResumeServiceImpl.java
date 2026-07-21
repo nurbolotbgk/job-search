@@ -55,6 +55,37 @@ public class ResumeServiceImpl implements ResumeService {
 
     }
 
+    @Override
+    public ResumeDto findResumeById(Integer id) {
+        Resume resume = resumeDao.findResumeById(id).orElseThrow(RuntimeException::new);
+        return ResumeDto.builder()
+                .id(resume.getId())
+                .salary(resume.getSalary())
+                .createdDate(resume.getCreatedDate())
+                .updateTime(resume.getUpdateTime())
+                .userId(resume.getUserId())
+                .name(resume.getName())
+                .categoryId(resume.getCategoryId())
+                .isActive(resume.isActive())
+                .build();
 
+    }
 
+    @Override
+    public List<ResumeDto> getResumesMadeByUser(Long userId) {
+        List<Resume> resumesMadeByUser = resumeDao.getResumesMadeByUser(userId);
+        return resumesMadeByUser.stream()
+                .map(e -> ResumeDto.builder()
+                        .id(e.getId())
+                        .name(e.getName())
+                        .salary(e.getSalary())
+                        .isActive(e.isActive())
+                        .createdDate(e.getCreatedDate())
+                        .updateTime(e.getUpdateTime())
+                        .userId(e.getUserId())
+                        .categoryId(e.getCategoryId())
+                        .build()
+                )
+                .toList();
+    }
 }

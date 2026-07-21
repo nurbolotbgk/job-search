@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 public class ResumeDto {
-    private int userId;
+    private long userId;
     private String name;
     private int categoryId;
     private double salary;

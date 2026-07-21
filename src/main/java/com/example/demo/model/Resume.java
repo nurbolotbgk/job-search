@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Resume {
-    private Integer userId;
+    private Long userId;
     private String name;
     private Integer categoryId;
     private double salary;

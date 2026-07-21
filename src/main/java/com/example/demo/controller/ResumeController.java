@@ -23,14 +23,24 @@ public class ResumeController {
         return resumeService.getAllResumes();
     }
 
-    @GetMapping("/resumes/{categoryId}")
+    @GetMapping("id/{id}")
+    public ResumeDto findResumeById(@PathVariable Integer id) {
+        return resumeService.findResumeById(id);
+    }
+
+    @GetMapping("/resumesByUsers/{userId}")
+    public List<ResumeDto> getResumesMadeByUser(@PathVariable Long userId) {
+        return resumeService.getResumesMadeByUser(userId);
+    }
+
+    @GetMapping("/categories/{categoryId}")
     public List<ResumeDto> findResumeByCategory(@PathVariable Integer categoryId) {
         return resumeService.getResumesByCategoryId(categoryId);
     }
 
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("id/{id}")
     public ResponseEntity<Void> deleteResume(@PathVariable Integer id) {
         return ResponseEntity.noContent().build();
     }
