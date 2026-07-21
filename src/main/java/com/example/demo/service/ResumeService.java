@@ -15,4 +15,10 @@ public interface ResumeService {
     ResumeDto findResumeById(Integer id);
 
     List<ResumeDto> getResumesMadeByUser(Long userId);
+
+    void save(ResumeDto dto);
+
+    void update(ResumeDto dto);
+
+    void deleteById(int id);
 }

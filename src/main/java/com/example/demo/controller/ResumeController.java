@@ -4,7 +4,9 @@ import com.example.demo.dto.ResumeDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.Resume;
 import com.example.demo.service.ResumeService;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,11 +40,15 @@ public class ResumeController {
         return resumeService.getResumesByCategoryId(categoryId);
     }
 
-
-
-    @DeleteMapping("id/{id}")
-    public ResponseEntity<Void> deleteResume(@PathVariable Integer id) {
-        return ResponseEntity.noContent().build();
+    @PostMapping
+    public HttpStatus createResume(@RequestBody ResumeDto dto) {
+        resumeService.save(dto);
+        return HttpStatus.OK;
     }
 
+    @DeleteMapping("/{id}")
+    public HttpStatus deleteResume(@PathVariable("id") int id) {
+        resumeService.deleteById(id);
+        return HttpStatus.OK;
+    }
 }

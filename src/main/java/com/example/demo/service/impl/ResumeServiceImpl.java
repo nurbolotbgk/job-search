@@ -7,6 +7,7 @@ import com.example.demo.service.ResumeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -87,5 +88,36 @@ public class ResumeServiceImpl implements ResumeService {
                         .build()
                 )
                 .toList();
+    }
+
+    @Override
+    public void save(ResumeDto dto) {
+        Resume resume = new Resume();
+        resume.setName(dto.getName());
+        resume.setSalary(dto.getSalary());
+        resume.setActive(dto.isActive());
+        resume.setCreatedDate(dto.getCreatedDate());
+        resume.setUpdateTime(dto.getUpdateTime());
+        resume.setUserId(dto.getUserId());
+        resume.setCategoryId(dto.getCategoryId());
+        resumeDao.save(resume);
+    }
+
+    @Override
+    public void update(ResumeDto dto) {
+        Resume resume = new Resume();
+        resume.setId(dto.getId());
+        resume.setName(dto.getName());
+        resume.setSalary(dto.getSalary());
+        resume.setActive(dto.isActive());
+        resume.setUpdateTime(LocalDateTime.now());
+        resume.setUserId(dto.getUserId());
+        resume.setCategoryId(dto.getCategoryId());
+        resumeDao.update(resume);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        resumeDao.deleteById(id);
     }
 }

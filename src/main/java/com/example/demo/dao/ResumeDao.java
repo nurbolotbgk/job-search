@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,6 +56,31 @@ public class ResumeDao {
                         .addValue("update_time", resume.getUpdateTime())
                         .addValue("user_id", resume.getUserId())
                         .addValue("category_id", resume.getCategoryId())
+        );
+    }
+
+    public void update(Resume resume) {
+        String sql = "UPDATE resumes SET name = :name, salary = :salary, is_active = :is_active, " +
+                "update_time = :update_time, category_id = :category_id WHERE id = :id;";
+
+        namedParameterJdbcTemplate.update(
+                sql,
+                new MapSqlParameterSource()
+                        .addValue("id", resume.getId())
+                        .addValue("name", resume.getName())
+                        .addValue("salary", resume.getSalary())
+                        .addValue("is_active", resume.isActive())
+                        .addValue("update_time", LocalDateTime.now())
+                        .addValue("category_id", resume.getCategoryId())
+                        .addValue("user_id", resume.getUserId())
+        );
+    }
+
+    public void deleteById(long id) {
+        String sql = "DELETE FROM resumes WHERE id = :id";
+        namedParameterJdbcTemplate.update(
+                sql,
+                new MapSqlParameterSource().addValue("id", id)
         );
     }
 }
