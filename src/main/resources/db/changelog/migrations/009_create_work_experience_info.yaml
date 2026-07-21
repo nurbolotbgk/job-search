@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 009
+      author: Nurbolot Abilov
+      changes:
+        - createTable:
+            tableName: work_experience_info
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: years
+                  type: int
+              - column:
+                  name: company_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: position
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: responsibilities
+                  type: text
+              - column:
+                  name: resume_id
+                  type: long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_experience_resume
+                    references: resumes(id)
+                    deleteCascade: true

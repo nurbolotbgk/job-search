@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005
+      author: Nurbolot Abilov
+      changes:
+        - createTable:
+            tableName: vacancies
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: salary
+                  type: real
+              - column:
+                  name: exp_from
+                  type: int
+              - column:
+                  name: exp_to
+                  type: int
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: update_time
+                  type: timestamp
+              - column:
+                  name: category_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_vacancy_category
+                    references: categories(id)
+              - column:
+                  name: user_id
+                  type: long
+                  constraints:
+                    foreignKeyName: fk_vacancy_user
+                    references: users(id)
+                    deleteCascade: true

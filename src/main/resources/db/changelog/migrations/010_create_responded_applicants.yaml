@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 010
+      author: Nurbolot Abilov
+      changes:
+        - createTable:
+            tableName: responded_applicants
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: confirmation
+                  type: boolean
+              - column:
+                  name: resume_id
+                  type: long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_respond_resume
+                    references: resumes(id)
+                    deleteCascade: true
+              - column:
+                  name: vacancy_id
+                  type: long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_respond_vacancy
+                    references: vacancies(id)
+                    deleteCascade: true

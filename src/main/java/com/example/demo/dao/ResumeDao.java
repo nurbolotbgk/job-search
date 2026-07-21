@@ -24,4 +24,6 @@ public class ResumeDao {
         String sql = "SELECT * FROM resumes;";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Resume.class));
     }
+
+
 }

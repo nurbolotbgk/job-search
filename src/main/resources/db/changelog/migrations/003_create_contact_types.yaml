@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003
+      author: Nurbolot Abilov
+      changes:
+        - createTable:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+                    checkConstraint: "type IN ('Telegram', 'Mail', 'Facebook', 'Whatsapp', 'Linkedin')"

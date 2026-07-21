@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: Nurbolot Abilov
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    checkConstraint: "id IN (1, 2)"
+              - column:
+                  name: role_name
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+                    checkConstraint: "role_name IN ('applicant', 'employer')"
