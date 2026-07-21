@@ -117,7 +117,7 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         resumeDao.deleteById(id);
     }
 }

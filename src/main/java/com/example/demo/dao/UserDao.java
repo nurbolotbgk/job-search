@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserDao {
     private final JdbcTemplate jdbcTemplate;
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public List <User> getAllUsers() {
         String sql = "SELECT * FROM users;";
@@ -49,5 +52,57 @@ public class UserDao {
         return jdbcTemplate.queryForObject(sql, Boolean.class, email);
     }
 
+    public void save(User user) {
+        String sql = "INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) " +
+                "VALUES (:name, :surname, :age, :email, :password, :phoneNumber, :avatar, :roleId)";
 
+        namedParameterJdbcTemplate.update(
+                sql,
+                new MapSqlParameterSource()
+                        .addValue("name", user.getName())
+                        .addValue("surname", user.getSurname())
+                        .addValue("age", user.getAge())
+                        .addValue("email", user.getEmail())
+                        .addValue("password", user.getPassword())
+                        .addValue("phoneNumber", user.getPhoneNumber())
+                        .addValue("avatar", user.getAvatar())
+                        .addValue("roleId", user.getRoleId())
+        );
+    }
+
+    public void update(User user) {
+        String sql = "UPDATE users SET " +
+                "name = :name, " +
+                "surname = :surname, " +
+                "age = :age, " +
+                "email = :email, " +
+                "password = :password, " +
+                "phone_number = :phoneNumber, " +
+                "avatar = :avatar, " +
+                "role_id = :roleId " +
+                "WHERE id = :id";
+
+        namedParameterJdbcTemplate.update(
+                sql,
+                new MapSqlParameterSource()
+                        .addValue("id", user.getId())
+                        .addValue("name", user.getName())
+                        .addValue("surname", user.getSurname())
+                        .addValue("age", user.getAge())
+                        .addValue("email", user.getEmail())
+                        .addValue("password", user.getPassword())
+                        .addValue("phoneNumber", user.getPhoneNumber())
+                        .addValue("avatar", user.getAvatar())
+                        .addValue("roleId", user.getRoleId())
+        );
+    }
+
+    public void deleteById(Long id) {
+        String sql = "DELETE FROM users WHERE id = :id";
+
+        namedParameterJdbcTemplate.update(
+                sql,
+                new MapSqlParameterSource().addValue("id", id)
+        );
+    }
 }

@@ -18,8 +18,8 @@ public class VacancyDto {
     private Integer expFrom;
     private Integer expTo;
     private boolean isActive;
-    private Integer userId;
+    private Long userId;
     private LocalDateTime createdDate;
     private LocalDateTime updateTime;
-    private Integer id;
+    private Long id;
 }

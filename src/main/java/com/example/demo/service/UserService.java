@@ -15,4 +15,10 @@ public interface UserService {
     UserDto findUserByEmail(String email);
 
     boolean emailExistsOrNot(String email);
+
+    void save(UserDto dto);
+
+    void update(UserDto dto);
+
+    void deleteById(Long id);
 }

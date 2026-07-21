@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
                         .email(e.getEmail())
                         .password(e.getPassword())
                         .avatar(e.getAvatar())
-                        .role_id(e.getRole_id())
+                        .roleId(e.getRoleId())
                         .build()
                 )
                 .toList();
@@ -46,9 +46,9 @@ public class UserServiceImpl implements UserService {
                 .age(user.getAge())
                 .email(user.getEmail())
                 .password(user.getPassword())
-                .phone_number(user.getPhone_number())
+                .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .role_id(user.getRole_id())
+                .roleId(user.getRoleId())
                 .build();
     }
 
@@ -64,9 +64,9 @@ public class UserServiceImpl implements UserService {
                 .age(user.getAge())
                 .email(user.getEmail())
                 .password(user.getPassword())
-                .phone_number(user.getPhone_number())
+                .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .role_id(user.getRole_id())
+                .roleId(user.getRoleId())
                 .build();
     }
 
@@ -80,11 +80,10 @@ public class UserServiceImpl implements UserService {
                 .age(user.getAge())
                 .email(user.getEmail())
                 .password(user.getPassword())
-                .phone_number(user.getPhone_number())
+                .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .role_id(user.getRole_id())
+                .roleId(user.getRoleId())
                 .build();
-
     }
 
     @Override
@@ -94,5 +93,39 @@ public class UserServiceImpl implements UserService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void save(UserDto dto) {
+        User user = new User();
+        user.setName(dto.getName());
+        user.setSurname(dto.getSurname());
+        user.setAge(dto.getAge());
+        user.setEmail(dto.getEmail());
+        user.setPassword(dto.getPassword());
+        user.setPhoneNumber(dto.getPhoneNumber());
+        user.setAvatar(dto.getAvatar());
+        user.setRoleId(dto.getRoleId());
+        userDao.save(user);
+    }
+
+    @Override
+    public void update(UserDto dto) {
+        User user = new User();
+        user.setId(dto.getId()); // Обязательно указываем ID для UPDATE
+        user.setName(dto.getName());
+        user.setSurname(dto.getSurname());
+        user.setAge(dto.getAge());
+        user.setEmail(dto.getEmail());
+        user.setPassword(dto.getPassword());
+        user.setPhoneNumber(dto.getPhoneNumber());
+        user.setAvatar(dto.getAvatar());
+        user.setRoleId(dto.getRoleId());
+        userDao.update(user);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        userDao.deleteById(id);
     }
 }

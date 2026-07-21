@@ -47,7 +47,7 @@ public class ResumeController {
     }
 
     @DeleteMapping("/{id}")
-    public HttpStatus deleteResume(@PathVariable("id") int id) {
+    public HttpStatus deleteResume(@PathVariable("id") long id) {
         resumeService.deleteById(id);
         return HttpStatus.OK;
     }

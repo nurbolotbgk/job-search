@@ -20,5 +20,5 @@ public interface ResumeService {
 
     void update(ResumeDto dto);
 
-    void deleteById(int id);
+    void deleteById(long id);
 }
