@@ -5,13 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Resume {
-    private Integer userId;
+    private Long userId;
     private String name;
     private Integer categoryId;
     private double salary;

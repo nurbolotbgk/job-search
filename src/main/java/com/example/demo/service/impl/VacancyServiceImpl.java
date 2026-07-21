@@ -7,6 +7,7 @@ import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -78,5 +79,45 @@ public class VacancyServiceImpl implements VacancyService {
                         .build()
                 )
                 .toList();
+    }
+
+    @Override
+    public void save(VacancyDto dto) {
+        Vacancy vacancy = new Vacancy();
+        vacancy.setName(dto.getName());
+        vacancy.setDescription(dto.getDescription());
+        vacancy.setSalary(dto.getSalary());
+        vacancy.setExpFrom(dto.getExpFrom());
+        vacancy.setExpTo(dto.getExpTo());
+        vacancy.setActive(dto.isActive());
+
+        vacancy.setCreatedDate(dto.getCreatedDate());
+        vacancy.setUpdateTime(dto.getUpdateTime());
+
+        vacancy.setCategoryId(dto.getCategoryId());
+        vacancy.setUserId(dto.getUserId());
+
+        vacancyDao.save(vacancy);
+    }
+
+    @Override
+    public void update(VacancyDto dto) {
+        Vacancy vacancy = new Vacancy();
+        vacancy.setId(dto.getId());
+        vacancy.setName(dto.getName());
+        vacancy.setDescription(dto.getDescription());
+        vacancy.setSalary(dto.getSalary());
+        vacancy.setExpFrom(dto.getExpFrom());
+        vacancy.setExpTo(dto.getExpTo());
+        vacancy.setActive(dto.isActive());
+        vacancy.setUpdateTime(LocalDateTime.now());
+        vacancy.setCategoryId(dto.getCategoryId());
+
+        vacancyDao.update(vacancy);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        vacancyDao.deleteById(id);
     }
 }

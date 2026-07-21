@@ -34,11 +34,6 @@ public class VacancyController {
         return vacancyService.getVacanciesByCategoryId(categoryId);
     }
 
-    @PostMapping("create")
-    public HttpStatus createVacancy(VacancyDto dto) {
-        System.out.println(dto.toString());
-        return HttpStatus.OK;
-    }
 
     @PutMapping("update")
     public ResponseEntity<Void> updateVacancy(@RequestParam Integer id, @RequestBody VacancyDto dto) {
@@ -53,5 +48,23 @@ public class VacancyController {
     @GetMapping("{vacancyId}/responses")
     public ResponseEntity<List<RespondedApplicant>> getResponsesForVacancy(@PathVariable Integer vacancyId) {
         return ResponseEntity.ok(responseStorage);
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> createVacancy(@RequestBody VacancyDto dto) {
+        vacancyService.save(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> updateVacancy(@RequestBody VacancyDto dto) {
+        vacancyService.update(dto);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteVacancy(@PathVariable("id") Long id) {
+        vacancyService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
     }

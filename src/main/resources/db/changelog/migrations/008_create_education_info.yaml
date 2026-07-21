@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 008
+      author: Nurbolot Abilov
+      changes:
+        - createTable:
+            tableName: education_info
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: institution
+                  type: text
+              - column:
+                  name: program
+                  type: text
+              - column:
+                  name: start_date
+                  type: date
+              - column:
+                  name: end_date
+                  type: date
+              - column:
+                  name: degree
+                  type: text
+              - column:
+                  name: resume_id
+                  type: long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_education_resume
+                    references: resumes(id)
+                    deleteCascade: true

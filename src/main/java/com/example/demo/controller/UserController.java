@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,5 +44,23 @@ public class UserController {
         } else {
             return "Такого пользователя нет";
         }
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> createUser(@RequestBody UserDto dto) {
+        userService.save(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> updateUser(@RequestBody UserDto dto) {
+        userService.update(dto);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
+        userService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }

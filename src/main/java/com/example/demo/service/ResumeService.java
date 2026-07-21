@@ -11,4 +11,14 @@ public interface ResumeService {
     List<ResumeDto> getResumesByCategoryId(Integer categoryId);
 
     List<ResumeDto> getAllResumes();
+
+    ResumeDto findResumeById(Integer id);
+
+    List<ResumeDto> getResumesMadeByUser(Long userId);
+
+    void save(ResumeDto dto);
+
+    void update(ResumeDto dto);
+
+    void deleteById(long id);
 }

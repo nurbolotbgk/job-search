@@ -10,4 +10,10 @@ public interface VacancyService {
     List<VacancyDto> getAllVacancies();
 
     List<VacancyDto> getVacanciesByCategoryId(Integer categoryId);
+
+    void save(VacancyDto dto);
+
+    void update(VacancyDto dto);
+
+    void deleteById(Long id);
 }
