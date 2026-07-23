@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.exception.VacancyNotFoundException;
 import com.example.demo.model.Resume;
 import com.example.demo.model.Vacancy;
 import lombok.RequiredArgsConstructor;
@@ -83,9 +84,12 @@ public class VacancyDao {
     public void deleteById(Long id) {
         String sql = "DELETE FROM vacancies WHERE id = :id";
 
-        namedParameterJdbcTemplate.update(
+        int num = namedParameterJdbcTemplate.update(
                 sql,
                 new MapSqlParameterSource().addValue("id", id)
         );
+        if (num == 0) {
+            throw new VacancyNotFoundException();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.exception.ResumeNotFoundException;
 import com.example.demo.model.Resume;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.support.DataAccessUtils;
@@ -79,9 +80,13 @@ public class ResumeDao {
 
     public void deleteById(long id) {
         String sql = "DELETE FROM resumes WHERE id = :id";
-        namedParameterJdbcTemplate.update(
+
+        int num = namedParameterJdbcTemplate.update(
                 sql,
                 new MapSqlParameterSource().addValue("id", id)
         );
+        if (num == 0) {
+            throw new ResumeNotFoundException();
+        }
     }
 }

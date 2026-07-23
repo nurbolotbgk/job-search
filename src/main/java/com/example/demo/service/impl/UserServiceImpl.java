@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dao.UserDao;
 import com.example.demo.dto.UserDto;
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> getAllUsers() {
         List<User> users = userDao.getAllUsers();
+        if (users.isEmpty()) {
+            throw new UserNotFoundException();
+        }
 
         return users.stream()
                 .map(e -> UserDto.builder()
@@ -36,7 +40,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto findUserById(Integer id) {
         User user = userDao.findUserById(id)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
                 .id(user.getId())
@@ -54,7 +58,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto findByPhoneNumber(String phoneNumber) {
         User user = userDao.getUserByPhoneNum(phoneNumber)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
                 .id(user.getId())
@@ -71,7 +75,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findUserByEmail(String email) {
-        User user = userDao.findByEmail(email).orElseThrow(RuntimeException::new);
+        User user = userDao.findByEmail(email).orElseThrow(UserNotFoundException::new);
         return UserDto.builder()
                 .id(user.getId())
                 .name(user.getName())

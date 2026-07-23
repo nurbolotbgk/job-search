@@ -2,6 +2,8 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dao.VacancyDao;
 import com.example.demo.dto.VacancyDto;
+import com.example.demo.exception.CategoryNotFoundException;
+import com.example.demo.exception.VacancyNotFoundException;
 import com.example.demo.model.Vacancy;
 import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,10 @@ public class VacancyServiceImpl implements VacancyService {
     @Override
     public List<VacancyDto> getVacanciesWithUsers() {
         List<Vacancy> vacanciesWithUsers = vacancyDao.getAllVacanciesWithUser();
+
+        if (vacanciesWithUsers.isEmpty()) {
+            throw new VacancyNotFoundException();
+        }
 
         return vacanciesWithUsers.stream()
                 .map(e -> VacancyDto.builder()
@@ -41,6 +47,10 @@ public class VacancyServiceImpl implements VacancyService {
     public List<VacancyDto> getAllVacancies() {
         List<Vacancy> vacanciesWithUsers = vacancyDao.getAllVacancies();
 
+        if (vacanciesWithUsers.isEmpty()) {
+            throw new VacancyNotFoundException();
+        }
+
         return vacanciesWithUsers.stream()
                 .map(e -> VacancyDto.builder()
                         .id(e.getId())
@@ -62,6 +72,10 @@ public class VacancyServiceImpl implements VacancyService {
     @Override
     public List<VacancyDto> getVacanciesByCategoryId(Integer categoryId) {
         List<Vacancy> vacanciesByCatId = vacancyDao.getVacanciesByCategory(categoryId);
+
+        if (vacanciesByCatId.isEmpty()) {
+            throw new CategoryNotFoundException();
+        }
 
         return vacanciesByCatId.stream()
                 .map(e -> VacancyDto.builder()
