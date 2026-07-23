@@ -21,7 +21,7 @@ databaseChangeLog:
                   name: salary
                   type: real
               - column:
-                  name: is_active
+                  name: active
                   type: boolean
                   constraints:
                     nullable: false

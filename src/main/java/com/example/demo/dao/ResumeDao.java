@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.exception.ResumeNotFoundException;
 import com.example.demo.model.Resume;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.support.DataAccessUtils;
@@ -44,24 +45,25 @@ public class ResumeDao {
     }
 
     public void save(Resume resume) {
-        String sql = "insert into resumes(name, salary, is_active, created_date, update_time, user_id, category_id) " +
-                "values (:name, :salary, :is_active, :created_date, :update_time, (select id from users where id = :user_id), :category_id)";
+        String sql = "insert into resumes(name, salary, active, created_date, update_time, user_id, category_id) " +
+                "values (:name, :salary, :active, :created_date, :update_time, (select id from users where id = :user_id), :category_id)";
         namedParameterJdbcTemplate.update(
                 sql,
                 new MapSqlParameterSource()
                         .addValue("name", resume.getName())
                         .addValue("salary", resume.getSalary())
-                        .addValue("is_active", resume.isActive())
+                        .addValue("active", resume.getActive())
                         .addValue("created_date", resume.getCreatedDate())
                         .addValue("update_time", resume.getUpdateTime())
                         .addValue("user_id", resume.getUserId())
                         .addValue("category_id", resume.getCategoryId())
         );
+
     }
 
     public void update(Resume resume) {
-        String sql = "UPDATE resumes SET name = :name, salary = :salary, is_active = :is_active, " +
-                "update_time = :update_time, category_id = :category_id WHERE id = :id;";
+        String sql = "UPDATE resumes SET name = :name, salary = :salary, active = :active, " +
+                "update_time = :update_time, user_id = (select id from users where id = :user_id), category_id = :category_id WHERE id = :id;";
 
         namedParameterJdbcTemplate.update(
                 sql,
@@ -69,7 +71,7 @@ public class ResumeDao {
                         .addValue("id", resume.getId())
                         .addValue("name", resume.getName())
                         .addValue("salary", resume.getSalary())
-                        .addValue("is_active", resume.isActive())
+                        .addValue("active", resume.getActive())
                         .addValue("update_time", LocalDateTime.now())
                         .addValue("category_id", resume.getCategoryId())
                         .addValue("user_id", resume.getUserId())
@@ -78,9 +80,13 @@ public class ResumeDao {
 
     public void deleteById(long id) {
         String sql = "DELETE FROM resumes WHERE id = :id";
-        namedParameterJdbcTemplate.update(
+
+        int num = namedParameterJdbcTemplate.update(
                 sql,
                 new MapSqlParameterSource().addValue("id", id)
         );
+        if (num == 0) {
+            throw new ResumeNotFoundException();
+        }
     }
 }

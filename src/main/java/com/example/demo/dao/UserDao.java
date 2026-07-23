@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.Resume;
 import com.example.demo.model.User;
 import lombok.RequiredArgsConstructor;
@@ -48,7 +49,7 @@ public class UserDao {
     }
 
     public boolean userExistsOrNot(String email) {
-        String sql = "SELECT EXISTS(SELECT 1 FROM users WHERE email = ?;)";
+        String sql = "SELECT EXISTS(SELECT 1 FROM users WHERE email = ?)";
         return jdbcTemplate.queryForObject(sql, Boolean.class, email);
     }
 
@@ -100,9 +101,13 @@ public class UserDao {
     public void deleteById(Long id) {
         String sql = "DELETE FROM users WHERE id = :id";
 
-        namedParameterJdbcTemplate.update(
+        int num = namedParameterJdbcTemplate.update(
                 sql,
                 new MapSqlParameterSource().addValue("id", id)
         );
+
+        if (num == 0) {
+            throw new UserNotFoundException();
+        }
     }
 }

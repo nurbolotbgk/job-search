@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.ResumeDto;
-import com.example.demo.dto.UserDto;
 import com.example.demo.model.Resume;
 import com.example.demo.service.ResumeService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -41,13 +40,19 @@ public class ResumeController {
     }
 
     @PostMapping
-    public HttpStatus createResume(@RequestBody ResumeDto dto) {
+    public HttpStatus createResume(@Valid @RequestBody ResumeDto dto) {
         resumeService.save(dto);
         return HttpStatus.OK;
     }
 
+    @PutMapping
+    public HttpStatus updateResume(@Valid @RequestBody ResumeDto dto) {
+        resumeService.update(dto);
+        return HttpStatus.OK;
+    }
+
     @DeleteMapping("/{id}")
-    public HttpStatus deleteResume(@PathVariable("id") long id) {
+    public HttpStatus deleteResume(@PathVariable Long id) {
         resumeService.deleteById(id);
         return HttpStatus.OK;
     }

@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.exception.VacancyNotFoundException;
 import com.example.demo.model.Resume;
 import com.example.demo.model.Vacancy;
 import lombok.RequiredArgsConstructor;
@@ -34,8 +35,8 @@ public class VacancyDao {
     }
 
     public void save(Vacancy vacancy) {
-        String sql = "INSERT INTO vacancies (name, description, salary, exp_from, exp_to, is_active, created_date, update_time, category_id, user_id) " +
-                "VALUES (:name, :description, :salary, :expFrom, :expTo, :isActive, :createdDate, :updateTime, :categoryId, :userId)";
+        String sql = "INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) " +
+                "VALUES (:name, :description, :salary, :expFrom, :expTo, :active, :createdDate, :updateTime, :categoryId, :userId)";
 
         namedParameterJdbcTemplate.update(
                 sql,
@@ -45,7 +46,7 @@ public class VacancyDao {
                         .addValue("salary", vacancy.getSalary())
                         .addValue("expFrom", vacancy.getExpFrom())
                         .addValue("expTo", vacancy.getExpTo())
-                        .addValue("isActive", vacancy.isActive())
+                        .addValue("active", vacancy.getActive())
                         .addValue("createdDate", vacancy.getCreatedDate())
                         .addValue("updateTime", vacancy.getUpdateTime())
                         .addValue("categoryId", vacancy.getCategoryId())
@@ -60,7 +61,7 @@ public class VacancyDao {
                 "salary = :salary, " +
                 "exp_from = :expFrom, " +
                 "exp_to = :expTo, " +
-                "is_active = :isActive, " +
+                "active = :active, " +
                 "update_time = :updateTime, " +
                 "category_id = :categoryId " +
                 "WHERE id = :id";
@@ -74,8 +75,8 @@ public class VacancyDao {
                         .addValue("salary", vacancy.getSalary())
                         .addValue("expFrom", vacancy.getExpFrom())
                         .addValue("expTo", vacancy.getExpTo())
-                        .addValue("isActive", vacancy.isActive())
-                        .addValue("updateTime", LocalDateTime.now()) // Актуализируем время обновления
+                        .addValue("active", vacancy.getActive())
+                        .addValue("updateTime", LocalDateTime.now())
                         .addValue("categoryId", vacancy.getCategoryId())
         );
     }
@@ -83,9 +84,12 @@ public class VacancyDao {
     public void deleteById(Long id) {
         String sql = "DELETE FROM vacancies WHERE id = :id";
 
-        namedParameterJdbcTemplate.update(
+        int num = namedParameterJdbcTemplate.update(
                 sql,
                 new MapSqlParameterSource().addValue("id", id)
         );
+        if (num == 0) {
+            throw new VacancyNotFoundException();
+        }
     }
 }
