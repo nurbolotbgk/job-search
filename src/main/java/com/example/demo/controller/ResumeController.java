@@ -46,7 +46,7 @@ public class ResumeController {
     }
 
     @PutMapping
-    public HttpStatus updateResume(@RequestBody ResumeDto dto) {
+    public HttpStatus updateResume(@Valid @RequestBody ResumeDto dto) {
         resumeService.update(dto);
         return HttpStatus.OK;
     }
