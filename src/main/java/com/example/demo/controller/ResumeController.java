@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.ResumeDto;
 import com.example.demo.model.Resume;
 import com.example.demo.service.ResumeService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -39,7 +40,7 @@ public class ResumeController {
     }
 
     @PostMapping
-    public HttpStatus createResume(@RequestBody ResumeDto dto) {
+    public HttpStatus createResume(@Valid @RequestBody ResumeDto dto) {
         resumeService.save(dto);
         return HttpStatus.OK;
     }
