@@ -40,10 +40,7 @@ public class VacancyController {
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVacancy(@PathVariable Integer id) {
-        return ResponseEntity.noContent().build();
-    }
+
 
     @GetMapping("{vacancyId}/responses")
     public ResponseEntity<List<RespondedApplicant>> getResponsesForVacancy(@PathVariable Integer vacancyId) {
@@ -63,7 +60,7 @@ public class VacancyController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVacancy(@PathVariable("id") Long id) {
+    public ResponseEntity<Void> deleteVacancy(@PathVariable Long id) {
         vacancyService.deleteById(id);
         return ResponseEntity.ok().build();
     }

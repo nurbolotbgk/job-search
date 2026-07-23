@@ -25,7 +25,7 @@ public class ResumeServiceImpl implements ResumeService {
                         .id(e.getId())
                         .name(e.getName())
                         .salary(e.getSalary())
-                        .isActive(e.isActive())
+                        .active(e.getActive())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
                         .userId(e.getUserId())
@@ -45,7 +45,7 @@ public class ResumeServiceImpl implements ResumeService {
                         .id(e.getId())
                         .name(e.getName())
                         .salary(e.getSalary())
-                        .isActive(e.isActive())
+                        .active(e.getActive())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
                         .userId(e.getUserId())
@@ -67,7 +67,7 @@ public class ResumeServiceImpl implements ResumeService {
                 .userId(resume.getUserId())
                 .name(resume.getName())
                 .categoryId(resume.getCategoryId())
-                .isActive(resume.isActive())
+                .active(resume.getActive())
                 .build();
 
     }
@@ -80,7 +80,7 @@ public class ResumeServiceImpl implements ResumeService {
                         .id(e.getId())
                         .name(e.getName())
                         .salary(e.getSalary())
-                        .isActive(e.isActive())
+                        .active(e.getActive())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
                         .userId(e.getUserId())
@@ -95,7 +95,7 @@ public class ResumeServiceImpl implements ResumeService {
         Resume resume = new Resume();
         resume.setName(dto.getName());
         resume.setSalary(dto.getSalary());
-        resume.setActive(dto.isActive());
+        resume.setActive(dto.getActive());
         resume.setCreatedDate(dto.getCreatedDate());
         resume.setUpdateTime(dto.getUpdateTime());
         resume.setUserId(dto.getUserId());
@@ -109,7 +109,8 @@ public class ResumeServiceImpl implements ResumeService {
         resume.setId(dto.getId());
         resume.setName(dto.getName());
         resume.setSalary(dto.getSalary());
-        resume.setActive(dto.isActive());
+        resume.setActive(dto.getActive());
+        resume.setCreatedDate(dto.getCreatedDate());
         resume.setUpdateTime(LocalDateTime.now());
         resume.setUserId(dto.getUserId());
         resume.setCategoryId(dto.getCategoryId());

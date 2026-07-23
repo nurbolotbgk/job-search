@@ -14,12 +14,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 public class ResumeDto {
-    private long userId;
+    private Long userId;
     private String name;
-    private int categoryId;
-    private double salary;
-    private boolean isActive;
+    private Integer categoryId;
+    private Double salary;
+    private Boolean active;
     private LocalDateTime createdDate;
     private LocalDateTime updateTime;
-    private int id;
+    private Long id;
 }

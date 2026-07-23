@@ -32,7 +32,7 @@ databaseChangeLog:
                   name: exp_to
                   type: int
               - column:
-                  name: is_active
+                  name: active
                   type: boolean
                   defaultValueBoolean: true
                   constraints:

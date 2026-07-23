@@ -31,7 +31,6 @@ public class UserServiceImpl implements UserService {
                         .build()
                 )
                 .toList();
-
     }
 
     @Override
@@ -112,7 +111,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void update(UserDto dto) {
         User user = new User();
-        user.setId(dto.getId()); // Обязательно указываем ID для UPDATE
+        user.setId(dto.getId());
         user.setName(dto.getName());
         user.setSurname(dto.getSurname());
         user.setAge(dto.getAge());

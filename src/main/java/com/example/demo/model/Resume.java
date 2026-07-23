@@ -13,9 +13,9 @@ public class Resume {
     private Long userId;
     private String name;
     private Integer categoryId;
-    private double salary;
-    private boolean isActive;
+    private Double salary;
+    private Boolean active;
     private LocalDateTime createdDate;
     private LocalDateTime updateTime;
-    private Integer id;
+    private Long id;
 }

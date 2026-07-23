@@ -48,7 +48,7 @@ public class UserDao {
     }
 
     public boolean userExistsOrNot(String email) {
-        String sql = "SELECT EXISTS(SELECT 1 FROM users WHERE email = ?;)";
+        String sql = "SELECT EXISTS(SELECT 1 FROM users WHERE email = ?)";
         return jdbcTemplate.queryForObject(sql, Boolean.class, email);
     }
 

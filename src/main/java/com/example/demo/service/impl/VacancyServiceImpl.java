@@ -28,7 +28,7 @@ public class VacancyServiceImpl implements VacancyService {
                         .salary(e.getSalary())
                         .expFrom(e.getExpFrom())
                         .expTo(e.getExpTo())
-                        .isActive(e.isActive())
+                        .active(e.getActive())
                         .userId(e.getUserId())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
@@ -50,7 +50,7 @@ public class VacancyServiceImpl implements VacancyService {
                         .salary(e.getSalary())
                         .expFrom(e.getExpFrom())
                         .expTo(e.getExpTo())
-                        .isActive(e.isActive())
+                        .active(e.getActive())
                         .userId(e.getUserId())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
@@ -72,7 +72,7 @@ public class VacancyServiceImpl implements VacancyService {
                         .salary(e.getSalary())
                         .expFrom(e.getExpFrom())
                         .expTo(e.getExpTo())
-                        .isActive(e.isActive())
+                        .active(e.getActive())
                         .userId(e.getUserId())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
@@ -89,7 +89,7 @@ public class VacancyServiceImpl implements VacancyService {
         vacancy.setSalary(dto.getSalary());
         vacancy.setExpFrom(dto.getExpFrom());
         vacancy.setExpTo(dto.getExpTo());
-        vacancy.setActive(dto.isActive());
+        vacancy.setActive(dto.getActive());
 
         vacancy.setCreatedDate(dto.getCreatedDate());
         vacancy.setUpdateTime(dto.getUpdateTime());
@@ -109,10 +109,10 @@ public class VacancyServiceImpl implements VacancyService {
         vacancy.setSalary(dto.getSalary());
         vacancy.setExpFrom(dto.getExpFrom());
         vacancy.setExpTo(dto.getExpTo());
-        vacancy.setActive(dto.isActive());
+        vacancy.setActive(dto.getActive());
         vacancy.setUpdateTime(LocalDateTime.now());
         vacancy.setCategoryId(dto.getCategoryId());
-
+        vacancy.setUserId(dto.getUserId());
         vacancyDao.update(vacancy);
     }
 
