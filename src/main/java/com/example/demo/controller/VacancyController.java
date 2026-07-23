@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.VacancyDto;
 import com.example.demo.model.RespondedApplicant;
 import com.example.demo.service.VacancyService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,13 +49,13 @@ public class VacancyController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createVacancy(@RequestBody VacancyDto dto) {
+    public ResponseEntity<Void> createVacancy(@Valid @RequestBody VacancyDto dto) {
         vacancyService.save(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping
-    public ResponseEntity<Void> updateVacancy(@RequestBody VacancyDto dto) {
+    public ResponseEntity<Void> updateVacancy(@Valid @RequestBody VacancyDto dto) {
         vacancyService.update(dto);
         return ResponseEntity.ok().build();
     }

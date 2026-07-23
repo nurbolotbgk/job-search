@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,13 +48,13 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createUser(@RequestBody UserDto dto) {
+    public ResponseEntity<Void> createUser(@Valid @RequestBody UserDto dto) {
         userService.save(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping
-    public ResponseEntity<Void> updateUser(@RequestBody UserDto dto) {
+    public ResponseEntity<Void> updateUser(@Valid @RequestBody UserDto dto) {
         userService.update(dto);
         return ResponseEntity.ok().build();
     }

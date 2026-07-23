@@ -29,7 +29,7 @@ public class VacancyDto {
     @Max(value = 200000, message = "Salary should be maximum 200000")
     private double salary;
     @Positive(message = "Expiration should not be negative")
-    @Range(min = 500, max = 200000, message = "Salary should be from 500 to 200000")
+    @Range(min = 0, max = 10, message = "Exp from should be from 0 to 10")
     private Integer expFrom;
     @Positive(message = "Expiration should not be negative")
     @Min(value = 1, message = "Exp should be from 1")
