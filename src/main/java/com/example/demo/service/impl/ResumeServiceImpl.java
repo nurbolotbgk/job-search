@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dao.ResumeDao;
 import com.example.demo.dto.ResumeDto;
+import com.example.demo.exception.CategoryNotFoundException;
 import com.example.demo.model.Resume;
 import com.example.demo.service.ResumeService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,9 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public List<ResumeDto> getResumesByCategoryId(Integer categoryId) {
         List<Resume> resumeByCatId = resumeDao.getResumeByCategory(categoryId);
+        if (resumeByCatId.isEmpty()) {
+            throw new CategoryNotFoundException();
+        }
 
         return resumeByCatId.stream()
                 .map(e -> ResumeDto.builder()
