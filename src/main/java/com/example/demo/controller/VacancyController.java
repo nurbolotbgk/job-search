@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VacancyController {
 
-    private final List<RespondedApplicant> responseStorage = new ArrayList<>();
     private final VacancyService vacancyService;
 
     @GetMapping("/withUsers")
@@ -39,13 +38,6 @@ public class VacancyController {
     @PutMapping("update")
     public ResponseEntity<Void> updateVacancy(@RequestParam Integer id, @RequestBody VacancyDto dto) {
         return ResponseEntity.ok().build();
-    }
-
-
-
-    @GetMapping("{vacancyId}/responses")
-    public ResponseEntity<List<RespondedApplicant>> getResponsesForVacancy(@PathVariable Integer vacancyId) {
-        return ResponseEntity.ok(responseStorage);
     }
 
     @PostMapping

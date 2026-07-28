@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.RespondedApplicantDto;
 import com.example.demo.dto.ResumeDto;
 import com.example.demo.dto.UserDto;
+import com.example.demo.model.RespondedApplicant;
 import com.example.demo.model.Vacancy;
 import com.example.demo.service.RespondedApplicantService;
 import com.example.demo.service.ResumeService;
@@ -20,6 +21,8 @@ import java.util.List;
 public class RespondedApplicantController {
     private final List<Vacancy> vacancyStorage = new ArrayList<>();
     private final RespondedApplicantService respondedApplicantService;
+    private final List<RespondedApplicant> responseStorage = new ArrayList<>();
+
 
     @GetMapping
     public List<RespondedApplicantDto> getAllUsers() {
@@ -42,6 +45,9 @@ public class RespondedApplicantController {
         return ResponseEntity.noContent().build();
     }
 
-
+    @GetMapping("{vacancyId}/responses")
+    public ResponseEntity<List<RespondedApplicant>> getResponsesForVacancy(@PathVariable Integer vacancyId) {
+        return ResponseEntity.ok(responseStorage);
+    }
 
 }

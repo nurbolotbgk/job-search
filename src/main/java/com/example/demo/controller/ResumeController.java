@@ -24,7 +24,7 @@ public class ResumeController {
         return resumeService.getAllResumes();
     }
 
-    @GetMapping("id/{id}")
+    @GetMapping("/{id}")
     public ResumeDto findResumeById(@PathVariable Integer id) {
         return resumeService.findResumeById(id);
     }
@@ -39,19 +39,19 @@ public class ResumeController {
         return resumeService.getResumesByCategoryId(categoryId);
     }
 
-    @PostMapping
+    @PostMapping("create")
     public HttpStatus createResume(@Valid @RequestBody ResumeDto dto) {
         resumeService.save(dto);
         return HttpStatus.OK;
     }
 
-    @PutMapping
-    public HttpStatus updateResume(@Valid @RequestBody ResumeDto dto) {
+    @PutMapping("update/{id}")
+    public HttpStatus updateResume(@Valid @PathVariable Long id, @RequestBody ResumeDto dto) {
         resumeService.update(dto);
         return HttpStatus.OK;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public HttpStatus deleteResume(@PathVariable Long id) {
         resumeService.deleteById(id);
         return HttpStatus.OK;
