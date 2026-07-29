@@ -17,4 +17,5 @@ databaseChangeLog:
                   type: varchar(20)
                   constraints:
                     nullable: false
+                    unique: true
                     checkConstraint: "role_name IN ('applicant', 'employer')"

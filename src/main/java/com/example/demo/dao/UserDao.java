@@ -33,6 +33,11 @@ public class UserDao {
         ));
     }
 
+    public List <User> findUserByName(String name) {
+        String sql = "SELECT * FROM users Where name = '?'";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),name);
+    }
+
     public Optional<User> getUserByPhoneNum(String phoneNumber) {
         String sql = "SELECT * FROM users WHERE phone_number = ?;";
         return Optional.ofNullable(DataAccessUtils.singleResult(

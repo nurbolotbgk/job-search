@@ -17,7 +17,6 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     unique: true
-                    checkConstraint: "name IN ('Юрист', 'Экономист', 'Айти специалист', 'Монтажник')"
               - column:
                   name: parent_id
                   type: int

@@ -39,7 +39,7 @@ public class ResumeDao {
     }
 
     public List<Resume> getResumesMadeByUser(Long userId) {
-        String sql = "SELECT * FROM resumes WHERE user_id = ?;";
+        String sql = "SELECT * FROM resumes WHERE user_id = ?";
         return
                 jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Resume.class), userId);
     }

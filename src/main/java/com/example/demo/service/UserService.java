@@ -8,6 +8,8 @@ import java.util.List;
 public interface UserService {
     List<UserDto> getAllUsers();
 
+    List<UserDto> findUsersByName(String name);
+
     UserDto findUserById(Integer id);
 
     UserDto findByPhoneNumber(String phoneNumber);

@@ -15,7 +15,7 @@ public class RespondedApplicantDao {
     private final JdbcTemplate jdbcTemplate;
 
     public List<RespondedApplicant> getAllRespondedApplicants() {
-        String sql = "SELECT * FROM responded_applicants;";
+        String sql = "SELECT * FROM responded_applicants WHERE VACANCY_ID = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(RespondedApplicant.class));
     }
 }

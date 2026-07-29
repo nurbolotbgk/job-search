@@ -29,21 +29,6 @@ public class RespondedApplicantController {
         return respondedApplicantService.getAllRespondedApplicants();
     }
 
-    @PostMapping("create")
-    public HttpStatus createResume(ResumeDto dto) {
-        System.out.println(dto.toString());
-        return HttpStatus.OK;
-    }
-
-    @PutMapping("update")
-    public ResponseEntity<Void> updateResume(@RequestParam Integer id, @RequestBody ResumeDto dto) {
-        return ResponseEntity.ok().build();
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteResume(@PathVariable Integer id) {
-        return ResponseEntity.noContent().build();
-    }
 
     @GetMapping("{vacancyId}/responses")
     public ResponseEntity<List<RespondedApplicant>> getResponsesForVacancy(@PathVariable Integer vacancyId) {

@@ -29,7 +29,7 @@ public class ResumeController {
         return resumeService.findResumeById(id);
     }
 
-    @GetMapping("/resumesByUsers/{userId}")
+    @GetMapping("/getResumesByUsers/{userId}")
     public List<ResumeDto> getResumesMadeByUser(@PathVariable Long userId) {
         return resumeService.getResumesMadeByUser(userId);
     }

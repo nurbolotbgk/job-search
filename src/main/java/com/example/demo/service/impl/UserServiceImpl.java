@@ -37,6 +37,29 @@ public class UserServiceImpl implements UserService {
                 .toList();
     }
 
+
+    @Override
+    public List<UserDto> findUsersByName(String name) {
+        List<User> users = userDao.findUserByName(name);
+        if (users.isEmpty()) {
+            throw new UserNotFoundException();
+        }
+
+        return users.stream()
+                .map(e -> UserDto.builder()
+                        .id(e.getId())
+                        .name(e.getName())
+                        .surname(e.getSurname())
+                        .age(e.getAge())
+                        .email(e.getEmail())
+                        .password(e.getPassword())
+                        .avatar(e.getAvatar())
+                        .roleId(e.getRoleId())
+                        .build()
+                )
+                .toList();
+    }
+
     @Override
     public UserDto findUserById(Integer id) {
         User user = userDao.findUserById(id)

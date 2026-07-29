@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 012
+      author: Nurbolot Abilov
+      changes:
+        - createTable:
+            tableName: authorities
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: authority
+                  type: varchar(50)

@@ -80,7 +80,6 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public List<ResumeDto> getResumesMadeByUser(Long userId) {
         List<Resume> resumesMadeByUser = resumeDao.getResumesMadeByUser(userId);
-
         if (resumesMadeByUser.isEmpty()) {
             throw new ResumeNotFoundException();
         }
