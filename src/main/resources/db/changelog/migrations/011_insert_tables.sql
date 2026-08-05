@@ -1,5 +1,5 @@
-INSERT INTO roles (id, role_name) VALUES (1, 'applicant');
-INSERT INTO roles (id, role_name) VALUES (2, 'employer');
+INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
 
 INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
 INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
@@ -14,8 +14,8 @@ INSERT INTO contact_types (id, type) VALUES
                                          (5, 'Linkedin');
 
 INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
-                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'applicant')),
-                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'employer'));
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
 
 INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
     ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);

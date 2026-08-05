@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -32,7 +34,7 @@ public class ResumeDao {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Resume.class));
     }
 
-    public Optional<Resume> findResumeById(Integer id) {
+    public Optional<Resume> findResumeById(Long id) {
         String sql = "SELECT * FROM resumes WHERE id = ?;";
         return Optional.ofNullable(DataAccessUtils.singleResult
                 (jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Resume.class), id)));
@@ -44,21 +46,37 @@ public class ResumeDao {
                 jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Resume.class), userId);
     }
 
-    public void save(Resume resume) {
-        String sql = "insert into resumes(name, salary, active, created_date, update_time, user_id, category_id) " +
-                "values (:name, :salary, :active, :created_date, :update_time, (select id from users where id = :user_id), :category_id)";
+    public Long save(Resume resume) {
+        String sql = "INSERT INTO resumes (name, salary, active, created_date, update_time, user_id, category_id) " +
+                "VALUES (:name, :salary,:active, :createdDate, :updateTime, :userId, :categoryId)";
+
+        MapSqlParameterSource params = new MapSqlParameterSource()
+                .addValue("name", resume.getName())
+                .addValue("salary", resume.getSalary())
+                .addValue("active", resume.getActive())
+                .addValue("createdDate", resume.getCreatedDate())
+                .addValue("updateTime", resume.getUpdateTime())
+                .addValue("userId", resume.getUserId())
+                .addValue("categoryId", resume.getCategoryId());
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
         namedParameterJdbcTemplate.update(
                 sql,
-                new MapSqlParameterSource()
-                        .addValue("name", resume.getName())
-                        .addValue("salary", resume.getSalary())
-                        .addValue("active", resume.getActive())
-                        .addValue("created_date", resume.getCreatedDate())
-                        .addValue("update_time", resume.getUpdateTime())
-                        .addValue("user_id", resume.getUserId())
-                        .addValue("category_id", resume.getCategoryId())
+                params,
+                keyHolder,
+                new String[]{"id"}
         );
 
+        Number key = keyHolder.getKey();
+
+        if (key == null) {
+            throw new IllegalStateException(
+                    "Не удалось получить id созданного резюме"
+            );
+        }
+
+        return key.longValue();
     }
 
     public void update(Resume resume) {

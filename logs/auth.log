@@ -1,346 +1,1016 @@
-2026-07-29 08:36:00 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h55s648ms720µs300ns).
-2026-07-29 12:17:58 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 26472 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
-2026-07-29 12:17:58 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
-2026-07-29 12:18:02 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-29 12:18:02 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-07-29 12:18:03 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+2026-07-30 09:13:44 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12h26m20s49ms757µs800ns).
+2026-07-30 09:23:04 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 26892 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
+2026-07-30 09:23:04 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
+2026-07-30 09:23:07 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-30 09:23:07 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-07-30 09:23:08 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 9f7a175f-bc95-4e11-afd0-20e694319b06
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-07-29 12:18:03 INFO  com.example.demo.DemoApplication - Started DemoApplication in 4.982 seconds (process running for 5.649)
-2026-07-29 12:18:03 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-07-29 12:18:03 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-07-29 13:01:36 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 22660 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
-2026-07-29 13:01:36 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
-2026-07-29 13:01:40 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-29 13:01:40 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-07-29 13:01:41 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 696310f7-44f3-43dc-866a-c9cbb3307780
+Using generated security password: 8ab6b7a3-1db7-482a-aadc-5a6f13e728ae
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-07-29 13:01:41 INFO  com.example.demo.DemoApplication - Started DemoApplication in 4.843 seconds (process running for 5.522)
-2026-07-29 13:01:41 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-07-29 13:01:41 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-07-29 13:01:49 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/getResumesByUsers/1
-2026-07-29 13:01:49 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:01:49 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:01:49 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@20a47322
-2026-07-29 13:01:49 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:01:49 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:01:49 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:01:49 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@20a47322
-2026-07-29 13:02:28 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/getResumesByUsers/1
-2026-07-29 13:02:28 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:02:28 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:02:28 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@20a47322
-2026-07-29 13:02:28 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:02:28 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:02:28 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:02:28 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@20a47322
-2026-07-29 13:02:35 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 16716 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
-2026-07-29 13:02:35 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
-2026-07-29 13:02:38 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-29 13:02:38 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-07-29 13:02:38 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+2026-07-30 09:23:08 INFO  com.example.demo.DemoApplication - Started DemoApplication in 4.787 seconds (process running for 5.509)
+2026-07-30 09:23:08 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-07-30 09:23:08 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs
+2026-07-30 09:25:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-30 09:25:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
+2026-07-30 09:25:55 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 338 ms
+2026-07-30 10:05:40 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s928ms154µs300ns).
+2026-07-30 12:18:48 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 5956 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
+2026-07-30 12:18:48 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
+2026-07-30 12:18:52 ERROR liquibase.changelog - ChangeSet db/changelog/migrations/011_insert_tables.sql::raw::includeAll encountered an exception.
+liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
 
-Using generated security password: e2e082c3-2da8-4a60-b7ea-2b1345abbece
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
 
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
 
-2026-07-29 13:02:38 INFO  com.example.demo.DemoApplication - Started DemoApplication in 4.19 seconds (process running for 5.155)
-2026-07-29 13:02:38 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-07-29 13:02:38 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-07-29 13:02:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/getResumesByUsers/1
-2026-07-29 13:02:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:02:56 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:02:56 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d21df1d
-2026-07-29 13:02:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:02:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:02:56 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:02:56 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d21df1d
-2026-07-29 13:03:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/getResumesByUsers/1
-2026-07-29 13:03:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:03:18 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:03:18 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d21df1d
-2026-07-29 13:03:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:03:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:03:18 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:03:18 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d21df1d
-2026-07-29 13:03:57 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/getResumesByUsers/1
-2026-07-29 13:03:57 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:03:57 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:03:57 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d21df1d
-2026-07-29 13:03:57 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:03:57 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:03:57 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:03:57 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d21df1d
-2026-07-29 13:06:13 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 25384 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
-2026-07-29 13:06:13 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
-2026-07-29 13:06:16 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-29 13:06:16 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-07-29 13:06:16 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
 
-Using generated security password: d28637bb-cb96-4cf8-b65d-75948634b939
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
 
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
 
-2026-07-29 13:06:16 INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.739 seconds (process running for 4.224)
-2026-07-29 13:06:16 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-07-29 13:06:16 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-07-29 13:06:34 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/getResumesByUsers/1
-2026-07-29 13:06:34 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:34 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:34 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:34 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:06:34 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:34 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:34 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/getResumesByUsers/1
-2026-07-29 13:06:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:36 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:36 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:06:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:36 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:36 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:41 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes
-2026-07-29 13:06:41 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:41 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:41 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:41 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:06:41 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:41 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:41 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:50 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes
-2026-07-29 13:06:50 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:50 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:50 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:50 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:06:50 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:50 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:50 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes
-2026-07-29 13:06:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:55 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:55 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 13:06:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 13:06:55 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 13:06:55 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 13:06:55 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 15:35:39 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h20m47s729ms133µs900ns).
-2026-07-29 15:42:23 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes
-2026-07-29 15:42:23 DEBUG o.s.s.a.DefaultAuthenticationEventPublisher - No event was found for the exception org.springframework.security.authentication.InternalAuthenticationServiceException
-2026-07-29 15:42:23 DEBUG o.s.s.authentication.ProviderManager - Authentication service failed internally for user ''
-org.springframework.security.authentication.InternalAuthenticationServiceException: PreparedStatementCallback; bad SQL grammar [select email, password, enabled from users where email = ?]
-	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:121)
-	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:145)
-	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183)
-	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:215)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:204)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [select email, password, enabled from users where email = ?]
-	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:112)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:102)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1549)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:689)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:732)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:757)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:825)
-	at org.springframework.security.provisioning.JdbcUserDetailsManager.loadUsersByUsername(JdbcUserDetailsManager.java:229)
-	at org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl.loadUserByUsername(JdbcDaoImpl.java:185)
-	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:106)
-	... 54 common frames omitted
-Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "ENABLED" не найден
-Column "ENABLED" not found; SQL statement:
-select email, password, enabled from users where email = ? [42122-240]
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:525)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.Scope.child(Scope.java:309)
+	at liquibase.Scope.child(Scope.java:313)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:120)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:269)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:228)
+	at liquibase.command.CommandScope.execute(CommandScope.java:257)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1366)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:327)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:279)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:272)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.command.query.Select.lambda$prepareExpressions$2(Select.java:1209)
-	at java.base/java.util.ArrayList.replaceAllRange(ArrayList.java:1795)
-	at java.base/java.util.ArrayList.replaceAll(ArrayList.java:1785)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1209)
-	at org.h2.command.query.Query.prepare(Query.java:235)
-	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8049)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8020)
+	at org.h2.command.Parser.readTableOrView(Parser.java:7999)
+	at org.h2.command.Parser.readTableOrView(Parser.java:7961)
+	at org.h2.command.Parser.parseInsert(Parser.java:1524)
+	at org.h2.command.Parser.parsePrepared(Parser.java:701)
+	at org.h2.command.Parser.parse(Parser.java:584)
+	at org.h2.command.Parser.parse(Parser.java:559)
+	at org.h2.command.Parser.prepareCommand(Parser.java:487)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
-	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
-	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
-	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:328)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at org.springframework.jdbc.core.JdbcTemplate$SimplePreparedStatementCreator.createPreparedStatement(JdbcTemplate.java:1710)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:668)
-	... 60 common frames omitted
-2026-07-29 15:42:23 DEBUG o.s.s.authentication.ProviderManager - Denying authentication since all attempted providers failed
-2026-07-29 15:42:23 DEBUG o.s.s.w.a.w.BasicAuthenticationFilter - Failed to process authentication request
-org.springframework.security.authentication.InternalAuthenticationServiceException: PreparedStatementCallback; bad SQL grammar [select email, password, enabled from users where email = ?]
-	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:121)
-	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:145)
-	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183)
-	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:215)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:204)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [select email, password, enabled from users where email = ?]
-	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:112)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:102)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1549)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:689)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:732)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:757)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:825)
-	at org.springframework.security.provisioning.JdbcUserDetailsManager.loadUsersByUsername(JdbcUserDetailsManager.java:229)
-	at org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl.loadUserByUsername(JdbcDaoImpl.java:185)
-	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:106)
-	... 54 common frames omitted
-Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "ENABLED" не найден
-Column "ENABLED" not found; SQL statement:
-select email, password, enabled from users where email = ? [42122-240]
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:54)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:306)
+	at org.h2.command.Command.executeUpdate(Command.java:250)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:517)
+	... 110 common frames omitted
+2026-07-30 12:18:52 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'respondedApplicantController' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\controller\RespondedApplicantController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'respondedApplicantServiceImpl' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\service\impl\RespondedApplicantServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'respondedApplicantDao' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\dao\RespondedApplicantDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jdbcTemplate' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/JdbcTemplateConfiguration.class]: Failed to initialize dependency 'liquibase' of JdbcTemplate bean 'jdbcTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+2026-07-30 12:18:52 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'respondedApplicantController' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\controller\RespondedApplicantController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'respondedApplicantServiceImpl' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\service\impl\RespondedApplicantServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'respondedApplicantDao' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\dao\RespondedApplicantDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jdbcTemplate' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/JdbcTemplateConfiguration.class]: Failed to initialize dependency 'liquibase' of JdbcTemplate bean 'jdbcTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'respondedApplicantServiceImpl' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\service\impl\RespondedApplicantServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'respondedApplicantDao' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\dao\RespondedApplicantDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jdbcTemplate' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/JdbcTemplateConfiguration.class]: Failed to initialize dependency 'liquibase' of JdbcTemplate bean 'jdbcTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'respondedApplicantDao' defined in file [C:\Users\n.abilov\IdeaProjects\job-search\target\classes\com\example\demo\dao\RespondedApplicantDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jdbcTemplate' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/JdbcTemplateConfiguration.class]: Failed to initialize dependency 'liquibase' of JdbcTemplate bean 'jdbcTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 35 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jdbcTemplate' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/JdbcTemplateConfiguration.class]: Failed to initialize dependency 'liquibase' of JdbcTemplate bean 'jdbcTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1711)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 49 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/liquibase/autoconfigure/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1815)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309)
+	... 55 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:289)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811)
+	... 62 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:325)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:228)
+	at liquibase.command.CommandScope.execute(CommandScope.java:257)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1366)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:327)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:279)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:272)
+	... 64 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:155)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$1(AbstractUpdateCommandStep.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:120)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
+	at liquibase.command.CommandScope.lambda$execute$5(CommandScope.java:269)
+	... 82 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/011_insert_tables.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:918)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:243)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:242)
+	at liquibase.Scope.child(Scope.java:221)
+	at liquibase.Scope.child(Scope.java:309)
+	at liquibase.Scope.child(Scope.java:313)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
+	... 90 common frames omitted
+Caused by: liquibase.exception.DatabaseException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240] [Failed SQL: (42102) INSERT INTO roles (id, role_name) VALUES (1, 'ROLE_APPLICANT');
+INSERT INTO roles (id, role_name) VALUES (2, 'ROLE_EMPLOYER');
+
+INSERT INTO categories (id, name, parent_id) VALUES (1, 'Юрист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (2, 'Экономист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (3, 'Айти специалист', NULL);
+INSERT INTO categories (id, name, parent_id) VALUES (4, 'Монтажник', NULL);
+
+INSERT INTO contact_types (id, type) VALUES
+                                         (1, 'Telegram'),
+                                         (2, 'Mail'),
+                                         (3, 'Facebook'),
+                                         (4, 'Whatsapp'),
+                                         (5, 'Linkedin');
+
+INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) VALUES
+                            ('Иван', 'Иванов', 35, 'ivanov@mail.ru', '123456', '+996555030303', 'avatar_ivan.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_APPLICANT')),
+                            ('Петр', 'Петров', 25, 'petrov@mail.ru', '123456', '+996500030303', 'avatar_petr.png', (SELECT r.id FROM ROLES r WHERE r.ROLE_NAME = 'ROLE_EMPLOYER'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Айти специалист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), 20000.0, TRUE, CAST('2026-07-17 10:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Telegram'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '@ivanbek'),
+((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Айти специалист', 'Требуется разраб', 50000.0, 1, 3, TRUE, CAST('2026-07-17 11:00:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Айти специалист'), (SELECT id FROM PUBLIC.users WHERE email = 'petrov@mail.ru'));
+
+INSERT INTO resumes (user_id, name, category_id, salary, active, created_date, update_time) VALUES
+    ((SELECT id FROM users WHERE EMAIL = 'ivanov@mail.ru'), 'Юрист', (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), 25000.0, TRUE, CAST('2026-07-17 12:00:00' AS TIMESTAMP), NULL);
+
+INSERT INTO contacts_info (type_id, resume_id, contact_value) VALUES
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Whatsapp'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), '+996555030303'),
+    ((SELECT ct.ID FROM PUBLIC.CONTACT_TYPES ct WHERE ct.TYPE = 'Mail'), (SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'ivanov@mail.ru');
+
+INSERT INTO vacancies (name, description, salary, exp_from, exp_to, active, created_date, update_time, category_id, user_id) VALUES
+    ('Юрист', 'Требуется юрист', 20000.0, 1, 3, TRUE, CAST('2026-07-17 12:30:00' AS TIMESTAMP), NULL, (SELECT c.id FROM PUBLIC.CATEGORIES c WHERE c.NAME = 'Юрист'), (SELECT id FROM users WHERE EMAIL = 'petrov@mail.ru'));
+
+INSERT INTO education_info (resume_id, institution, program, start_date, end_date, degree) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KNU', 'IT', CAST('2009-09-01' AS DATE), CAST('2014-06-30' AS DATE), 'Specialist'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 'KRSU', 'Law', CAST('2015-09-01' AS DATE), CAST('2017-06-30' AS DATE), 'Bachelor');
+
+INSERT INTO work_experience_info (resume_id, years, company_name, position, responsibilities) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 4, 'Mega', 'Java Developer', 'Developing apps'),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
+
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:525)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:85)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:188)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:860)
+	... 105 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "RESPONDED_APPLICANTS" не найдена
+Table "RESPONDED_APPLICANTS" not found; SQL statement:
+INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE); [42102-240]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
 	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
-	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
-	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
-	at org.h2.command.query.Select.lambda$prepareExpressions$2(Select.java:1209)
-	at java.base/java.util.ArrayList.replaceAllRange(ArrayList.java:1795)
-	at java.base/java.util.ArrayList.replaceAll(ArrayList.java:1785)
-	at org.h2.command.query.Select.prepareExpressions(Select.java:1209)
-	at org.h2.command.query.Query.prepare(Query.java:235)
-	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8049)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8020)
+	at org.h2.command.Parser.readTableOrView(Parser.java:7999)
+	at org.h2.command.Parser.readTableOrView(Parser.java:7961)
+	at org.h2.command.Parser.parseInsert(Parser.java:1524)
+	at org.h2.command.Parser.parsePrepared(Parser.java:701)
+	at org.h2.command.Parser.parse(Parser.java:584)
+	at org.h2.command.Parser.parse(Parser.java:559)
+	at org.h2.command.Parser.prepareCommand(Parser.java:487)
 	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
-	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
-	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
-	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:328)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at org.springframework.jdbc.core.JdbcTemplate$SimplePreparedStatementCreator.createPreparedStatement(JdbcTemplate.java:1710)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:668)
-	... 60 common frames omitted
-2026-07-29 15:42:23 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 15:42:23 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 15:42:23 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
-2026-07-29 15:42:23 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
-2026-07-29 15:42:23 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
-2026-07-29 15:42:23 DEBUG o.s.s.w.a.DelegatingAuthenticationEntryPoint - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@3c37e3dc
-2026-07-29 16:04:51 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 27640 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
-2026-07-29 16:04:51 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
-2026-07-29 16:04:54 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-29 16:04:54 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-07-29 16:04:55 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:54)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:306)
+	at org.h2.command.Command.executeUpdate(Command.java:250)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:517)
+	... 110 common frames omitted
+2026-07-30 12:22:00 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 23328 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
+2026-07-30 12:22:00 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "dev"
+2026-07-30 12:22:03 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-30 12:22:03 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-07-30 12:22:03 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 82d6831b-6cbb-49e2-abdd-df53f2273de0
+Using generated security password: 0a3e7101-da8b-42ea-9e52-758e11e334a6
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-07-29 16:04:55 INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.89 seconds (process running for 4.451)
-2026-07-29 16:04:55 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-07-29 16:04:55 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-07-30 12:22:04 INFO  com.example.demo.DemoApplication - Started DemoApplication in 4.079 seconds (process running for 4.668)
+2026-07-30 12:22:04 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-07-30 12:22:04 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'

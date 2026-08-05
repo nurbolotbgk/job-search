@@ -19,8 +19,10 @@ public class VacancyDao {
     private final JdbcTemplate jdbcTemplate;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public List<Vacancy> getAllVacanciesWithUser() {
-        String sql = "SELECT * FROM vacancies WHERE user_id IS NOT NULL;";
+    public List<Vacancy> getAllVacanciesWithResponses() {
+        String sql = "SELECT DISTINCT v.* FROM vacancies v " +
+                "INNER JOIN PUBLIC.RESPONDED_APPLICANTS ra " +
+                "ON ra.VACANCY_ID = v.id ";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Vacancy.class));
     }
 

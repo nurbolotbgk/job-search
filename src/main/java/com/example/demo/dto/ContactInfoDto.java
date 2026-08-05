@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class RespondedApplicantDto {
-    private Integer resumeId;
-    private Integer vacancyId;
-
+@AllArgsConstructor
+public class ContactInfoDto {
+    private Long id;
+    private String contactValue;
+    private Integer typeId;
 }

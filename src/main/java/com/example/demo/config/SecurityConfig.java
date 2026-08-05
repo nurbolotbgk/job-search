@@ -33,7 +33,7 @@ public class SecurityConfig {
                         "where email = ?";
 
         String roleAdapter =
-                "select u.email, r.role " +
+                "select u.email, r.role_name " +
                         "from users u, roles r " +
                         "where u.email = ? " +
                         "and u.role_id = r.id";
@@ -56,13 +56,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
 
-                        .requestMatchers(HttpMethod.POST, "/users/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/vacancies/**").permitAll()
-
-                        .requestMatchers(HttpMethod.POST, "/vacancies/**").authenticated()
-                        .requestMatchers(HttpMethod.POST, "/resumes/**").authenticated()
-
-                        .anyRequest().authenticated()
+                        .requestMatchers(HttpMethod.POST,"/resumes/create").hasAuthority("ROLE_APPLICANT")
+                        .requestMatchers(HttpMethod.POST, "/users/create").permitAll()
+                        .anyRequest().permitAll()
 
                 );
 

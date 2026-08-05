@@ -1,9 +1,18 @@
 package com.example.demo.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ContactInfo {
-    private Integer type_id;
-    private Integer resume_id;
-    private String value;
-    private Integer id;
+    private Long id;
+    private String contactValue;
+    private Integer typeId;
+    private Long resumeId;
 
 }

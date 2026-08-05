@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,14 +9,13 @@ import java.time.LocalDate;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class EducationInfo {
+@NoArgsConstructor
+public class EducationInfoDto {
     private Long id;
     private String institution;
     private String program;
     private LocalDate startDate;
     private LocalDate endDate;
     private String degree;
-    private Long resumeId;
 }

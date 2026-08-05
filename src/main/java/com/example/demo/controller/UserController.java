@@ -7,11 +7,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("users")  // http://localhost:8089/main
+@RequestMapping("users")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -23,14 +24,37 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserDto findUserById(@PathVariable Integer id) {
+    public UserDto findUserById(@PathVariable Long id) {
         return userService.findUserById(id);
+    }
+
+    @GetMapping("employers/{id}")
+    public UserDto findEmployerById(@PathVariable Long id) {
+        return userService.findEmployerById(id);
+    }
+
+
+
+    @GetMapping("/findUsersByName/{name}")
+    public List<UserDto> findUsersByName(@PathVariable String name) {
+        return userService.findUsersByName(name);
+    }
+
+    @GetMapping("/findApplicantById/{id}")
+    public UserDto findApplicantById(@PathVariable Long id) {
+        return userService.findApplicantById(id);
     }
 
     @GetMapping("/phone/{phoneNumber}")
     public UserDto findUserByPhoneNumber(@PathVariable String phoneNumber) {
         return userService.findByPhoneNumber(phoneNumber);
     }
+
+    @GetMapping("/applicantsForVacancy/{vacancyId}")
+    public List<UserDto> getApplicantsForVacancy(@PathVariable Long vacancyId) {
+        return userService.getApplicantsForVacancy(vacancyId);
+    }
+
 
     @GetMapping("/email/{email}")
     public UserDto findUserByEmail(@PathVariable String email) {
@@ -47,6 +71,16 @@ public class UserController {
         }
     }
 
+    @GetMapping("download")
+    public ResponseEntity<?> download(@RequestParam(name = "filename") String filename) {
+        return userService.download(filename);
+    }
+
+    @PostMapping("upload")
+    public String upload(MultipartFile file) {
+        return userService.upload(file);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<Void> createUser(@Valid @RequestBody UserDto dto) {
         userService.save(dto);
@@ -54,13 +88,12 @@ public class UserController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<Void> updateUser(@Valid @PathVariable Long id, @RequestBody UserDto dto) {
-        dto.setId(id);
-        userService.update(dto);
+    public ResponseEntity<Void> updateUser(@PathVariable Long id, @Valid  @RequestBody UserDto dto) {
+        userService.update(id, dto);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteById(id);
         return ResponseEntity.ok().build();

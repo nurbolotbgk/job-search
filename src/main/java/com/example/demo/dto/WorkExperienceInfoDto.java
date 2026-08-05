@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,13 +7,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class WorkExperienceInfo {
+@NoArgsConstructor
+public class WorkExperienceInfoDto {
     private Long id;
     private Integer years;
     private String companyName;
     private String position;
     private String responsibilities;
-    private Long resumeId;
 }

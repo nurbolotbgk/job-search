@@ -12,7 +12,7 @@ public interface ResumeService {
 
     List<ResumeDto> getAllResumes();
 
-    ResumeDto findResumeById(Integer id);
+    ResumeDto findResumeById(Long id);
 
     List<ResumeDto> getResumesMadeByUser(Long userId);
 

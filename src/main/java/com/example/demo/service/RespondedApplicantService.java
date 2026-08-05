@@ -5,5 +5,6 @@ import com.example.demo.dto.RespondedApplicantDto;
 import java.util.List;
 
 public interface RespondedApplicantService {
-    List<RespondedApplicantDto> getAllRespondedApplicants();
+
+    void createResponse(RespondedApplicantDto dto);
 }

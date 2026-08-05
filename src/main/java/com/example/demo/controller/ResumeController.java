@@ -25,7 +25,7 @@ public class ResumeController {
     }
 
     @GetMapping("/{id}")
-    public ResumeDto findResumeById(@PathVariable Integer id) {
+    public ResumeDto findResumeById(@PathVariable Long id) {
         return resumeService.findResumeById(id);
     }
 

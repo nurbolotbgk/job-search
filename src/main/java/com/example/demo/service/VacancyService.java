@@ -5,7 +5,7 @@ import com.example.demo.dto.VacancyDto;
 import java.util.List;
 
 public interface VacancyService {
-    List<VacancyDto> getVacanciesWithUsers();
+    List<VacancyDto> getVacanciesWithResponses();
 
     List<VacancyDto> getAllVacancies();
 
@@ -13,7 +13,7 @@ public interface VacancyService {
 
     void save(VacancyDto dto);
 
-    void update(VacancyDto dto);
+    void update(Long id, VacancyDto dto);
 
     void deleteById(Long id);
 }

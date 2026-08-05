@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 013
+      id: 012
       author: Nurbolot Abilov
       changes:
         - addColumn:

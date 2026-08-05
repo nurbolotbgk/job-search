@@ -13,7 +13,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("Movie Review")
+                                .title("Job search")
                                 .version("0.0.1_SNAPSHOT")
                 );
     }

@@ -42,6 +42,4 @@ public class UserDto {
     @Min(value = 1, message = "Role_id must be 1 - applicant or 2 - employer")
     @Max(value = 2, message = "Role_id must be 1 - applicant or 2 - employer")
     private Integer roleId;
-    @Positive(message = "ID should be positive")
-    private Long id;
 }
