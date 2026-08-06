@@ -100,6 +100,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
+                .id(user.getId())               //я добавил для MVC
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
@@ -204,6 +205,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void update(Long id, UserDto dto) {
         User user = new User();
+
+        user.setId(id);  // я добавил для MVC
+
         user.setName(dto.getName());
         user.setSurname(dto.getSurname());
         user.setAge(dto.getAge());

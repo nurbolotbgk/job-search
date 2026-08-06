@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
+
+    private Long id;
+
     @NotBlank(message = "Name should not be empty")
     @Size(min = 2, max = 25, message = "Name length should be 2 to 25")
     private String name;

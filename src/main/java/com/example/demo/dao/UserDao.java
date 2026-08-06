@@ -107,10 +107,10 @@ public class UserDao {
                 "surname = :surname, " +
                 "age = :age, " +
                 "email = :email, " +
-                "password = :password, " +
+                //"password = :password, " +
                 "phone_number = :phoneNumber, " +
-                "avatar = :avatar, " +
-                "role_id = :roleId " +
+                "avatar = :avatar " +
+                //"role_id = :roleId " +
                 "WHERE id = :id";
 
         namedParameterJdbcTemplate.update(
@@ -121,10 +121,10 @@ public class UserDao {
                         .addValue("surname", user.getSurname())
                         .addValue("age", user.getAge())
                         .addValue("email", user.getEmail())
-                        .addValue("password", user.getPassword())
+                        //.addValue("password", user.getPassword())
                         .addValue("phoneNumber", user.getPhoneNumber())
                         .addValue("avatar", user.getAvatar())
-                        .addValue("roleId", user.getRoleId())
+                        //.addValue("roleId", user.getRoleId())
         );
     }
 

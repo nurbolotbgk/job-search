@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.api;
 
 import com.example.demo.dto.ResumeDto;
 import com.example.demo.model.Resume;
