@@ -23,6 +23,11 @@ public class AuthController {
     @PostMapping("/register")
     public String register(UserDto userDto) {
         userService.save(userDto);
-        return "redirect:/";
+        return "redirect:/auth/login";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "auth/login";
     }
 }

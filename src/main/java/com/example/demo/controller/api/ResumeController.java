@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("resumes")
+@RequestMapping("/api/resumes")
 @RequiredArgsConstructor
 public class ResumeController {
     private final List<Resume> storage = new ArrayList<>();

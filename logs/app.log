@@ -619,3 +619,132 @@ UPDATE users SET name = ?, surname = ?, age = ?, email = ?, phone_number = ?, av
 2026-08-06 15:19:02 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
 2026-08-06 15:19:02 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
 2026-08-06 15:19:02 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 15:30:10 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 15368 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
+2026-08-06 15:30:10 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-06 15:30:13 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-08-06 15:30:13 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-06 15:30:13 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e0603e03-0db2-4230-bbfa-64bff99dda7b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-08-06 15:30:13 INFO  com.example.demo.DemoApplication - Started DemoApplication in 4.013 seconds (process running for 4.532)
+2026-08-06 15:30:13 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-06 15:30:13 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-06 15:32:02 DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile/edit
+2026-08-06 15:32:02 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 15:32:02 DEBUG o.s.security.web.FilterChainProxy - Secured GET /profile/edit
+2026-08-06 15:32:02 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-06 15:32:02 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 15:32:02 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-06 15:32:02 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-06 15:32:02 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-06 15:32:02 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Securing POST /profile/edit
+2026-08-06 15:32:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Secured POST /profile/edit
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile
+2026-08-06 15:32:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /profile
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-06 15:32:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-06 15:32:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-06 15:32:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 16:04:57 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 18896 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
+2026-08-06 16:04:57 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-06 16:05:01 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-08-06 16:05:01 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-06 16:05:01 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/webmvc/autoconfigure/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'resController' method 
+com.example.demo.controller.ResController#getAll(Model)
+to {GET [/resumes]}: There is already 'resumeController' bean method
+com.example.demo.controller.api.ResumeController#getAllResumes() mapped.
+2026-08-06 16:05:01 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/webmvc/autoconfigure/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'resController' method 
+com.example.demo.controller.ResController#getAll(Model)
+to {GET [/resumes]}: There is already 'resumeController' bean method
+com.example.demo.controller.api.ResumeController#getAllResumes() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1815)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'resController' method 
+com.example.demo.controller.ResController#getAll(Model)
+to {GET [/resumes]}: There is already 'resumeController' bean method
+com.example.demo.controller.api.ResumeController#getAllResumes() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:646)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:606)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:327)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:459)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:80)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:294)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:292)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:261)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:220)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:208)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:158)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811)
+	... 18 common frames omitted
+2026-08-06 16:07:37 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 31916 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
+2026-08-06 16:07:37 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-06 16:07:40 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-08-06 16:07:40 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-06 16:07:40 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: c82d0996-e0d3-46ba-8618-884ad96d2e2f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-08-06 16:07:40 INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.867 seconds (process running for 4.434)
+2026-08-06 16:07:40 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-06 16:07:40 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-06 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes
+2026-08-06 16:08:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Secured GET /resumes
+2026-08-06 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-06 16:08:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-06 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-06 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-06 16:08:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 16:27:39 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.5 with PID 34164 (C:\Users\n.abilov\IdeaProjects\job-search\target\classes started by n.abilov in C:\Users\n.abilov\IdeaProjects\job-search)
+2026-08-06 16:27:39 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-06 16:27:43 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-08-06 16:27:43 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-06 16:27:43 WARN  o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3e65c7ff-8ce9-4fd2-8f48-d6894797c6cc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-08-06 16:27:43 INFO  com.example.demo.DemoApplication - Started DemoApplication in 4.244 seconds (process running for 4.763)
+2026-08-06 16:27:43 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-06 16:27:43 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-06 16:41:23 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-08-06 16:41:23 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 16:41:23 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-08-06 16:41:24 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-06 16:41:24 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-06 16:41:24 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-06 16:41:24 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-06 16:41:24 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-06 16:41:24 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
