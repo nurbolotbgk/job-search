@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -161,6 +162,16 @@ public class UserServiceImpl implements UserService {
                 .avatar(user.getAvatar())
                 .roleId(user.getRoleId())
                 .build();
+    }
+
+    @Override
+    public UserDto getCurrentUser() {
+        String email = SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
+
+        return findUserByEmail(email);
     }
 
     @Override

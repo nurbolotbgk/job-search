@@ -23,6 +23,8 @@ public interface UserService {
 
     UserDto findByPhoneNumber(String phoneNumber);
 
+    UserDto getCurrentUser();
+
     UserDto findUserByEmail(String email);
 
     boolean emailExistsOrNot(String email);

@@ -19,61 +19,96 @@
     <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
+        <div class="container-fluid">
 
-            <a class="navbar-brand fw-bold" href="/">
+            <a class="navbar-brand" href="/">
                 Job Search
             </a>
 
             <button class="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
                     aria-expanded="false"
-                    aria-label="Открыть меню">
+                    aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse"
-                 id="mainNavbar">
+            <div class="collapse navbar-collapse" id="navbarNav">
 
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="/vacancies">
+                        <a class="nav-link" href="/">
+                            Главная
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vacancies">
                             Вакансии
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="/resumes">
+                        <a class="nav-link" href="/resumes">
                             Резюме
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="/profile">
-                            Личный кабинет
                         </a>
                     </li>
 
                 </ul>
 
-                <div class="d-flex gap-2">
+            </div>
 
-                    <a href="/auth/register"
-                       class="btn btn-outline-light">
-                        Регистрация
+            <#assign known = SPRING_SECURITY_CONTEXT??>
+
+            <#if known>
+
+                <#assign
+                user = SPRING_SECURITY_CONTEXT.authentication.principal
+                name = user.getUsername()
+                >
+
+                <#if user??>
+
+                    <p class="text-light m-2 m-sm-0">
+                        ${name}
+
+                        <#list user.authorities as auth>
+                            <span class="text-warning">
+                        ${auth}
+                    </span>
+                        </#list>
+                    </p>
+
+                    <a href="/profile"
+                       class="btn btn-outline-light m-1">
+                        Личный кабинет
                     </a>
 
-                </div>
+                    <a href="/auth/logout"
+                       class="btn btn-outline-danger m-1">
+                        Logout
+                    </a>
 
-            </div>
+                </#if>
+
+            <#else>
+
+                <a href="/auth/login"
+                   class="btn btn-outline-light m-1">
+                    Login
+                </a>
+
+                <a href="/auth/register"
+                   class="btn btn-warning m-1">
+                    Регистрация
+                </a>
+
+            </#if>
+
         </div>
     </nav>
 

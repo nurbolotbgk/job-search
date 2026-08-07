@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,19 +18,23 @@ public class ProfileController {
 
     @GetMapping
     public String profile(Model model) {
-        model.addAttribute("user", userService.findUserById(3L));
+        UserDto currentUser = userService.getCurrentUser();
+        model.addAttribute("user", userService.findUserByEmail(currentUser.getEmail()));
         return "profile/profile";
     }
 
     @GetMapping("/edit")
     public String edit(Model model) {
-        model.addAttribute("user", userService.findUserById(3L));
+        UserDto currentUser = userService.getCurrentUser();
+        model.addAttribute("user", userService.findUserByEmail(currentUser.getEmail()));
         return "profile/edit_profile";
     }
 
     @PostMapping("/edit")
     public String edit(UserDto userDto) {
-        userService.update(3L, userDto);
+
+        UserDto currentUser = userService.getCurrentUser();
+        userService.update(currentUser.getId(), userDto);
 
         return "redirect:/profile";
     }
