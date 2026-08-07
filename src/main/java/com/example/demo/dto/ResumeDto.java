@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Data
@@ -37,4 +38,8 @@ public class ResumeDto {
     private LocalDateTime updateTime;
     @Positive(message = "ID should be positive")
     private Long id;
+
+    private List<WorkExperienceInfoDto> workExperiences;
+    private List<EducationInfoDto> educations;
+    private List<ContactInfoDto> contacts;
 }

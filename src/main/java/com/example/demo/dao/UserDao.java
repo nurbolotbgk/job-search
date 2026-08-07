@@ -26,11 +26,40 @@ public class UserDao {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
     }
 
-    public Optional<User> findUserById(Integer id) {
+    public List <User> getApplicantsForVacancy(Long vacancyId) {
+        String sql = "SELECT DISTINCT u.* FROM users u " +
+                "INNER JOIN PUBLIC.RESUMES r " +
+                "             ON r.USER_ID = u.ID " +
+                "INNER JOIN PUBLIC.RESPONDED_APPLICANTS ra " +
+                "ON ra.RESUME_ID = r.id " +
+                "WHERE u.ROLE_ID = 1 AND ra.VACANCY_ID = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class), vacancyId);
+    }
+
+    public Optional<User> findUserById(Long id) {
         String sql = "SELECT * FROM users Where id = ?;";
         return Optional.ofNullable(DataAccessUtils.singleResult(
                 jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),id)
         ));
+    }
+
+    public Optional<User> findEmployerById(Long id) {
+        String sql = "SELECT * FROM users Where ROLE_ID = 2 AND id = ?";
+        return Optional.ofNullable(DataAccessUtils.singleResult(
+                jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),id)
+        ));
+    }
+
+    public Optional<User> findApplicantById(Long id) {
+        String sql = "SELECT * FROM users u Where u.ROLE_ID = 1 AND id = ?";
+        return Optional.ofNullable(DataAccessUtils.singleResult(
+                jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),id)
+        ));
+    }
+
+    public List <User> findUsersByName(String name) {
+        String sql = "SELECT * FROM users Where name = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),name);
     }
 
     public Optional<User> getUserByPhoneNum(String phoneNumber) {
@@ -54,8 +83,8 @@ public class UserDao {
     }
 
     public void save(User user) {
-        String sql = "INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id) " +
-                "VALUES (:name, :surname, :age, :email, :password, :phoneNumber, :avatar, :roleId)";
+        String sql = "INSERT INTO users (name, surname, age, email, password, phone_number, avatar, role_id, enabled) " +
+                "VALUES (:name, :surname, :age, :email, :password, :phoneNumber, :avatar, :roleId, :enabled)";
 
         namedParameterJdbcTemplate.update(
                 sql,
@@ -68,6 +97,7 @@ public class UserDao {
                         .addValue("phoneNumber", user.getPhoneNumber())
                         .addValue("avatar", user.getAvatar())
                         .addValue("roleId", user.getRoleId())
+                        .addValue("enabled", user.getEnabled())
         );
     }
 
@@ -77,10 +107,10 @@ public class UserDao {
                 "surname = :surname, " +
                 "age = :age, " +
                 "email = :email, " +
-                "password = :password, " +
+                //"password = :password, " +
                 "phone_number = :phoneNumber, " +
-                "avatar = :avatar, " +
-                "role_id = :roleId " +
+                "avatar = :avatar " +
+                //"role_id = :roleId " +
                 "WHERE id = :id";
 
         namedParameterJdbcTemplate.update(
@@ -91,10 +121,10 @@ public class UserDao {
                         .addValue("surname", user.getSurname())
                         .addValue("age", user.getAge())
                         .addValue("email", user.getEmail())
-                        .addValue("password", user.getPassword())
+                        //.addValue("password", user.getPassword())
                         .addValue("phoneNumber", user.getPhoneNumber())
                         .addValue("avatar", user.getAvatar())
-                        .addValue("roleId", user.getRoleId())
+                        //.addValue("roleId", user.getRoleId())
         );
     }
 

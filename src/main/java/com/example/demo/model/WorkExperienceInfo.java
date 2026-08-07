@@ -1,11 +1,19 @@
 package com.example.demo.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class WorkExperienceInfo {
-    private Integer resume_id;
+    private Long id;
     private Integer years;
-    private String company_name;
+    private String companyName;
     private String position;
     private String responsibilities;
-    private Integer id;
-
+    private Long resumeId;
 }

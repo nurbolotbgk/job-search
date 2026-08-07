@@ -1,13 +1,22 @@
 package com.example.demo.model;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class EducationInfo {
-    private Integer resume_id;
+    private Long id;
     private String institution;
     private String program;
-    private Date start_date;
-    private Date end_date;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String degree;
-    private Integer id;
+    private Long resumeId;
 }

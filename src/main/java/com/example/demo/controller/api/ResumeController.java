@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.api;
 
 import com.example.demo.dto.ResumeDto;
 import com.example.demo.model.Resume;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("resumes")
+@RequestMapping("/api/resumes")
 @RequiredArgsConstructor
 public class ResumeController {
     private final List<Resume> storage = new ArrayList<>();
@@ -24,12 +24,12 @@ public class ResumeController {
         return resumeService.getAllResumes();
     }
 
-    @GetMapping("id/{id}")
-    public ResumeDto findResumeById(@PathVariable Integer id) {
+    @GetMapping("/{id}")
+    public ResumeDto findResumeById(@PathVariable Long id) {
         return resumeService.findResumeById(id);
     }
 
-    @GetMapping("/resumesByUsers/{userId}")
+    @GetMapping("/getResumesByUsers/{userId}")
     public List<ResumeDto> getResumesMadeByUser(@PathVariable Long userId) {
         return resumeService.getResumesMadeByUser(userId);
     }
@@ -39,19 +39,19 @@ public class ResumeController {
         return resumeService.getResumesByCategoryId(categoryId);
     }
 
-    @PostMapping
+    @PostMapping("create")
     public HttpStatus createResume(@Valid @RequestBody ResumeDto dto) {
         resumeService.save(dto);
         return HttpStatus.OK;
     }
 
-    @PutMapping
-    public HttpStatus updateResume(@Valid @RequestBody ResumeDto dto) {
+    @PutMapping("update/{id}")
+    public HttpStatus updateResume(@Valid @PathVariable Long id, @RequestBody ResumeDto dto) {
         resumeService.update(dto);
         return HttpStatus.OK;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public HttpStatus deleteResume(@PathVariable Long id) {
         resumeService.deleteById(id);
         return HttpStatus.OK;

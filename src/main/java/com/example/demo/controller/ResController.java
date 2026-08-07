@@ -1,0 +1,23 @@
+package com.example.demo.controller;
+
+
+import com.example.demo.service.ResumeService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/resumes")
+@RequiredArgsConstructor
+public class ResController {
+    private final ResumeService resumeService;
+
+    @GetMapping
+    public String getAll(Model model) {
+        model.addAttribute("resumes", resumeService.getAllResumes());
+        return "resumes/resume_list";
+    }
+
+}

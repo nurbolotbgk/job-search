@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
+
+    private Long id;
+
     @NotBlank(message = "Name should not be empty")
     @Size(min = 2, max = 25, message = "Name length should be 2 to 25")
     private String name;
@@ -42,6 +45,4 @@ public class UserDto {
     @Min(value = 1, message = "Role_id must be 1 - applicant or 2 - employer")
     @Max(value = 2, message = "Role_id must be 1 - applicant or 2 - employer")
     private Integer roleId;
-    @Positive(message = "ID should be positive")
-    private Long id;
 }

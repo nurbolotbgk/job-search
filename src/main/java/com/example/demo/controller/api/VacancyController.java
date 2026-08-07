@@ -1,7 +1,6 @@
-package com.example.demo.controller;
+package com.example.demo.controller.api;
 
 import com.example.demo.dto.VacancyDto;
-import com.example.demo.model.RespondedApplicant;
 import com.example.demo.service.VacancyService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -9,20 +8,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("vacancies")
+@RequestMapping("/api/vacancies")
 @RequiredArgsConstructor
 public class VacancyController {
 
-    private final List<RespondedApplicant> responseStorage = new ArrayList<>();
     private final VacancyService vacancyService;
 
-    @GetMapping("/withUsers")
-    public List<VacancyDto> findVacanciesWithUsers() {
-        return vacancyService.getVacanciesWithUsers();
+    @GetMapping("/vacanciesWithResponses")
+    public List<VacancyDto> findVacanciesWithResponses() {
+        return vacancyService.getVacanciesWithResponses();
     }
 
     @GetMapping
@@ -35,32 +32,20 @@ public class VacancyController {
         return vacancyService.getVacanciesByCategoryId(categoryId);
     }
 
-
-    @PutMapping("update")
-    public ResponseEntity<Void> updateVacancy(@RequestParam Integer id, @RequestBody VacancyDto dto) {
-        return ResponseEntity.ok().build();
-    }
-
-
-
-    @GetMapping("{vacancyId}/responses")
-    public ResponseEntity<List<RespondedApplicant>> getResponsesForVacancy(@PathVariable Integer vacancyId) {
-        return ResponseEntity.ok(responseStorage);
-    }
-
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Void> createVacancy(@Valid @RequestBody VacancyDto dto) {
         vacancyService.save(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping
-    public ResponseEntity<Void> updateVacancy(@Valid @RequestBody VacancyDto dto) {
-        vacancyService.update(dto);
+    @PutMapping("update/{id}")
+    public ResponseEntity<Void> updateVacancy(@PathVariable Long id, @Valid  @RequestBody VacancyDto dto) {
+
+        vacancyService.update(id, dto);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteVacancy(@PathVariable Long id) {
         vacancyService.deleteById(id);
         return ResponseEntity.ok().build();

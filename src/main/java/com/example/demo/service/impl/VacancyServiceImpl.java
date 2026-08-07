@@ -18,8 +18,8 @@ public class VacancyServiceImpl implements VacancyService {
     private final VacancyDao vacancyDao;
 
     @Override
-    public List<VacancyDto> getVacanciesWithUsers() {
-        List<Vacancy> vacanciesWithUsers = vacancyDao.getAllVacanciesWithUser();
+    public List<VacancyDto> getVacanciesWithResponses() {
+        List<Vacancy> vacanciesWithUsers = vacancyDao.getAllVacanciesWithResponses();
 
         if (vacanciesWithUsers.isEmpty()) {
             throw new VacancyNotFoundException();
@@ -115,7 +115,7 @@ public class VacancyServiceImpl implements VacancyService {
     }
 
     @Override
-    public void update(VacancyDto dto) {
+    public void update(Long id, VacancyDto dto) {
         Vacancy vacancy = new Vacancy();
         vacancy.setId(dto.getId());
         vacancy.setName(dto.getName());

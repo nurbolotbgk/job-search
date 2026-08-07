@@ -15,6 +15,7 @@ databaseChangeLog:
               - column:
                   name: confirmation
                   type: boolean
+                  defaultValueBoolean: false
               - column:
                   name: resume_id
                   type: long

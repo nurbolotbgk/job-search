@@ -12,6 +12,5 @@ import lombok.NoArgsConstructor;
 public class RespondedApplicantDto {
     private Integer resumeId;
     private Integer vacancyId;
-    private boolean confirmation;
-    private Integer id;
+
 }

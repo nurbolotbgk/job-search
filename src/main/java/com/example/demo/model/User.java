@@ -19,4 +19,5 @@ public class User {
     private String avatar;
     private Integer roleId;
     private Long id;
+    private Boolean enabled;
 }
