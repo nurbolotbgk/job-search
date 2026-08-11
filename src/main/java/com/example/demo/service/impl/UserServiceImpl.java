@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.dao.UserDao;
+import  com.example.demo.dao.UserDao;
 import com.example.demo.dto.UserDto;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.User;
@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
-                .id(user.getId())               //я добавил для MVC
+                .id(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
@@ -217,8 +217,7 @@ public class UserServiceImpl implements UserService {
     public void update(Long id, UserDto dto) {
         User user = new User();
 
-        user.setId(id);  // я добавил для MVC
-
+        user.setId(id);
         user.setName(dto.getName());
         user.setSurname(dto.getSurname());
         user.setAge(dto.getAge());
