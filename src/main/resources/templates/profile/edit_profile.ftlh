@@ -1,42 +1,32 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Редактирование профиля">
 
     <div class="row justify-content-center">
-
         <div class="col-md-8 col-lg-6">
 
             <div class="card shadow-sm">
-
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
                         Редактирование профиля
                     </h2>
 
-                    <form action="/profile/edit" method="post">
-
-                        <input type="hidden"
-                               name="id"
-                               value="${user.id!}">
-
-                        <input type="hidden"
-                               name="roleId"
-                               value="${user.roleId!}">
-
-                        <input type="hidden"
-                               name="avatar"
-                               value="${user.avatar!}">
+                    <form action="/profile/edit" method="post" enctype="multipart/form-data">
 
                         <div class="mb-3">
                             <label class="form-label">
                                 Имя
                             </label>
 
-                            <input type="text"
-                                   class="form-control"
-                                   name="name"
-                                   value="${user.name!}">
+                            <@spring.formInput
+                            "editUserDto.name"
+                            'class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -44,10 +34,13 @@
                                 Фамилия
                             </label>
 
-                            <input type="text"
-                                   class="form-control"
-                                   name="surname"
-                                   value="${user.surname!}">
+                            <@spring.formInput
+                            "editUserDto.surname"
+                            'class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -55,21 +48,13 @@
                                 Возраст
                             </label>
 
-                            <input type="number"
-                                   class="form-control"
-                                   name="age"
-                                   value="${user.age!}">
-                        </div>
+                            <@spring.formInput
+                            "editUserDto.age"
+                            'type="number" class="form-control"'/>
 
-                        <div class="mb-3">
-                            <label class="form-label">
-                                Email
-                            </label>
-
-                            <input type="email"
-                                   class="form-control"
-                                   name="email"
-                                   value="${user.email!}">
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -77,10 +62,24 @@
                                 Номер телефона
                             </label>
 
-                            <input type="text"
+                            <@spring.formInput
+                            "editUserDto.phoneNumber"
+                            'class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Фото профиля
+                            </label>
+
+                            <input type="file"
                                    class="form-control"
-                                   name="phoneNumber"
-                                   value="${user.phoneNumber!}">
+                                   name="file"
+                                   accept="image/*">
                         </div>
 
                         <div class="d-flex gap-2">
@@ -100,11 +99,9 @@
                     </form>
 
                 </div>
-
             </div>
 
         </div>
-
     </div>
 
 </@layout.layout>

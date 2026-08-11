@@ -1,4 +1,5 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Регистрация">
 
@@ -19,9 +20,13 @@
                                 Имя
                             </label>
 
-                            <input type="text"
-                                   class="form-control"
-                                   name="name">
+                            <@spring.formInput
+                            "userDto.name"
+                            'class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -29,9 +34,13 @@
                                 Фамилия
                             </label>
 
-                            <input type="text"
-                                   class="form-control"
-                                   name="surname">
+                            <@spring.formInput
+                            "userDto.surname"
+                            'class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -39,9 +48,13 @@
                                 Возраст
                             </label>
 
-                            <input type="number"
-                                   class="form-control"
-                                   name="age">
+                            <@spring.formInput
+                            "userDto.age"
+                            'type="number" class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -49,9 +62,13 @@
                                 Email
                             </label>
 
-                            <input type="email"
-                                   class="form-control"
-                                   name="email">
+                            <@spring.formInput
+                            "userDto.email"
+                            'type="email" class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -59,9 +76,13 @@
                                 Пароль
                             </label>
 
-                            <input type="password"
-                                   class="form-control"
-                                   name="password">
+                            <@spring.formPasswordInput
+                            "userDto.password"
+                            'class="form-control"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-3">
@@ -69,10 +90,13 @@
                                 Номер телефона
                             </label>
 
-                            <input type="text"
-                                   class="form-control"
-                                   name="phoneNumber"
-                                   placeholder="+996700123456">
+                            <@spring.formInput
+                            "userDto.phoneNumber"
+                            'class="form-control" placeholder="+996700123456"'/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"/>
                         </div>
 
                         <div class="mb-4">

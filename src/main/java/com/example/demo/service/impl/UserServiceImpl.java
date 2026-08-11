@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.dao.UserDao;
+import  com.example.demo.dao.UserDao;
+import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.User;
@@ -101,7 +102,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
-                .id(user.getId())               //я добавил для MVC
+                .id(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
@@ -178,6 +179,7 @@ public class UserServiceImpl implements UserService {
     public UserDto findUserByEmail(String email) {
         User user = userDao.findByEmail(email).orElseThrow(UserNotFoundException::new);
         return UserDto.builder()
+                .id(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
@@ -214,19 +216,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(Long id, UserDto dto) {
+    public void update(Long id, EditUserDto dto) {
         User user = new User();
 
-        user.setId(id);  // я добавил для MVC
-
+        user.setId(id);
         user.setName(dto.getName());
         user.setSurname(dto.getSurname());
         user.setAge(dto.getAge());
-        user.setEmail(dto.getEmail());
-        user.setPassword(dto.getPassword());
         user.setPhoneNumber(dto.getPhoneNumber());
         user.setAvatar(dto.getAvatar());
-        user.setRoleId(dto.getRoleId());
+
         userDao.update(user);
     }
 

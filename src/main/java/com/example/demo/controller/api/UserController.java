@@ -87,11 +87,11 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("update/{id}")
-    public ResponseEntity<Void> updateUser(@PathVariable Long id, @Valid  @RequestBody UserDto dto) {
-        userService.update(id, dto);
-        return ResponseEntity.ok().build();
-    }
+//    @PutMapping("update/{id}")
+//    public ResponseEntity<Void> updateUser(@PathVariable Long id, @Valid  @RequestBody UserDto dto) {
+//        userService.update(id, dto);
+//        return ResponseEntity.ok().build();
+//    }
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
