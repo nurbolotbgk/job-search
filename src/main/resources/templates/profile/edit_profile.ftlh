@@ -13,7 +13,7 @@
                         Редактирование профиля
                     </h2>
 
-                    <form action="/profile/edit" method="post">
+                    <form action="/profile/edit" method="post" enctype="multipart/form-data">
 
                         <div class="mb-3">
                             <label class="form-label">
@@ -69,6 +69,17 @@
                             <@spring.showErrors
                             "<br>"
                             "text-danger"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Фото профиля
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   name="file"
+                                   accept="image/*">
                         </div>
 
                         <div class="d-flex gap-2">

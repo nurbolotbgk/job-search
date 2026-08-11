@@ -106,7 +106,7 @@ public class UserDao {
                 "name = :name, " +
                 "surname = :surname, " +
                 "age = :age, " +
-                "email = :email, " +
+                //"email = :email, " +
                 //"password = :password, " +
                 "phone_number = :phoneNumber, " +
                 "avatar = :avatar " +
@@ -120,7 +120,7 @@ public class UserDao {
                         .addValue("name", user.getName())
                         .addValue("surname", user.getSurname())
                         .addValue("age", user.getAge())
-                        .addValue("email", user.getEmail())
+                        //.addValue("email", user.getEmail())
                         //.addValue("password", user.getPassword())
                         .addValue("phoneNumber", user.getPhoneNumber())
                         .addValue("avatar", user.getAvatar())

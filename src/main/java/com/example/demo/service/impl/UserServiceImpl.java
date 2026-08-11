@@ -179,6 +179,7 @@ public class UserServiceImpl implements UserService {
     public UserDto findUserByEmail(String email) {
         User user = userDao.findByEmail(email).orElseThrow(UserNotFoundException::new);
         return UserDto.builder()
+                .id(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
