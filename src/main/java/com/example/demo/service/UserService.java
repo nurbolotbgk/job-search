@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.User;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public interface UserService {
 
     void save(UserDto dto);
 
-    void update(Long id, UserDto dto);
+    void update(Long id, EditUserDto dto);
 
     void deleteById(Long id);
 
