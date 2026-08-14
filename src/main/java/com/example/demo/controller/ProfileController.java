@@ -3,7 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.ImageService;
+import com.example.demo.service.ResumeService;
 import com.example.demo.service.UserService;
+import com.example.demo.service.VacancyService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,11 +21,26 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProfileController {
     private final UserService userService;
     private final ImageService imageService;
+    private final ResumeService resumeService;
+    private final VacancyService vacancyService;
 
     @GetMapping
     public String profile(Model model) {
         UserDto currentUser = userService.getCurrentUser();
-        model.addAttribute("user", userService.findUserByEmail(currentUser.getEmail()));
+
+        model.addAttribute("user", currentUser);
+
+        if (currentUser.getRoleId() == 1) {
+            model.addAttribute("resumes", resumeService.getResumesMadeByUser(currentUser.getId()));
+        }
+
+        if (currentUser.getRoleId() == 2) {
+            model.addAttribute(
+                    "vacancies",
+                    vacancyService.getVacanciesByUserId(currentUser.getId())
+            );
+        }
+
         return "profile/profile";
     }
 
@@ -48,15 +65,6 @@ public class ProfileController {
     @PostMapping("/edit")
     public String edit(@Valid EditUserDto editUserDto, BindingResult bindingResult, @RequestParam("file") MultipartFile file) {
 
-        bindingResult.getFieldErrors()
-                .forEach(error ->
-                        System.out.println(
-                                "FIELD: " + error.getField()
-                                        + " | VALUE: " + error.getRejectedValue()
-                                        + " | MESSAGE: " + error.getDefaultMessage()
-                        )
-                );
-
         if (bindingResult.hasErrors()) {
             return "profile/edit_profile";
         }
@@ -80,5 +88,4 @@ public class ProfileController {
         model.addAttribute("user", userService.findUserById(id));
         return "profile/profile";
     }
-
 }

@@ -12,6 +12,28 @@
                         Личный кабинет
                     </h2>
 
+                    <div class="text-center mb-4">
+
+                        <#if user.avatar?? && user.avatar?has_content>
+
+                            <img src="/images/${user.avatar}"
+                                 alt="Фото профиля"
+                                 class="rounded-circle"
+                                 width="150"
+                                 height="150"
+                                 style="object-fit: cover;">
+
+                        <#else>
+
+                            <div class="text-muted">
+                                Фото профиля не установлено
+                            </div>
+
+                        </#if>
+
+                    </div>
+
+
                     <div class="mb-3">
                         <strong>Имя:</strong>
                         ${user.name!}
@@ -41,6 +63,173 @@
                        class="btn btn-primary">
                         Редактировать профиль
                     </a>
+
+
+                    <#-- ========================= -->
+                    <#-- СОИСКАТЕЛЬ                -->
+                    <#-- ========================= -->
+
+                    <#if user.roleId == 1>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                            <h4 class="mb-0">
+                                Мои резюме
+                            </h4>
+
+                            <a href="/resumes/create"
+                               class="btn btn-success">
+                                Создать резюме
+                            </a>
+
+                        </div>
+
+
+                        <#if resumes?? && resumes?size gt 0>
+
+                            <#list resumes as resume>
+
+                                <div class="card mb-3">
+                                    <div class="card-body">
+
+                                        <h5 class="card-title">
+                                            ${resume.name!}
+                                        </h5>
+
+                                        <p class="card-text mb-2">
+                                            Желаемая зарплата:
+                                            ${resume.salary!}
+                                        </p>
+
+
+                                        <#if resume.active?? && resume.active>
+
+                                            <span class="badge bg-success">
+                                            Активно
+                                        </span>
+
+                                        <#else>
+
+                                            <span class="badge bg-secondary">
+                                            Неактивно
+                                        </span>
+
+                                        </#if>
+
+
+                                        <div class="mt-3">
+
+                                            <a href="/resumes/${resume.id}/edit"
+                                               class="btn btn-outline-primary btn-sm">
+                                                Редактировать
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </#list>
+
+                        <#else>
+
+                            <p class="text-muted">
+                                У вас пока нет резюме.
+                            </p>
+
+                        </#if>
+
+
+                    <#-- ========================= -->
+                    <#-- РАБОТОДАТЕЛЬ              -->
+                    <#-- ========================= -->
+
+                    <#elseif user.roleId == 2>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                            <h4 class="mb-0">
+                                Мои вакансии
+                            </h4>
+
+                            <a href="/vacancies/create"
+                               class="btn btn-success">
+                                Создать вакансию
+                            </a>
+
+                        </div>
+
+
+                        <#if vacancies?? && vacancies?size gt 0>
+
+                            <#list vacancies as vacancy>
+
+                                <div class="card mb-3">
+                                    <div class="card-body">
+
+                                        <h5 class="card-title">
+                                            ${vacancy.name!}
+                                        </h5>
+
+                                        <p class="card-text mb-2">
+                                            ${vacancy.description!}
+                                        </p>
+
+                                        <p class="card-text mb-2">
+                                            <strong>Зарплата:</strong>
+                                            ${vacancy.salary!}
+                                        </p>
+
+                                        <p class="card-text mb-2">
+                                            <strong>Опыт:</strong>
+                                            ${vacancy.expFrom!}
+                                            -
+                                            ${vacancy.expTo!}
+                                        </p>
+
+
+                                        <#if vacancy.active?? && vacancy.active>
+
+                                            <span class="badge bg-success">
+                                            Активна
+                                        </span>
+
+                                        <#else>
+
+                                            <span class="badge bg-secondary">
+                                            Неактивна
+                                        </span>
+
+                                        </#if>
+
+
+                                        <div class="mt-3">
+
+                                            <a href="/vacancies/${vacancy.id}/edit"
+                                               class="btn btn-outline-primary btn-sm">
+                                                Редактировать
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </#list>
+
+                        <#else>
+
+                            <p class="text-muted">
+                                У вас пока нет вакансий.
+                            </p>
+
+                        </#if>
+
+                    </#if>
 
                 </div>
             </div>

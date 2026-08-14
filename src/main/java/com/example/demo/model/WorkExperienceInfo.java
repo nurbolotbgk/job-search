@@ -1,19 +1,25 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
+@Entity
+@Table(name = "work_experience_info")
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class WorkExperienceInfo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer years;
+    @Column(name = "company_name")
     private String companyName;
     private String position;
     private String responsibilities;
-    private Long resumeId;
+    @ManyToOne
+    @JoinColumn(name = "resume_id")
+    private Resume resume;
 }

@@ -1,18 +1,26 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
+@Entity
+@Table(name = "contacts_info")
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactInfo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "contact_value")
     private String contactValue;
-    private Integer typeId;
-    private Long resumeId;
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private ContactType contactType;
+    @ManyToOne
+    @JoinColumn(name = "resume_id")
+    private Resume resume;
 
 }

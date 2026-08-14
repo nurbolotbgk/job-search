@@ -16,4 +16,8 @@ public interface VacancyService {
     void update(Long id, VacancyDto dto);
 
     void deleteById(Long id);
+
+    VacancyDto findById(Long id);
+
+    List<VacancyDto> getVacanciesByUserId(Long userId);
 }

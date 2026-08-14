@@ -1,24 +1,40 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Data
+@Entity
+@Table(name = "vacancies")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Vacancy {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String description;
-    private Integer categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
     private double salary;
+    @Column(name = "exp_from")
     private Integer expFrom;
+    @Column(name = "exp_to")
     private Integer expTo;
     private Boolean active;
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    @Column(name = "created_date")
     private LocalDateTime createdDate;
+    @Column(name = "update_time")
     private LocalDateTime updateTime;
-    private Long id;
+    @OneToMany(mappedBy = "vacancy")
+    private List<RespondedApplicant> respondedApplicants;
+
 }

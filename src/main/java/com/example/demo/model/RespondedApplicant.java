@@ -1,15 +1,24 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "responded_applicants")
 public class RespondedApplicant {
-    private Integer resumeId;
-    private Integer vacancyId;
-    private boolean confirmation;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+     @ManyToOne
+     @JoinColumn(name = "resume_id")
+    private Resume resume;
+     @ManyToOne
+     @JoinColumn(name = "vacancy_id")
+    private Vacancy vacancy;
+    private boolean confirmation;
+
 }

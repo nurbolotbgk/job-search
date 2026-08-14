@@ -117,13 +117,15 @@ public class VacancyServiceImpl implements VacancyService {
     @Override
     public void update(Long id, VacancyDto dto) {
         Vacancy vacancy = new Vacancy();
-        vacancy.setId(dto.getId());
+        vacancy.setId(id);
         vacancy.setName(dto.getName());
         vacancy.setDescription(dto.getDescription());
         vacancy.setSalary(dto.getSalary());
         vacancy.setExpFrom(dto.getExpFrom());
         vacancy.setExpTo(dto.getExpTo());
         vacancy.setActive(dto.getActive());
+        vacancy.setCreatedDate(LocalDateTime.now());
+
         vacancy.setUpdateTime(LocalDateTime.now());
         vacancy.setCategoryId(dto.getCategoryId());
         vacancy.setUserId(dto.getUserId());
@@ -133,5 +135,44 @@ public class VacancyServiceImpl implements VacancyService {
     @Override
     public void deleteById(Long id) {
         vacancyDao.deleteById(id);
+    }
+
+    @Override
+    public VacancyDto findById(Long id) {
+        Vacancy vacancy = vacancyDao.findById(id).orElseThrow(VacancyNotFoundException::new);
+
+        return VacancyDto.builder()
+                .id(vacancy.getId())
+                .name(vacancy.getName())
+                .description(vacancy.getDescription())
+                .categoryId(vacancy.getCategoryId())
+                .salary(vacancy.getSalary())
+                .expFrom(vacancy.getExpFrom())
+                .expTo(vacancy.getExpTo())
+                .active(vacancy.getActive())
+                .userId(vacancy.getUserId())
+                .createdDate(vacancy.getCreatedDate())
+                .updateTime(vacancy.getUpdateTime())
+                .build();
+    }
+
+    @Override
+    public List<VacancyDto> getVacanciesByUserId(Long userId) {
+        return vacancyDao.getVacanciesByUserId(userId)
+                .stream()
+                .map(vacancy -> VacancyDto.builder()
+                        .id(vacancy.getId())
+                        .name(vacancy.getName())
+                        .description(vacancy.getDescription())
+                        .categoryId(vacancy.getCategoryId())
+                        .salary(vacancy.getSalary())
+                        .expFrom(vacancy.getExpFrom())
+                        .expTo(vacancy.getExpTo())
+                        .active(vacancy.getActive())
+                        .userId(vacancy.getUserId())
+                        .createdDate(vacancy.getCreatedDate())
+                        .updateTime(vacancy.getUpdateTime())
+                        .build())
+                .toList();
     }
 }

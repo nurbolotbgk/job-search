@@ -32,7 +32,7 @@ public class AuthController {
             return "auth/register";
         }
         userService.save(userDto);
-        return "auth/login";
+        return "redirect:/auth/login";
     }
 
     @GetMapping("/login")

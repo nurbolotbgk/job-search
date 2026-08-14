@@ -52,7 +52,6 @@ public class SecurityConfig {
 
         http
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
-                //.httpBasic(Customizer.withDefaults())
                 .formLogin(login -> login
 
                         .loginPage("/auth/login")
@@ -75,17 +74,23 @@ public class SecurityConfig {
                                 "/auth/login",
                                 "/auth/register",
                                 "/vacancies",
-                                "/resumes",
-                                "/static/**"
+                                "/static/**",
+                                "/images/**"
                         ).permitAll()
 
                         .requestMatchers("/profile/**")
                         .authenticated()
 
-                        .requestMatchers("/resumes/create/**")
+                        .requestMatchers("/resumes/create",
+                                        "/resumes/*/edit"
+                        )
                         .hasRole("APPLICANT")
 
-                        .requestMatchers("/vacancies/create/**")
+                        .requestMatchers("/resumes")
+                        .hasRole("EMPLOYER")
+
+                        .requestMatchers("/vacancies/create",
+                                "/vacancies/*/edit")
                         .hasRole("EMPLOYER")
 
                         .anyRequest()
