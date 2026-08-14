@@ -77,7 +77,7 @@ public class ResController {
 
         resumeService.save(resumeDto);
 
-        return "redirect:/resumes";
+        return "redirect:/profile";
     }
 
     @GetMapping("/{id}/edit")
@@ -138,7 +138,7 @@ public class ResController {
 
         resumeService.update(resumeDto);
 
-        return "redirect:/resumes";
+        return "redirect:/profile";
     }
 
 }
