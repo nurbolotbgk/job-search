@@ -32,5 +32,7 @@ public class User {
     private Role role;
     @OneToMany(mappedBy = "user")
     private List <Vacancy> vacancies;
+    @OneToMany(mappedBy = "user")
+    private List<Resume> resumes;
     private Boolean enabled;
 }
