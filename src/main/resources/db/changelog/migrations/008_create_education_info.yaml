@@ -14,10 +14,10 @@ databaseChangeLog:
                     primaryKey: true
               - column:
                   name: institution
-                  type: text
+                  type: varchar(255)
               - column:
                   name: program
-                  type: text
+                  type: varchar(255)
               - column:
                   name: start_date
                   type: date
@@ -26,7 +26,7 @@ databaseChangeLog:
                   type: date
               - column:
                   name: degree
-                  type: text
+                  type: varchar(255)
               - column:
                   name: resume_id
                   type: long

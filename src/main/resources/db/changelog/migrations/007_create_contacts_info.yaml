@@ -14,7 +14,7 @@ databaseChangeLog:
                     primaryKey: true
               - column:
                   name: contact_value
-                  type: text
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:

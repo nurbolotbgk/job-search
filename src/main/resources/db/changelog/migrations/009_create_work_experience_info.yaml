@@ -27,7 +27,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: responsibilities
-                  type: text
+                  type: varchar(255)
               - column:
                   name: resume_id
                   type: long

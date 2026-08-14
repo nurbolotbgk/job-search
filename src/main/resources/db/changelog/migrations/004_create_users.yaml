@@ -31,7 +31,7 @@ databaseChangeLog:
                     unique: true
               - column:
                   name: password
-                  type: text
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
@@ -39,7 +39,7 @@ databaseChangeLog:
                   type: varchar(55)
               - column:
                   name: avatar
-                  type: text
+                  type: varchar(255)
               - column:
                   name: role_id
                   type: int

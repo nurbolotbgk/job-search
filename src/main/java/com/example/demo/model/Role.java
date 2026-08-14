@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 public class Role {
     @Id
-    private Long id;
+    private Integer id;
     @Column(name = "role_name")
     private String roleName;
     @OneToMany(mappedBy = "role")
