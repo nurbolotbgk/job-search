@@ -70,9 +70,27 @@ public class ResController {
                         resumeFormDto.getActive() != null
                                 && resumeFormDto.getActive()
                 )
-                .workExperiences(List.of())
-                .educations(List.of())
-                .contacts(List.of())
+                .workExperiences(
+                        resumeFormDto.getWorkExperience() != null
+                                ? List.of(
+                                resumeFormDto.getWorkExperience()
+                        )
+                                : List.of()
+                )
+                .educations(
+                        resumeFormDto.getEducation() != null
+                                ? List.of(
+                                resumeFormDto.getEducation()
+                        )
+                                : List.of()
+                )
+                .contacts(
+                        resumeFormDto.getContact() != null
+                                ? List.of(
+                                resumeFormDto.getContact()
+                        )
+                                : List.of()
+                )
                 .build();
 
         resumeService.save(resumeDto);
@@ -81,7 +99,9 @@ public class ResController {
     }
 
     @GetMapping("/{id}/edit")
-    public String editPage(@PathVariable Long id, Model model
+    public String editPage(
+            @PathVariable Long id,
+            Model model
     ) {
         ResumeDto resume = resumeService.findResumeById(id);
         UserDto currentUser = userService.getCurrentUser();
@@ -95,11 +115,34 @@ public class ResController {
                 .categoryId(resume.getCategoryId())
                 .salary(resume.getSalary())
                 .active(resume.getActive())
+
+                .workExperience(
+                        resume.getWorkExperiences() != null
+                                && !resume.getWorkExperiences().isEmpty()
+                                ? resume.getWorkExperiences().get(0)
+                                : null
+                )
+
+                .education(
+                        resume.getEducations() != null
+                                && !resume.getEducations().isEmpty()
+                                ? resume.getEducations().get(0)
+                                : null
+                )
+
+                .contact(
+                        resume.getContacts() != null
+                                && !resume.getContacts().isEmpty()
+                                ? resume.getContacts().get(0)
+                                : null
+                )
+
                 .build();
 
         model.addAttribute("resumeFormDto", resumeFormDto);
         model.addAttribute("resumeId", id);
-        model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("categories", categoryService.getAllCategories()
+        );
 
         return "resumes/edit_resume";
     }
@@ -130,10 +173,25 @@ public class ResController {
                 .name(resumeFormDto.getName())
                 .categoryId(resumeFormDto.getCategoryId())
                 .salary(resumeFormDto.getSalary())
-                .active(resumeFormDto.getActive() != null && resumeFormDto.getActive())
-                .workExperiences(oldResume.getWorkExperiences())
-                .educations(oldResume.getEducations())
-                .contacts(oldResume.getContacts())
+                .active(
+                        resumeFormDto.getActive() != null
+                                && resumeFormDto.getActive()
+                )
+                .workExperiences(
+                        resumeFormDto.getWorkExperience() != null
+                                ? List.of(resumeFormDto.getWorkExperience())
+                                : List.of()
+                )
+                .educations(
+                        resumeFormDto.getEducation() != null
+                                ? List.of(resumeFormDto.getEducation())
+                                : List.of()
+                )
+                .contacts(
+                        resumeFormDto.getContact() != null
+                                ? List.of(resumeFormDto.getContact())
+                                : List.of()
+                )
                 .build();
 
         resumeService.update(resumeDto);

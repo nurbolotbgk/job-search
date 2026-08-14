@@ -117,6 +117,7 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
+    @Transactional
     public void save(ResumeDto dto) {
 
         User user = userRepository.findById(dto.getUserId()).orElseThrow(UserNotFoundException::new);
@@ -146,6 +147,7 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
+    @Transactional
     public void update(ResumeDto dto) {
 
         Resume resume = resumeRepository.findById(dto.getId()).orElseThrow(ResumeNotFoundException::new);
