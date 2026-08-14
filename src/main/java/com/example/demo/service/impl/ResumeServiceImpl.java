@@ -1,10 +1,15 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.dao.ResumeDao;
 import com.example.demo.dto.ResumeDto;
 import com.example.demo.exception.CategoryNotFoundException;
 import com.example.demo.exception.ResumeNotFoundException;
+import com.example.demo.exception.UserNotFoundException;
+import com.example.demo.model.Category;
 import com.example.demo.model.Resume;
+import com.example.demo.model.User;
+import com.example.demo.repository.CategoryRepository;
+import com.example.demo.repository.ResumeRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.ContactInfoService;
 import com.example.demo.service.EducationInfoService;
 import com.example.demo.service.ResumeService;
@@ -19,7 +24,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ResumeServiceImpl implements ResumeService {
-    private final ResumeDao resumeDao;
+    private final ResumeRepository resumeRepository;
+    private final UserRepository userRepository;
+    private final CategoryRepository categoryRepository;
+
     private final WorkExperienceInfoService workExperienceInfoService;
     private final EducationInfoService educationInfoService;
     private final ContactInfoService contactInfoService;
@@ -27,12 +35,12 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     public List<ResumeDto> getResumesByCategoryId(Integer categoryId) {
-        List<Resume> resumeByCatId = resumeDao.getResumeByCategory(categoryId);
-        if (resumeByCatId.isEmpty()) {
+        List<Resume> resumes = resumeRepository.findByCategory_Id(categoryId);
+        if (resumes.isEmpty()) {
             throw new CategoryNotFoundException();
         }
 
-        return resumeByCatId.stream()
+        return resumes.stream()
                 .map(e -> ResumeDto.builder()
                         .id(e.getId())
                         .name(e.getName())
@@ -40,19 +48,18 @@ public class ResumeServiceImpl implements ResumeService {
                         .active(e.getActive())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
-                        .userId(e.getUserId())
-                        .categoryId(e.getCategoryId())
-                        .build()
-                )
+                        .userId(e.getUser().getId())
+                        .categoryId(e.getCategory().getId())
+                        .build())
                 .toList();
     }
 
 
     @Override
     public List<ResumeDto> getAllResumes() {
-        List<Resume> resumeList = resumeDao.getAllResumes();
 
-        return resumeList.stream()
+        return resumeRepository.findAll()
+                .stream()
                 .map(e -> ResumeDto.builder()
                         .id(e.getId())
                         .name(e.getName())
@@ -60,17 +67,16 @@ public class ResumeServiceImpl implements ResumeService {
                         .active(e.getActive())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
-                        .userId(e.getUserId())
-                        .categoryId(e.getCategoryId())
-                        .build()
-                )
+                        .userId(e.getUser().getId())
+                        .categoryId(e.getCategory().getId())
+                        .build())
                 .toList();
-
     }
 
     @Override
     public ResumeDto findResumeById(Long id) {
-        Resume resume = resumeDao.findResumeById(id)
+
+        Resume resume = resumeRepository.findById(id)
                 .orElseThrow(ResumeNotFoundException::new);
 
         return ResumeDto.builder()
@@ -80,28 +86,23 @@ public class ResumeServiceImpl implements ResumeService {
                 .active(resume.getActive())
                 .createdDate(resume.getCreatedDate())
                 .updateTime(resume.getUpdateTime())
-                .userId(resume.getUserId())
-                .categoryId(resume.getCategoryId())
-                .workExperiences(
-                        workExperienceInfoService.findByResumeId(id)
-                )
-                .educations(
-                        educationInfoService.findByResumeId(id)
-                )
-                .contacts(
-                        contactInfoService.findByResumeId(id)
-                )
+                .userId(resume.getUser().getId())
+                .categoryId(resume.getCategory().getId())
+                .workExperiences(workExperienceInfoService.findByResumeId(id))
+                .educations(educationInfoService.findByResumeId(id))
+                .contacts(contactInfoService.findByResumeId(id))
                 .build();
     }
 
     @Override
     public List<ResumeDto> getResumesMadeByUser(Long userId) {
-        List<Resume> resumesMadeByUser = resumeDao.getResumesMadeByUser(userId);
-        if (resumesMadeByUser.isEmpty()) {
+        List<Resume> resumes =  resumeRepository.findByUser_Id(userId);
+
+        if (resumes.isEmpty()) {
             throw new ResumeNotFoundException();
         }
 
-        return resumesMadeByUser.stream()
+        return resumes.stream()
                 .map(e -> ResumeDto.builder()
                         .id(e.getId())
                         .name(e.getName())
@@ -109,80 +110,68 @@ public class ResumeServiceImpl implements ResumeService {
                         .active(e.getActive())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
-                        .userId(e.getUserId())
-                        .categoryId(e.getCategoryId())
-                        .build()
-                )
+                        .userId(e.getUser().getId())
+                        .categoryId(e.getCategory().getId())
+                        .build())
                 .toList();
     }
 
     @Override
-    @Transactional
     public void save(ResumeDto dto) {
-        LocalDateTime now = LocalDateTime.now();
+
+        User user = userRepository.findById(dto.getUserId()).orElseThrow(UserNotFoundException::new);
+
+        Category category = categoryRepository.findById(dto.getCategoryId()).orElseThrow(CategoryNotFoundException::new);
 
         Resume resume = new Resume();
+
         resume.setName(dto.getName());
         resume.setSalary(dto.getSalary());
         resume.setActive(dto.getActive());
-        resume.setCreatedDate(now);
-        resume.setUpdateTime(now);
-        resume.setUserId(dto.getUserId());
-        resume.setCategoryId(dto.getCategoryId());
+        resume.setCreatedDate(LocalDateTime.now());
+        resume.setUpdateTime(LocalDateTime.now());
 
-        Long resumeId = resumeDao.save(resume);
+        resume.setUser(user);
+        resume.setCategory(category);
 
-        workExperienceInfoService.saveAll(
-                resumeId,
-                dto.getWorkExperiences()
-        );
+        Resume savedResume = resumeRepository.save(resume);
 
-        educationInfoService.saveAll(
-                resumeId,
-                dto.getEducations()
-        );
+        Long resumeId = savedResume.getId();
 
-        contactInfoService.saveAll(
-                resumeId,
-                dto.getContacts()
-        );
+        workExperienceInfoService.saveAll(resumeId, dto.getWorkExperiences());
+
+        educationInfoService.saveAll(resumeId, dto.getEducations());
+
+        contactInfoService.saveAll(resumeId, dto.getContacts());
     }
 
     @Override
-    @Transactional
     public void update(ResumeDto dto) {
-        resumeDao.findResumeById(dto.getId())
-                .orElseThrow(ResumeNotFoundException::new);
 
-        Resume resume = new Resume();
-        resume.setId(dto.getId());
+        Resume resume = resumeRepository.findById(dto.getId()).orElseThrow(ResumeNotFoundException::new);
+
+        Category category = categoryRepository.findById(dto.getCategoryId()).orElseThrow(CategoryNotFoundException::new);
+
         resume.setName(dto.getName());
         resume.setSalary(dto.getSalary());
         resume.setActive(dto.getActive());
         resume.setUpdateTime(LocalDateTime.now());
-        resume.setUserId(dto.getUserId());
-        resume.setCategoryId(dto.getCategoryId());
+        resume.setCategory(category);
 
-        resumeDao.update(resume);
+        resumeRepository.save(resume);
 
-        workExperienceInfoService.replaceAll(
-                dto.getId(),
-                dto.getWorkExperiences()
-        );
+        workExperienceInfoService.replaceAll(dto.getId(), dto.getWorkExperiences());
 
-        educationInfoService.replaceAll(
-                dto.getId(),
-                dto.getEducations()
-        );
+        educationInfoService.replaceAll(dto.getId(), dto.getEducations());
 
-        contactInfoService.replaceAll(
-                dto.getId(),
-                dto.getContacts()
-        );
+        contactInfoService.replaceAll(dto.getId(), dto.getContacts());
     }
 
     @Override
     public void deleteById(long id) {
-        resumeDao.deleteById(id);
+        if (!resumeRepository.existsById(id)) {
+            throw new ResumeNotFoundException();
+        }
+        resumeRepository.deleteById(id);
     }
 }

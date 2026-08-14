@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RespondedApplicantDto {
-    private Integer resumeId;
-    private Integer vacancyId;
+    private Long resumeId;
+    private Long vacancyId;
 
 }

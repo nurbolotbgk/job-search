@@ -1,11 +1,15 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.dao.WorkExperienceInfoDao;
 import com.example.demo.dto.WorkExperienceInfoDto;
+import com.example.demo.exception.ResumeNotFoundException;
+import com.example.demo.model.Resume;
 import com.example.demo.model.WorkExperienceInfo;
+import com.example.demo.repository.ResumeRepository;
+import com.example.demo.repository.WorkExperienceInfoRepository;
 import com.example.demo.service.WorkExperienceInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,40 +18,42 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WorkExperienceInfoServiceImpl implements WorkExperienceInfoService {
 
-    private final WorkExperienceInfoDao workExperienceInfoDao;
+    private final WorkExperienceInfoRepository workExperienceInfoRepository;
+    private final ResumeRepository resumeRepository;
 
     @Override
-    public void saveAll(
-            Long resumeId,
-            List<WorkExperienceInfoDto> dtoList
-    ) {
+    public void saveAll(Long resumeId, List<WorkExperienceInfoDto> dtoList) {
         if (dtoList == null || dtoList.isEmpty()) {
             return;
         }
 
-        for (WorkExperienceInfoDto dto : dtoList) {
-            WorkExperienceInfo experience = WorkExperienceInfo.builder()
-                    .years(dto.getYears())
-                    .companyName(dto.getCompanyName())
-                    .position(dto.getPosition())
-                    .responsibilities(dto.getResponsibilities())
-                    .resumeId(resumeId)
-                    .build();
+        Resume resume = resumeRepository.findById(resumeId).orElseThrow(ResumeNotFoundException::new);
 
-            workExperienceInfoDao.save(experience);
+        for (WorkExperienceInfoDto dto : dtoList) {
+            WorkExperienceInfo experience =
+                    WorkExperienceInfo.builder()
+                            .years(dto.getYears())
+                            .companyName(dto.getCompanyName())
+                            .position(dto.getPosition())
+                            .responsibilities(dto.getResponsibilities())
+                            .resume(resume)
+                            .build();
+
+            workExperienceInfoRepository.save(experience);
         }
     }
 
     @Override
+    @Transactional
     public void replaceAll(Long resumeId, List<WorkExperienceInfoDto> dtoList) {
-        workExperienceInfoDao.deleteByResumeId(resumeId);
+        workExperienceInfoRepository.deleteByResume_Id(resumeId);
         saveAll(resumeId, dtoList);
     }
 
     @Override
     public List<WorkExperienceInfoDto> findByResumeId(Long resumeId) {
         List<WorkExperienceInfo> experienceList =
-                workExperienceInfoDao.findByResumeId(resumeId);
+                workExperienceInfoRepository.findByResume_Id(resumeId);
 
         if (experienceList.isEmpty()) {
             return Collections.emptyList();

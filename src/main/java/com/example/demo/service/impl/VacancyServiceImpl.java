@@ -1,10 +1,15 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.dao.VacancyDao;
 import com.example.demo.dto.VacancyDto;
 import com.example.demo.exception.CategoryNotFoundException;
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.exception.VacancyNotFoundException;
+import com.example.demo.model.Category;
+import com.example.demo.model.User;
 import com.example.demo.model.Vacancy;
+import com.example.demo.repository.CategoryRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.VacancyRepository;
 import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,142 +20,163 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class VacancyServiceImpl implements VacancyService {
-    private final VacancyDao vacancyDao;
+    private final VacancyRepository vacancyRepository;
+    private final UserRepository userRepository;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public List<VacancyDto> getVacanciesWithResponses() {
-        List<Vacancy> vacanciesWithUsers = vacancyDao.getAllVacanciesWithResponses();
+        List<Vacancy> vacancies =
+                vacancyRepository.findDistinctByRespondedApplicantsIsNotEmpty();
 
-        if (vacanciesWithUsers.isEmpty()) {
+        if (vacancies.isEmpty()) {
             throw new VacancyNotFoundException();
         }
 
-        return vacanciesWithUsers.stream()
-                .map(e -> VacancyDto.builder()
-                        .id(e.getId())
-                        .name(e.getName())
-                        .description(e.getDescription())
-                        .categoryId(e.getCategoryId())
-                        .salary(e.getSalary())
-                        .expFrom(e.getExpFrom())
-                        .expTo(e.getExpTo())
-                        .active(e.getActive())
-                        .userId(e.getUserId())
-                        .createdDate(e.getCreatedDate())
-                        .updateTime(e.getUpdateTime())
-                        .build()
-                )
+        return vacancies.stream()
+                .map(v -> VacancyDto.builder()
+                        .id(v.getId())
+                        .name(v.getName())
+                        .description(v.getDescription())
+                        .categoryId(v.getCategory().getId())
+                        .salary(v.getSalary())
+                        .expFrom(v.getExpFrom())
+                        .expTo(v.getExpTo())
+                        .active(v.getActive())
+                        .userId(v.getUser().getId())
+                        .createdDate(v.getCreatedDate())
+                        .updateTime(v.getUpdateTime())
+                        .build())
                 .toList();
     }
 
     @Override
     public List<VacancyDto> getAllVacancies() {
-        List<Vacancy> vacanciesWithUsers = vacancyDao.getAllVacancies();
+        List<Vacancy> vacancies =
+                vacancyRepository.findByActiveTrueOrderByUpdateTimeDesc();
 
-        if (vacanciesWithUsers.isEmpty()) {
+        if (vacancies.isEmpty()) {
             throw new VacancyNotFoundException();
         }
 
-        return vacanciesWithUsers.stream()
+        return vacancies.stream()
                 .map(e -> VacancyDto.builder()
                         .id(e.getId())
                         .name(e.getName())
                         .description(e.getDescription())
-                        .categoryId(e.getCategoryId())
+                        .categoryId(e.getCategory().getId())
                         .salary(e.getSalary())
                         .expFrom(e.getExpFrom())
                         .expTo(e.getExpTo())
                         .active(e.getActive())
-                        .userId(e.getUserId())
+                        .userId(e.getUser().getId())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
-                        .build()
-                )
+                        .build())
                 .toList();
     }
 
     @Override
     public List<VacancyDto> getVacanciesByCategoryId(Integer categoryId) {
-        List<Vacancy> vacanciesByCatId = vacancyDao.getVacanciesByCategory(categoryId);
+        List<Vacancy> vacancies =
+                vacancyRepository.findByCategory_Id(categoryId);
 
-        if (vacanciesByCatId.isEmpty()) {
+        if (vacancies.isEmpty()) {
             throw new CategoryNotFoundException();
         }
 
-        return vacanciesByCatId.stream()
+        return vacancies.stream()
                 .map(e -> VacancyDto.builder()
                         .id(e.getId())
                         .name(e.getName())
                         .description(e.getDescription())
-                        .categoryId(e.getCategoryId())
+                        .categoryId(e.getCategory().getId())
                         .salary(e.getSalary())
                         .expFrom(e.getExpFrom())
                         .expTo(e.getExpTo())
                         .active(e.getActive())
-                        .userId(e.getUserId())
+                        .userId(e.getUser().getId())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
-                        .build()
-                )
+                        .build())
                 .toList();
     }
 
     @Override
     public void save(VacancyDto dto) {
+        Category category = categoryRepository.findById(dto.getCategoryId())
+                .orElseThrow(CategoryNotFoundException::new);
+
+        User user = userRepository.findById(dto.getUserId())
+                .orElseThrow(UserNotFoundException::new);
+
         Vacancy vacancy = new Vacancy();
+
         vacancy.setName(dto.getName());
         vacancy.setDescription(dto.getDescription());
         vacancy.setSalary(dto.getSalary());
         vacancy.setExpFrom(dto.getExpFrom());
         vacancy.setExpTo(dto.getExpTo());
         vacancy.setActive(dto.getActive());
-
-        vacancy.setCreatedDate(dto.getCreatedDate());
-        vacancy.setUpdateTime(dto.getUpdateTime());
-
-        vacancy.setCategoryId(dto.getCategoryId());
-        vacancy.setUserId(dto.getUserId());
-
-        vacancyDao.save(vacancy);
+        vacancy.setCreatedDate(
+                dto.getCreatedDate() != null
+                        ? dto.getCreatedDate()
+                        : LocalDateTime.now()
+        );
+        vacancy.setUpdateTime(
+                dto.getUpdateTime() != null
+                        ? dto.getUpdateTime()
+                        : LocalDateTime.now()
+        );
+        vacancy.setCategory(category);
+        vacancy.setUser(user);
+        vacancyRepository.save(vacancy);
     }
 
     @Override
     public void update(Long id, VacancyDto dto) {
-        Vacancy vacancy = new Vacancy();
-        vacancy.setId(id);
+        Vacancy vacancy = vacancyRepository.findById(id)
+                .orElseThrow(VacancyNotFoundException::new);
+
+        Category category = categoryRepository.findById(dto.getCategoryId())
+                .orElseThrow(CategoryNotFoundException::new);
+
         vacancy.setName(dto.getName());
         vacancy.setDescription(dto.getDescription());
         vacancy.setSalary(dto.getSalary());
         vacancy.setExpFrom(dto.getExpFrom());
         vacancy.setExpTo(dto.getExpTo());
         vacancy.setActive(dto.getActive());
-        vacancy.setCreatedDate(LocalDateTime.now());
-
         vacancy.setUpdateTime(LocalDateTime.now());
-        vacancy.setCategoryId(dto.getCategoryId());
-        vacancy.setUserId(dto.getUserId());
-        vacancyDao.update(vacancy);
+        vacancy.setCategory(category);
+
+        vacancyRepository.save(vacancy);
     }
 
     @Override
     public void deleteById(Long id) {
-        vacancyDao.deleteById(id);
+        if (!vacancyRepository.existsById(id)) {
+            throw new VacancyNotFoundException();
+        }
+
+        vacancyRepository.deleteById(id);
     }
 
     @Override
     public VacancyDto findById(Long id) {
-        Vacancy vacancy = vacancyDao.findById(id).orElseThrow(VacancyNotFoundException::new);
+        Vacancy vacancy = vacancyRepository.findById(id)
+                .orElseThrow(VacancyNotFoundException::new);
 
         return VacancyDto.builder()
                 .id(vacancy.getId())
                 .name(vacancy.getName())
                 .description(vacancy.getDescription())
-                .categoryId(vacancy.getCategoryId())
+                .categoryId(vacancy.getCategory().getId())
                 .salary(vacancy.getSalary())
                 .expFrom(vacancy.getExpFrom())
                 .expTo(vacancy.getExpTo())
                 .active(vacancy.getActive())
-                .userId(vacancy.getUserId())
+                .userId(vacancy.getUser().getId())
                 .createdDate(vacancy.getCreatedDate())
                 .updateTime(vacancy.getUpdateTime())
                 .build();
@@ -158,20 +184,20 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public List<VacancyDto> getVacanciesByUserId(Long userId) {
-        return vacancyDao.getVacanciesByUserId(userId)
+        return vacancyRepository.findByUser_Id(userId)
                 .stream()
-                .map(vacancy -> VacancyDto.builder()
-                        .id(vacancy.getId())
-                        .name(vacancy.getName())
-                        .description(vacancy.getDescription())
-                        .categoryId(vacancy.getCategoryId())
-                        .salary(vacancy.getSalary())
-                        .expFrom(vacancy.getExpFrom())
-                        .expTo(vacancy.getExpTo())
-                        .active(vacancy.getActive())
-                        .userId(vacancy.getUserId())
-                        .createdDate(vacancy.getCreatedDate())
-                        .updateTime(vacancy.getUpdateTime())
+                .map(v -> VacancyDto.builder()
+                        .id(v.getId())
+                        .name(v.getName())
+                        .description(v.getDescription())
+                        .categoryId(v.getCategory().getId())
+                        .salary(v.getSalary())
+                        .expFrom(v.getExpFrom())
+                        .expTo(v.getExpTo())
+                        .active(v.getActive())
+                        .userId(v.getUser().getId())
+                        .createdDate(v.getCreatedDate())
+                        .updateTime(v.getUpdateTime())
                         .build())
                 .toList();
     }

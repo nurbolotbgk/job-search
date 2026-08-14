@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import  com.example.demo.dao.UserDao;
 import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.exception.UserNotFoundException;
