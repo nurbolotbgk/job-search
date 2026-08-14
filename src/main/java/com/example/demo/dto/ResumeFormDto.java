@@ -28,4 +28,9 @@ public class ResumeFormDto {
     private Double salary;
 
     private Boolean active;
+    private WorkExperienceInfoDto workExperience;
+
+    private EducationInfoDto education;
+
+    private ContactInfoDto contact;
 }
