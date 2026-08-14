@@ -2,57 +2,74 @@
 
 <@layout.layout title="Резюме">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="mb-4">
 
-        <div>
-            <h2 class="mb-1">Резюме</h2>
-            <p class="text-muted mb-0">
-                Список резюме соискателей
-            </p>
-        </div>
+        <h2 class="mb-1">
+            Резюме
+        </h2>
 
-        <a href="/resumes/create"
-           class="btn btn-primary">
-            Создать резюме
-        </a>
+        <p class="text-muted mb-0">
+            Список резюме соискателей
+        </p>
 
     </div>
+
 
     <div class="row">
 
         <#list resumes as resume>
 
-            <div class="col-md-6 col-lg-4 mb-4">
+            <div class="col-12 mb-3">
 
-                <div class="card h-100 shadow-sm">
+                <div class="card shadow-sm">
 
                     <div class="card-body">
 
-                        <h5 class="card-title">
-                            ${resume.name!}
-                        </h5>
+                        <div class="d-flex justify-content-between align-items-start">
 
-                        <p class="text-muted">
-                            Категория: ${resume.categoryName!"Не указана"}
-                        </p>
+                            <div>
 
-                        <p>
-                            Желаемая зарплата:
-                            <strong>${resume.salary!"Не указана"}</strong>
-                        </p>
+                                <h5 class="card-title mb-3">
+                                    ${resume.name!}
+                                </h5>
 
-                        <p>
-                            ${resume.description!"Описание отсутствует"}
-                        </p>
+                                <p class="mb-2">
+                                    <strong>Категория:</strong>
+                                    ${resume.categoryName!"Не указана"}
+                                </p>
 
-                    </div>
+                                <p class="mb-2">
+                                    <strong>Желаемая зарплата:</strong>
+                                    ${resume.salary!"Не указана"}
+                                </p>
 
-                    <div class="card-footer bg-white">
+                                <#if resume.active?? && resume.active>
 
-                        <a href="/resumes/${resume.id}"
-                           class="btn btn-outline-primary">
-                            Подробнее
-                        </a>
+                                    <span class="badge bg-success">
+                                    Активно
+                                </span>
+
+                                <#else>
+
+                                    <span class="badge bg-secondary">
+                                    Неактивно
+                                </span>
+
+                                </#if>
+
+                            </div>
+
+
+                            <div>
+
+                                <a href="/resumes/${resume.id}"
+                                   class="btn btn-outline-primary">
+                                    Подробнее
+                                </a>
+
+                            </div>
+
+                        </div>
 
                     </div>
 

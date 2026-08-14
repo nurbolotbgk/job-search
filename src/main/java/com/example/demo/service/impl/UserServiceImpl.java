@@ -1,10 +1,12 @@
 package com.example.demo.service.impl;
 
-import  com.example.demo.dao.UserDao;
 import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.exception.UserNotFoundException;
+import com.example.demo.model.Role;
 import com.example.demo.model.User;
+import com.example.demo.repository.RoleRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
@@ -30,11 +32,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final PasswordEncoder encoder;
-    private final UserDao userDao;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
     @Override
     public List<UserDto> getAllUsers() {
-        List<User> users = userDao.getAllUsers();
+        List<User> users = userRepository.findAll();;
         if (users.isEmpty()) {
             throw new UserNotFoundException();
         }
@@ -47,7 +50,7 @@ public class UserServiceImpl implements UserService {
                         .email(e.getEmail())
                         .password(e.getPassword())
                         .avatar(e.getAvatar())
-                        .roleId(e.getRoleId())
+                        .roleId(e.getRole().getId().intValue())
                         .build()
                 )
                 .toList();
@@ -56,49 +59,54 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> findUsersByName(String name) {
-        List<User> users = userDao.findUsersByName(name);
+        List<User> users = userRepository.findByName(name);
+
         if (users.isEmpty()) {
             throw new UserNotFoundException();
         }
 
         return users.stream()
                 .map(e -> UserDto.builder()
+                        .id(e.getId())
                         .name(e.getName())
                         .surname(e.getSurname())
                         .age(e.getAge())
                         .email(e.getEmail())
                         .password(e.getPassword())
+                        .phoneNumber(e.getPhoneNumber())
                         .avatar(e.getAvatar())
-                        .roleId(e.getRoleId())
-                        .build()
-                )
+                        .roleId(e.getRole().getId().intValue())
+                        .build())
                 .toList();
     }
 
     @Override
     public List<UserDto> getApplicantsForVacancy(Long vacancyId) {
-        List<User> users = userDao.getApplicantsForVacancy(vacancyId);
+        List<User> users =
+                userRepository.findApplicantsForVacancy(vacancyId);
+
         if (users.isEmpty()) {
             throw new UserNotFoundException();
         }
 
         return users.stream()
                 .map(e -> UserDto.builder()
+                        .id(e.getId())
                         .name(e.getName())
                         .surname(e.getSurname())
                         .age(e.getAge())
                         .email(e.getEmail())
                         .password(e.getPassword())
+                        .phoneNumber(e.getPhoneNumber())
                         .avatar(e.getAvatar())
-                        .roleId(e.getRoleId())
-                        .build()
-                )
+                        .roleId(e.getRole().getId().intValue())
+                        .build())
                 .toList();
     }
 
     @Override
     public UserDto findUserById(Long id) {
-        User user = userDao.findUserById(id)
+        User user = userRepository.findById(id)
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
@@ -110,16 +118,17 @@ public class UserServiceImpl implements UserService {
                 .password(user.getPassword())
                 .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .roleId(user.getRoleId())
+                .roleId(user.getRole().getId().intValue())
                 .build();
     }
 
     @Override
     public UserDto findEmployerById(Long id) {
-        User user = userDao.findEmployerById(id)
+        User user = userRepository.findByIdAndRole_Id(id, 2L)
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
+                .id(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
@@ -127,16 +136,17 @@ public class UserServiceImpl implements UserService {
                 .password(user.getPassword())
                 .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .roleId(user.getRoleId())
+                .roleId(user.getRole().getId().intValue())
                 .build();
     }
 
     @Override
     public UserDto findApplicantById(Long id) {
-        User user = userDao.findApplicantById(id)
+        User user = userRepository.findByIdAndRole_Id(id, 1L)
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
+                .id(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
@@ -144,16 +154,17 @@ public class UserServiceImpl implements UserService {
                 .password(user.getPassword())
                 .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .roleId(user.getRoleId())
+                .roleId(user.getRole().getId().intValue())
                 .build();
     }
 
     @Override
     public UserDto findByPhoneNumber(String phoneNumber) {
-        User user = userDao.getUserByPhoneNum(phoneNumber)
+        User user = userRepository.findByPhoneNumber(phoneNumber)
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
+                .id(user.getId())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .age(user.getAge())
@@ -161,7 +172,7 @@ public class UserServiceImpl implements UserService {
                 .password(user.getPassword())
                 .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .roleId(user.getRoleId())
+                .roleId(user.getRole().getId().intValue())
                 .build();
     }
 
@@ -177,7 +188,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findUserByEmail(String email) {
-        User user = userDao.findByEmail(email).orElseThrow(UserNotFoundException::new);
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(UserNotFoundException::new);
+
         return UserDto.builder()
                 .id(user.getId())
                 .name(user.getName())
@@ -187,22 +200,23 @@ public class UserServiceImpl implements UserService {
                 .password(user.getPassword())
                 .phoneNumber(user.getPhoneNumber())
                 .avatar(user.getAvatar())
-                .roleId(user.getRoleId())
+                .roleId(user.getRole().getId().intValue())
                 .build();
     }
 
     @Override
     public boolean emailExistsOrNot(String email) {
-        if (userDao.userExistsOrNot(email)) {
-            return true;
-        } else {
-            return false;
-        }
+        return userRepository.existsByEmail(email);
     }
 
     @Override
     public void save(UserDto dto) {
+
+        Role role = roleRepository.findById(dto.getRoleId().longValue())
+                .orElseThrow();
+
         User user = new User();
+
         user.setName(dto.getName());
         user.setSurname(dto.getSurname());
         user.setAge(dto.getAge());
@@ -210,28 +224,35 @@ public class UserServiceImpl implements UserService {
         user.setPassword(encoder.encode(dto.getPassword()));
         user.setPhoneNumber(dto.getPhoneNumber());
         user.setAvatar(dto.getAvatar());
-        user.setRoleId(dto.getRoleId());
+        user.setRole(role);
         user.setEnabled(true);
-        userDao.save(user);
+
+        userRepository.save(user);
     }
 
     @Override
     public void update(Long id, EditUserDto dto) {
-        User user = new User();
 
-        user.setId(id);
+        User user = userRepository.findById(id)
+                .orElseThrow(UserNotFoundException::new);
+
         user.setName(dto.getName());
         user.setSurname(dto.getSurname());
         user.setAge(dto.getAge());
         user.setPhoneNumber(dto.getPhoneNumber());
         user.setAvatar(dto.getAvatar());
 
-        userDao.update(user);
+        userRepository.save(user);
     }
 
     @Override
     public void deleteById(Long id) {
-        userDao.deleteById(id);
+
+        if (!userRepository.existsById(id)) {
+            throw new UserNotFoundException();
+        }
+
+        userRepository.deleteById(id);
     }
 
     @Override

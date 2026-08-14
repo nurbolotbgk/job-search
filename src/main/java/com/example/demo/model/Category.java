@@ -1,7 +1,20 @@
 package com.example.demo.model;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "categories")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
-    private String name;
-    private Integer parent_id;
+    @Id
     private Integer id;
+    private String name;
+    @OneToMany(mappedBy = "category")
+    private List<Vacancy> vacancies;
 }

@@ -46,5 +46,23 @@ INSERT INTO work_experience_info (resume_id, years, company_name, position, resp
 ((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 3, 'Beeline', 'Lawyer', 'Creating and analysis contracts');
 
 INSERT INTO responded_applicants (resume_id, vacancy_id, confirmation) VALUES
-((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 1, TRUE),
-((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')), 2, TRUE);
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Айти специалист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')),
+ (SELECT v.id
+    FROM vacancies v
+    WHERE v.name = 'Айти специалист'
+      AND v.user_id = (
+        SELECT u.id
+        FROM users u
+        WHERE u.email = 'petrov@mail.ru'
+        )
+    ), TRUE),
+((SELECT r.id FROM PUBLIC.resumes r WHERE r.name = 'Юрист' AND r.user_id = (SELECT id FROM PUBLIC.users WHERE email = 'ivanov@mail.ru')),
+ (SELECT v.id
+  FROM vacancies v
+ WHERE v.name = 'Юрист'
+   AND v.user_id = (
+    SELECT u.id
+      FROM users u
+     WHERE u.email = 'petrov@mail.ru'
+    )
+    ), TRUE);
