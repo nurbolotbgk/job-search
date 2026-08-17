@@ -17,7 +17,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByPhoneNumber(String phoneNumber);
 
-    Optional<User> findByIdAndRole_Id(Long id, Long roleId);
+    Optional<User> findByIdAndRole_Id(Long id, Integer roleId);
 
     @Query("""
             SELECT DISTINCT u

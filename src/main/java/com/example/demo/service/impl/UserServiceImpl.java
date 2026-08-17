@@ -124,7 +124,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findEmployerById(Long id) {
-        User user = userRepository.findByIdAndRole_Id(id, 2L)
+        User user = userRepository.findByIdAndRole_Id(id, 2)
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
@@ -142,7 +142,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findApplicantById(Long id) {
-        User user = userRepository.findByIdAndRole_Id(id, 1L)
+        User user = userRepository.findByIdAndRole_Id(id, 1)
                 .orElseThrow(UserNotFoundException::new);
 
         return UserDto.builder()
@@ -212,7 +212,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(UserDto dto) {
 
-        Role role = roleRepository.findById(dto.getRoleId().longValue())
+        Role role = roleRepository.findById(dto.getRoleId())
                 .orElseThrow();
 
         User user = new User();
