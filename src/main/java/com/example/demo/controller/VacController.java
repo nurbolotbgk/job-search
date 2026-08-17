@@ -9,6 +9,7 @@ import com.example.demo.service.UserService;
 import com.example.demo.service.VacancyService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,8 +25,15 @@ public class VacController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public String getAll(Model model) {
-        model.addAttribute("vacancies", vacancyService.getAllVacancies());
+    public String getAll(@RequestParam(defaultValue = "0") int page, Model model) {
+
+        Page<VacancyDto> vacancies = vacancyService.getAllVacancies(page, 5);
+
+        model.addAttribute("vacancies", vacancies.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", vacancies.getTotalPages());
+
+
         return "vacancies/vacancy_list";
     }
 

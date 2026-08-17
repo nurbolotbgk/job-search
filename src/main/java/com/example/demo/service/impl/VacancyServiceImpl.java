@@ -12,6 +12,10 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.VacancyRepository;
 import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -50,30 +54,50 @@ public class VacancyServiceImpl implements VacancyService {
                 .toList();
     }
 
+//    @Override
+//    public List<VacancyDto> getAllVacancies() {
+//        List<Vacancy> vacancies =
+//                vacancyRepository.findByActiveTrueOrderByUpdateTimeDesc();
+//
+//        if (vacancies.isEmpty()) {
+//            throw new VacancyNotFoundException();
+//        }
+//
+//        return vacancies.stream()
+//                .map(e -> VacancyDto.builder()
+//                        .id(e.getId())
+//                        .name(e.getName())
+//                        .description(e.getDescription())
+//                        .categoryId(e.getCategory().getId())
+//                        .salary(e.getSalary())
+//                        .expFrom(e.getExpFrom())
+//                        .expTo(e.getExpTo())
+//                        .active(e.getActive())
+//                        .userId(e.getUser().getId())
+//                        .createdDate(e.getCreatedDate())
+//                        .updateTime(e.getUpdateTime())
+//                        .build())
+//                .toList();
+//    }
+
     @Override
-    public List<VacancyDto> getAllVacancies() {
-        List<Vacancy> vacancies =
-                vacancyRepository.findByActiveTrueOrderByUpdateTimeDesc();
+    public Page<VacancyDto> getAllVacancies(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+        Page<Vacancy> vacancies = vacancyRepository.findByActiveTrue(pageable);
 
-        if (vacancies.isEmpty()) {
-            throw new VacancyNotFoundException();
-        }
-
-        return vacancies.stream()
-                .map(e -> VacancyDto.builder()
-                        .id(e.getId())
-                        .name(e.getName())
-                        .description(e.getDescription())
-                        .categoryId(e.getCategory().getId())
-                        .salary(e.getSalary())
-                        .expFrom(e.getExpFrom())
-                        .expTo(e.getExpTo())
-                        .active(e.getActive())
-                        .userId(e.getUser().getId())
-                        .createdDate(e.getCreatedDate())
-                        .updateTime(e.getUpdateTime())
-                        .build())
-                .toList();
+        return vacancies.map(v -> VacancyDto.builder()
+                .id(v.getId())
+                .name(v.getName())
+                .description(v.getDescription())
+                .categoryId(v.getCategory().getId())
+                .salary(v.getSalary())
+                .expFrom(v.getExpFrom())
+                .expTo(v.getExpTo())
+                .active(v.getActive())
+                .userId(v.getUser().getId())
+                .createdDate(v.getCreatedDate())
+                .updateTime(v.getUpdateTime())
+                .build());
     }
 
     @Override
