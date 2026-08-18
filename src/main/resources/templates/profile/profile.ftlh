@@ -65,10 +65,6 @@
                     </a>
 
 
-                    <#-- ========================= -->
-                    <#-- СОИСКАТЕЛЬ                -->
-                    <#-- ========================= -->
-
                     <#if user.roleId == 1>
 
                         <hr class="my-4">
@@ -141,10 +137,6 @@
 
                         </#if>
 
-
-                    <#-- ========================= -->
-                    <#-- РАБОТОДАТЕЛЬ              -->
-                    <#-- ========================= -->
 
                     <#elseif user.roleId == 2>
 
@@ -220,6 +212,51 @@
                                 </div>
 
                             </#list>
+
+                            <#if totalPages?? && totalPages gt 1>
+
+                                <nav class="mt-4">
+
+                                    <ul class="pagination justify-content-center">
+
+                                        <#if currentPage gt 0>
+                                            <li class="page-item">
+                                                <a class="page-link"
+                                                   href="/profile?page=${currentPage - 1}">
+                                                    Назад
+                                                </a>
+                                            </li>
+                                        </#if>
+
+                                        <#list 0..(totalPages - 1) as i>
+
+                                            <li class="page-item <#if i == currentPage>active</#if>">
+
+                                                <a class="page-link"
+                                                   href="/profile?page=${i}">
+                                                    ${i + 1}
+                                                </a>
+
+                                            </li>
+
+                                        </#list>
+
+                                        <#if currentPage lt totalPages - 1>
+
+                                            <li class="page-item">
+                                                <a class="page-link"
+                                                   href="/profile?page=${currentPage + 1}">
+                                                    Вперёд
+                                                </a>
+                                            </li>
+
+                                        </#if>
+
+                                    </ul>
+
+                                </nav>
+
+                            </#if>
 
                         <#else>
 

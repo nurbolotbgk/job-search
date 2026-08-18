@@ -22,10 +22,10 @@ public class VacancyController {
         return vacancyService.getVacanciesWithResponses();
     }
 
-    @GetMapping
+    /*@GetMapping
     public List<VacancyDto> findAllVacancies() {
         return vacancyService.getAllVacancies();
-    }
+    }*/
 
     @GetMapping("/categories/{categoryId}")
     public List<VacancyDto> findVacanciesByCategory(@PathVariable Integer categoryId) {

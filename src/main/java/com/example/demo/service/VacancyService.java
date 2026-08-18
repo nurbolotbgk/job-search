@@ -8,9 +8,9 @@ import java.util.List;
 public interface VacancyService {
     List<VacancyDto> getVacanciesWithResponses();
 
-//    List<VacancyDto> getAllVacancies();
-
     Page<VacancyDto> getAllVacancies(int page, int size);
+
+    Page<VacancyDto> getVacanciesByUserId(Long userId, int page, int size);
 
     List<VacancyDto> getVacanciesByCategoryId(Integer categoryId);
 
@@ -22,5 +22,4 @@ public interface VacancyService {
 
     VacancyDto findById(Long id);
 
-    List<VacancyDto> getVacanciesByUserId(Long userId);
 }
