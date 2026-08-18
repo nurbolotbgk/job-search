@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.User;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -39,4 +40,6 @@ public interface UserService {
     ResponseEntity<?> download(String filename);
 
     String upload(MultipartFile file);
+
+    Page<UserDto> getCompanies(int page, int size);
 }

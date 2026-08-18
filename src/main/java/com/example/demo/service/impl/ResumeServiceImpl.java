@@ -15,6 +15,10 @@ import com.example.demo.service.EducationInfoService;
 import com.example.demo.service.ResumeService;
 import com.example.demo.service.WorkExperienceInfoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,21 +60,20 @@ public class ResumeServiceImpl implements ResumeService {
 
 
     @Override
-    public List<ResumeDto> getAllResumes() {
+    public Page<ResumeDto> getAllResumes(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+        Page<Resume> resumes = resumeRepository.findAll(pageable);
 
-        return resumeRepository.findAll()
-                .stream()
-                .map(e -> ResumeDto.builder()
-                        .id(e.getId())
-                        .name(e.getName())
-                        .salary(e.getSalary())
-                        .active(e.getActive())
-                        .createdDate(e.getCreatedDate())
-                        .updateTime(e.getUpdateTime())
-                        .userId(e.getUser().getId())
-                        .categoryId(e.getCategory().getId())
-                        .build())
-                .toList();
+        return resumes.map(r -> ResumeDto.builder()
+                .id(r.getId())
+                .name(r.getName())
+                .salary(r.getSalary())
+                .active(r.getActive())
+                .createdDate(r.getCreatedDate())
+                .updateTime(r.getUpdateTime())
+                .userId(r.getUser().getId())
+                .categoryId(r.getCategory().getId())
+                .build());
     }
 
     @Override
@@ -95,25 +98,19 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public List<ResumeDto> getResumesMadeByUser(Long userId) {
-        List<Resume> resumes =  resumeRepository.findByUser_Id(userId);
-
-        if (resumes.isEmpty()) {
-            throw new ResumeNotFoundException();
-        }
-
-        return resumes.stream()
-                .map(e -> ResumeDto.builder()
-                        .id(e.getId())
-                        .name(e.getName())
-                        .salary(e.getSalary())
-                        .active(e.getActive())
-                        .createdDate(e.getCreatedDate())
-                        .updateTime(e.getUpdateTime())
-                        .userId(e.getUser().getId())
-                        .categoryId(e.getCategory().getId())
-                        .build())
-                .toList();
+    public Page<ResumeDto> getResumesMadeByUser(Long userId, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+        Page<Resume> resumes = resumeRepository.findByUser_Id(userId, pageable);
+        return resumes.map(r -> ResumeDto.builder()
+                .id(r.getId())
+                .name(r.getName())
+                .salary(r.getSalary())
+                .active(r.getActive())
+                .createdDate(r.getCreatedDate())
+                .updateTime(r.getUpdateTime())
+                .userId(r.getUser().getId())
+                .categoryId(r.getCategory().getId())
+                .build());
     }
 
     @Override

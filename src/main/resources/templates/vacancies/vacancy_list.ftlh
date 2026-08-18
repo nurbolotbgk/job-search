@@ -20,6 +20,41 @@
 
     <div class="row">
 
+        <form method="get"
+              action="/vacancies"
+              class="mb-4">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Сортировка
+                    </label>
+
+                    <select name="sort"
+                            class="form-select"
+                            onchange="this.form.submit()">
+
+                        <option value="date"
+                                <#if sort == "date">selected</#if>>
+                            По дате публикации
+                        </option>
+
+                        <option value="responses"
+                                <#if sort == "responses">selected</#if>>
+                            По количеству откликов
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
         <#list vacancies as vacancy>
 
             <div class="col-12 mb-3">
@@ -44,9 +79,9 @@
 
                             <div>
 
-                            <span class="badge text-bg-success fs-6">
-                                ${vacancy.salary!"Зарплата не указана"}
-                            </span>
+                                <span class="badge text-bg-success fs-6">
+                                    ${vacancy.salary!"Зарплата не указана"}
+                                </span>
 
                             </div>
 
@@ -57,7 +92,8 @@
                         </p>
 
                         <p class="text-muted mb-0">
-                            Опыт: ${vacancy.experience!"Не указан"}
+                            Опыт:
+                            ${vacancy.experience!"Не указан"}
                         </p>
 
                     </div>
@@ -86,6 +122,60 @@
             </div>
 
         </#list>
+
+
+        <#if totalPages?? && totalPages gt 1>
+
+            <nav class="mt-4">
+
+                <ul class="pagination justify-content-center">
+
+                    <#if currentPage gt 0>
+
+                        <li class="page-item">
+
+                            <a class="page-link"
+                               href="/vacancies?page=${currentPage - 1}&sort=${sort}">
+                                Назад
+                            </a>
+
+                        </li>
+
+                    </#if>
+
+
+                    <#list 0..(totalPages - 1) as i>
+
+                        <li class="page-item <#if i == currentPage>active</#if>">
+
+                            <a class="page-link"
+                               href="/vacancies?page=${i}&sort=${sort}">
+                                ${i + 1}
+                            </a>
+
+                        </li>
+
+                    </#list>
+
+
+                    <#if currentPage lt totalPages - 1>
+
+                        <li class="page-item">
+
+                            <a class="page-link"
+                               href="/vacancies?page=${currentPage + 1}&sort=${sort}">
+                                Вперёд
+                            </a>
+
+                        </li>
+
+                    </#if>
+
+                </ul>
+
+            </nav>
+
+        </#if>
 
     </div>
 

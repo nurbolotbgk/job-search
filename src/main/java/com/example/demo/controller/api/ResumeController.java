@@ -19,20 +19,20 @@ public class ResumeController {
     private final List<Resume> storage = new ArrayList<>();
     private final ResumeService resumeService;
 
-    @GetMapping
-    public List<ResumeDto> getAllResumes() {
-        return resumeService.getAllResumes();
-    }
+//    @GetMapping
+//    public List<ResumeDto> getAllResumes() {
+//        return resumeService.getAllResumes();
+//    }
 
     @GetMapping("/{id}")
     public ResumeDto findResumeById(@PathVariable Long id) {
         return resumeService.findResumeById(id);
     }
 
-    @GetMapping("/getResumesByUsers/{userId}")
-    public List<ResumeDto> getResumesMadeByUser(@PathVariable Long userId) {
-        return resumeService.getResumesMadeByUser(userId);
-    }
+//    @GetMapping("/getResumesByUsers/{userId}")
+//    public List<ResumeDto> getResumesMadeByUser(@PathVariable Long userId) {
+//        return resumeService.getResumesMadeByUser(userId);
+//    }
 
     @GetMapping("/categories/{categoryId}")
     public List<ResumeDto> findResumeByCategory(@PathVariable Integer categoryId) {

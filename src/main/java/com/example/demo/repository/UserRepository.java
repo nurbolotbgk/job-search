@@ -1,6 +1,8 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,7 +19,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByPhoneNumber(String phoneNumber);
 
-    Optional<User> findByIdAndRole_Id(Long id, Long roleId);
+    Optional<User> findByIdAndRole_Id(Long id, Integer roleId);
 
     @Query("""
             SELECT DISTINCT u
@@ -29,5 +31,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
             """)
     List<User> findApplicantsForVacancy(@Param("vacancyId") Long vacancyId);
 
+    Page<User> findByRole_Id(Integer roleId, Pageable pageable);
 
 }

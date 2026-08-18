@@ -1,13 +1,16 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.VacancyDto;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
 public interface VacancyService {
     List<VacancyDto> getVacanciesWithResponses();
 
-    List<VacancyDto> getAllVacancies();
+    Page<VacancyDto> getAllVacancies(int page, int size, String sort);
+
+    Page<VacancyDto> getVacanciesByUserId(Long userId, int page, int size);
 
     List<VacancyDto> getVacanciesByCategoryId(Integer categoryId);
 
@@ -19,5 +22,4 @@ public interface VacancyService {
 
     VacancyDto findById(Long id);
 
-    List<VacancyDto> getVacanciesByUserId(Long userId);
 }
