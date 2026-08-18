@@ -11,6 +11,10 @@ import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -293,5 +297,23 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
         return resultFilename;
+    }
+
+    @Override
+    public Page<UserDto> getCompanies(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
+
+        Page<User> companies = userRepository.findByRole_Id(2, pageable);
+
+        return companies.map(u -> UserDto.builder()
+                .id(u.getId())
+                .name(u.getName())
+                .surname(u.getSurname())
+                .age(u.getAge())
+                .email(u.getEmail())
+                .phoneNumber(u.getPhoneNumber())
+                .avatar(u.getAvatar())
+                .roleId(u.getRole().getId())
+                .build());
     }
 }

@@ -25,14 +25,17 @@ public class VacController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public String getAll(@RequestParam(defaultValue = "0") int page, Model model) {
+    public String getAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "date") String sort, Model model) {
 
-        Page<VacancyDto> vacancies = vacancyService.getAllVacancies(page, 5);
+        Page<VacancyDto> vacancies = vacancyService.getAllVacancies(page, 5, sort);
 
         model.addAttribute("vacancies", vacancies.getContent());
+
         model.addAttribute("currentPage", page);
+
         model.addAttribute("totalPages", vacancies.getTotalPages());
 
+        model.addAttribute("sort", sort);
 
         return "vacancies/vacancy_list";
     }

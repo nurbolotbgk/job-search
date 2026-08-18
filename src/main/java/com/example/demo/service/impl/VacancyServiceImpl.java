@@ -55,9 +55,20 @@ public class VacancyServiceImpl implements VacancyService {
     }
 
     @Override
-    public Page<VacancyDto> getAllVacancies(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
-        Page<Vacancy> vacancies = vacancyRepository.findByActiveTrue(pageable);
+    public Page<VacancyDto> getAllVacancies(int page, int size, String sort) {
+
+        Page<Vacancy> vacancies;
+
+        if ("responses".equals(sort)) {
+            Pageable pageable = PageRequest.of(page, size);
+
+            vacancies = vacancyRepository.findActiveOrderByResponses(pageable);
+
+        } else {
+            Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+
+            vacancies = vacancyRepository.findByActiveTrue(pageable);
+        }
 
         return vacancies.map(v -> VacancyDto.builder()
                 .id(v.getId())

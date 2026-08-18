@@ -18,6 +18,33 @@
 
     <body>
 
+    <#assign known = SPRING_SECURITY_CONTEXT??>
+
+    <#assign isApplicant = false>
+    <#assign isEmployer = false>
+
+    <#if known>
+
+        <#assign
+        user = SPRING_SECURITY_CONTEXT.authentication.principal
+        name = user.getUsername()
+        >
+
+        <#list user.authorities as auth>
+
+            <#if auth.authority == "ROLE_APPLICANT">
+                <#assign isApplicant = true>
+            </#if>
+
+            <#if auth.authority == "ROLE_EMPLOYER">
+                <#assign isEmployer = true>
+            </#if>
+
+        </#list>
+
+    </#if>
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
 
@@ -36,6 +63,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+
             <div class="collapse navbar-collapse" id="navbarNav">
 
                 <ul class="navbar-nav me-auto">
@@ -52,48 +80,52 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/resumes">
-                            Резюме
-                        </a>
-                    </li>
+
+                    <#if isApplicant>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/companies">
+                                Компании
+                            </a>
+                        </li>
+
+                    </#if>
+
+
+                    <#if isEmployer>
+
+                        <li class="nav-item">
+
+                        </li>
+
+                    </#if>
 
                 </ul>
 
             </div>
 
-            <#assign known = SPRING_SECURITY_CONTEXT??>
 
             <#if known>
 
-                <#assign
-                user = SPRING_SECURITY_CONTEXT.authentication.principal
-                name = user.getUsername()
-                >
+                <p class="text-light m-2 m-sm-0">
+                    ${name}
 
-                <#if user??>
+                    <#list user.authorities as auth>
+                        <span class="text-warning">
+                            ${auth}
+                        </span>
+                    </#list>
+                </p>
 
-                    <p class="text-light m-2 m-sm-0">
-                        ${name}
+                <a href="/profile"
+                   class="btn btn-outline-light m-1">
+                    Личный кабинет
+                </a>
 
-                        <#list user.authorities as auth>
-                            <span class="text-warning">
-                        ${auth}
-                    </span>
-                        </#list>
-                    </p>
-
-                    <a href="/profile"
-                       class="btn btn-outline-light m-1">
-                        Личный кабинет
-                    </a>
-
-                    <a href="/auth/logout"
-                       class="btn btn-outline-danger m-1">
-                        Logout
-                    </a>
-
-                </#if>
+                <a href="/auth/logout"
+                   class="btn btn-outline-danger m-1">
+                    Logout
+                </a>
 
             <#else>
 
@@ -112,17 +144,19 @@
         </div>
     </nav>
 
+
     <main class="main-content">
         <div class="container">
             <#nested>
         </div>
     </main>
 
+
     <footer class="footer">
         <div class="container text-center">
-        <span>
-            Job Search © 2026
-        </span>
+            <span>
+                Job Search © 2026
+            </span>
         </div>
     </footer>
 
