@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.EditUserDto;
+import com.example.demo.dto.ResumeDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.dto.VacancyDto;
 import com.example.demo.service.ImageService;
@@ -34,7 +35,15 @@ public class ProfileController {
         model.addAttribute("user", currentUser);
 
         if (currentUser.getRoleId() == 1) {
-            model.addAttribute("resumes", resumeService.getResumesMadeByUser(currentUser.getId()));
+
+            Page<ResumeDto> resumes = resumeService.getResumesMadeByUser(currentUser.getId(), page, 5);
+
+            model.addAttribute("resumes", resumes.getContent());
+
+            model.addAttribute("currentPage", page);
+
+            model.addAttribute("totalPages", resumes.getTotalPages());
+
         } else if (currentUser.getRoleId() == 2) {
             Page<VacancyDto> vacancies = vacancyService.getVacanciesByUserId(currentUser.getId(), page, 5);
 

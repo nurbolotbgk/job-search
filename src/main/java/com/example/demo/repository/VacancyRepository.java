@@ -9,10 +9,7 @@ import java.util.List;
 
 public interface VacancyRepository extends JpaRepository<Vacancy, Long> {
 
-    Page<Vacancy> findByUser_Id(
-            Long userId,
-            Pageable pageable
-    );
+    Page<Vacancy> findByUser_Id(Long userId, Pageable pageable);
     List<Vacancy> findByCategory_Id(Integer categoryId);
 
     List<Vacancy> findByActiveTrueOrderByUpdateTimeDesc();

@@ -10,13 +10,11 @@ import com.example.demo.service.ResumeService;
 import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,8 +27,16 @@ public class ResController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public String getAll(Model model) {
-        model.addAttribute("resumes", resumeService.getAllResumes());
+    public String getAll(@RequestParam(defaultValue = "0") int page, Model model) {
+
+        Page<ResumeDto> resumes = resumeService.getAllResumes(page, 5);
+
+        model.addAttribute("resumes", resumes.getContent());
+
+        model.addAttribute("currentPage", page);
+
+        model.addAttribute("totalPages", resumes.getTotalPages());
+
         return "resumes/resume_list";
     }
 
