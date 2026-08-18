@@ -622,3 +622,25 @@
 2026-08-18 17:52:49 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
 2026-08-18 17:52:49 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
 2026-08-18 17:52:49 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=petrov@mail.ru, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_EMPLOYER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=BE5F6E459AAA6A361FA9E5FED0A64E20], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-18T12:52:37.908101100Z]]]]
+2026-08-18 17:57:45 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 18204 (C:\Users\user\IdeaProjects\job-search_60\target\classes started by user in C:\Users\user\IdeaProjects\job-search_60)
+2026-08-18 17:57:45 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-18 17:57:51 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-18 17:57:51 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-18 17:57:52 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-18 17:57:53 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-18 17:57:55 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-18 17:57:55 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-18 17:57:56 INFO  com.example.demo.DemoApplication - Started DemoApplication in 11.734 seconds (process running for 12.726)
+2026-08-18 17:57:56 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-18 17:57:56 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
