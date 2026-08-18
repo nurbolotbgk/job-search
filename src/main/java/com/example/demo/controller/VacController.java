@@ -157,4 +157,24 @@ public class VacController {
 
         return "redirect:/profile";
     }
+
+    @GetMapping("/{id}")
+    public String vacancyDetails(
+            @PathVariable Long id,
+            Model model
+    ) {
+
+        VacancyDto vacancy =
+                vacancyService.findById(id);
+
+        UserDto employer =
+                userService.findEmployerById(
+                        vacancy.getUserId()
+                );
+
+        model.addAttribute("vacancy", vacancy);
+        model.addAttribute("employer", employer);
+
+        return "vacancies/vacancy_details";
+    }
 }
