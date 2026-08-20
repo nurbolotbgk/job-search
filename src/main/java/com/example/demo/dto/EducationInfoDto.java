@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import jakarta.validation.constraints.AssertTrue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,4 +19,12 @@ public class EducationInfoDto {
     private LocalDate startDate;
     private LocalDate endDate;
     private String degree;
+
+    @AssertTrue(message = "Дата начала учебы не может быть позже даты конца учебы")
+    public boolean isDatesValid() {
+        if (startDate == null || endDate == null) {
+            return true;
+        }
+        return !startDate.isAfter(endDate);
+    }
 }

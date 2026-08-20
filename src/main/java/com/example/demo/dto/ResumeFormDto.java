@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -29,7 +30,7 @@ public class ResumeFormDto {
 
     private Boolean active;
     private WorkExperienceInfoDto workExperience;
-
+    @Valid
     private EducationInfoDto education;
 
     private ContactInfoDto contact;

@@ -5,6 +5,7 @@ import com.example.demo.dto.ResumeDto;
 import com.example.demo.dto.ResumeFormDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.exception.ResumeNotFoundException;
+import com.example.demo.model.Resume;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ResumeService;
 import com.example.demo.service.UserService;
@@ -52,11 +53,9 @@ public class ResController {
         return "resumes/create_resume";
     }
     @PostMapping("/create")
-    public String create(@Valid ResumeFormDto resumeFormDto, BindingResult bindingResult, Model model
-    ) {
+    public String create(@Valid ResumeFormDto resumeFormDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-
             model.addAttribute(
                     "categories",
                     categoryService.getAllCategories()
@@ -203,6 +202,17 @@ public class ResController {
         resumeService.update(resumeDto);
 
         return "redirect:/profile";
+    }
+
+    @GetMapping("/{id}")
+    public String resumeDetails(@PathVariable Long id, Model model) {
+        ResumeDto resume = resumeService.findResumeById(id);
+        UserDto applicant = userService.findUserById(resume.getUserId());
+
+        model.addAttribute("resume", resume);
+        model.addAttribute("applicant", applicant);
+
+        return "resumes/resume_details";
     }
 
 }

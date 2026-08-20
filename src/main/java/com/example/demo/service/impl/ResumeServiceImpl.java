@@ -62,7 +62,7 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public Page<ResumeDto> getAllResumes(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
-        Page<Resume> resumes = resumeRepository.findAll(pageable);
+        Page<Resume> resumes = resumeRepository.findByActiveTrue(pageable);
 
         return resumes.map(r -> ResumeDto.builder()
                 .id(r.getId())

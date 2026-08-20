@@ -95,7 +95,9 @@
                     <#if isEmployer>
 
                         <li class="nav-item">
-
+                            <a class="nav-link" href="/resumes">
+                                Резюме
+                            </a>
                         </li>
 
                     </#if>
