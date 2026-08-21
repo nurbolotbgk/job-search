@@ -171,3 +171,157 @@
 2026-08-21 09:40:41 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
 2026-08-21 09:40:41 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
 2026-08-21 09:40:41 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:15:33 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 340 (C:\Users\user\IdeaProjects\job-search_61\target\classes started by user in C:\Users\user\IdeaProjects\job-search_61)
+2026-08-21 10:15:33 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-21 10:15:37 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-21 10:15:37 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-21 10:15:38 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-21 10:15:39 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-21 10:15:40 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-21 10:15:40 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-21 10:15:40 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-21 10:15:40 INFO  com.example.demo.DemoApplication - Started DemoApplication in 7.804 seconds (process running for 8.569)
+2026-08-21 10:15:40 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-21 10:15:40 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-21 10:15:58 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/register
+2026-08-21 10:15:58 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:15:58 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id BB9208048B8D0C0BFC614873908C37AF
+2026-08-21 10:15:58 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/register
+2026-08-21 10:15:59 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-21 10:15:59 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:15:59 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-21 10:15:59 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:15:59 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:15:59 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:16:41 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/register
+2026-08-21 10:16:41 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:16:41 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/register
+2026-08-21 10:16:41 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-08-21 10:16:41 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@1306652c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:16:41.977257800Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@33329ad5]
+2026-08-21 10:16:41 DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile
+2026-08-21 10:16:41 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@1306652c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:16:41.977257800Z]]]]
+2026-08-21 10:16:41 DEBUG o.s.security.web.FilterChainProxy - Secured GET /profile
+2026-08-21 10:16:42 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-21 10:16:42 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-21 10:16:42 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@1306652c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:16:41.977257800Z]]]]
+2026-08-21 10:16:42 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:16:42 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:16:42 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@1306652c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:16:41.977257800Z]]]]
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/logout
+2026-08-21 10:20:17 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@1306652c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:16:41.977257800Z]]]]
+2026-08-21 10:20:17 DEBUG o.s.s.w.a.logout.LogoutFilter - Logging out [UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@1306652c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:16:41.977257800Z]]]]
+2026-08-21 10:20:17 DEBUG o.s.s.w.a.l.SecurityContextLogoutHandler - Invalidated session 56181A039934E37C5E0CB78F2D34D4FC
+2026-08-21 10:20:17 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+2026-08-21 10:20:17 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:20:17 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 56181A039934E37C5E0CB78F2D34D4FC
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Secured GET /
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-08-21 10:20:17 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:20:17 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 56181A039934E37C5E0CB78F2D34D4FC
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-21 10:20:17 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:20:17 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 56181A039934E37C5E0CB78F2D34D4FC
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:20:17 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:20:17 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:20:19 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-08-21 10:20:19 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:20:19 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 56181A039934E37C5E0CB78F2D34D4FC
+2026-08-21 10:20:19 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-08-21 10:20:19 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-21 10:20:19 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:20:19 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-21 10:20:19 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:20:19 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:20:19 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-08-21 10:20:32 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-08-21 10:20:32 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 8D2F43DC1D81F1F52BE61842A899D211
+2026-08-21 10:20:32 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-08-21 10:20:32 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6a605084, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8D2F43DC1D81F1F52BE61842A899D211], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:20:32.941717700Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@1d0ff88e]
+2026-08-21 10:20:32 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6a605084, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8D2F43DC1D81F1F52BE61842A899D211], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:20:32.941717700Z]]]
+2026-08-21 10:20:32 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /profile
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile
+2026-08-21 10:20:32 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6a605084, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8D2F43DC1D81F1F52BE61842A899D211], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:20:32.941717700Z]]]]
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /profile
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-21 10:20:32 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6a605084, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8D2F43DC1D81F1F52BE61842A899D211], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:20:32.941717700Z]]]]
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /images/avatar_ivan.png
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:20:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /images/avatar_ivan.png
+2026-08-21 10:20:32 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6a605084, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8D2F43DC1D81F1F52BE61842A899D211], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:20:32.941717700Z]]]]
+2026-08-21 10:20:33 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6a605084, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8D2F43DC1D81F1F52BE61842A899D211], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:20:32.941717700Z]]]]
+2026-08-21 10:33:17 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 17540 (C:\Users\user\IdeaProjects\job-search_61\target\classes started by user in C:\Users\user\IdeaProjects\job-search_61)
+2026-08-21 10:33:17 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-21 10:33:22 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-21 10:33:22 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-21 10:33:22 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-21 10:33:23 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-21 10:33:24 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-21 10:33:24 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-21 10:33:25 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-21 10:33:25 INFO  com.example.demo.DemoApplication - Started DemoApplication in 8.55 seconds (process running for 9.355)
+2026-08-21 10:33:25 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-21 10:33:25 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-21 10:33:38 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/logout
+2026-08-21 10:33:38 DEBUG o.s.security.web.csrf.CsrfFilter - Invalid CSRF token found for http://localhost:8080/auth/logout
+2026-08-21 10:33:38 DEBUG o.s.s.w.a.AccessDeniedHandlerImpl - Responding with 403 status code
+2026-08-21 10:33:38 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:33:38 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:33:38 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 1C0AB0A63B0AC9872975A7AB6510E100
+2026-08-21 10:33:38 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:33:40 DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile
+2026-08-21 10:33:40 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:33:40 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/profile?continue to session
+2026-08-21 10:33:40 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-08-21 10:33:40 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-08-21 10:33:40 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:33:40 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-08-21 10:33:40 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-21 10:33:40 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:33:40 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-21 10:33:41 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:33:41 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:33:41 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-21 10:34:44 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-08-21 10:34:44 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-08-21 10:34:44 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from CFA6C9038E3C9D991981F4436E584137
+2026-08-21 10:34:44 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-08-21 10:34:44 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@4e24ec52, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=CFA6C9038E3C9D991981F4436E584137], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:34:44.650406200Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@38c2ffb4]
+2026-08-21 10:34:44 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@4e24ec52, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=CFA6C9038E3C9D991981F4436E584137], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:34:44.650406200Z]]]
+2026-08-21 10:34:44 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-08-21 10:34:44 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-08-21 10:34:44 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@4e24ec52, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=CFA6C9038E3C9D991981F4436E584137], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:34:44.650406200Z]]]]
+2026-08-21 10:34:44 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-21 10:34:44 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-21 10:34:44 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@4e24ec52, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=CFA6C9038E3C9D991981F4436E584137], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:34:44.650406200Z]]]]
+2026-08-21 10:34:44 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-21 10:34:44 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-21 10:34:44 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@4e24ec52, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=CFA6C9038E3C9D991981F4436E584137], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-21T05:34:44.650406200Z]]]]

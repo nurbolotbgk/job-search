@@ -37,7 +37,21 @@ public class SecurityConfig {
                 .formLogin(login -> login
                         .loginPage("/auth/login")
                         .loginProcessingUrl("/auth/login")
-                        .defaultSuccessUrl("/profile", true)
+
+                        .successHandler((request, response, authentication) -> {
+
+                            String role = authentication.getAuthorities()
+                                    .iterator()
+                                    .next()
+                                    .getAuthority();
+
+                            if (role.equals("ROLE_APPLICANT")) {
+                                response.sendRedirect("/vacancies");
+                            } else {
+                                response.sendRedirect("/resumes");
+                            }
+                        })
+
                         .failureUrl("/auth/login?error=true")
                         .permitAll()
                 )
