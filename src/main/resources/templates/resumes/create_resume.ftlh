@@ -19,6 +19,12 @@
                     <form action="/resumes/create"
                           method="post">
 
+                        <#if _csrf??>
+                            <input type="hidden"
+                                   name="${_csrf.parameterName}"
+                                   value="${_csrf.token}">
+                        </#if>
+
 
                         <h4 class="mb-3">
                             Основная информация
@@ -223,9 +229,11 @@
                                 Дата начала обучения
                             </label>
 
-                            <input type="date"
-                                   name="education.startDate"
-                                   class="form-control">
+                            <@spring.formInput
+                            "resumeFormDto.education.startDate"
+                            'type="date"
+         class="form-control"'
+                            />
 
                         </div>
 
@@ -236,9 +244,18 @@
                                 Дата окончания обучения
                             </label>
 
-                            <input type="date"
-                                   name="education.endDate"
-                                   class="form-control">
+                            <@spring.formInput
+                            "resumeFormDto.education.endDate"
+                            'type="date"
+         class="form-control"'
+                            />
+
+                            <@spring.bind "resumeFormDto.education.datesValid"/>
+
+                            <@spring.showErrors
+                            "<br>"
+                            "text-danger"
+                            />
 
                         </div>
 

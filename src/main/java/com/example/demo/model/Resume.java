@@ -37,5 +37,4 @@ public class Resume {
     private List<WorkExperienceInfo> workExperienceInfos;
     @OneToMany(mappedBy = "resume")
     private List<RespondedApplicant> respondedApplicants;
-
 }
