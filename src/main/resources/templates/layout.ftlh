@@ -124,10 +124,22 @@
                     Личный кабинет
                 </a>
 
-                <a href="/auth/logout"
-                   class="btn btn-outline-danger m-1">
-                    Logout
-                </a>
+                <form action="/auth/logout"
+                      method="post"
+                      class="d-inline">
+
+                    <#if _csrf??>
+                        <input type="hidden"
+                               name="${_csrf.parameterName}"
+                               value="${_csrf.token}">
+                    </#if>
+
+                    <button type="submit"
+                            class="btn btn-outline-danger m-1">
+                        Logout
+                    </button>
+
+                </form>
 
             <#else>
 

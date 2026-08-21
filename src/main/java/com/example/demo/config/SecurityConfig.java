@@ -1,12 +1,9 @@
 package com.example.demo.config;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,34 +12,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 
-import javax.sql.DataSource;
-
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final DataSource dataSource;
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
-        String userAdapter = "select email, password, enabled " +
-                "from users " +
-                "where email = ?";
-
-        String roleAdapter = "select u.email, r.role_name " +
-                "from users u, " +
-                "roles r " +
-                "where u.email = ? and u.role_id = r.id";
-
-        auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery(userAdapter)
-                .authoritiesByUsernameQuery(roleAdapter);
-    }
-
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration config
     ) throws Exception {
         return config.getAuthenticationManager();
     }
@@ -51,9 +28,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
-                .formLogin(login -> login
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(
+                                SessionCreationPolicy.IF_REQUIRED
+                        )
+                )
 
+                .formLogin(login -> login
                         .loginPage("/auth/login")
                         .loginProcessingUrl("/auth/login")
                         .defaultSuccessUrl("/profile", true)
@@ -62,12 +43,16 @@ public class SecurityConfig {
                 )
 
                 .logout(logout -> logout
-                        .logoutRequestMatcher(PathPatternRequestMatcher.withDefaults().matcher("/auth/logout"))
+                        .logoutUrl("/auth/logout")
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true)
+                        .clearAuthentication(true)
                         .permitAll()
                 )
-                .csrf(AbstractHttpConfigurer::disable)
+
 
                 .authorizeHttpRequests(authorize -> authorize
+
                         .requestMatchers(
                                 "/",
                                 "/error",
@@ -76,21 +61,25 @@ public class SecurityConfig {
                                 "/vacancies",
                                 "/static/**",
                                 "/images/**"
-                        ).permitAll()
+                        )
+                        .permitAll()
 
                         .requestMatchers("/profile/**")
                         .authenticated()
 
-                        .requestMatchers("/resumes/create",
-                                        "/resumes/*/edit"
+                        .requestMatchers(
+                                "/resumes/create",
+                                "/resumes/*/edit"
                         )
                         .hasRole("APPLICANT")
 
                         .requestMatchers("/resumes")
                         .hasRole("EMPLOYER")
 
-                        .requestMatchers("/vacancies/create",
-                                "/vacancies/*/edit")
+                        .requestMatchers(
+                                "/vacancies/create",
+                                "/vacancies/*/edit"
+                        )
                         .hasRole("EMPLOYER")
 
                         .anyRequest()
