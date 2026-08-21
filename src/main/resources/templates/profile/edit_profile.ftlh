@@ -15,6 +15,12 @@
 
                     <form action="/profile/edit" method="post" enctype="multipart/form-data">
 
+                        <#if _csrf??>
+                            <input type="hidden"
+                                   name="${_csrf.parameterName}"
+                                   value="${_csrf.token}">
+                        </#if>
+
                         <div class="mb-3">
                             <label class="form-label">
                                 Имя

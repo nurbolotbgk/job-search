@@ -19,6 +19,12 @@
                     <form action="/resumes/create"
                           method="post">
 
+                        <#if _csrf??>
+                            <input type="hidden"
+                                   name="${_csrf.parameterName}"
+                                   value="${_csrf.token}">
+                        </#if>
+
 
                         <h4 class="mb-3">
                             Основная информация

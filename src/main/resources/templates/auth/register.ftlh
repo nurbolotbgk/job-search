@@ -15,6 +15,12 @@
 
                     <form action="/auth/register" method="post">
 
+                        <#if _csrf??>
+                            <input type="hidden"
+                                   name="${_csrf.parameterName}"
+                                   value="${_csrf.token}">
+                        </#if>
+
                         <div class="mb-3">
                             <label class="form-label">
                                 Имя
