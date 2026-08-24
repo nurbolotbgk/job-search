@@ -42,4 +42,10 @@ public interface UserService {
     String upload(MultipartFile file);
 
     Page<UserDto> getCompanies(int page, int size);
+
+    void updateResetPasswordToken(String token, String email);
+
+    User getByResetPasswordToken(String token);
+
+    void updatePassword(User user, String newPassword);
 }
