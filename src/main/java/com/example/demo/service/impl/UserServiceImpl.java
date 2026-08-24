@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -315,5 +316,33 @@ public class UserServiceImpl implements UserService {
                 .avatar(u.getAvatar())
                 .roleId(u.getRole().getId())
                 .build());
+    }
+
+    @Override
+    public void updateResetPasswordToken(String token, String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() ->
+                        new UsernameNotFoundException(
+                                "Пользователь с email " + email + " не найден"));
+
+        user.setResetPasswordToken(token);
+        userRepository.save(user);
+    }
+
+    @Override
+    public User getByResetPasswordToken(String token) {
+        return userRepository.findByResetPasswordToken(token)
+                .orElseThrow(() ->
+                        new UsernameNotFoundException(
+                                "Пользователь не найден"
+                        ));
+    }
+
+    @Override
+    public void updatePassword(User user, String newPassword) {
+        String encodedPassword = encoder.encode(newPassword);
+        user.setPassword(encodedPassword);
+        user.setResetPasswordToken(null);
+        userRepository.save(user);
     }
 }

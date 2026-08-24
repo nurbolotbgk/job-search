@@ -1,11 +1,8 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.dto.ResumeDto;
-import com.example.demo.dto.ResumeFormDto;
-import com.example.demo.dto.UserDto;
+import com.example.demo.dto.*;
 import com.example.demo.exception.ResumeNotFoundException;
-import com.example.demo.model.Resume;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ResumeService;
 import com.example.demo.service.UserService;
@@ -17,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -45,13 +43,31 @@ public class ResController {
     public String createPage(Model model) {
 
         ResumeFormDto resumeFormDto = new ResumeFormDto();
+
         resumeFormDto.setActive(true);
 
+        resumeFormDto.setWorkExperiences(
+                new ArrayList<>(List.of(new WorkExperienceInfoDto()))
+        );
+
+        resumeFormDto.setEducations(
+                new ArrayList<>(List.of(new EducationInfoDto()))
+        );
+
+        resumeFormDto.setContacts(
+                new ArrayList<>(List.of(new ContactInfoDto()))
+        );
+
         model.addAttribute("resumeFormDto", resumeFormDto);
-        model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute(
+                "categories",
+                categoryService.getAllCategories()
+        );
 
         return "resumes/create_resume";
     }
+
+
     @PostMapping("/create")
     public String create(@Valid ResumeFormDto resumeFormDto, BindingResult bindingResult, Model model) {
 
@@ -76,24 +92,18 @@ public class ResController {
                                 && resumeFormDto.getActive()
                 )
                 .workExperiences(
-                        resumeFormDto.getWorkExperience() != null
-                                ? List.of(
-                                resumeFormDto.getWorkExperience()
-                        )
+                        resumeFormDto.getWorkExperiences() != null
+                                ? resumeFormDto.getWorkExperiences()
                                 : List.of()
                 )
                 .educations(
-                        resumeFormDto.getEducation() != null
-                                ? List.of(
-                                resumeFormDto.getEducation()
-                        )
+                        resumeFormDto.getEducations() != null
+                                ? resumeFormDto.getEducations()
                                 : List.of()
                 )
                 .contacts(
-                        resumeFormDto.getContact() != null
-                                ? List.of(
-                                resumeFormDto.getContact()
-                        )
+                        resumeFormDto.getContacts() != null
+                                ? resumeFormDto.getContacts()
                                 : List.of()
                 )
                 .build();
@@ -102,6 +112,77 @@ public class ResController {
 
         return "redirect:/profile";
     }
+
+
+    @PostMapping("/create/add-experience")
+    public String addExperience(
+            ResumeFormDto resumeFormDto,
+            Model model
+    ) {
+
+        if (resumeFormDto.getWorkExperiences() == null) {
+            resumeFormDto.setWorkExperiences(new ArrayList<>());
+        }
+
+        resumeFormDto.getWorkExperiences()
+                .add(new WorkExperienceInfoDto());
+
+        model.addAttribute("resumeFormDto", resumeFormDto);
+        model.addAttribute(
+                "categories",
+                categoryService.getAllCategories()
+        );
+
+        return "resumes/create_resume";
+    }
+
+
+    @PostMapping("/create/add-education")
+    public String addEducation(ResumeFormDto resumeFormDto, Model model) {
+
+        if (resumeFormDto.getEducations() == null) {
+            resumeFormDto.setEducations(new ArrayList<>());
+        }
+
+        resumeFormDto.getEducations()
+                .add(new EducationInfoDto());
+
+        model.addAttribute("resumeFormDto", resumeFormDto);
+        model.addAttribute(
+                "categories",
+                categoryService.getAllCategories()
+        );
+
+        model.asMap().remove(
+                BindingResult.MODEL_KEY_PREFIX + "resumeFormDto"
+        );
+
+        return "resumes/create_resume";
+    }
+
+
+    @PostMapping("/create/add-contact")
+    public String addContact(
+            ResumeFormDto resumeFormDto,
+            Model model
+    ) {
+
+        if (resumeFormDto.getContacts() == null) {
+            resumeFormDto.setContacts(new ArrayList<>());
+        }
+
+        resumeFormDto.getContacts()
+                .add(new ContactInfoDto());
+
+        model.addAttribute("resumeFormDto", resumeFormDto);
+        model.addAttribute(
+                "categories",
+                categoryService.getAllCategories()
+        );
+
+        return "resumes/create_resume";
+    }
+
 
     @GetMapping("/{id}/edit")
     public String editPage(
@@ -120,28 +201,9 @@ public class ResController {
                 .categoryId(resume.getCategoryId())
                 .salary(resume.getSalary())
                 .active(resume.getActive())
-
-                .workExperience(
-                        resume.getWorkExperiences() != null
-                                && !resume.getWorkExperiences().isEmpty()
-                                ? resume.getWorkExperiences().get(0)
-                                : null
-                )
-
-                .education(
-                        resume.getEducations() != null
-                                && !resume.getEducations().isEmpty()
-                                ? resume.getEducations().get(0)
-                                : null
-                )
-
-                .contact(
-                        resume.getContacts() != null
-                                && !resume.getContacts().isEmpty()
-                                ? resume.getContacts().get(0)
-                                : null
-                )
-
+                .workExperiences(resume.getWorkExperiences())
+                .educations(resume.getEducations())
+                .contacts(resume.getContacts())
                 .build();
 
         model.addAttribute("resumeFormDto", resumeFormDto);
@@ -183,18 +245,18 @@ public class ResController {
                                 && resumeFormDto.getActive()
                 )
                 .workExperiences(
-                        resumeFormDto.getWorkExperience() != null
-                                ? List.of(resumeFormDto.getWorkExperience())
+                        resumeFormDto.getWorkExperiences() != null
+                                ? resumeFormDto.getWorkExperiences()
                                 : List.of()
                 )
                 .educations(
-                        resumeFormDto.getEducation() != null
-                                ? List.of(resumeFormDto.getEducation())
+                        resumeFormDto.getEducations() != null
+                                ? resumeFormDto.getEducations()
                                 : List.of()
                 )
                 .contacts(
-                        resumeFormDto.getContact() != null
-                                ? List.of(resumeFormDto.getContact())
+                        resumeFormDto.getContacts() != null
+                                ? resumeFormDto.getContacts()
                                 : List.of()
                 )
                 .build();
@@ -215,4 +277,75 @@ public class ResController {
         return "resumes/resume_details";
     }
 
+
+    @PostMapping("/{id}/edit/add-experience")
+    public String addExperienceEdit(
+            @PathVariable Long id,
+            @ModelAttribute("resumeFormDto") ResumeFormDto resumeFormDto,
+            Model model
+    ) {
+
+        if (resumeFormDto.getWorkExperiences() == null) {
+            resumeFormDto.setWorkExperiences(new ArrayList<>());
+        }
+
+        resumeFormDto.getWorkExperiences()
+                .add(new WorkExperienceInfoDto());
+
+        model.addAttribute("resumeId", id);
+        model.addAttribute(
+                "categories",
+                categoryService.getAllCategories()
+        );
+
+        return "resumes/edit_resume";
+    }
+
+
+    @PostMapping("/{id}/edit/add-education")
+    public String addEducationEdit(
+            @PathVariable Long id,
+            @ModelAttribute("resumeFormDto") ResumeFormDto resumeFormDto,
+            Model model
+    ) {
+
+        if (resumeFormDto.getEducations() == null) {
+            resumeFormDto.setEducations(new ArrayList<>());
+        }
+
+        resumeFormDto.getEducations()
+                .add(new EducationInfoDto());
+
+        model.addAttribute("resumeId", id);
+        model.addAttribute(
+                "categories",
+                categoryService.getAllCategories()
+        );
+
+        return "resumes/edit_resume";
+    }
+
+
+    @PostMapping("/{id}/edit/add-contact")
+    public String addContactEdit(
+            @PathVariable Long id,
+            @ModelAttribute("resumeFormDto") ResumeFormDto resumeFormDto,
+            Model model
+    ) {
+
+        if (resumeFormDto.getContacts() == null) {
+            resumeFormDto.setContacts(new ArrayList<>());
+        }
+
+        resumeFormDto.getContacts()
+                .add(new ContactInfoDto());
+
+        model.addAttribute("resumeId", id);
+        model.addAttribute(
+                "categories",
+                categoryService.getAllCategories()
+        );
+
+        return "resumes/edit_resume";
+    }
 }
