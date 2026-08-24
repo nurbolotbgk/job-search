@@ -8,6 +8,8 @@ import com.example.demo.model.User;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
+import com.example.demo.util.Utility;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -344,5 +346,15 @@ public class UserServiceImpl implements UserService {
         user.setPassword(encodedPassword);
         user.setResetPasswordToken(null);
         userRepository.save(user);
+    }
+
+    @Override
+    public void makeResetPasswdLink(HttpServletRequest request) {
+        String email = request.getParameter("email");
+        String token = UUID.randomUUID().toString();
+        updateResetPasswordToken(token, email);
+        String resetPasswordLink = Utility.getSiteURL(request) + "/auth/reset_password?token=" + token;
+        System.out.println("RESET PASSWORD LINK: "
+                + resetPasswordLink);
     }
 }

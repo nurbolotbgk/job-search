@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.User;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,4 +49,6 @@ public interface UserService {
     User getByResetPasswordToken(String token);
 
     void updatePassword(User user, String newPassword);
+
+    void makeResetPasswdLink(HttpServletRequest request);
 }
