@@ -63,5 +63,10 @@ public class AuthController {
         return "auth/login";
     }
 
-    
+    @GetMapping("/forgot_password")
+    public String showForgotPasswordForm() {
+        return "auth/forgot_password_form";
+    }
+
+
 }
