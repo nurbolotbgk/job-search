@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -19,6 +20,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.io.UnsupportedEncodingException;
 
 
 @Controller
@@ -71,13 +75,29 @@ public class AuthController {
 
     @PostMapping("/forgot_password")
     public String processForgotPassword(HttpServletRequest request, Model model) {
+
         try {
             userService.makeResetPasswdLink(request);
-            model.addAttribute("message", "Ссылка для восстановления пароля сформирована");
-        } catch (UsernameNotFoundException ex) {
+            model.addAttribute("message","Ссылка для восстановления отправлена на вашу почту");
+
+        } catch (UsernameNotFoundException | UnsupportedEncodingException ex) {
             model.addAttribute("error", ex.getMessage());
+
+        } catch (MessagingException ex) {
+            model.addAttribute("error", "Ошибка при отправке письма");
+        }
+        return "auth/forgot_password_form";
+    }
+
+    @GetMapping("/reset_password")
+    public String showResetPasswordForm(@RequestParam String token, Model model) {
+        try {
+            userService.getByResetPasswordToken(token);
+            model.addAttribute("token", token);
+        } catch (UsernameNotFoundException ex) {
+            model.addAttribute("error", "Invalid token");
         }
 
-        return "auth/forgot_password_form";
+        return "auth/reset_password_form";
     }
 }

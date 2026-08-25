@@ -7,8 +7,10 @@ import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.service.EmailService;
 import com.example.demo.service.UserService;
 import com.example.demo.util.Utility;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
@@ -29,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,6 +44,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder encoder;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final EmailService emailService;
 
     @Override
     public List<UserDto> getAllUsers() {
@@ -349,12 +353,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void makeResetPasswdLink(HttpServletRequest request) {
+    public void makeResetPasswdLink(HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
         String email = request.getParameter("email");
         String token = UUID.randomUUID().toString();
         updateResetPasswordToken(token, email);
         String resetPasswordLink = Utility.getSiteURL(request) + "/auth/reset_password?token=" + token;
-        System.out.println("RESET PASSWORD LINK: "
-                + resetPasswordLink);
+        emailService.sendEmail(email, resetPasswordLink);
     }
 }

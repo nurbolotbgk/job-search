@@ -3,11 +3,13 @@ package com.example.demo.service;
 import com.example.demo.dto.EditUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.User;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public interface UserService {
@@ -50,5 +52,5 @@ public interface UserService {
 
     void updatePassword(User user, String newPassword);
 
-    void makeResetPasswdLink(HttpServletRequest request);
+    void makeResetPasswdLink(HttpServletRequest request) throws MessagingException, UnsupportedEncodingException;
 }

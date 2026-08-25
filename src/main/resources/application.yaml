@@ -8,6 +8,18 @@ spring:
   freemarker:
     expose-session-attributes: true
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
 
   datasource:
     url: jdbc:h2:./db/test;AUTO_SERVER=TRUE
