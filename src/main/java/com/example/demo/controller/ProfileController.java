@@ -32,13 +32,6 @@ public class ProfileController {
 
     @GetMapping
     public String profile(@RequestParam(defaultValue = "0") int page, Model model, HttpSession session) {
-        System.out.println("SESSION ID: " + session.getId());
-
-        session.setAttribute("testMessage", "Привет из сессии");
-
-        String message = (String) session.getAttribute("testMessage");
-
-        System.out.println(message);
 
         UserDto currentUser = userService.getCurrentUser();
 
@@ -65,85 +58,6 @@ public class ProfileController {
         }
 
         return "profile/profile";
-    }
-
-
-    @GetMapping("/session/save")
-    public String saveToSession(HttpSession session) {
-
-        session.setAttribute(
-                "testMessage",
-                "Привет из первого запроса"
-        );
-
-        System.out.println("Сохранили в Session");
-
-        return "redirect:/profile/session/read";
-    }
-
-
-    @GetMapping("/session/read")
-    @ResponseBody
-    public String readFromSession(HttpSession session) {
-
-        String message =
-                (String) session.getAttribute("testMessage");
-
-        return message;
-    }
-
-
-    @GetMapping("/session/remove")
-    @ResponseBody
-    public String removeFromSession(HttpSession session) {
-
-        session.removeAttribute("testMessage");
-
-        return "testMessage удалён из Session";
-    }
-
-
-    @GetMapping("/session/time")
-    @ResponseBody
-    public String sessionTime(HttpSession session) {
-
-        session.setMaxInactiveInterval(60);
-
-        return "Session timeout: "
-                + session.getMaxInactiveInterval()
-                + " секунд";
-    }
-
-
-    @GetMapping("/session/invalidate")
-    @ResponseBody
-    public String invalidateSession(HttpSession session) {
-
-        session.invalidate();
-
-        return "Session удалена";
-    }
-
-
-    @GetMapping("/session/request")
-    @ResponseBody
-    public String sessionThroughRequest(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-
-        session.setAttribute("requestMessage", "Записано через HttpServletRequest"
-        );
-        return "SESSION_ID" + session.getId();
-    }
-
-
-    @GetMapping("/session/attribute")
-    @ResponseBody
-    public String sessionAttribute(@SessionAttribute(value = "requestMessage", required = false) String message) {
-        if (message == null) {
-            return "Нет записи";
-        }
-
-        return message;
     }
 
 
@@ -180,7 +94,6 @@ public class ProfileController {
         } else {
             editUserDto.setAvatar(currentUser.getAvatar());
         }
-        System.out.println("AVATAR: " + editUserDto.getAvatar());
         userService.update(currentUser.getId(), editUserDto);
 
         return "redirect:/profile";
