@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.UserDto;
+import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -99,5 +100,32 @@ public class AuthController {
         }
 
         return "auth/reset_password_form";
+    }
+
+
+    @PostMapping("/reset_password")
+    public String processResetPassword(HttpServletRequest request, Model model) {
+
+        String token = request.getParameter("token");
+        String password = request.getParameter("password");
+
+        try {
+            User user = userService.getByResetPasswordToken(token);
+
+            userService.updatePassword(user, password);
+
+            model.addAttribute(
+                    "message",
+                    "Пароль успешно изменён"
+            );
+
+        } catch (UsernameNotFoundException ex) {
+
+            model.addAttribute("error", "Неверный или устаревший токен");
+            model.addAttribute("token", token);
+            return "auth/reset_password_form";
+        }
+
+        return "auth/login";
     }
 }

@@ -71,3 +71,295 @@
 2026-08-25 10:55:23 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
 2026-08-25 10:55:23 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
 2026-08-25 10:55:23 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:57:21 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 2800 (C:\Users\user\IdeaProjects\job-search_62\target\classes started by user in C:\Users\user\IdeaProjects\job-search_62)
+2026-08-25 10:57:21 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-25 10:57:26 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25 10:57:26 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-25 10:57:27 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25 10:57:28 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25 10:57:29 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25 10:57:30 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-25 10:57:30 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-25 10:57:30 INFO  com.example.demo.DemoApplication - Started DemoApplication in 10.381 seconds (process running for 11.399)
+2026-08-25 10:57:30 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25 10:57:30 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25 10:58:11 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/forgot_password
+2026-08-25 10:58:11 DEBUG o.s.security.web.csrf.CsrfFilter - Invalid CSRF token found for http://localhost:8080/auth/forgot_password
+2026-08-25 10:58:11 DEBUG o.s.s.w.a.AccessDeniedHandlerImpl - Responding with 403 status code
+2026-08-25 10:58:11 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 10:58:11 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:11 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id BC86844CBEEF0B2C8516B0FD4B0DE520
+2026-08-25 10:58:11 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+2026-08-25 10:58:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-08-25 10:58:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 10:58:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 10:58:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 10:58:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:16 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-08-25 10:58:16 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:16 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-08-25 10:58:16 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 10:58:16 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:16 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 10:58:16 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 10:58:16 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 10:58:16 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/forgot_password
+2026-08-25 10:58:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/forgot_password
+2026-08-25 10:58:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 10:58:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 10:58:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 10:58:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 10:58:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:20 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/forgot_password
+2026-08-25 10:58:20 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:20 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/forgot_password
+2026-08-25 10:58:24 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 10:58:24 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:24 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 10:58:24 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 10:58:24 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 10:58:24 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:31 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/forgot_password
+2026-08-25 10:58:31 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:31 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/forgot_password
+2026-08-25 10:58:34 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 10:58:34 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:58:34 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 10:58:34 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 10:58:34 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 10:58:34 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:59:05 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/reset_password?token=6fb5dbb1-08ca-4714-a94e-b818bb01c76d
+2026-08-25 10:59:05 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 10:59:05 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/reset_password?token=6fb5dbb1-08ca-4714-a94e-b818bb01c76d
+2026-08-25 10:59:05 WARN  o.s.web.servlet.PageNotFound - No mapping for GET /auth/reset_password
+2026-08-25 10:59:05 WARN  o.s.web.servlet.PageNotFound - No endpoint GET /auth/reset_password.
+2026-08-25 10:59:05 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error?token=6fb5dbb1-08ca-4714-a94e-b818bb01c76d
+2026-08-25 10:59:05 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error?token=6fb5dbb1-08ca-4714-a94e-b818bb01c76d
+2026-08-25 10:59:05 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:09:17 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 8128 (C:\Users\user\IdeaProjects\job-search_62\target\classes started by user in C:\Users\user\IdeaProjects\job-search_62)
+2026-08-25 11:09:17 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-25 11:09:23 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-25 11:09:23 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-25 11:09:23 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-25 11:09:24 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-25 11:09:25 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-25 11:09:25 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-25 11:09:26 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-08-25 11:09:27 INFO  com.example.demo.DemoApplication - Started DemoApplication in 9.755 seconds (process running for 10.593)
+2026-08-25 11:09:27 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-25 11:09:27 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-25 11:10:29 DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+2026-08-25 11:10:29 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:29 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 11558D50BE4F27DE3A4BF68CBD1A42A9
+2026-08-25 11:10:29 DEBUG o.s.security.web.FilterChainProxy - Secured GET /
+2026-08-25 11:10:29 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-08-25 11:10:29 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:29 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 11558D50BE4F27DE3A4BF68CBD1A42A9
+2026-08-25 11:10:29 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-08-25 11:10:30 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:10:30 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:30 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 11558D50BE4F27DE3A4BF68CBD1A42A9
+2026-08-25 11:10:30 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:10:30 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:10:30 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:10:30 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-08-25 11:10:32 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:32 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 11558D50BE4F27DE3A4BF68CBD1A42A9
+2026-08-25 11:10:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-08-25 11:10:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:10:32 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:10:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:10:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:10:32 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/forgot_password
+2026-08-25 11:10:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/forgot_password
+2026-08-25 11:10:37 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:10:37 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:37 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:10:37 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:10:37 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:10:37 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:39 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/forgot_password
+2026-08-25 11:10:39 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:39 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/forgot_password
+2026-08-25 11:10:43 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:10:43 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:43 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:10:43 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:10:43 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:10:43 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:47 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/forgot_password
+2026-08-25 11:10:47 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:47 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/forgot_password
+2026-08-25 11:10:50 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:10:50 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:10:50 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:10:50 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:10:50 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:10:50 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:07 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/reset_password?token=da203d9e-15e8-480d-9740-654af2fd49e1
+2026-08-25 11:11:07 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:07 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/reset_password?token=da203d9e-15e8-480d-9740-654af2fd49e1
+2026-08-25 11:11:07 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:11:07 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:07 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:11:07 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:11:07 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:11:07 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:15 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/reset_password
+2026-08-25 11:11:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:15 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/reset_password
+2026-08-25 11:11:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:11:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:11:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:11:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:11:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:56 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-08-25 11:11:56 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'ivanov@mail.ru'
+2026-08-25 11:11:56 DEBUG o.s.s.authentication.ProviderManager - Authentication failed with provider DaoAuthenticationProvider since Неверные учетные данные пользователя
+2026-08-25 11:11:56 DEBUG o.s.s.authentication.ProviderManager - Denying authentication since all attempted providers failed
+2026-08-25 11:11:56 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login?error=true
+2026-08-25 11:11:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login?error=true
+2026-08-25 11:11:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:56 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login?error=true
+2026-08-25 11:11:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:11:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:11:56 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:11:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:11:56 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:11:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:10 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-08-25 11:12:10 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-08-25 11:12:10 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 1D1EEE8DB05BA70EBD3FB142B88D82CE
+2026-08-25 11:12:10 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-08-25 11:12:10 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7d4a4a3c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1D1EEE8DB05BA70EBD3FB142B88D82CE], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-25T06:12:10.846113200Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@64a010f7]
+2026-08-25 11:12:10 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7d4a4a3c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1D1EEE8DB05BA70EBD3FB142B88D82CE], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-25T06:12:10.846113200Z]]]
+2026-08-25 11:12:10 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-08-25 11:12:10 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-08-25 11:12:10 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7d4a4a3c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1D1EEE8DB05BA70EBD3FB142B88D82CE], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-25T06:12:10.846113200Z]]]]
+2026-08-25 11:12:10 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:12:10 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:12:10 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7d4a4a3c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1D1EEE8DB05BA70EBD3FB142B88D82CE], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-25T06:12:10.846113200Z]]]]
+2026-08-25 11:12:10 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:12:10 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:12:10 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7d4a4a3c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1D1EEE8DB05BA70EBD3FB142B88D82CE], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-25T06:12:10.846113200Z]]]]
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/logout
+2026-08-25 11:12:18 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7d4a4a3c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1D1EEE8DB05BA70EBD3FB142B88D82CE], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-25T06:12:10.846113200Z]]]]
+2026-08-25 11:12:18 DEBUG o.s.s.w.a.logout.LogoutFilter - Logging out [UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7d4a4a3c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1D1EEE8DB05BA70EBD3FB142B88D82CE], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-08-25T06:12:10.846113200Z]]]]
+2026-08-25 11:12:18 DEBUG o.s.s.w.a.l.SecurityContextLogoutHandler - Invalidated session 5B02858A4B4944EFACC8DB30AA8A9AB1
+2026-08-25 11:12:18 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+2026-08-25 11:12:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:18 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 5B02858A4B4944EFACC8DB30AA8A9AB1
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-08-25 11:12:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:18 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 5B02858A4B4944EFACC8DB30AA8A9AB1
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:12:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:18 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 5B02858A4B4944EFACC8DB30AA8A9AB1
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:12:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:12:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:20 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-08-25 11:12:20 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:20 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 5B02858A4B4944EFACC8DB30AA8A9AB1
+2026-08-25 11:12:20 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-08-25 11:12:20 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:12:20 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:20 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:12:20 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:12:20 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:12:20 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:22 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/forgot_password
+2026-08-25 11:12:22 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:22 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/forgot_password
+2026-08-25 11:12:22 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:12:22 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:22 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:12:22 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:12:22 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:12:22 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:27 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/forgot_password
+2026-08-25 11:12:27 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:27 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/forgot_password
+2026-08-25 11:12:30 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:12:30 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:30 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:12:30 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:12:30 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:12:30 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:33 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/forgot_password
+2026-08-25 11:12:33 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:33 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/forgot_password
+2026-08-25 11:12:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:12:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:12:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:12:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:12:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:47 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/reset_password?token=20dd3266-0ec7-4a4b-9a7d-f66af98d5a92
+2026-08-25 11:12:47 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:47 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/reset_password?token=20dd3266-0ec7-4a4b-9a7d-f66af98d5a92
+2026-08-25 11:12:47 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:12:47 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:12:47 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:12:47 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:12:47 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:12:47 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:13:01 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/reset_password
+2026-08-25 11:13:01 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:13:01 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/reset_password
+2026-08-25 11:13:01 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:13:01 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:13:01 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:13:01 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:13:01 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:13:01 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:13:06 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/reset_password
+2026-08-25 11:13:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:13:06 DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/reset_password
+2026-08-25 11:13:06 DEBUG o.s.security.web.FilterChainProxy - Securing GET /static/css/style.css
+2026-08-25 11:13:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-08-25 11:13:06 DEBUG o.s.security.web.FilterChainProxy - Secured GET /static/css/style.css
+2026-08-25 11:13:06 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-08-25 11:13:06 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-08-25 11:13:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
