@@ -48,7 +48,6 @@ public class GlobalControllerAdvice {
     @ExceptionHandler(CategoryNotFoundException.class)
     public String categoryNotFound(HttpServletRequest request, Model model) {
         model.addAttribute("status", HttpStatus.NOT_FOUND.value());
-
         model.addAttribute("reason", "Категория не найдена");
         model.addAttribute("details", request.getRequestURI());
 
