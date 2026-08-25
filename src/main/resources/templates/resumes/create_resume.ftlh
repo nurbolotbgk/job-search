@@ -61,8 +61,14 @@
 
                                 <#list categories as category>
 
-                                    <option value="${category.id}">
+                                    <option value="${category.id}"
+                                            <#if resumeFormDto.categoryId??
+                                    && resumeFormDto.categoryId == category.id>
+                                    selected
+                                            </#if>>
+
                                         ${category.name}
+
                                     </option>
 
                                 </#list>
@@ -90,8 +96,8 @@
                             <@spring.formInput
                             "resumeFormDto.salary"
                             'type="number"
-                             step="0.01"
-                             class="form-control"'
+                                 step="0.01"
+                                 class="form-control"'
                             />
 
                             <@spring.showErrors
@@ -124,7 +130,6 @@
                         </div>
 
 
-
                         <hr class="my-4">
 
 
@@ -133,60 +138,105 @@
                         </h4>
 
 
-                        <div class="mb-3">
+                        <#list resumeFormDto.workExperiences as workExperience>
 
-                            <label class="form-label">
-                                Количество лет
-                            </label>
+                            <div class="card mb-4">
 
-                            <input type="number"
-                                   name="workExperience.years"
-                                   class="form-control"
-                                   min="0">
+                                <div class="card-body">
 
-                        </div>
+                                    <h5 class="mb-3">
+                                        Опыт работы №${workExperience_index + 1}
+                                    </h5>
 
 
-                        <div class="mb-3">
+                                    <div class="mb-3">
 
-                            <label class="form-label">
-                                Название компании
-                            </label>
+                                        <label class="form-label">
+                                            Количество лет
+                                        </label>
 
-                            <input type="text"
-                                   name="workExperience.companyName"
-                                   class="form-control">
+                                        <@spring.formInput
+                                        "resumeFormDto.workExperiences[${workExperience_index}].years"
+                                        'type="number"
+                                             min="0"
+                                             class="form-control"'
+                                        />
 
-                        </div>
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
 
-
-                        <div class="mb-3">
-
-                            <label class="form-label">
-                                Должность
-                            </label>
-
-                            <input type="text"
-                                   name="workExperience.position"
-                                   class="form-control">
-
-                        </div>
+                                    </div>
 
 
-                        <div class="mb-3">
+                                    <div class="mb-3">
 
-                            <label class="form-label">
-                                Обязанности
-                            </label>
+                                        <label class="form-label">
+                                            Название компании
+                                        </label>
 
-                            <textarea
-                                    name="workExperience.responsibilities"
-                                    class="form-control"
-                                    rows="3">
-                        </textarea>
+                                        <@spring.formInput
+                                        "resumeFormDto.workExperiences[${workExperience_index}].companyName"
+                                        'class="form-control"'
+                                        />
 
-                        </div>
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
 
+                                    </div>
+
+
+                                    <div class="mb-3">
+
+                                        <label class="form-label">
+                                            Должность
+                                        </label>
+
+                                        <@spring.formInput
+                                        "resumeFormDto.workExperiences[${workExperience_index}].position"
+                                        'class="form-control"'
+                                        />
+
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
+
+                                    </div>
+
+
+                                    <div class="mb-3">
+
+                                        <label class="form-label">
+                                            Обязанности
+                                        </label>
+
+                                        <@spring.formTextarea
+                                        "resumeFormDto.workExperiences[${workExperience_index}].responsibilities"
+                                        'class="form-control"
+                                             rows="3"'
+                                        />
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </#list>
+
+
+                        <button type="submit"
+                                formaction="/resumes/create/add-experience"
+                                formnovalidate
+                                class="btn btn-outline-primary mb-4">
+
+                            + Добавить опыт работы
+
+                        </button>
 
 
                         <hr class="my-4">
@@ -197,149 +247,257 @@
                         </h4>
 
 
-                        <div class="mb-3">
+                        <#list resumeFormDto.educations as education>
 
-                            <label class="form-label">
-                                Учебное заведение
-                            </label>
+                            <div class="card mb-4">
 
-                            <input type="text"
-                                   name="education.institution"
-                                   class="form-control">
+                                <div class="card-body">
 
-                        </div>
+                                    <h5 class="mb-3">
+                                        Образование №${education_index + 1}
+                                    </h5>
 
 
-                        <div class="mb-3">
+                                    <div class="mb-3">
 
-                            <label class="form-label">
-                                Программа
-                            </label>
+                                        <label class="form-label">
+                                            Учебное заведение
+                                        </label>
 
-                            <input type="text"
-                                   name="education.program"
-                                   class="form-control">
+                                        <@spring.formInput
+                                        "resumeFormDto.educations[${education_index}].institution"
+                                        'class="form-control"'
+                                        />
 
-                        </div>
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
 
-
-                        <div class="mb-3">
-
-                            <label class="form-label">
-                                Дата начала обучения
-                            </label>
-
-                            <@spring.formInput
-                            "resumeFormDto.education.startDate"
-                            'type="date"
-         class="form-control"'
-                            />
-
-                        </div>
+                                    </div>
 
 
-                        <div class="mb-3">
+                                    <div class="mb-3">
 
-                            <label class="form-label">
-                                Дата окончания обучения
-                            </label>
+                                        <label class="form-label">
+                                            Программа
+                                        </label>
 
-                            <@spring.formInput
-                            "resumeFormDto.education.endDate"
-                            'type="date"
-         class="form-control"'
-                            />
+                                        <@spring.formInput
+                                        "resumeFormDto.educations[${education_index}].program"
+                                        'class="form-control"'
+                                        />
 
-                            <@spring.bind "resumeFormDto.education.datesValid"/>
-
-                            <@spring.showErrors
-                            "<br>"
-                            "text-danger"
-                            />
-
-                        </div>
+                                    </div>
 
 
-                        <div class="mb-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            Дата начала обучения
+                                            <span class="text-muted">(день / месяц / год)</span>
+                                        </label>
 
-                            <label class="form-label">
-                                Степень
-                            </label>
+                                        <@spring.formInput
+                                        "resumeFormDto.educations[${education_index}].startDate"
+                                        'type="date" class="form-control"'
+                                        />
 
-                            <input type="text"
-                                   name="education.degree"
-                                   class="form-control">
+                                        <div class="form-text">
+                                            Формат: день, месяц, год
+                                        </div>
 
-                        </div>
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
+                                    </div>
 
+
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            Дата окончания обучения
+                                            <span class="text-muted">(день / месяц / год)</span>
+                                        </label>
+
+                                        <@spring.formInput
+                                        "resumeFormDto.educations[${education_index}].endDate"
+                                        'type="date" class="form-control"'
+                                        />
+
+                                        <div class="form-text">
+                                            Формат: день, месяц, год
+                                        </div>
+
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
+                                    </div>
+
+                                    <div class="mb-3">
+
+                                        <label class="form-label">
+                                            Степень
+                                        </label>
+
+                                        <@spring.formInput
+                                        "resumeFormDto.educations[${education_index}].degree"
+                                        'class="form-control"'
+                                        />
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </#list>
+
+
+                        <button type="submit"
+                                formaction="/resumes/create/add-education"
+                                formnovalidate
+                                class="btn btn-outline-primary mb-4">
+
+                            + Добавить образование
+
+                        </button>
 
 
                         <hr class="my-4">
 
 
                         <h4 class="mb-3">
-                            Контакт
+                            Контакты
                         </h4>
 
 
-                        <div class="mb-3">
+                        <#list resumeFormDto.contacts as contact>
 
-                            <label class="form-label">
-                                Тип контакта
-                            </label>
+                            <div class="card mb-4">
 
-                            <select name="contact.typeId"
-                                    class="form-select">
+                                <div class="card-body">
 
-                                <option value="1">
-                                    Telegram
-                                </option>
-
-                                <option value="2">
-                                    Mail
-                                </option>
-
-                                <option value="3">
-                                    Facebook
-                                </option>
-
-                                <option value="4">
-                                    Whatsapp
-                                </option>
-
-                                <option value="5">
-                                    Linkedin
-                                </option>
-
-                            </select>
-
-                        </div>
+                                    <h5 class="mb-3">
+                                        Контакт №${contact_index + 1}
+                                    </h5>
 
 
-                        <div class="mb-4">
+                                    <div class="mb-3">
 
-                            <label class="form-label">
-                                Контактные данные
-                            </label>
+                                        <label class="form-label">
+                                            Тип контакта
+                                        </label>
 
-                            <input type="text"
-                                   name="contact.contactValue"
-                                   class="form-control">
+                                        <select name="contacts[${contact_index}].typeId"
+                                                class="form-select">
 
-                        </div>
+                                            <option value="1"
+                                                    <#if contact.typeId??
+                                            && contact.typeId == 1>
+                                            selected
+                                                    </#if>>
+                                                Telegram
+                                            </option>
 
+                                            <option value="2"
+                                                    <#if contact.typeId??
+                                            && contact.typeId == 2>
+                                            selected
+                                                    </#if>>
+                                                Mail
+                                            </option>
+
+                                            <option value="3"
+                                                    <#if contact.typeId??
+                                            && contact.typeId == 3>
+                                            selected
+                                                    </#if>>
+                                                Facebook
+                                            </option>
+
+                                            <option value="4"
+                                                    <#if contact.typeId??
+                                            && contact.typeId == 4>
+                                            selected
+                                                    </#if>>
+                                                Whatsapp
+                                            </option>
+
+                                            <option value="5"
+                                                    <#if contact.typeId??
+                                            && contact.typeId == 5>
+                                            selected
+                                                    </#if>>
+                                                Linkedin
+                                            </option>
+
+                                        </select>
+
+                                        <@spring.bind
+                                        "resumeFormDto.contacts[${contact_index}].typeId"
+                                        />
+
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
+
+                                    </div>
+
+
+                                    <div class="mb-3">
+
+                                        <label class="form-label">
+                                            Контактные данные
+                                        </label>
+
+                                        <@spring.formInput
+                                        "resumeFormDto.contacts[${contact_index}].contactValue"
+                                        'class="form-control"'
+                                        />
+
+                                        <@spring.showErrors
+                                        "<br>"
+                                        "text-danger"
+                                        />
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </#list>
+
+
+                        <button type="submit"
+                                formaction="/resumes/create/add-contact"
+                                formnovalidate
+                                class="btn btn-outline-primary mb-4">
+
+                            + Добавить контакт
+
+                        </button>
+
+
+                        <hr class="my-4">
 
 
                         <div class="d-flex gap-2">
 
                             <button type="submit"
                                     class="btn btn-primary">
+
                                 Создать резюме
+
                             </button>
 
                             <a href="/profile"
                                class="btn btn-outline-secondary">
+
                                 Отмена
+
                             </a>
 
                         </div>

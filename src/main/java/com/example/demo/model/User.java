@@ -39,7 +39,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Resume> resumes;
     private Boolean enabled;
-
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
     @Override
     public String getUsername() {
         return email;
@@ -69,4 +70,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return enabled != null && enabled;
     }
+
+
 }

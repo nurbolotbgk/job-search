@@ -32,7 +32,7 @@
                             ${company.phoneNumber!"Не указан"}
                         </p>
 
-                        <a href="/profile/${company.id}"
+                        <a href="/companies/${company.id}"
                            class="btn btn-outline-primary">
                             Подробнее
                         </a>

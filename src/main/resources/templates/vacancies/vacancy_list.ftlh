@@ -11,10 +11,25 @@
             </p>
         </div>
 
-        <a href="/vacancies/create"
-           class="btn btn-primary">
-            Создать вакансию
-        </a>
+        <#if SPRING_SECURITY_CONTEXT??>
+
+            <#assign currentUser =
+            SPRING_SECURITY_CONTEXT.authentication.principal>
+
+            <#list currentUser.authorities as auth>
+
+                <#if auth.authority == "ROLE_EMPLOYER">
+
+                    <a href="/vacancies/create"
+                       class="btn btn-primary">
+                        Создать вакансию
+                    </a>
+
+                </#if>
+
+            </#list>
+
+        </#if>
 
     </div>
 

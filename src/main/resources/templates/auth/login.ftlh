@@ -83,6 +83,12 @@
                                     Войти
                                 </button>
 
+                                <p class="text-center mt-3">
+                                    <a href="/auth/forgot_password">
+                                        Забыли пароль?
+                                    </a>
+                                </p>
+
                             </form>
 
                             <p class="text-center mt-4 mb-0">

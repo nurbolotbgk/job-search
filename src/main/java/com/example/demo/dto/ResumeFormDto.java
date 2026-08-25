@@ -10,6 +10,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -29,9 +32,16 @@ public class ResumeFormDto {
     private Double salary;
 
     private Boolean active;
-    private WorkExperienceInfoDto workExperience;
-    @Valid
-    private EducationInfoDto education;
 
-    private ContactInfoDto contact;
+    @Valid
+    @Builder.Default
+    private List<WorkExperienceInfoDto> workExperiences = new ArrayList<>();
+
+    @Valid
+    @Builder.Default
+    private List<EducationInfoDto> educations = new ArrayList<>();
+
+    @Valid
+    @Builder.Default
+    private List<ContactInfoDto> contacts = new ArrayList<>();
 }
