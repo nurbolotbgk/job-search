@@ -51,14 +51,24 @@
                             class="form-select"
                             onchange="this.form.submit()">
 
-                        <option value="date"
-                                <#if sort == "date">selected</#if>>
-                            По дате публикации
+                        <option value="date_desc"
+                                <#if sort == "date_desc">selected</#if>>
+                            По дате — сначала новые
                         </option>
 
-                        <option value="responses"
-                                <#if sort == "responses">selected</#if>>
-                            По количеству откликов
+                        <option value="date_asc"
+                                <#if sort == "date_asc">selected</#if>>
+                            По дате — сначала старые
+                        </option>
+
+                        <option value="responses_desc"
+                                <#if sort == "responses_desc">selected</#if>>
+                            По откликам — сначала больше
+                        </option>
+
+                        <option value="responses_asc"
+                                <#if sort == "responses_asc">selected</#if>>
+                            По откликам — сначала меньше
                         </option>
 
                     </select>

@@ -134,6 +134,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findEntityById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(UserNotFoundException::new);
+    }
+
+    @Override
     public UserDto findEmployerById(Long id) {
         User user = userRepository.findByIdAndRole_Id(id, 2)
                 .orElseThrow(UserNotFoundException::new);

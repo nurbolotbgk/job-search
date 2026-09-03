@@ -22,6 +22,8 @@ public interface UserService {
 
     UserDto findUserById(Long id);
 
+    User findEntityById(Long id);
+
     UserDto findEmployerById(Long id);
 
     UserDto findApplicantById(Long id);

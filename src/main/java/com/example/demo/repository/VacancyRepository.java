@@ -23,5 +23,10 @@ public interface VacancyRepository extends JpaRepository<Vacancy, Long> {
     @Query("SELECT v FROM Vacancy v " +
             "WHERE v.active = true " +
             "ORDER BY SIZE(v.respondedApplicants) DESC")
-    Page<Vacancy> findActiveOrderByResponses(Pageable pageable);
+    Page<Vacancy> findActiveOrderByResponsesDesc(Pageable pageable);
+
+    @Query("SELECT v FROM Vacancy v " +
+            "WHERE v.active = true " +
+            "ORDER BY SIZE(v.respondedApplicants) ASC")
+    Page<Vacancy> findActiveOrderByResponsesAsc(Pageable pageable);
 }

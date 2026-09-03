@@ -17,4 +17,6 @@ public class Category {
     private String name;
     @OneToMany(mappedBy = "category")
     private List<Vacancy> vacancies;
+    @OneToMany(mappedBy = "category")
+    private List<Resume> resumes;
 }

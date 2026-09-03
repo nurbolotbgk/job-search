@@ -59,13 +59,37 @@ public class VacancyServiceImpl implements VacancyService {
 
         Page<Vacancy> vacancies;
 
-        if ("responses".equals(sort)) {
+        if ("date_asc".equals(sort)) {
+
+            Pageable pageable = PageRequest.of(
+                    page,
+                    size,
+                    Sort.by("createdDate").ascending()
+            );
+
+            vacancies = vacancyRepository.findByActiveTrue(pageable);
+
+        } else if ("responses_asc".equals(sort)) {
+
             Pageable pageable = PageRequest.of(page, size);
 
-            vacancies = vacancyRepository.findActiveOrderByResponses(pageable);
+            vacancies =
+                    vacancyRepository.findActiveOrderByResponsesAsc(pageable);
+
+        } else if ("responses_desc".equals(sort)) {
+
+            Pageable pageable = PageRequest.of(page, size);
+
+            vacancies =
+                    vacancyRepository.findActiveOrderByResponsesDesc(pageable);
 
         } else {
-            Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+
+            Pageable pageable = PageRequest.of(
+                    page,
+                    size,
+                    Sort.by("createdDate").descending()
+            );
 
             vacancies = vacancyRepository.findByActiveTrue(pageable);
         }
