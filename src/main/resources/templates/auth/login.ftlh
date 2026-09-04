@@ -40,6 +40,12 @@
                                 </div>
                             </#if>
 
+                            <#if messageKey??>
+                                <div class="alert alert-success">
+                                    <@spring.message messageKey/>
+                                </div>
+                            </#if>
+
                             <form action="/auth/login" method="post">
 
                                 <#if _csrf??>

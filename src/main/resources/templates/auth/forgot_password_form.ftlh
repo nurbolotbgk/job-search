@@ -15,15 +15,15 @@
                         <@spring.message "forgot.password.title"/>
                     </h2>
 
-                    <#if error??>
+                    <#if errorKey??>
                         <div class="alert alert-danger">
-                            ${error}
+                            <@spring.message errorKey/>
                         </div>
                     </#if>
 
-                    <#if message??>
+                    <#if messageKey??>
                         <div class="alert alert-success">
-                            ${message}
+                            <@spring.message messageKey/>
                         </div>
                     </#if>
 

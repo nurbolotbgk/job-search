@@ -25,11 +25,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.UnsupportedEncodingException;
 
-
 @Controller
 @RequestMapping("auth")
 @RequiredArgsConstructor
 public class AuthController {
+
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
 
@@ -39,27 +39,30 @@ public class AuthController {
         return "auth/register";
     }
 
-
-
     @PostMapping("/register")
     public String register(@Valid UserDto userDto, BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) {
         if (bindingResult.hasErrors()) {
             return "auth/register";
         }
+
         String password = userDto.getPassword();
 
         userService.save(userDto);
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(userDto.getEmail(), password));
+                new UsernamePasswordAuthenticationToken(
+                        userDto.getEmail(),
+                        password
+                )
+        );
 
         SecurityContext context = SecurityContextHolder.createEmptyContext();
+
         context.setAuthentication(authentication);
 
         SecurityContextHolder.setContext(context);
 
         new HttpSessionSecurityContextRepository().saveContext(context, request, response);
-
 
         return "redirect:/profile";
     }
@@ -75,18 +78,30 @@ public class AuthController {
     }
 
     @PostMapping("/forgot_password")
-    public String processForgotPassword(HttpServletRequest request, Model model) {
+    public String processForgotPassword(
+            HttpServletRequest request,
+            Model model
+    ) {
 
         try {
             userService.makeResetPasswdLink(request);
-            model.addAttribute("message","Ссылка для восстановления отправлена на вашу почту");
+
+            model.addAttribute(
+                    "messageKey",
+                    "auth.forgot.password.sent"
+            );
 
         } catch (UsernameNotFoundException | UnsupportedEncodingException ex) {
-            model.addAttribute("error", ex.getMessage());
+
+            model.addAttribute(
+                    "errorKey",
+                    "auth.forgot.password.user.notfound"
+            );
 
         } catch (MessagingException ex) {
-            model.addAttribute("error", "Ошибка при отправке письма");
+            model.addAttribute("errorKey", "auth.forgot.password.email.error");
         }
+
         return "auth/forgot_password_form";
     }
 
@@ -95,17 +110,16 @@ public class AuthController {
         try {
             userService.getByResetPasswordToken(token);
             model.addAttribute("token", token);
+
         } catch (UsernameNotFoundException ex) {
-            model.addAttribute("error", "Invalid token");
+            model.addAttribute("errorKey", "auth.reset.password.token.invalid");
         }
 
         return "auth/reset_password_form";
     }
 
-
     @PostMapping("/reset_password")
     public String processResetPassword(HttpServletRequest request, Model model) {
-
         String token = request.getParameter("token");
         String password = request.getParameter("password");
 
@@ -114,15 +128,14 @@ public class AuthController {
 
             userService.updatePassword(user, password);
 
-            model.addAttribute(
-                    "message",
-                    "Пароль успешно изменён"
-            );
+            model.addAttribute("messageKey", "auth.reset.password.success");
 
         } catch (UsernameNotFoundException ex) {
 
-            model.addAttribute("error", "Неверный или устаревший токен");
+            model.addAttribute("errorKey", "auth.reset.password.token.expired");
+
             model.addAttribute("token", token);
+
             return "auth/reset_password_form";
         }
 

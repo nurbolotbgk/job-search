@@ -59,9 +59,7 @@ public class ResController {
         );
 
         model.addAttribute("resumeFormDto", resumeFormDto);
-        model.addAttribute(
-                "categories",
-                categoryService.getAllCategories()
+        model.addAttribute("categories", categoryService.getAllCategories()
         );
 
         return "resumes/create_resume";
@@ -72,10 +70,7 @@ public class ResController {
     public String create(@Valid ResumeFormDto resumeFormDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute(
-                    "categories",
-                    categoryService.getAllCategories()
-            );
+            model.addAttribute("categories", categoryService.getAllCategories());
 
             return "resumes/create_resume";
         }
