@@ -1,3 +1,4 @@
+<#import "/spring.ftl" as spring>
 <#macro layout title="Job Search">
     <!doctype html>
     <html lang="ru">
@@ -70,7 +71,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="/">
-                            Главная
+                            <@spring.message "nav.home"/>
                         </a>
                     </li>
 
