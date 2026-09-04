@@ -1,4 +1,5 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Новый пароль">
 
@@ -9,7 +10,7 @@
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
-                        Новый пароль
+                        <@spring.message "reset.password.title"/>
                     </h2>
 
                     <#if error??>
@@ -41,7 +42,7 @@
 
                             <label for="password"
                                    class="form-label">
-                                Новый пароль
+                                <@spring.message "reset.password.label"/>
                             </label>
 
                             <input type="password"
@@ -54,7 +55,7 @@
 
                         <button type="submit"
                                 class="btn btn-primary w-100">
-                            Изменить пароль
+                            <@spring.message "reset.password.button"/>
                         </button>
 
                     </form>

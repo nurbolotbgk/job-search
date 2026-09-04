@@ -1,13 +1,17 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Вакансии">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <div>
-            <h2 class="mb-1">Вакансии</h2>
+            <h2 class="mb-1">
+                <@spring.message "vacancies.title"/>
+            </h2>
+
             <p class="text-muted mb-0">
-                Актуальные предложения работодателей
+                <@spring.message "vacancies.subtitle"/>
             </p>
         </div>
 
@@ -22,7 +26,7 @@
 
                     <a href="/vacancies/create"
                        class="btn btn-primary">
-                        Создать вакансию
+                        <@spring.message "vacancies.create"/>
                     </a>
 
                 </#if>
@@ -44,7 +48,7 @@
                 <div class="col-md-4">
 
                     <label class="form-label">
-                        Сортировка
+                        <@spring.message "vacancies.sort"/>
                     </label>
 
                     <select name="sort"
@@ -53,22 +57,22 @@
 
                         <option value="date_desc"
                                 <#if sort == "date_desc">selected</#if>>
-                            По дате — сначала новые
+                            <@spring.message "vacancies.sort.date.desc"/>
                         </option>
 
                         <option value="date_asc"
                                 <#if sort == "date_asc">selected</#if>>
-                            По дате — сначала старые
+                            <@spring.message "vacancies.sort.date.asc"/>
                         </option>
 
                         <option value="responses_desc"
                                 <#if sort == "responses_desc">selected</#if>>
-                            По откликам — сначала больше
+                            <@spring.message "vacancies.sort.responses.desc"/>
                         </option>
 
                         <option value="responses_asc"
                                 <#if sort == "responses_asc">selected</#if>>
-                            По откликам — сначала меньше
+                            <@spring.message "vacancies.sort.responses.asc"/>
                         </option>
 
                     </select>
@@ -97,7 +101,11 @@
                                 </h4>
 
                                 <p class="text-muted mb-2">
-                                    ${vacancy.companyName!"Компания не указана"}
+                                    <#if vacancy.companyName??>
+                                        ${vacancy.companyName}
+                                    <#else>
+                                        <@spring.message "vacancies.company.not.specified"/>
+                                    </#if>
                                 </p>
 
                             </div>
@@ -105,7 +113,11 @@
                             <div>
 
                                 <span class="badge text-bg-success fs-6">
-                                    ${vacancy.salary!"Зарплата не указана"}
+                                    <#if vacancy.salary??>
+                                        ${vacancy.salary}
+                                    <#else>
+                                        <@spring.message "vacancies.salary.not.specified"/>
+                                    </#if>
                                 </span>
 
                             </div>
@@ -113,12 +125,21 @@
                         </div>
 
                         <p class="mt-3">
-                            ${vacancy.description!"Описание отсутствует"}
+                            <#if vacancy.description??>
+                                ${vacancy.description}
+                            <#else>
+                                <@spring.message "vacancies.description.empty"/>
+                            </#if>
                         </p>
 
                         <p class="text-muted mb-0">
-                            Опыт:
-                            ${vacancy.experience!"Не указан"}
+                            <@spring.message "vacancies.experience"/>
+
+                            <#if vacancy.experience??>
+                                ${vacancy.experience}
+                            <#else>
+                                <@spring.message "vacancies.experience.not.specified"/>
+                            </#if>
                         </p>
 
                     </div>
@@ -127,7 +148,7 @@
 
                         <a href="/vacancies/${vacancy.id}"
                            class="btn btn-outline-primary">
-                            Подробнее
+                            <@spring.message "vacancies.details"/>
                         </a>
 
                     </div>
@@ -141,7 +162,7 @@
             <div class="col-12">
 
                 <div class="alert alert-info">
-                    Вакансии пока отсутствуют
+                    <@spring.message "vacancies.empty"/>
                 </div>
 
             </div>
@@ -161,7 +182,7 @@
 
                             <a class="page-link"
                                href="/vacancies?page=${currentPage - 1}&sort=${sort}">
-                                Назад
+                                <@spring.message "pagination.previous"/>
                             </a>
 
                         </li>
@@ -189,7 +210,7 @@
 
                             <a class="page-link"
                                href="/vacancies?page=${currentPage + 1}&sort=${sort}">
-                                Вперёд
+                                <@spring.message "pagination.next"/>
                             </a>
 
                         </li>

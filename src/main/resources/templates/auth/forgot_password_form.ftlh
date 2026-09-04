@@ -1,4 +1,5 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Восстановление пароля">
 
@@ -11,7 +12,7 @@
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
-                        Восстановление пароля
+                        <@spring.message "forgot.password.title"/>
                     </h2>
 
                     <#if error??>
@@ -27,8 +28,7 @@
                     </#if>
 
                     <p class="text-muted">
-                        Укажите email. На него будет отправлена ссылка
-                        для восстановления пароля.
+                        <@spring.message "forgot.password.description"/>
                     </p>
 
                     <form action="/auth/forgot_password"
@@ -43,7 +43,7 @@
                         <div class="mb-3">
 
                             <label class="form-label">
-                                Email
+                                <@spring.message "forgot.password.email"/>
                             </label>
 
                             <input type="email"
@@ -55,7 +55,7 @@
 
                         <button type="submit"
                                 class="btn btn-primary w-100">
-                            Отправить ссылку
+                            <@spring.message "forgot.password.button"/>
                         </button>
 
                     </form>

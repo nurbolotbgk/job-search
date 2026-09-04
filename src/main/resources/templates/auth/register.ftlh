@@ -10,7 +10,7 @@
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
-                        Регистрация
+                        <@spring.message "register.title"/>
                     </h2>
 
                     <form action="/auth/register" method="post">
@@ -23,7 +23,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Имя
+                                <@spring.message "register.name"/>
                             </label>
 
                             <@spring.formInput
@@ -37,7 +37,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Фамилия
+                                <@spring.message "register.surname"/>
                             </label>
 
                             <@spring.formInput
@@ -51,7 +51,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Возраст
+                                <@spring.message "register.age"/>
                             </label>
 
                             <@spring.formInput
@@ -65,7 +65,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Email
+                                <@spring.message "register.email"/>
                             </label>
 
                             <@spring.formInput
@@ -79,7 +79,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Пароль
+                                <@spring.message "register.password"/>
                             </label>
 
                             <@spring.formPasswordInput
@@ -93,7 +93,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Номер телефона
+                                <@spring.message "register.phone"/>
                             </label>
 
                             <@spring.formInput
@@ -108,7 +108,7 @@
                         <div class="mb-4">
 
                             <label class="form-label">
-                                Тип учётной записи
+                                <@spring.message "register.account.type"/>
                             </label>
 
                             <div class="form-check">
@@ -122,7 +122,7 @@
 
                                 <label class="form-check-label"
                                        for="applicant">
-                                    Соискатель
+                                    <@spring.message "register.role.applicant"/>
                                 </label>
 
                             </div>
@@ -137,7 +137,7 @@
 
                                 <label class="form-check-label"
                                        for="employer">
-                                    Работодатель
+                                    <@spring.message "register.role.employer"/>
                                 </label>
 
                             </div>
@@ -146,7 +146,7 @@
 
                         <button type="submit"
                                 class="btn btn-primary w-100">
-                            Зарегистрироваться
+                            <@spring.message "register.button"/>
                         </button>
 
                     </form>

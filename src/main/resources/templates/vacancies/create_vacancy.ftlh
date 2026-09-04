@@ -10,7 +10,7 @@
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
-                        Создание вакансии
+                        <@spring.message "vacancy.create.title"/>
                     </h2>
 
                     <form action="/vacancies/create" method="post">
@@ -23,7 +23,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Название вакансии
+                                <@spring.message "vacancy.create.name"/>
                             </label>
 
                             <@spring.formInput
@@ -35,7 +35,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Описание
+                                <@spring.message "vacancy.create.description"/>
                             </label>
 
                             <@spring.formTextarea
@@ -47,7 +47,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Категория
+                                <@spring.message "vacancy.create.category"/>
                             </label>
 
                             <select class="form-select"
@@ -67,7 +67,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Зарплата
+                                <@spring.message "vacancy.create.salary"/>
                             </label>
 
                             <@spring.formInput
@@ -79,7 +79,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Опыт от
+                                <@spring.message "vacancy.create.exp.from"/>
                             </label>
 
                             <@spring.formInput
@@ -91,7 +91,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">
-                                Опыт до
+                                <@spring.message "vacancy.create.exp.to"/>
                             </label>
 
                             <@spring.formInput
@@ -112,19 +112,19 @@
 
                             <label class="form-check-label"
                                    for="active">
-                                Активная вакансия
+                                <@spring.message "vacancy.create.active"/>
                             </label>
 
                         </div>
 
                         <button type="submit"
                                 class="btn btn-primary">
-                            Создать вакансию
+                            <@spring.message "vacancy.create.button"/>
                         </button>
 
                         <a href="/profile"
                            class="btn btn-outline-secondary">
-                            Отмена
+                            <@spring.message "vacancy.create.cancel"/>
                         </a>
 
                     </form>

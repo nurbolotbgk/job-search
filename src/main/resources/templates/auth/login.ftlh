@@ -1,4 +1,5 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Вход">
 
@@ -24,18 +25,18 @@
                         <div class="card-body p-4 p-md-5">
 
                             <h2 class="text-center mb-4">
-                                Вход
+                                <@spring.message "login.title"/>
                             </h2>
 
                             <#if RequestParameters.error??>
                                 <div class="alert alert-danger">
-                                    Неверный email или пароль
+                                    <@spring.message "login.error"/>
                                 </div>
                             </#if>
 
                             <#if RequestParameters.logout??>
                                 <div class="alert alert-success">
-                                    Вы вышли из системы
+                                    <@spring.message "login.logout"/>
                                 </div>
                             </#if>
 
@@ -51,7 +52,7 @@
 
                                     <label for="email"
                                            class="form-label">
-                                        Email
+                                        <@spring.message "login.email"/>
                                     </label>
 
                                     <input type="email"
@@ -67,7 +68,7 @@
 
                                     <label for="password"
                                            class="form-label">
-                                        Пароль
+                                        <@spring.message "login.password"/>
                                     </label>
 
                                     <input type="password"
@@ -80,22 +81,22 @@
 
                                 <button type="submit"
                                         class="btn btn-primary w-100">
-                                    Войти
+                                    <@spring.message "login.button"/>
                                 </button>
 
                                 <p class="text-center mt-3">
                                     <a href="/auth/forgot_password">
-                                        Забыли пароль?
+                                        <@spring.message "login.forgot.password"/>
                                     </a>
                                 </p>
 
                             </form>
 
                             <p class="text-center mt-4 mb-0">
-                                Нет учётной записи?
+                                <@spring.message "login.no.account"/>
 
                                 <a href="/auth/register">
-                                    Зарегистрироваться
+                                    <@spring.message "login.register"/>
                                 </a>
                             </p>
 
