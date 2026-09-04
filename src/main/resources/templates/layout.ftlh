@@ -107,6 +107,33 @@
 
             </div>
 
+            <div class="dropdown me-2">
+
+                <button class="btn btn-outline-light dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown">
+
+                    <@spring.message "nav.language"/>
+
+                </button>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a class="dropdown-item" href="?lang=ru">
+                            <@spring.message "nav.language.ru"/>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="?lang=en">
+                            <@spring.message "nav.language.en"/>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
 
             <#if known>
 
