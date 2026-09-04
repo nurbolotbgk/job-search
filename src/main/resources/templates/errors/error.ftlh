@@ -1,4 +1,5 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Ошибка">
 
@@ -17,7 +18,7 @@
                     </h3>
 
                     <p class="text-muted mt-3">
-                        Запрашиваемая страница или объект не найден.
+                        <@spring.message "error.message.not.found"/>
                     </p>
 
                     <#if details??>
@@ -26,8 +27,9 @@
                         </p>
                     </#if>
 
-                    <a href="/" class="btn btn-primary mt-3">
-                        На главную
+                    <a href="/"
+                       class="btn btn-primary mt-3">
+                        <@spring.message "error.back.home"/>
                     </a>
 
                 </div>

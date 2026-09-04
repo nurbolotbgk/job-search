@@ -1,4 +1,5 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Личный кабинет">
 
@@ -9,7 +10,7 @@
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
-                        Личный кабинет
+                        <@spring.message "profile.title"/>
                     </h2>
 
                     <div class="text-center mb-4">
@@ -17,7 +18,7 @@
                         <#if user.avatar?? && user.avatar?has_content>
 
                             <img src="/images/${user.avatar}"
-                                 alt="Фото профиля"
+                                 alt="<@spring.message "profile.photo.alt"/>"
                                  class="rounded-circle"
                                  width="150"
                                  height="150"
@@ -26,7 +27,7 @@
                         <#else>
 
                             <div class="text-muted">
-                                Фото профиля не установлено
+                                <@spring.message "profile.photo.empty"/>
                             </div>
 
                         </#if>
@@ -35,33 +36,33 @@
 
 
                     <div class="mb-3">
-                        <strong>Имя:</strong>
+                        <strong><@spring.message "profile.name"/></strong>
                         ${user.name!}
                     </div>
 
                     <div class="mb-3">
-                        <strong>Фамилия:</strong>
+                        <strong><@spring.message "profile.surname"/></strong>
                         ${user.surname!}
                     </div>
 
                     <div class="mb-3">
-                        <strong>Возраст:</strong>
+                        <strong><@spring.message "profile.age"/></strong>
                         ${user.age!}
                     </div>
 
                     <div class="mb-3">
-                        <strong>Email:</strong>
+                        <strong><@spring.message "profile.email"/></strong>
                         ${user.email!}
                     </div>
 
                     <div class="mb-3">
-                        <strong>Номер телефона:</strong>
+                        <strong><@spring.message "profile.phone"/></strong>
                         ${user.phoneNumber!}
                     </div>
 
                     <a href="/profile/edit"
                        class="btn btn-primary">
-                        Редактировать профиль
+                        <@spring.message "profile.edit"/>
                     </a>
 
 
@@ -72,12 +73,12 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
 
                             <h4 class="mb-0">
-                                Мои резюме
+                                <@spring.message "profile.my.resumes"/>
                             </h4>
 
                             <a href="/resumes/create"
                                class="btn btn-success">
-                                Создать резюме
+                                <@spring.message "profile.create.resume"/>
                             </a>
 
                         </div>
@@ -95,7 +96,7 @@
                                         </h5>
 
                                         <p class="card-text mb-2">
-                                            Желаемая зарплата:
+                                            <@spring.message "profile.desired.salary"/>
                                             ${resume.salary!}
                                         </p>
 
@@ -103,14 +104,14 @@
                                         <#if resume.active?? && resume.active>
 
                                             <span class="badge bg-success">
-                                            Активно
-                                        </span>
+                                                <@spring.message "profile.resume.active"/>
+                                            </span>
 
                                         <#else>
 
                                             <span class="badge bg-secondary">
-                                            Неактивно
-                                        </span>
+                                                <@spring.message "profile.resume.inactive"/>
+                                            </span>
 
                                         </#if>
 
@@ -119,7 +120,7 @@
 
                                             <a href="/resumes/${resume.id}/edit"
                                                class="btn btn-outline-primary btn-sm">
-                                                Редактировать
+                                                <@spring.message "profile.resume.edit"/>
                                             </a>
 
                                         </div>
@@ -128,21 +129,27 @@
                                 </div>
 
                             </#list>
+
+
                             <#if totalPages?? && totalPages gt 1>
 
                                 <nav class="mt-4">
                                     <ul class="pagination justify-content-center">
 
                                         <#if currentPage gt 0>
+
                                             <li class="page-item">
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage - 1}">
-                                                    Назад
+                                                    <@spring.message "pagination.previous"/>
                                                 </a>
                                             </li>
+
                                         </#if>
 
+
                                         <#list 0..(totalPages - 1) as i>
+
                                             <li class="page-item <#if i == currentPage>active</#if>">
 
                                                 <a class="page-link"
@@ -151,25 +158,30 @@
                                                 </a>
 
                                             </li>
+
                                         </#list>
 
+
                                         <#if currentPage lt totalPages - 1>
+
                                             <li class="page-item">
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage + 1}">
-                                                    Вперёд
+                                                    <@spring.message "pagination.next"/>
                                                 </a>
                                             </li>
+
                                         </#if>
 
                                     </ul>
                                 </nav>
 
                             </#if>
+
                         <#else>
 
                             <p class="text-muted">
-                                У вас пока нет резюме.
+                                <@spring.message "profile.resumes.empty"/>
                             </p>
 
                         </#if>
@@ -182,12 +194,12 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
 
                             <h4 class="mb-0">
-                                Мои вакансии
+                                <@spring.message "profile.my.vacancies"/>
                             </h4>
 
                             <a href="/vacancies/create"
                                class="btn btn-success">
-                                Создать вакансию
+                                <@spring.message "profile.create.vacancy"/>
                             </a>
 
                         </div>
@@ -209,12 +221,17 @@
                                         </p>
 
                                         <p class="card-text mb-2">
-                                            <strong>Зарплата:</strong>
+                                            <strong>
+                                                <@spring.message "profile.vacancy.salary"/>
+                                            </strong>
                                             ${vacancy.salary!}
                                         </p>
 
                                         <p class="card-text mb-2">
-                                            <strong>Опыт:</strong>
+                                            <strong>
+                                                <@spring.message "profile.vacancy.experience"/>
+                                            </strong>
+
                                             ${vacancy.expFrom!}
                                             -
                                             ${vacancy.expTo!}
@@ -224,14 +241,14 @@
                                         <#if vacancy.active?? && vacancy.active>
 
                                             <span class="badge bg-success">
-                                            Активна
-                                        </span>
+                                                <@spring.message "profile.vacancy.active"/>
+                                            </span>
 
                                         <#else>
 
                                             <span class="badge bg-secondary">
-                                            Неактивна
-                                        </span>
+                                                <@spring.message "profile.vacancy.inactive"/>
+                                            </span>
 
                                         </#if>
 
@@ -240,7 +257,7 @@
 
                                             <a href="/vacancies/${vacancy.id}/edit"
                                                class="btn btn-outline-primary btn-sm">
-                                                Редактировать
+                                                <@spring.message "profile.vacancy.edit"/>
                                             </a>
 
                                         </div>
@@ -250,6 +267,7 @@
 
                             </#list>
 
+
                             <#if totalPages?? && totalPages gt 1>
 
                                 <nav class="mt-4">
@@ -257,13 +275,16 @@
                                     <ul class="pagination justify-content-center">
 
                                         <#if currentPage gt 0>
+
                                             <li class="page-item">
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage - 1}">
-                                                    Назад
+                                                    <@spring.message "pagination.previous"/>
                                                 </a>
                                             </li>
+
                                         </#if>
+
 
                                         <#list 0..(totalPages - 1) as i>
 
@@ -278,12 +299,13 @@
 
                                         </#list>
 
+
                                         <#if currentPage lt totalPages - 1>
 
                                             <li class="page-item">
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage + 1}">
-                                                    Вперёд
+                                                    <@spring.message "pagination.next"/>
                                                 </a>
                                             </li>
 
@@ -298,7 +320,7 @@
                         <#else>
 
                             <p class="text-muted">
-                                У вас пока нет вакансий.
+                                <@spring.message "profile.vacancies.empty"/>
                             </p>
 
                         </#if>

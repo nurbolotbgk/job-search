@@ -14,35 +14,36 @@ public class UserDto {
 
     private Long id;
 
-    @NotBlank(message = "Name should not be empty")
-    @Size(min = 2, max = 25, message = "Name length should be 2 to 25")
+    @NotBlank(message = "{validation.user.name.notblank}")
+    @Size(min = 2, max = 25, message = "{validation.user.name.size}")
     private String name;
-    @NotBlank(message = "Surname should not be empty")
-    @Size(min = 2, max = 25, message = "SurName length should be 2 to 25")
+
+    @NotBlank(message = "{validation.user.surname.notblank}")
+    @Size(min = 2, max = 25, message = "{validation.user.surname.size}")
     private String surname;
-    @NotNull(message = "Age must be")
-    @Min(value = 18, message = "Age must be minimum 18")
-    @Max(value = 68, message = "Age must be maximum 68")
+
+    @NotNull(message = "{validation.user.age.notnull}")
+    @Min(value = 18, message = "{validation.user.age.min}")
+    @Max(value = 68, message = "{validation.user.age.max}")
     private Integer age;
-    @NotBlank
-    @Email
+
+    @NotBlank(message = "{validation.user.email.notblank}")
+    @Email(message = "{validation.user.email.valid}")
     private String email;
-    @NotBlank
-    @Size(min = 3, max = 24, message = "Length must be >= 3 and <= 24")
-    @Pattern(
-            regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).+$",
-            message = "Should contain at least one uppercase letter and one number"
-    )
+
+    @NotBlank(message = "{validation.user.password.notblank}")
+    @Size(min = 3, max = 24, message = "{validation.user.password.size}")
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).+$", message = "{validation.user.password.pattern}")
     private String password;
-    @NotBlank(message = "Phone number is required")
-    @Pattern(
-            regexp = "^\\+996\\d{9}$",
-            message = "Phone number must start with +996 and then contains 9 digits"
-    )
+
+    @NotBlank(message = "{validation.user.phone.notblank}")
+    @Pattern(regexp = "^\\+996\\d{9}$", message = "{validation.user.phone.pattern}")
     private String phoneNumber;
+
     private String avatar;
-    @NotNull(message = "Role_id is necessary")
-    @Min(value = 1, message = "Role_id must be 1 - applicant or 2 - employer")
-    @Max(value = 2, message = "Role_id must be 1 - applicant or 2 - employer")
+
+    @NotNull(message = "{validation.user.role.notnull}")
+    @Min(value = 1, message = "{validation.user.role.range}")
+    @Max(value = 2, message = "{validation.user.role.range}")
     private Integer roleId;
 }

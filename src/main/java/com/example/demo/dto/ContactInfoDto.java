@@ -14,10 +14,8 @@ import lombok.NoArgsConstructor;
 public class ContactInfoDto {
 
     private Long id;
-
-    @NotBlank(message = "Контактные данные не должны быть пустыми")
+    @NotBlank(message = "{validation.contact.value.notblank}")
     private String contactValue;
-
-    @NotNull(message = "Тип контакта обязателен")
+    @NotNull(message = "{validation.contact.type.notnull}")
     private Integer typeId;
 }

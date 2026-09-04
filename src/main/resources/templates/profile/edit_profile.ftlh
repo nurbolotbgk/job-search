@@ -10,10 +10,12 @@
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
-                        Редактирование профиля
+                        <@spring.message "profile.edit.title"/>
                     </h2>
 
-                    <form action="/profile/edit" method="post" enctype="multipart/form-data">
+                    <form action="/profile/edit"
+                          method="post"
+                          enctype="multipart/form-data">
 
                         <#if _csrf??>
                             <input type="hidden"
@@ -22,8 +24,9 @@
                         </#if>
 
                         <div class="mb-3">
+
                             <label class="form-label">
-                                Имя
+                                <@spring.message "profile.name"/>
                             </label>
 
                             <@spring.formInput
@@ -33,11 +36,14 @@
                             <@spring.showErrors
                             "<br>"
                             "text-danger"/>
+
                         </div>
 
+
                         <div class="mb-3">
+
                             <label class="form-label">
-                                Фамилия
+                                <@spring.message "profile.surname"/>
                             </label>
 
                             <@spring.formInput
@@ -47,11 +53,14 @@
                             <@spring.showErrors
                             "<br>"
                             "text-danger"/>
+
                         </div>
 
+
                         <div class="mb-3">
+
                             <label class="form-label">
-                                Возраст
+                                <@spring.message "profile.age"/>
                             </label>
 
                             <@spring.formInput
@@ -61,11 +70,14 @@
                             <@spring.showErrors
                             "<br>"
                             "text-danger"/>
+
                         </div>
 
+
                         <div class="mb-3">
+
                             <label class="form-label">
-                                Номер телефона
+                                <@spring.message "profile.phone"/>
                             </label>
 
                             <@spring.formInput
@@ -75,29 +87,34 @@
                             <@spring.showErrors
                             "<br>"
                             "text-danger"/>
+
                         </div>
 
+
                         <div class="mb-3">
+
                             <label class="form-label">
-                                Фото профиля
+                                <@spring.message "profile.edit.photo"/>
                             </label>
 
                             <input type="file"
                                    class="form-control"
                                    name="file"
                                    accept="image/*">
+
                         </div>
+
 
                         <div class="d-flex gap-2">
 
                             <button type="submit"
                                     class="btn btn-primary">
-                                Сохранить
+                                <@spring.message "profile.edit.save"/>
                             </button>
 
                             <a href="/profile"
                                class="btn btn-outline-secondary">
-                                Отмена
+                                <@spring.message "profile.edit.cancel"/>
                             </a>
 
                         </div>

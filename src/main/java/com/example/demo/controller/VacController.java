@@ -25,7 +25,7 @@ public class VacController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public String getAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "date") String sort, Model model) {
+    public String getAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "date_desc") String sort, Model model) {
 
         Page<VacancyDto> vacancies = vacancyService.getAllVacancies(page, 5, sort);
 

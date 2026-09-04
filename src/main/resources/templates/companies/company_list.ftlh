@@ -1,13 +1,20 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Компании">
 
     <div class="mb-4">
-        <h2 class="mb-1">Компании</h2>
+
+        <h2 class="mb-1">
+            <@spring.message "companies.title"/>
+        </h2>
+
         <p class="text-muted mb-0">
-            Список работодателей
+            <@spring.message "companies.subtitle"/>
         </p>
+
     </div>
+
 
     <div class="row">
 
@@ -23,18 +30,27 @@
                         </h5>
 
                         <p class="mb-2">
-                            <strong>Email:</strong>
+                            <strong>
+                                <@spring.message "companies.email"/>
+                            </strong>
                             ${company.email!}
                         </p>
 
                         <p class="mb-2">
-                            <strong>Телефон:</strong>
-                            ${company.phoneNumber!"Не указан"}
+                            <strong>
+                                <@spring.message "companies.phone"/>
+                            </strong>
+
+                            <#if company.phoneNumber??>
+                                ${company.phoneNumber}
+                            <#else>
+                                <@spring.message "companies.phone.not.specified"/>
+                            </#if>
                         </p>
 
                         <a href="/companies/${company.id}"
                            class="btn btn-outline-primary">
-                            Подробнее
+                            <@spring.message "companies.details"/>
                         </a>
 
                     </div>
@@ -46,27 +62,35 @@
 
             <div class="col-12">
                 <div class="alert alert-info">
-                    Компании пока отсутствуют
+                    <@spring.message "companies.empty"/>
                 </div>
             </div>
 
         </#list>
 
+
         <#if totalPages?? && totalPages gt 1>
 
             <nav class="mt-4">
+
                 <ul class="pagination justify-content-center">
 
                     <#if currentPage gt 0>
+
                         <li class="page-item">
+
                             <a class="page-link"
                                href="/companies?page=${currentPage - 1}">
-                                Назад
+                                <@spring.message "pagination.previous"/>
                             </a>
+
                         </li>
+
                     </#if>
 
+
                     <#list 0..(totalPages - 1) as i>
+
                         <li class="page-item <#if i == currentPage>active</#if>">
 
                             <a class="page-link"
@@ -75,18 +99,25 @@
                             </a>
 
                         </li>
+
                     </#list>
 
+
                     <#if currentPage lt totalPages - 1>
+
                         <li class="page-item">
+
                             <a class="page-link"
                                href="/companies?page=${currentPage + 1}">
-                                Вперёд
+                                <@spring.message "pagination.next"/>
                             </a>
+
                         </li>
+
                     </#if>
 
                 </ul>
+
             </nav>
 
         </#if>

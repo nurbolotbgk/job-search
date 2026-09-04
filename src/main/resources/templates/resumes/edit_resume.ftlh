@@ -10,7 +10,7 @@
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-4">
-                        Редактирование резюме
+                        <@spring.message "resume.edit.title"/>
                     </h2>
 
                     <form action="/resumes/${resumeId}/edit"
@@ -24,14 +24,14 @@
 
 
                         <h4 class="mb-3">
-                            Основная информация
+                            <@spring.message "resume.section.main"/>
                         </h4>
 
 
                         <div class="mb-3">
 
                             <label class="form-label">
-                                Название резюме
+                                <@spring.message "resume.name"/>
                             </label>
 
                             <@spring.formInput
@@ -50,7 +50,7 @@
                         <div class="mb-3">
 
                             <label class="form-label">
-                                Категория
+                                <@spring.message "resume.category"/>
                             </label>
 
                             <select class="form-select"
@@ -87,7 +87,7 @@
                         <div class="mb-3">
 
                             <label class="form-label">
-                                Желаемая зарплата
+                                <@spring.message "resume.salary"/>
                             </label>
 
                             <@spring.formInput
@@ -121,7 +121,7 @@
 
                             <label class="form-check-label"
                                    for="active">
-                                Активное резюме
+                                <@spring.message "resume.active"/>
                             </label>
 
                         </div>
@@ -131,7 +131,7 @@
 
 
                         <h4 class="mb-3">
-                            Опыт работы
+                            <@spring.message "resume.section.experience"/>
                         </h4>
 
 
@@ -141,7 +141,7 @@
                                 <div class="card-body">
 
                                     <h5 class="mb-3">
-                                        Опыт работы №${workExperience_index + 1}
+                                        <@spring.message "resume.experience.number"/>${workExperience_index + 1}
                                     </h5>
 
 
@@ -153,7 +153,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Количество лет
+                                            <@spring.message "resume.experience.years"/>
                                         </label>
 
                                         <@spring.formInput
@@ -174,7 +174,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Название компании
+                                            <@spring.message "resume.experience.company"/>
                                         </label>
 
                                         <@spring.formInput
@@ -193,7 +193,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Должность
+                                            <@spring.message "resume.experience.position"/>
                                         </label>
 
                                         <@spring.formInput
@@ -212,7 +212,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Обязанности
+                                            <@spring.message "resume.experience.responsibilities"/>
                                         </label>
 
                                         <@spring.formTextarea
@@ -234,7 +234,7 @@
                                 formnovalidate
                                 class="btn btn-outline-primary mb-4">
 
-                            + Добавить опыт работы
+                            <@spring.message "resume.experience.add"/>
 
                         </button>
 
@@ -243,7 +243,7 @@
 
 
                         <h4 class="mb-3">
-                            Образование
+                            <@spring.message "resume.section.education"/>
                         </h4>
 
 
@@ -253,7 +253,7 @@
                                 <div class="card-body">
 
                                     <h5 class="mb-3">
-                                        Образование №${education_index + 1}
+                                        <@spring.message "resume.education.number"/>${education_index + 1}
                                     </h5>
 
 
@@ -265,7 +265,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Учебное заведение
+                                            <@spring.message "resume.education.institution"/>
                                         </label>
 
                                         <@spring.formInput
@@ -284,7 +284,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Программа
+                                            <@spring.message "resume.education.program"/>
                                         </label>
 
                                         <@spring.formInput
@@ -298,7 +298,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Дата начала обучения
+                                            <@spring.message "resume.education.start"/>
                                         </label>
 
                                         <@spring.formInput
@@ -308,7 +308,7 @@
                                         />
 
                                         <div class="form-text">
-                                            Формат: день, месяц, год
+                                            <@spring.message "resume.education.date.format"/>
                                         </div>
 
                                     </div>
@@ -317,7 +317,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Дата окончания обучения
+                                            <@spring.message "resume.education.end"/>
                                         </label>
 
                                         <@spring.formInput
@@ -327,7 +327,7 @@
                                         />
 
                                         <div class="form-text">
-                                            Формат: день, месяц, год
+                                            <@spring.message "resume.education.date.format"/>
                                         </div>
 
                                         <@spring.bind
@@ -345,7 +345,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Степень
+                                            <@spring.message "resume.education.degree"/>
                                         </label>
 
                                         <@spring.formInput
@@ -366,7 +366,7 @@
                                 formnovalidate
                                 class="btn btn-outline-primary mb-4">
 
-                            + Добавить образование
+                            <@spring.message "resume.education.add"/>
 
                         </button>
 
@@ -375,7 +375,7 @@
 
 
                         <h4 class="mb-3">
-                            Контакты
+                            <@spring.message "resume.section.contacts"/>
                         </h4>
 
 
@@ -385,7 +385,7 @@
                                 <div class="card-body">
 
                                     <h5 class="mb-3">
-                                        Контакт №${contact_index + 1}
+                                        <@spring.message "resume.contact.number"/>${contact_index + 1}
                                     </h5>
 
 
@@ -397,7 +397,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Тип контакта
+                                            <@spring.message "resume.contact.type"/>
                                         </label>
 
                                         <select name="contacts[${contact_index}].typeId"
@@ -460,7 +460,7 @@
                                     <div class="mb-3">
 
                                         <label class="form-label">
-                                            Контактные данные
+                                            <@spring.message "resume.contact.value"/>
                                         </label>
 
                                         <@spring.formInput
@@ -486,7 +486,7 @@
                                 formnovalidate
                                 class="btn btn-outline-primary mb-4">
 
-                            + Добавить контакт
+                            <@spring.message "resume.contact.add"/>
 
                         </button>
 
@@ -498,12 +498,12 @@
 
                             <button type="submit"
                                     class="btn btn-primary">
-                                Сохранить
+                                <@spring.message "resume.edit.save"/>
                             </button>
 
                             <a href="/profile"
                                class="btn btn-outline-secondary">
-                                Отмена
+                                <@spring.message "resume.cancel"/>
                             </a>
 
                         </div>
