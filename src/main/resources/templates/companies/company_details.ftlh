@@ -1,21 +1,35 @@
 <#import "../layout.ftlh" as layout>
+<#import "/spring.ftl" as spring>
 
 <@layout.layout title="Компания">
 
     <div class="mb-4">
 
         <h2>
-            ${company.name!"Компания"}
+            <#if company.name??>
+                ${company.name}
+            <#else>
+                <@spring.message "company.details.default.name"/>
+            </#if>
         </h2>
 
         <p class="mb-2">
-            <strong>Email:</strong>
+            <strong>
+                <@spring.message "companies.email"/>
+            </strong>
             ${company.email!}
         </p>
 
         <p class="mb-2">
-            <strong>Телефон:</strong>
-            ${company.phoneNumber!"Не указан"}
+            <strong>
+                <@spring.message "companies.phone"/>
+            </strong>
+
+            <#if company.phoneNumber??>
+                ${company.phoneNumber}
+            <#else>
+                <@spring.message "companies.phone.not.specified"/>
+            </#if>
         </p>
 
     </div>
@@ -24,7 +38,7 @@
     <hr>
 
     <h3 class="mb-4">
-        Вакансии компании
+        <@spring.message "company.details.vacancies"/>
     </h3>
 
 
@@ -41,17 +55,28 @@
                     </h5>
 
                     <p>
-                        ${vacancy.description!"Описание отсутствует"}
+                        <#if vacancy.description??>
+                            ${vacancy.description}
+                        <#else>
+                            <@spring.message "vacancy.details.description.empty"/>
+                        </#if>
                     </p>
 
                     <p>
-                        <strong>Зарплата:</strong>
-                        ${vacancy.salary!"Не указана"}
+                        <strong>
+                            <@spring.message "vacancy.details.salary"/>
+                        </strong>
+
+                        <#if vacancy.salary??>
+                            ${vacancy.salary}
+                        <#else>
+                            <@spring.message "vacancy.details.salary.not.specified"/>
+                        </#if>
                     </p>
 
                     <a href="/vacancies/${vacancy.id}"
                        class="btn btn-outline-primary">
-                        Подробнее
+                        <@spring.message "vacancies.details"/>
                     </a>
 
                 </div>
@@ -73,7 +98,7 @@
 
                             <a class="page-link"
                                href="/companies/${company.id}?page=${currentPage - 1}">
-                                Назад
+                                <@spring.message "pagination.previous"/>
                             </a>
 
                         </li>
@@ -101,7 +126,7 @@
 
                             <a class="page-link"
                                href="/companies/${company.id}?page=${currentPage + 1}">
-                                Вперёд
+                                <@spring.message "pagination.next"/>
                             </a>
 
                         </li>
@@ -118,7 +143,7 @@
     <#else>
 
         <div class="alert alert-info">
-            У компании пока нет вакансий.
+            <@spring.message "company.details.no.vacancies"/>
         </div>
 
     </#if>
