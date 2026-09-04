@@ -14,17 +14,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class WorkExperienceInfoDto {
+
     private Long id;
-
-    @NotNull(message = "Количество лет обязательно")
-    @Min(value = 0, message = "Количество лет не может быть отрицательным")
+    @NotNull(message = "{validation.experience.years.notnull}")
+    @Min(value = 0, message = "{validation.experience.years.min}")
     private Integer years;
-
-    @NotBlank(message = "Название компании обязательно")
+    @NotBlank(message = "{validation.experience.company.notblank}")
     private String companyName;
-
-    @NotBlank(message = "Должность обязательна")
+    @NotBlank(message = "{validation.experience.position.notblank}")
     private String position;
-
     private String responsibilities;
 }

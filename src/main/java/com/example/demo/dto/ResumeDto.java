@@ -12,31 +12,37 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class ResumeDto {
-    @NotNull(message = "User ID should not be null")
-    @Positive(message = "User ID should be positive")
+
+    @NotNull(message = "{validation.resume.user.notnull}")
+    @Positive(message = "{validation.resume.user.positive}")
     private Long userId;
-    @NotBlank(message = "Name should not be empty")
-    @Size(min = 3, max = 100, message = "Name length should be 3 to 100")
+
+    @NotBlank(message = "{validation.resume.name.notblank}")
+    @Size(min = 3, max = 100, message = "{validation.resume.name.size}")
     private String name;
-    @NotNull(message = "Category ID should not be null")
-    @Positive(message = "Category ID should be positive")
+
+    @NotNull(message = "{validation.resume.category.notnull}")
+    @Positive(message = "{validation.resume.category.positive}")
     private Integer categoryId;
-    @NotNull(message = "Salary should not be null")
-    @Positive(message = "Salary should not be negative")
+
+    @NotNull(message = "{validation.resume.salary.notnull}")
+    @Positive(message = "{validation.resume.salary.positive}")
     private Double salary;
-    @NotNull(message = "Active should not be null")
+
+    @NotNull(message = "{validation.resume.active.notnull}")
     private Boolean active;
-    @NotNull(message = "Created date should not be null")
+
+    @NotNull(message = "{validation.resume.created.notnull}")
     private LocalDateTime createdDate;
+
     private LocalDateTime updateTime;
-    @Positive(message = "ID should be positive")
+
+    @Positive(message = "{validation.resume.id.positive}")
     private Long id;
 
     private List<WorkExperienceInfoDto> workExperiences;

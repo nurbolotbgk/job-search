@@ -12,28 +12,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VacancyFormDto {
 
-    @NotBlank(message = "Name should not be empty")
-    @Size(min = 3, max = 100)
+    @NotBlank(message = "{validation.vacancy.name.notblank}")
+    @Size(min = 3, max = 100, message = "{validation.vacancy.name.size}")
     private String name;
 
-    @NotBlank(message = "Description should not be empty")
-    @Size(min = 5, max = 200)
+    @NotBlank(message = "{validation.vacancy.description.notblank}")
+    @Size(min = 5, max = 200, message = "{validation.vacancy.description.size}")
     private String description;
 
-    @NotNull(message = "Category is required")
-    @Positive
+    @NotNull(message = "{validation.vacancy.category.notnull}")
+    @Positive(message = "{validation.vacancy.category.positive}")
     private Integer categoryId;
 
-    @Min(500)
-    @Max(200000)
+    @Min(value = 500, message = "{validation.vacancy.salary.min}")
+    @Max(value = 200000, message = "{validation.vacancy.salary.max}")
     private double salary;
 
-    @Min(0)
-    @Max(10)
+    @Min(value = 0, message = "{validation.vacancy.exp.from.min}")
+    @Max(value = 10, message = "{validation.vacancy.exp.from.max}")
     private Integer expFrom;
 
-    @Min(1)
-    @Max(120)
+    @Min(value = 1, message = "{validation.vacancy.exp.to.min}")
+    @Max(value = 120, message = "{validation.vacancy.exp.to.max}" )
     private Integer expTo;
 
     private Boolean active;

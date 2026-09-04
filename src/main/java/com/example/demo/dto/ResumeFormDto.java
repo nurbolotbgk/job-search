@@ -19,16 +19,16 @@ import java.util.List;
 @NoArgsConstructor
 public class ResumeFormDto {
 
-    @NotBlank(message = "Название резюме не должно быть пустым")
-    @Size(min = 3, max = 100, message = "Название должно содержать от 3 до 100 символов")
+    @NotBlank(message = "{validation.resume.name.notblank}")
+    @Size(min = 3, max = 100, message = "{validation.resume.name.size}")
     private String name;
 
-    @NotNull(message = "Категория обязательна")
-    @Positive(message = "Category ID должен быть положительным")
+    @NotNull(message = "{validation.resume.category.notnull}")
+    @Positive(message = "{validation.resume.category.positive}")
     private Integer categoryId;
 
-    @NotNull(message = "Зарплата обязательна")
-    @Positive(message = "Зарплата должна быть положительной")
+    @NotNull(message = "{validation.resume.salary.notnull}")
+    @Positive(message = "{validation.resume.salary.positive}")
     private Double salary;
 
     private Boolean active;

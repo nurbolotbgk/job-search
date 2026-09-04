@@ -17,26 +17,19 @@ import java.time.LocalDate;
 public class EducationInfoDto {
 
     private Long id;
-
-    @NotBlank(message = "Учебное заведение обязательно")
+    @NotBlank(message = "{validation.education.institution.notblank}")
     private String institution;
-
-    @NotBlank(message = "Программа обучения обязательна")
+    @NotBlank(message = "{validation.education.program.notblank}")
     private String program;
-
     private LocalDate startDate;
-
     private LocalDate endDate;
-
-    @NotBlank(message = "Учебная степень обязательна")
+    @NotBlank(message = "{validation.education.degree.notblank}")
     private String degree;
-
-    @AssertTrue(message = "Дата начала учебы не может быть позже даты конца учебы")
+    @AssertTrue(message = "{validation.education.dates.valid}")
     public boolean isDatesValid() {
         if (startDate == null || endDate == null) {
             return true;
         }
-
         return !startDate.isAfter(endDate);
     }
 }
