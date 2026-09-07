@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 016
+      author: Nurbolot Abilov
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: language
+                  type: varchar(5)
+                  defaultValue: ru
+                  constraints:
+                    nullable: false
