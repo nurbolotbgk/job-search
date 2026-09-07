@@ -1,6 +1,8 @@
 package com.example.demo.config;
 
+import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,10 +14,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 
+import java.util.Locale;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final UserService userService;
+    private final LocaleResolver localeResolver;
 
     @Bean
     public AuthenticationManager authenticationManager(
@@ -39,6 +46,12 @@ public class SecurityConfig {
                         .loginProcessingUrl("/auth/login")
 
                         .successHandler((request, response, authentication) -> {
+
+                            String email = authentication.getName();
+
+                            String language = userService.getLanguageByEmail(email);
+
+                            localeResolver.setLocale(request, response, new Locale(language));
 
                             String role = authentication.getAuthorities()
                                     .iterator()

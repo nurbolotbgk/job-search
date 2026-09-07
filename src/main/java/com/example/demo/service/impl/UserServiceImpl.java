@@ -13,6 +13,7 @@ import com.example.demo.util.Utility;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
@@ -229,8 +230,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(UserDto dto) {
 
-        Role role = roleRepository.findById(dto.getRoleId())
-                .orElseThrow();
+        Role role = roleRepository.findById(dto.getRoleId()).orElseThrow();
 
         User user = new User();
 
@@ -243,6 +243,8 @@ public class UserServiceImpl implements UserService {
         user.setAvatar(dto.getAvatar());
         user.setRole(role);
         user.setEnabled(true);
+
+        user.setLanguage(LocaleContextHolder.getLocale().getLanguage());
 
         userRepository.save(user);
     }
@@ -365,5 +367,18 @@ public class UserServiceImpl implements UserService {
         updateResetPasswordToken(token, email);
         String resetPasswordLink = Utility.getSiteURL(request) + "/auth/reset_password?token=" + token;
         emailService.sendEmail(email, resetPasswordLink);
+    }
+
+    @Override
+    public void updateLanguage(String email, String language) {
+        User user = userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new);
+        user.setLanguage(language);
+        userRepository.save(user);
+    }
+
+    @Override
+    public String getLanguageByEmail(String email) {
+        User user = userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new);
+        return user.getLanguage();
     }
 }

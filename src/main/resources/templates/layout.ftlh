@@ -120,13 +120,15 @@
                 <ul class="dropdown-menu">
 
                     <li>
-                        <a class="dropdown-item" href="?lang=ru">
+                        <a class="dropdown-item"
+                           href="/language?lang=ru">
                             <@spring.message "nav.language.ru"/>
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="?lang=en">
+                        <a class="dropdown-item"
+                           href="/language?lang=en">
                             <@spring.message "nav.language.en"/>
                         </a>
                     </li>
