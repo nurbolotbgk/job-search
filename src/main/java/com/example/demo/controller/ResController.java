@@ -67,13 +67,8 @@ public class ResController {
 
 
     @PostMapping("/create")
-    public String create(@Valid ResumeFormDto resumeFormDto, BindingResult bindingResult, Model model) {
-
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("categories", categoryService.getAllCategories());
-
-            return "resumes/create_resume";
-        }
+    @ResponseBody
+    public void create(@RequestBody ResumeFormDto resumeFormDto) {
 
         UserDto currentUser = userService.getCurrentUser();
 
@@ -104,56 +99,9 @@ public class ResController {
                 .build();
 
         resumeService.save(resumeDto);
-
-        return "redirect:/profile";
     }
 
 
-    @PostMapping("/create/add-experience")
-    public String addExperience(
-            ResumeFormDto resumeFormDto,
-            Model model
-    ) {
-
-        if (resumeFormDto.getWorkExperiences() == null) {
-            resumeFormDto.setWorkExperiences(new ArrayList<>());
-        }
-
-        resumeFormDto.getWorkExperiences()
-                .add(new WorkExperienceInfoDto());
-
-        model.addAttribute("resumeFormDto", resumeFormDto);
-        model.addAttribute(
-                "categories",
-                categoryService.getAllCategories()
-        );
-
-        return "resumes/create_resume";
-    }
-
-
-    @PostMapping("/create/add-education")
-    public String addEducation(ResumeFormDto resumeFormDto, Model model) {
-
-        if (resumeFormDto.getEducations() == null) {
-            resumeFormDto.setEducations(new ArrayList<>());
-        }
-
-        resumeFormDto.getEducations()
-                .add(new EducationInfoDto());
-
-        model.addAttribute("resumeFormDto", resumeFormDto);
-        model.addAttribute(
-                "categories",
-                categoryService.getAllCategories()
-        );
-
-        model.asMap().remove(
-                BindingResult.MODEL_KEY_PREFIX + "resumeFormDto"
-        );
-
-        return "resumes/create_resume";
-    }
 
 
     @PostMapping("/create/add-contact")
