@@ -16,8 +16,7 @@
                     </h2>
 
 
-                    <form action="/resumes/create"
-                          method="post">
+                    <form id="resume-form">
 
                         <#if _csrf??>
                             <input type="hidden"
@@ -138,104 +137,87 @@
                         </h4>
 
 
-                        <#list resumeFormDto.workExperiences as workExperience>
+                        <div id="work-experiences-container">
 
-                            <div class="card mb-4">
+                            <#list resumeFormDto.workExperiences as workExperience>
 
-                                <div class="card-body">
+                                <div class="card mb-4 work-experience-item">
 
-                                    <h5 class="mb-3">
-                                        <@spring.message "resume.experience.number"/>${workExperience_index + 1}
-                                    </h5>
+                                    <div class="card-body">
 
+                                        <h5 class="mb-3">
+                                            <@spring.message "resume.experience.number"/>
+                                            <span class="work-experience-number">
+                                                ${workExperience_index + 1}
+                                            </span>
+                                        </h5>
 
-                                    <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.years"/>
+                                            </label>
 
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.years"/>
-                                        </label>
+                                            <@spring.formInput
+                                            "resumeFormDto.workExperiences[${workExperience_index}].years"
+                                            'type="number"
+                                            min="0"
+                                            class="form-control"'
+                                            />
 
-                                        <@spring.formInput
-                                        "resumeFormDto.workExperiences[${workExperience_index}].years"
-                                        'type="number"
-                                             min="0"
-                                             class="form-control"'
-                                        />
+                                            <@spring.showErrors "<br>" "text-danger"/>
+                                        </div>
 
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.company"/>
+                                            </label>
 
-                                    </div>
+                                            <@spring.formInput
+                                            "resumeFormDto.workExperiences[${workExperience_index}].companyName"
+                                            'class="form-control"'
+                                            />
 
+                                            <@spring.showErrors "<br>" "text-danger"/>
+                                        </div>
 
-                                    <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.position"/>
+                                            </label>
 
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.company"/>
-                                        </label>
+                                            <@spring.formInput
+                                            "resumeFormDto.workExperiences[${workExperience_index}].position"
+                                            'class="form-control"'
+                                            />
 
-                                        <@spring.formInput
-                                        "resumeFormDto.workExperiences[${workExperience_index}].companyName"
-                                        'class="form-control"'
-                                        />
+                                            <@spring.showErrors "<br>" "text-danger"/>
+                                        </div>
 
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.responsibilities"/>
+                                            </label>
 
-                                    </div>
-
-
-                                    <div class="mb-3">
-
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.position"/>
-                                        </label>
-
-                                        <@spring.formInput
-                                        "resumeFormDto.workExperiences[${workExperience_index}].position"
-                                        'class="form-control"'
-                                        />
-
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
-
-                                    </div>
-
-
-                                    <div class="mb-3">
-
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.responsibilities"/>
-                                        </label>
-
-                                        <@spring.formTextarea
-                                        "resumeFormDto.workExperiences[${workExperience_index}].responsibilities"
-                                        'class="form-control"
+                                            <@spring.formTextarea
+                                            "resumeFormDto.workExperiences[${workExperience_index}].responsibilities"
+                                            'class="form-control"
                                              rows="3"'
-                                        />
+                                            />
+                                        </div>
 
                                     </div>
 
                                 </div>
 
-                            </div>
+                            </#list>
 
-                        </#list>
+                        </div>
 
 
-                        <button type="submit"
-                                formaction="/resumes/create/add-experience"
-                                formnovalidate
+                        <button type="button"
+                                id="add-work-experience"
                                 class="btn btn-outline-primary mb-4">
-
                             <@spring.message "resume.experience.add"/>
-
                         </button>
 
 
@@ -246,10 +228,10 @@
                             <@spring.message "resume.section.education"/>
                         </h4>
 
-
+                        <div id="educations-container">
                         <#list resumeFormDto.educations as education>
 
-                            <div class="card mb-4">
+                            <div class="card mb-4 education-item">
 
                                 <div class="card-body">
 
@@ -299,10 +281,9 @@
                                             </span>
                                         </label>
 
-                                        <@spring.formInput
-                                        "resumeFormDto.educations[${education_index}].startDate"
-                                        'type="date" class="form-control"'
-                                        />
+                                        <input type="date"
+                                               class="form-control"
+                                               name="educations[${education_index}].startDate">
 
                                         <div class="form-text">
                                             <@spring.message "resume.education.date.format"/>
@@ -323,10 +304,9 @@
                                             </span>
                                         </label>
 
-                                        <@spring.formInput
-                                        "resumeFormDto.educations[${education_index}].endDate"
-                                        'type="date" class="form-control"'
-                                        />
+                                        <input type="date"
+                                               class="form-control"
+                                               name="educations[${education_index}].endDate">
 
                                         <div class="form-text">
                                             <@spring.message "resume.education.date.format"/>
@@ -356,11 +336,11 @@
                             </div>
 
                         </#list>
+                        </div>
 
 
-                        <button type="submit"
-                                formaction="/resumes/create/add-education"
-                                formnovalidate
+                        <button type="button"
+                                id="add-education"
                                 class="btn btn-outline-primary mb-4">
 
                             <@spring.message "resume.education.add"/>
@@ -375,10 +355,10 @@
                             <@spring.message "resume.section.contacts"/>
                         </h4>
 
-
+                        <div id="contacts-container">
                         <#list resumeFormDto.contacts as contact>
 
-                            <div class="card mb-4">
+                            <div class="card mb-4 contact-item">
 
                                 <div class="card-body">
 
@@ -473,15 +453,12 @@
                             </div>
 
                         </#list>
+                        </div>
 
-
-                        <button type="submit"
-                                formaction="/resumes/create/add-contact"
-                                formnovalidate
+                        <button type="button"
+                                id="add-contact"
                                 class="btn btn-outline-primary mb-4">
-
                             <@spring.message "resume.contact.add"/>
-
                         </button>
 
 
@@ -516,5 +493,524 @@
         </div>
 
     </div>
+    <script>
+        'use strict';
 
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const workContainer =
+                document.getElementById('work-experiences-container');
+
+            const educationContainer =
+                document.getElementById('educations-container');
+
+            const contactsContainer =
+                document.getElementById('contacts-container');
+
+            const addWorkButton =
+                document.getElementById('add-work-experience');
+
+            const addEducationButton =
+                document.getElementById('add-education');
+
+            const addContactButton =
+                document.getElementById('add-contact');
+
+            const form =
+                document.getElementById('resume-form');
+
+
+            // ========================================
+            // ДОБАВЛЕНИЕ ОПЫТА РАБОТЫ
+            // ========================================
+
+            addWorkButton.addEventListener('click', function () {
+
+                const index =
+                    workContainer.querySelectorAll('.work-experience-item').length;
+
+                const block =
+                    document.createElement('div');
+
+                block.className =
+                    'card mb-4 work-experience-item';
+
+                block.innerHTML =
+                    '<div class="card-body">' +
+
+                    '<h5 class="mb-3">' +
+                    'Опыт работы №' + (index + 1) +
+                    '</h5>' +
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Количество лет' +
+                    '</label>' +
+
+                    '<input type="number" ' +
+                    'min="0" ' +
+                    'class="form-control" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].years">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Компания' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].companyName">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Должность' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].position">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Обязанности' +
+                    '</label>' +
+
+                    '<textarea class="form-control" ' +
+                    'rows="3" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].responsibilities">' +
+                    '</textarea>' +
+
+                    '</div>' +
+
+                    '</div>';
+
+                workContainer.append(block);
+            });
+
+
+
+            // ========================================
+            // ДОБАВЛЕНИЕ ОБРАЗОВАНИЯ
+            // ========================================
+
+            addEducationButton.addEventListener('click', function () {
+
+                const index =
+                    educationContainer.querySelectorAll('.education-item').length;
+
+                const block =
+                    document.createElement('div');
+
+                block.className =
+                    'card mb-4 education-item';
+
+                block.innerHTML =
+                    '<div class="card-body">' +
+
+                    '<h5 class="mb-3">' +
+                    'Образование №' + (index + 1) +
+                    '</h5>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Учебное заведение' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].institution">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Программа' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].program">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Дата начала' +
+                    '</label>' +
+
+                    '<input type="date" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].startDate">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Дата окончания' +
+                    '</label>' +
+
+                    '<input type="date" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].endDate">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Степень' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].degree">' +
+
+                    '</div>' +
+
+                    '</div>';
+
+                educationContainer.append(block);
+            });
+
+
+
+            // ========================================
+            // ДОБАВЛЕНИЕ КОНТАКТА
+            // ========================================
+
+            addContactButton.addEventListener('click', function () {
+
+                const index =
+                    contactsContainer.querySelectorAll('.contact-item').length;
+
+                const block =
+                    document.createElement('div');
+
+                block.className =
+                    'card mb-4 contact-item';
+
+                block.innerHTML =
+                    '<div class="card-body">' +
+
+                    '<h5 class="mb-3">' +
+                    'Контакт №' + (index + 1) +
+                    '</h5>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Тип контакта' +
+                    '</label>' +
+
+                    '<select class="form-select" ' +
+                    'name="contacts[' +
+                    index +
+                    '].typeId">' +
+
+                    '<option value="1">Telegram</option>' +
+                    '<option value="2">Mail</option>' +
+                    '<option value="3">Facebook</option>' +
+                    '<option value="4">Whatsapp</option>' +
+                    '<option value="5">Linkedin</option>' +
+
+                    '</select>' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Контакт' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="contacts[' +
+                    index +
+                    '].contactValue">' +
+
+                    '</div>' +
+
+                    '</div>';
+
+                contactsContainer.append(block);
+            });
+
+
+
+            // ========================================
+            // СОХРАНЕНИЕ РЕЗЮМЕ
+            // ========================================
+
+            form.addEventListener('submit', async function (event) {
+
+                event.preventDefault();
+
+
+                // -------------------------
+                // Опыт работы
+                // -------------------------
+
+                const workExperiences = [];
+
+                document
+                    .querySelectorAll('.work-experience-item')
+                    .forEach(function (item) {
+
+                        workExperiences.push({
+
+                            years:
+                                Number(
+                                    item
+                                        .querySelector('[name$=".years"]')
+                                        .value
+                                ),
+
+                            companyName:
+                            item
+                                .querySelector('[name$=".companyName"]')
+                                .value,
+
+                            position:
+                            item
+                                .querySelector('[name$=".position"]')
+                                .value,
+
+                            responsibilities:
+                            item
+                                .querySelector('[name$=".responsibilities"]')
+                                .value
+                        });
+                    });
+
+
+
+                // -------------------------
+                // Образование
+                // -------------------------
+
+                const educations = [];
+
+                document
+                    .querySelectorAll('.education-item')
+                    .forEach(function (item) {
+
+                        const startDate =
+                            item
+                                .querySelector('[name$=".startDate"]')
+                                .value;
+
+                        const endDate =
+                            item
+                                .querySelector('[name$=".endDate"]')
+                                .value;
+
+                        educations.push({
+
+                            institution:
+                            item
+                                .querySelector('[name$=".institution"]')
+                                .value,
+
+                            program:
+                            item
+                                .querySelector('[name$=".program"]')
+                                .value,
+
+                            startDate:
+                                startDate === ''
+                                    ? null
+                                    : startDate,
+
+                            endDate:
+                                endDate === ''
+                                    ? null
+                                    : endDate,
+
+                            degree:
+                            item
+                                .querySelector('[name$=".degree"]')
+                                .value
+                        });
+                    });
+
+
+
+                // -------------------------
+                // Контакты
+                // -------------------------
+
+                const contacts = [];
+
+                document
+                    .querySelectorAll('.contact-item')
+                    .forEach(function (item) {
+
+                        contacts.push({
+
+                            typeId:
+                                Number(
+                                    item
+                                        .querySelector('[name$=".typeId"]')
+                                        .value
+                                ),
+
+                            contactValue:
+                            item
+                                .querySelector('[name$=".contactValue"]')
+                                .value
+                        });
+                    });
+
+
+
+                // ========================================
+                // ОБЩИЙ ОБЪЕКТ
+                // ========================================
+
+                const data = {
+
+                    name:
+                    document
+                        .querySelector('[name="name"]')
+                        .value,
+
+                    categoryId:
+                        Number(
+                            document
+                                .querySelector('[name="categoryId"]')
+                                .value
+                        ),
+
+                    salary:
+                        Number(
+                            document
+                                .querySelector('[name="salary"]')
+                                .value
+                        ),
+
+                    active:
+                    document
+                        .getElementById('active')
+                        .checked,
+
+                    workExperiences:
+                    workExperiences,
+
+                    educations:
+                    educations,
+
+                    contacts:
+                    contacts
+                };
+
+
+                console.log(data);
+
+
+                // ========================================
+                // HEADERS
+                // ========================================
+
+                const headers = {
+                    'Content-Type': 'application/json'
+                };
+
+
+                <#if _csrf??>
+
+                headers['${_csrf.headerName}'] =
+                    '${_csrf.token}';
+
+                </#if>
+
+
+                // ========================================
+                // FETCH
+                // ========================================
+
+                try {
+
+                    const response =
+                        await fetch('/resumes/create', {
+
+                            method: 'POST',
+
+                            headers: headers,
+
+                            body: JSON.stringify(data)
+                        });
+
+
+                    if (!response.ok) {
+
+                        const errorText = await response.text();
+
+                        console.error('STATUS:', response.status);
+                        console.error('RESPONSE:', errorText);
+
+                        throw new Error(
+                            'Ошибка создания резюме. Status: ' + response.status
+                        );
+                    }
+
+
+                    window.location.href =
+                        '/profile';
+
+                } catch (error) {
+
+                    console.error('FETCH ERROR:', error);
+
+                    alert(
+                        'Не удалось сохранить резюме: ' + error.message
+                    );
+                }
+
+            });
+
+        });
+    </script>
 </@layout.layout>

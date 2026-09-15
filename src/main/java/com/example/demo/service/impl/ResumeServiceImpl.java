@@ -3,16 +3,15 @@ package com.example.demo.service.impl;
 import com.example.demo.dto.ResumeDto;
 import com.example.demo.exception.CategoryNotFoundException;
 import com.example.demo.exception.ResumeNotFoundException;
-import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.Category;
 import com.example.demo.model.Resume;
 import com.example.demo.model.User;
-import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.ResumeRepository;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.service.CategoryService;
 import com.example.demo.service.ContactInfoService;
 import com.example.demo.service.EducationInfoService;
 import com.example.demo.service.ResumeService;
+import com.example.demo.service.UserService;
 import com.example.demo.service.WorkExperienceInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -28,18 +27,21 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ResumeServiceImpl implements ResumeService {
+
     private final ResumeRepository resumeRepository;
-    private final UserRepository userRepository;
-    private final CategoryRepository categoryRepository;
+
+    private final UserService userService;
+    private final CategoryService categoryService;
 
     private final WorkExperienceInfoService workExperienceInfoService;
     private final EducationInfoService educationInfoService;
     private final ContactInfoService contactInfoService;
 
-
     @Override
     public List<ResumeDto> getResumesByCategoryId(Integer categoryId) {
+
         List<Resume> resumes = resumeRepository.findByCategory_Id(categoryId);
+
         if (resumes.isEmpty()) {
             throw new CategoryNotFoundException();
         }
@@ -58,10 +60,15 @@ public class ResumeServiceImpl implements ResumeService {
                 .toList();
     }
 
-
     @Override
     public Page<ResumeDto> getAllResumes(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+
+        Pageable pageable = PageRequest.of(
+                page,
+                size,
+                Sort.by("createdDate").descending()
+        );
+
         Page<Resume> resumes = resumeRepository.findByActiveTrue(pageable);
 
         return resumes.map(r -> ResumeDto.builder()
@@ -91,16 +98,39 @@ public class ResumeServiceImpl implements ResumeService {
                 .updateTime(resume.getUpdateTime())
                 .userId(resume.getUser().getId())
                 .categoryId(resume.getCategory().getId())
-                .workExperiences(workExperienceInfoService.findByResumeId(id))
-                .educations(educationInfoService.findByResumeId(id))
-                .contacts(contactInfoService.findByResumeId(id))
+                .workExperiences(
+                        workExperienceInfoService.findByResumeId(id)
+                )
+                .educations(
+                        educationInfoService.findByResumeId(id)
+                )
+                .contacts(
+                        contactInfoService.findByResumeId(id)
+                )
                 .build();
     }
 
     @Override
-    public Page<ResumeDto> getResumesMadeByUser(Long userId, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
+    public Resume findEntityById(Long id) {
+        return resumeRepository.findById(id)
+                .orElseThrow(ResumeNotFoundException::new);
+    }
+
+    @Override
+    public Page<ResumeDto> getResumesMadeByUser(
+            Long userId,
+            int page,
+            int size
+    ) {
+
+        Pageable pageable = PageRequest.of(
+                page,
+                size,
+                Sort.by("createdDate").descending()
+        );
+
         Page<Resume> resumes = resumeRepository.findByUser_Id(userId, pageable);
+
         return resumes.map(r -> ResumeDto.builder()
                 .id(r.getId())
                 .name(r.getName())
@@ -117,9 +147,9 @@ public class ResumeServiceImpl implements ResumeService {
     @Transactional
     public void save(ResumeDto dto) {
 
-        User user = userRepository.findById(dto.getUserId()).orElseThrow(UserNotFoundException::new);
+        User user = userService.findEntityById(dto.getUserId());
 
-        Category category = categoryRepository.findById(dto.getCategoryId()).orElseThrow(CategoryNotFoundException::new);
+        Category category = categoryService.findEntityById(dto.getCategoryId());
 
         Resume resume = new Resume();
 
@@ -134,22 +164,21 @@ public class ResumeServiceImpl implements ResumeService {
 
         Resume savedResume = resumeRepository.save(resume);
 
-        Long resumeId = savedResume.getId();
+        workExperienceInfoService.saveAll(savedResume, dto.getWorkExperiences());
 
-        workExperienceInfoService.saveAll(resumeId, dto.getWorkExperiences());
+        educationInfoService.saveAll(savedResume, dto.getEducations());
 
-        educationInfoService.saveAll(resumeId, dto.getEducations());
-
-        contactInfoService.saveAll(resumeId, dto.getContacts());
+        contactInfoService.saveAll(savedResume, dto.getContacts());
     }
 
     @Override
     @Transactional
     public void update(ResumeDto dto) {
 
-        Resume resume = resumeRepository.findById(dto.getId()).orElseThrow(ResumeNotFoundException::new);
+        Resume resume = resumeRepository.findById(dto.getId())
+                .orElseThrow(ResumeNotFoundException::new);
 
-        Category category = categoryRepository.findById(dto.getCategoryId()).orElseThrow(CategoryNotFoundException::new);
+        Category category = categoryService.findEntityById(dto.getCategoryId());
 
         resume.setName(dto.getName());
         resume.setSalary(dto.getSalary());
@@ -157,20 +186,22 @@ public class ResumeServiceImpl implements ResumeService {
         resume.setUpdateTime(LocalDateTime.now());
         resume.setCategory(category);
 
-        resumeRepository.save(resume);
+        Resume savedResume = resumeRepository.save(resume);
 
-        workExperienceInfoService.replaceAll(dto.getId(), dto.getWorkExperiences());
+        workExperienceInfoService.replaceAll(savedResume, dto.getWorkExperiences());
 
-        educationInfoService.replaceAll(dto.getId(), dto.getEducations());
+        educationInfoService.replaceAll(savedResume, dto.getEducations());
 
-        contactInfoService.replaceAll(dto.getId(), dto.getContacts());
+        contactInfoService.replaceAll(savedResume, dto.getContacts());
     }
 
     @Override
     public void deleteById(long id) {
+
         if (!resumeRepository.existsById(id)) {
             throw new ResumeNotFoundException();
         }
+
         resumeRepository.deleteById(id);
     }
 }
