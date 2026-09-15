@@ -68,7 +68,7 @@ public class ResController {
 
     @PostMapping("/create")
     @ResponseBody
-    public void create(@RequestBody ResumeFormDto resumeFormDto) {
+    public void create(@Valid @RequestBody ResumeFormDto resumeFormDto) {
 
         UserDto currentUser = userService.getCurrentUser();
 

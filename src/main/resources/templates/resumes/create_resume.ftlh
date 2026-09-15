@@ -281,10 +281,9 @@
                                             </span>
                                         </label>
 
-                                        <@spring.formInput
-                                        "resumeFormDto.educations[${education_index}].startDate"
-                                        'type="date" class="form-control"'
-                                        />
+                                        <input type="date"
+                                               class="form-control"
+                                               name="educations[${education_index}].startDate">
 
                                         <div class="form-text">
                                             <@spring.message "resume.education.date.format"/>
@@ -305,10 +304,9 @@
                                             </span>
                                         </label>
 
-                                        <@spring.formInput
-                                        "resumeFormDto.educations[${education_index}].endDate"
-                                        'type="date" class="form-control"'
-                                        />
+                                        <input type="date"
+                                               class="form-control"
+                                               name="educations[${education_index}].endDate">
 
                                         <div class="form-text">
                                             <@spring.message "resume.education.date.format"/>
@@ -500,217 +498,300 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 
-            const workContainer = document.getElementById('work-experiences-container');
+            const workContainer =
+                document.getElementById('work-experiences-container');
 
-            const educationContainer = document.getElementById('educations-container');
-
-            const addWorkButton = document.getElementById('add-work-experience');
-
-            const addEducationButton = document.getElementById('add-education');
-
-            const form = document.getElementById('resume-form');
+            const educationContainer =
+                document.getElementById('educations-container');
 
             const contactsContainer =
                 document.getElementById('contacts-container');
 
+            const addWorkButton =
+                document.getElementById('add-work-experience');
+
+            const addEducationButton =
+                document.getElementById('add-education');
+
             const addContactButton =
                 document.getElementById('add-contact');
 
+            const form =
+                document.getElementById('resume-form');
+
+
+            // ========================================
+            // ДОБАВЛЕНИЕ ОПЫТА РАБОТЫ
+            // ========================================
 
             addWorkButton.addEventListener('click', function () {
 
                 const index =
                     workContainer.querySelectorAll('.work-experience-item').length;
 
-                const block = document.createElement('div');
+                const block =
+                    document.createElement('div');
 
-                block.className = 'card mb-4 work-experience-item';
+                block.className =
+                    'card mb-4 work-experience-item';
 
-                block.innerHTML = `
-                <div class="card-body">
+                block.innerHTML =
+                    '<div class="card-body">' +
 
-                    <h5 class="mb-3">
-                        Опыт работы №${index + 1}
-                    </h5>
+                    '<h5 class="mb-3">' +
+                    'Опыт работы №' + (index + 1) +
+                    '</h5>' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Количество лет
-                        </label>
+                    '<div class="mb-3">' +
 
-                        <input type="number"
-                               min="0"
-                               class="form-control"
-                               name="workExperiences[${index}].years">
-                    </div>
+                    '<label class="form-label">' +
+                    'Количество лет' +
+                    '</label>' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Компания
-                        </label>
+                    '<input type="number" ' +
+                    'min="0" ' +
+                    'class="form-control" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].years">' +
 
-                        <input type="text"
-                               class="form-control"
-                               name="workExperiences[${index}].companyName">
-                    </div>
+                    '</div>' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Должность
-                        </label>
 
-                        <input type="text"
-                               class="form-control"
-                               name="workExperiences[${index}].position">
-                    </div>
+                    '<div class="mb-3">' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Обязанности
-                        </label>
+                    '<label class="form-label">' +
+                    'Компания' +
+                    '</label>' +
 
-                        <textarea class="form-control"
-                                  rows="3"
-                                  name="workExperiences[${index}].responsibilities"></textarea>
-                    </div>
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].companyName">' +
 
-                </div>
-            `;
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Должность' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].position">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Обязанности' +
+                    '</label>' +
+
+                    '<textarea class="form-control" ' +
+                    'rows="3" ' +
+                    'name="workExperiences[' +
+                    index +
+                    '].responsibilities">' +
+                    '</textarea>' +
+
+                    '</div>' +
+
+                    '</div>';
 
                 workContainer.append(block);
             });
 
+
+
+            // ========================================
+            // ДОБАВЛЕНИЕ ОБРАЗОВАНИЯ
+            // ========================================
 
             addEducationButton.addEventListener('click', function () {
 
                 const index =
                     educationContainer.querySelectorAll('.education-item').length;
 
-                const block = document.createElement('div');
+                const block =
+                    document.createElement('div');
 
-                block.className = 'card mb-4 education-item';
+                block.className =
+                    'card mb-4 education-item';
 
-                block.innerHTML = `
-                <div class="card-body">
+                block.innerHTML =
+                    '<div class="card-body">' +
 
-                    <h5 class="mb-3">
-                        Образование №${index + 1}
-                    </h5>
+                    '<h5 class="mb-3">' +
+                    'Образование №' + (index + 1) +
+                    '</h5>' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Учебное заведение
-                        </label>
 
-                        <input type="text"
-                               class="form-control"
-                               name="educations[${index}].institution">
-                    </div>
+                    '<div class="mb-3">' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Программа
-                        </label>
+                    '<label class="form-label">' +
+                    'Учебное заведение' +
+                    '</label>' +
 
-                        <input type="text"
-                               class="form-control"
-                               name="educations[${index}].program">
-                    </div>
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].institution">' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Дата начала
-                        </label>
+                    '</div>' +
 
-                        <input type="date"
-                               class="form-control"
-                               name="educations[${index}].startDate">
-                    </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Дата окончания
-                        </label>
+                    '<div class="mb-3">' +
 
-                        <input type="date"
-                               class="form-control"
-                               name="educations[${index}].endDate">
-                    </div>
+                    '<label class="form-label">' +
+                    'Программа' +
+                    '</label>' +
 
-                    <div class="mb-3">
-                        <label class="form-label">
-                            Степень
-                        </label>
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].program">' +
 
-                        <input type="text"
-                               class="form-control"
-                               name="educations[${index}].degree">
-                    </div>
+                    '</div>' +
 
-                </div>
-            `;
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Дата начала' +
+                    '</label>' +
+
+                    '<input type="date" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].startDate">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Дата окончания' +
+                    '</label>' +
+
+                    '<input type="date" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].endDate">' +
+
+                    '</div>' +
+
+
+                    '<div class="mb-3">' +
+
+                    '<label class="form-label">' +
+                    'Степень' +
+                    '</label>' +
+
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="educations[' +
+                    index +
+                    '].degree">' +
+
+                    '</div>' +
+
+                    '</div>';
 
                 educationContainer.append(block);
             });
 
+
+
+            // ========================================
+            // ДОБАВЛЕНИЕ КОНТАКТА
+            // ========================================
 
             addContactButton.addEventListener('click', function () {
 
                 const index =
                     contactsContainer.querySelectorAll('.contact-item').length;
 
-                const block = document.createElement('div');
+                const block =
+                    document.createElement('div');
 
-                block.className = 'card mb-4 contact-item';
+                block.className =
+                    'card mb-4 contact-item';
 
-                block.innerHTML = `
-        <div class="card-body">
+                block.innerHTML =
+                    '<div class="card-body">' +
 
-            <h5 class="mb-3">
-                Контакт №${index + 1}
-            </h5>
+                    '<h5 class="mb-3">' +
+                    'Контакт №' + (index + 1) +
+                    '</h5>' +
 
-            <div class="mb-3">
 
-                <label class="form-label">
-                    Тип контакта
-                </label>
+                    '<div class="mb-3">' +
 
-                <select name="contacts[${index}].typeId"
-                        class="form-select">
+                    '<label class="form-label">' +
+                    'Тип контакта' +
+                    '</label>' +
 
-                    <option value="1">Telegram</option>
-                    <option value="2">Mail</option>
-                    <option value="3">Facebook</option>
-                    <option value="4">Whatsapp</option>
-                    <option value="5">Linkedin</option>
+                    '<select class="form-select" ' +
+                    'name="contacts[' +
+                    index +
+                    '].typeId">' +
 
-                </select>
+                    '<option value="1">Telegram</option>' +
+                    '<option value="2">Mail</option>' +
+                    '<option value="3">Facebook</option>' +
+                    '<option value="4">Whatsapp</option>' +
+                    '<option value="5">Linkedin</option>' +
 
-            </div>
+                    '</select>' +
 
-            <div class="mb-3">
+                    '</div>' +
 
-                <label class="form-label">
-                    Контакт
-                </label>
 
-                <input type="text"
-                       class="form-control"
-                       name="contacts[${index}].contactValue">
+                    '<div class="mb-3">' +
 
-            </div>
+                    '<label class="form-label">' +
+                    'Контакт' +
+                    '</label>' +
 
-        </div>
-    `;
+                    '<input type="text" ' +
+                    'class="form-control" ' +
+                    'name="contacts[' +
+                    index +
+                    '].contactValue">' +
+
+                    '</div>' +
+
+                    '</div>';
 
                 contactsContainer.append(block);
             });
 
 
+
+            // ========================================
+            // СОХРАНЕНИЕ РЕЗЮМЕ
+            // ========================================
+
             form.addEventListener('submit', async function (event) {
 
                 event.preventDefault();
+
+
+                // -------------------------
+                // Опыт работы
+                // -------------------------
 
                 const workExperiences = [];
 
@@ -719,18 +800,36 @@
                     .forEach(function (item) {
 
                         workExperiences.push({
-                            years: Number(
-                                item.querySelector('[name$=".years"]').value
-                            ),
+
+                            years:
+                                Number(
+                                    item
+                                        .querySelector('[name$=".years"]')
+                                        .value
+                                ),
+
                             companyName:
-                            item.querySelector('[name$=".companyName"]').value,
+                            item
+                                .querySelector('[name$=".companyName"]')
+                                .value,
+
                             position:
-                            item.querySelector('[name$=".position"]').value,
+                            item
+                                .querySelector('[name$=".position"]')
+                                .value,
+
                             responsibilities:
-                            item.querySelector('[name$=".responsibilities"]').value
+                            item
+                                .querySelector('[name$=".responsibilities"]')
+                                .value
                         });
                     });
 
+
+
+                // -------------------------
+                // Образование
+                // -------------------------
 
                 const educations = [];
 
@@ -738,111 +837,180 @@
                     .querySelectorAll('.education-item')
                     .forEach(function (item) {
 
+                        const startDate =
+                            item
+                                .querySelector('[name$=".startDate"]')
+                                .value;
+
+                        const endDate =
+                            item
+                                .querySelector('[name$=".endDate"]')
+                                .value;
+
                         educations.push({
+
                             institution:
-                            item.querySelector('[name$=".institution"]').value,
+                            item
+                                .querySelector('[name$=".institution"]')
+                                .value,
 
                             program:
-                            item.querySelector('[name$=".program"]').value,
+                            item
+                                .querySelector('[name$=".program"]')
+                                .value,
 
                             startDate:
-                            item.querySelector('[name$=".startDate"]').value,
+                                startDate === ''
+                                    ? null
+                                    : startDate,
 
                             endDate:
-                            item.querySelector('[name$=".endDate"]').value,
+                                endDate === ''
+                                    ? null
+                                    : endDate,
 
                             degree:
-                            item.querySelector('[name$=".degree"]').value
+                            item
+                                .querySelector('[name$=".degree"]')
+                                .value
                         });
                     });
 
+
+
+                // -------------------------
+                // Контакты
+                // -------------------------
 
                 const contacts = [];
 
                 document
-                    .querySelectorAll('[name^="contacts["][name$=".typeId"]')
-                    .forEach(function (typeElement) {
-
-                        const match =
-                            typeElement.name.match(/contacts\[(\d+)]/);
-
-                        if (match === null) {
-                            return;
-                        }
-
-                        const index = match[1];
-
-                        const valueElement =
-                            document.querySelector(
-                                `[name="contacts[${index}].contactValue"]`
-                            );
+                    .querySelectorAll('.contact-item')
+                    .forEach(function (item) {
 
                         contacts.push({
-                            typeId: Number(typeElement.value),
-                            contactValue: valueElement.value
+
+                            typeId:
+                                Number(
+                                    item
+                                        .querySelector('[name$=".typeId"]')
+                                        .value
+                                ),
+
+                            contactValue:
+                            item
+                                .querySelector('[name$=".contactValue"]')
+                                .value
                         });
                     });
 
 
+
+                // ========================================
+                // ОБЩИЙ ОБЪЕКТ
+                // ========================================
+
                 const data = {
+
                     name:
-                    document.querySelector('[name="name"]').value,
+                    document
+                        .querySelector('[name="name"]')
+                        .value,
 
                     categoryId:
-                        Number(document.querySelector('[name="categoryId"]').value),
+                        Number(
+                            document
+                                .querySelector('[name="categoryId"]')
+                                .value
+                        ),
 
                     salary:
-                        Number(document.querySelector('[name="salary"]').value),
+                        Number(
+                            document
+                                .querySelector('[name="salary"]')
+                                .value
+                        ),
 
                     active:
-                    document.getElementById('active').checked,
+                    document
+                        .getElementById('active')
+                        .checked,
 
-                    workExperiences: workExperiences,
+                    workExperiences:
+                    workExperiences,
 
-                    educations: educations,
+                    educations:
+                    educations,
 
-                    contacts: contacts
+                    contacts:
+                    contacts
                 };
 
 
-                const csrfToken =
-                    document.querySelector('input[name="_csrf"]')?.value;
+                console.log(data);
 
-                const csrfHeader =
-                    document.querySelector('meta[name="_csrf_header"]')?.content;
 
+                // ========================================
+                // HEADERS
+                // ========================================
 
                 const headers = {
                     'Content-Type': 'application/json'
                 };
 
-                if (csrfToken && csrfHeader) {
-                    headers[csrfHeader] = csrfToken;
-                }
 
+                <#if _csrf??>
+
+                headers['${_csrf.headerName}'] =
+                    '${_csrf.token}';
+
+                </#if>
+
+
+                // ========================================
+                // FETCH
+                // ========================================
 
                 try {
 
-                    const response = await fetch('/resumes/create', {
-                        method: 'POST',
-                        headers: headers,
-                        body: JSON.stringify(data)
-                    });
+                    const response =
+                        await fetch('/resumes/create', {
+
+                            method: 'POST',
+
+                            headers: headers,
+
+                            body: JSON.stringify(data)
+                        });
+
 
                     if (!response.ok) {
-                        throw new Error('Ошибка создания резюме');
+
+                        const errorText = await response.text();
+
+                        console.error('STATUS:', response.status);
+                        console.error('RESPONSE:', errorText);
+
+                        throw new Error(
+                            'Ошибка создания резюме. Status: ' + response.status
+                        );
                     }
 
-                    window.location.href = '/profile';
+
+                    window.location.href =
+                        '/profile';
 
                 } catch (error) {
 
-                    console.error(error);
+                    console.error('FETCH ERROR:', error);
 
-                    alert('Не удалось сохранить резюме');
+                    alert(
+                        'Не удалось сохранить резюме: ' + error.message
+                    );
                 }
 
             });
+
         });
     </script>
 </@layout.layout>
