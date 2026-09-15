@@ -16,8 +16,7 @@
                     </h2>
 
 
-                    <form action="/resumes/create"
-                          method="post">
+                    <form id="resume-form">
 
                         <#if _csrf??>
                             <input type="hidden"
@@ -358,10 +357,10 @@
                             <@spring.message "resume.section.contacts"/>
                         </h4>
 
-
+                        <div id="contacts-container">
                         <#list resumeFormDto.contacts as contact>
 
-                            <div class="card mb-4">
+                            <div class="card mb-4 contact-item">
 
                                 <div class="card-body">
 
@@ -456,15 +455,12 @@
                             </div>
 
                         </#list>
+                        </div>
 
-
-                        <button type="submit"
-                                formaction="/resumes/create/add-contact"
-                                formnovalidate
+                        <button type="button"
+                                id="add-contact"
                                 class="btn btn-outline-primary mb-4">
-
                             <@spring.message "resume.contact.add"/>
-
                         </button>
 
 
@@ -504,17 +500,21 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 
-            const workContainer =
-                document.getElementById('work-experiences-container');
+            const workContainer = document.getElementById('work-experiences-container');
 
-            const educationContainer =
-                document.getElementById('educations-container');
+            const educationContainer = document.getElementById('educations-container');
 
-            const addWorkButton =
-                document.getElementById('add-work-experience');
+            const addWorkButton = document.getElementById('add-work-experience');
 
-            const addEducationButton =
-                document.getElementById('add-education');
+            const addEducationButton = document.getElementById('add-education');
+
+            const form = document.getElementById('resume-form');
+
+            const contactsContainer =
+                document.getElementById('contacts-container');
+
+            const addContactButton =
+                document.getElementById('add-contact');
 
 
             addWorkButton.addEventListener('click', function () {
@@ -653,6 +653,196 @@
                 educationContainer.append(block);
             });
 
+
+            addContactButton.addEventListener('click', function () {
+
+                const index =
+                    contactsContainer.querySelectorAll('.contact-item').length;
+
+                const block = document.createElement('div');
+
+                block.className = 'card mb-4 contact-item';
+
+                block.innerHTML = `
+        <div class="card-body">
+
+            <h5 class="mb-3">
+                Контакт №${index + 1}
+            </h5>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Тип контакта
+                </label>
+
+                <select name="contacts[${index}].typeId"
+                        class="form-select">
+
+                    <option value="1">Telegram</option>
+                    <option value="2">Mail</option>
+                    <option value="3">Facebook</option>
+                    <option value="4">Whatsapp</option>
+                    <option value="5">Linkedin</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Контакт
+                </label>
+
+                <input type="text"
+                       class="form-control"
+                       name="contacts[${index}].contactValue">
+
+            </div>
+
+        </div>
+    `;
+
+                contactsContainer.append(block);
+            });
+
+
+            form.addEventListener('submit', async function (event) {
+
+                event.preventDefault();
+
+                const workExperiences = [];
+
+                document
+                    .querySelectorAll('.work-experience-item')
+                    .forEach(function (item) {
+
+                        workExperiences.push({
+                            years: Number(
+                                item.querySelector('[name$=".years"]').value
+                            ),
+                            companyName:
+                            item.querySelector('[name$=".companyName"]').value,
+                            position:
+                            item.querySelector('[name$=".position"]').value,
+                            responsibilities:
+                            item.querySelector('[name$=".responsibilities"]').value
+                        });
+                    });
+
+
+                const educations = [];
+
+                document
+                    .querySelectorAll('.education-item')
+                    .forEach(function (item) {
+
+                        educations.push({
+                            institution:
+                            item.querySelector('[name$=".institution"]').value,
+
+                            program:
+                            item.querySelector('[name$=".program"]').value,
+
+                            startDate:
+                            item.querySelector('[name$=".startDate"]').value,
+
+                            endDate:
+                            item.querySelector('[name$=".endDate"]').value,
+
+                            degree:
+                            item.querySelector('[name$=".degree"]').value
+                        });
+                    });
+
+
+                const contacts = [];
+
+                document
+                    .querySelectorAll('[name^="contacts["][name$=".typeId"]')
+                    .forEach(function (typeElement) {
+
+                        const match =
+                            typeElement.name.match(/contacts\[(\d+)]/);
+
+                        if (match === null) {
+                            return;
+                        }
+
+                        const index = match[1];
+
+                        const valueElement =
+                            document.querySelector(
+                                `[name="contacts[${index}].contactValue"]`
+                            );
+
+                        contacts.push({
+                            typeId: Number(typeElement.value),
+                            contactValue: valueElement.value
+                        });
+                    });
+
+
+                const data = {
+                    name:
+                    document.querySelector('[name="name"]').value,
+
+                    categoryId:
+                        Number(document.querySelector('[name="categoryId"]').value),
+
+                    salary:
+                        Number(document.querySelector('[name="salary"]').value),
+
+                    active:
+                    document.getElementById('active').checked,
+
+                    workExperiences: workExperiences,
+
+                    educations: educations,
+
+                    contacts: contacts
+                };
+
+
+                const csrfToken =
+                    document.querySelector('input[name="_csrf"]')?.value;
+
+                const csrfHeader =
+                    document.querySelector('meta[name="_csrf_header"]')?.content;
+
+
+                const headers = {
+                    'Content-Type': 'application/json'
+                };
+
+                if (csrfToken && csrfHeader) {
+                    headers[csrfHeader] = csrfToken;
+                }
+
+
+                try {
+
+                    const response = await fetch('/resumes/create', {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify(data)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Ошибка создания резюме');
+                    }
+
+                    window.location.href = '/profile';
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    alert('Не удалось сохранить резюме');
+                }
+
+            });
         });
     </script>
 </@layout.layout>

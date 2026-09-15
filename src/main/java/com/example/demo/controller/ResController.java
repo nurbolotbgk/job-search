@@ -103,30 +103,6 @@ public class ResController {
 
 
 
-
-    @PostMapping("/create/add-contact")
-    public String addContact(
-            ResumeFormDto resumeFormDto,
-            Model model
-    ) {
-
-        if (resumeFormDto.getContacts() == null) {
-            resumeFormDto.setContacts(new ArrayList<>());
-        }
-
-        resumeFormDto.getContacts()
-                .add(new ContactInfoDto());
-
-        model.addAttribute("resumeFormDto", resumeFormDto);
-        model.addAttribute(
-                "categories",
-                categoryService.getAllCategories()
-        );
-
-        return "resumes/create_resume";
-    }
-
-
     @GetMapping("/{id}/edit")
     public String editPage(
             @PathVariable Long id,
