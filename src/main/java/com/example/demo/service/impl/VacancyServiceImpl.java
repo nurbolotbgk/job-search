@@ -2,14 +2,13 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dto.VacancyDto;
 import com.example.demo.exception.CategoryNotFoundException;
-import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.exception.VacancyNotFoundException;
 import com.example.demo.model.Category;
 import com.example.demo.model.User;
 import com.example.demo.model.Vacancy;
-import com.example.demo.repository.CategoryRepository;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.VacancyRepository;
+import com.example.demo.service.CategoryService;
+import com.example.demo.service.UserService;
 import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,9 +23,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class VacancyServiceImpl implements VacancyService {
+
     private final VacancyRepository vacancyRepository;
-    private final UserRepository userRepository;
-    private final CategoryRepository categoryRepository;
+    private final UserService userService;
+    private final CategoryService categoryService;
 
     @Override
     public List<VacancyDto> getVacanciesWithResponses() {
@@ -110,9 +110,21 @@ public class VacancyServiceImpl implements VacancyService {
     }
 
     @Override
-    public Page<VacancyDto> getVacanciesByUserId(Long userId, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
-        Page<Vacancy> vacancies = vacancyRepository.findByUser_Id(userId, pageable);
+    public Page<VacancyDto> getVacanciesByUserId(
+            Long userId,
+            int page,
+            int size
+    ) {
+
+        Pageable pageable = PageRequest.of(
+                page,
+                size,
+                Sort.by("createdDate").descending()
+        );
+
+        Page<Vacancy> vacancies =
+                vacancyRepository.findByUser_Id(userId, pageable);
+
         return vacancies.map(v -> VacancyDto.builder()
                 .id(v.getId())
                 .name(v.getName())
@@ -130,6 +142,7 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public List<VacancyDto> getVacanciesByCategoryId(Integer categoryId) {
+
         List<Vacancy> vacancies =
                 vacancyRepository.findByCategory_Id(categoryId);
 
@@ -156,11 +169,12 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public void save(VacancyDto dto) {
-        Category category = categoryRepository.findById(dto.getCategoryId())
-                .orElseThrow(CategoryNotFoundException::new);
 
-        User user = userRepository.findById(dto.getUserId())
-                .orElseThrow(UserNotFoundException::new);
+        Category category =
+                categoryService.findEntityById(dto.getCategoryId());
+
+        User user =
+                userService.findEntityById(dto.getUserId());
 
         Vacancy vacancy = new Vacancy();
 
@@ -170,28 +184,33 @@ public class VacancyServiceImpl implements VacancyService {
         vacancy.setExpFrom(dto.getExpFrom());
         vacancy.setExpTo(dto.getExpTo());
         vacancy.setActive(dto.getActive());
+
         vacancy.setCreatedDate(
                 dto.getCreatedDate() != null
                         ? dto.getCreatedDate()
                         : LocalDateTime.now()
         );
+
         vacancy.setUpdateTime(
                 dto.getUpdateTime() != null
                         ? dto.getUpdateTime()
                         : LocalDateTime.now()
         );
+
         vacancy.setCategory(category);
         vacancy.setUser(user);
+
         vacancyRepository.save(vacancy);
     }
 
     @Override
     public void update(Long id, VacancyDto dto) {
+
         Vacancy vacancy = vacancyRepository.findById(id)
                 .orElseThrow(VacancyNotFoundException::new);
 
-        Category category = categoryRepository.findById(dto.getCategoryId())
-                .orElseThrow(CategoryNotFoundException::new);
+        Category category =
+                categoryService.findEntityById(dto.getCategoryId());
 
         vacancy.setName(dto.getName());
         vacancy.setDescription(dto.getDescription());
@@ -207,6 +226,7 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public void deleteById(Long id) {
+
         if (!vacancyRepository.existsById(id)) {
             throw new VacancyNotFoundException();
         }
@@ -216,6 +236,7 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public VacancyDto findById(Long id) {
+
         Vacancy vacancy = vacancyRepository.findById(id)
                 .orElseThrow(VacancyNotFoundException::new);
 
@@ -234,5 +255,9 @@ public class VacancyServiceImpl implements VacancyService {
                 .build();
     }
 
-
+    @Override
+    public Vacancy findEntityById(Long id) {
+        return vacancyRepository.findById(id)
+                .orElseThrow(VacancyNotFoundException::new);
+    }
 }

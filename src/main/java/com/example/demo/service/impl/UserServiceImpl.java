@@ -5,7 +5,7 @@ import com.example.demo.dto.UserDto;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
-import com.example.demo.repository.RoleRepository;
+
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.EmailService;
 import com.example.demo.service.UserService;
@@ -29,6 +29,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import com.example.demo.service.RoleService;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -44,7 +45,7 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
     private final PasswordEncoder encoder;
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+    private final RoleService roleService;
     private final EmailService emailService;
 
     @Override
@@ -230,7 +231,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(UserDto dto) {
 
-        Role role = roleRepository.findById(dto.getRoleId()).orElseThrow();
+        Role role = roleService.findEntityById(dto.getRoleId());
 
         User user = new User();
 
