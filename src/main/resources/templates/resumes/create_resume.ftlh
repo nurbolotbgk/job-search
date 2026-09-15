@@ -138,104 +138,87 @@
                         </h4>
 
 
-                        <#list resumeFormDto.workExperiences as workExperience>
+                        <div id="work-experiences-container">
 
-                            <div class="card mb-4">
+                            <#list resumeFormDto.workExperiences as workExperience>
 
-                                <div class="card-body">
+                                <div class="card mb-4 work-experience-item">
 
-                                    <h5 class="mb-3">
-                                        <@spring.message "resume.experience.number"/>${workExperience_index + 1}
-                                    </h5>
+                                    <div class="card-body">
 
+                                        <h5 class="mb-3">
+                                            <@spring.message "resume.experience.number"/>
+                                            <span class="work-experience-number">
+                                                ${workExperience_index + 1}
+                                            </span>
+                                        </h5>
 
-                                    <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.years"/>
+                                            </label>
 
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.years"/>
-                                        </label>
+                                            <@spring.formInput
+                                            "resumeFormDto.workExperiences[${workExperience_index}].years"
+                                            'type="number"
+                                            min="0"
+                                            class="form-control"'
+                                            />
 
-                                        <@spring.formInput
-                                        "resumeFormDto.workExperiences[${workExperience_index}].years"
-                                        'type="number"
-                                             min="0"
-                                             class="form-control"'
-                                        />
+                                            <@spring.showErrors "<br>" "text-danger"/>
+                                        </div>
 
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.company"/>
+                                            </label>
 
-                                    </div>
+                                            <@spring.formInput
+                                            "resumeFormDto.workExperiences[${workExperience_index}].companyName"
+                                            'class="form-control"'
+                                            />
 
+                                            <@spring.showErrors "<br>" "text-danger"/>
+                                        </div>
 
-                                    <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.position"/>
+                                            </label>
 
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.company"/>
-                                        </label>
+                                            <@spring.formInput
+                                            "resumeFormDto.workExperiences[${workExperience_index}].position"
+                                            'class="form-control"'
+                                            />
 
-                                        <@spring.formInput
-                                        "resumeFormDto.workExperiences[${workExperience_index}].companyName"
-                                        'class="form-control"'
-                                        />
+                                            <@spring.showErrors "<br>" "text-danger"/>
+                                        </div>
 
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "resume.experience.responsibilities"/>
+                                            </label>
 
-                                    </div>
-
-
-                                    <div class="mb-3">
-
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.position"/>
-                                        </label>
-
-                                        <@spring.formInput
-                                        "resumeFormDto.workExperiences[${workExperience_index}].position"
-                                        'class="form-control"'
-                                        />
-
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
-
-                                    </div>
-
-
-                                    <div class="mb-3">
-
-                                        <label class="form-label">
-                                            <@spring.message "resume.experience.responsibilities"/>
-                                        </label>
-
-                                        <@spring.formTextarea
-                                        "resumeFormDto.workExperiences[${workExperience_index}].responsibilities"
-                                        'class="form-control"
+                                            <@spring.formTextarea
+                                            "resumeFormDto.workExperiences[${workExperience_index}].responsibilities"
+                                            'class="form-control"
                                              rows="3"'
-                                        />
+                                            />
+                                        </div>
 
                                     </div>
 
                                 </div>
 
-                            </div>
+                            </#list>
 
-                        </#list>
+                        </div>
 
 
-                        <button type="submit"
-                                formaction="/resumes/create/add-experience"
-                                formnovalidate
+                        <button type="button"
+                                id="add-work-experience"
                                 class="btn btn-outline-primary mb-4">
-
                             <@spring.message "resume.experience.add"/>
-
                         </button>
 
 
@@ -246,10 +229,10 @@
                             <@spring.message "resume.section.education"/>
                         </h4>
 
-
+                        <div id="educations-container">
                         <#list resumeFormDto.educations as education>
 
-                            <div class="card mb-4">
+                            <div class="card mb-4 education-item">
 
                                 <div class="card-body">
 
@@ -356,11 +339,11 @@
                             </div>
 
                         </#list>
+                        </div>
 
 
-                        <button type="submit"
-                                formaction="/resumes/create/add-education"
-                                formnovalidate
+                        <button type="button"
+                                id="add-education"
                                 class="btn btn-outline-primary mb-4">
 
                             <@spring.message "resume.education.add"/>
@@ -516,5 +499,160 @@
         </div>
 
     </div>
+    <script>
+        'use strict';
 
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const workContainer =
+                document.getElementById('work-experiences-container');
+
+            const educationContainer =
+                document.getElementById('educations-container');
+
+            const addWorkButton =
+                document.getElementById('add-work-experience');
+
+            const addEducationButton =
+                document.getElementById('add-education');
+
+
+            addWorkButton.addEventListener('click', function () {
+
+                const index =
+                    workContainer.querySelectorAll('.work-experience-item').length;
+
+                const block = document.createElement('div');
+
+                block.className = 'card mb-4 work-experience-item';
+
+                block.innerHTML = `
+                <div class="card-body">
+
+                    <h5 class="mb-3">
+                        Опыт работы №${index + 1}
+                    </h5>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Количество лет
+                        </label>
+
+                        <input type="number"
+                               min="0"
+                               class="form-control"
+                               name="workExperiences[${index}].years">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Компания
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="workExperiences[${index}].companyName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Должность
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="workExperiences[${index}].position">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Обязанности
+                        </label>
+
+                        <textarea class="form-control"
+                                  rows="3"
+                                  name="workExperiences[${index}].responsibilities"></textarea>
+                    </div>
+
+                </div>
+            `;
+
+                workContainer.append(block);
+            });
+
+
+            addEducationButton.addEventListener('click', function () {
+
+                const index =
+                    educationContainer.querySelectorAll('.education-item').length;
+
+                const block = document.createElement('div');
+
+                block.className = 'card mb-4 education-item';
+
+                block.innerHTML = `
+                <div class="card-body">
+
+                    <h5 class="mb-3">
+                        Образование №${index + 1}
+                    </h5>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Учебное заведение
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="educations[${index}].institution">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Программа
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="educations[${index}].program">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Дата начала
+                        </label>
+
+                        <input type="date"
+                               class="form-control"
+                               name="educations[${index}].startDate">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Дата окончания
+                        </label>
+
+                        <input type="date"
+                               class="form-control"
+                               name="educations[${index}].endDate">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Степень
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="educations[${index}].degree">
+                    </div>
+
+                </div>
+            `;
+
+                educationContainer.append(block);
+            });
+
+        });
+    </script>
 </@layout.layout>
