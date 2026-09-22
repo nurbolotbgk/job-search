@@ -285,7 +285,13 @@
                 const filter =
                     Object.fromEntries(formData);
 
+                const filterAsJSON =
+                    JSON.stringify(filter);
 
+                localStorage.setItem(
+                    'vacancyFilter',
+                    filterAsJSON
+                );
 
                 console.log(filter);
             });
