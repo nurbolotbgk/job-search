@@ -267,4 +267,30 @@
 
     </div>
 
+    <script>
+        'use strict';
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const filterForm =
+                document.getElementById('vacancy-filter');
+
+            filterForm.addEventListener('submit', function (event) {
+
+                event.preventDefault();
+
+                const formData =
+                    new FormData(filterForm);
+
+                const filter =
+                    Object.fromEntries(formData);
+
+
+
+                console.log(filter);
+            });
+
+        });
+    </script>
+
 </@layout.layout>
