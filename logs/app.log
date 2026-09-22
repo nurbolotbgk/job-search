@@ -1,1 +1,336 @@
-2026-09-17 08:24:20 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d12h50m45s303ms112µs200ns).
+2026-09-22 16:01:05 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 7504 (C:\Users\user\IdeaProjects\job-search_70\target\classes started by user in C:\Users\user\IdeaProjects\job-search_70)
+2026-09-22 16:01:05 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-22 16:01:12 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-22 16:01:12 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-22 16:01:13 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-22 16:01:16 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-22 16:01:18 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-22 16:01:19 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-22 16:01:19 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-22 16:01:20 INFO  com.example.demo.DemoApplication - Started DemoApplication in 16.318 seconds (process running for 19.788)
+2026-09-22 16:01:20 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-22 16:01:20 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-22 16:01:43 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes/create
+2026-09-22 16:01:43 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:01:43 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id F25CDC3D82C5D4B378D2BA9FF3D69648
+2026-09-22 16:01:45 WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [146] milliseconds.
+2026-09-22 16:01:45 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/resumes/create?continue to session
+2026-09-22 16:01:46 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-22 16:01:46 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-22 16:01:46 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:01:46 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-22 16:01:48 DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2026-09-22 16:01:48 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:01:48 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-22 16:01:49 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-22 16:01:49 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:01:49 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-22 16:02:22 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-09-22 16:02:26 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-09-22 16:02:26 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 759D795AF99E31E5608E7074FD4BDFC7
+2026-09-22 16:02:26 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-09-22 16:02:26 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76d97c08, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=759D795AF99E31E5608E7074FD4BDFC7], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:02:26.037333900Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@7f92cb99]
+2026-09-22 16:02:26 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76d97c08, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=759D795AF99E31E5608E7074FD4BDFC7], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:02:26.037333900Z]]]
+2026-09-22 16:02:26 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes
+2026-09-22 16:02:26 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76d97c08, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=759D795AF99E31E5608E7074FD4BDFC7], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:02:26.037333900Z]]]]
+2026-09-22 16:02:26 DEBUG o.s.security.web.FilterChainProxy - Secured GET /resumes
+2026-09-22 16:02:27 DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2026-09-22 16:02:27 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76d97c08, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=759D795AF99E31E5608E7074FD4BDFC7], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:02:26.037333900Z]]]]
+2026-09-22 16:02:27 DEBUG o.s.security.web.FilterChainProxy - Secured GET /favicon.ico
+2026-09-22 16:02:27 WARN  o.s.web.servlet.PageNotFound - No mapping for GET /favicon.ico
+2026-09-22 16:02:27 WARN  o.s.web.servlet.PageNotFound - No endpoint GET /favicon.ico.
+2026-09-22 16:02:27 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-09-22 16:02:27 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-09-22 16:02:27 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76d97c08, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=759D795AF99E31E5608E7074FD4BDFC7], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:02:26.037333900Z]]]]
+2026-09-22 16:02:36 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/logout
+2026-09-22 16:02:36 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76d97c08, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=759D795AF99E31E5608E7074FD4BDFC7], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:02:26.037333900Z]]]]
+2026-09-22 16:02:36 DEBUG o.s.s.w.a.logout.LogoutFilter - Logging out [UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76d97c08, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=759D795AF99E31E5608E7074FD4BDFC7], Granted Authorities=[ROLE_EMPLOYER, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:02:26.037333900Z]]]]
+2026-09-22 16:02:36 DEBUG o.s.s.w.a.l.SecurityContextLogoutHandler - Invalidated session 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:02:36 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /
+2026-09-22 16:02:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+2026-09-22 16:02:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:02:36 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:02:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /
+2026-09-22 16:02:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:02:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:02:36 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:02:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:03:07 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:03:09 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:03:09 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:03:09 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:03:12 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:03:12 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:03:12 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:03:12 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:03:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:03:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:03:15 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:03:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:04:34 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:04:34 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:34 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:34 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:04:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:04:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:36 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:04:37 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:04:37 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:37 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:37 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:04:38 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:04:38 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:38 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:38 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:04:40 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:04:40 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:40 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:40 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:04:40 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:04:40 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:40 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:40 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:04:41 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:04:41 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:41 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:41 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:04:43 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:04:43 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:04:43 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:04:43 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:08:03 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:08:03 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:03 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:03 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:08:05 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:08:05 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:05 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:05 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:08:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:06 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:08:06 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:06 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:06 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:08:09 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:08:09 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:09 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:09 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:08:09 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:08:09 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:09 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:09 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:08:10 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:08:10 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:10 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:10 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:08:10 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:08:10 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:10 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:10 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:08:11 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:08:11 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:11 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:11 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:08:11 DEBUG o.s.security.web.FilterChainProxy - Securing GET /resumes
+2026-09-22 16:08:11 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:11 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 3A49281DFEACECF9D8C4EFFAED0B07C2
+2026-09-22 16:08:11 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/resumes?continue to session
+2026-09-22 16:08:11 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-22 16:08:11 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-22 16:08:11 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:11 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-22 16:08:24 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:08:24 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:24 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:08:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:08:36 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:08:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:09:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:09:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:09:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:09:21 DEBUG o.s.security.web.FilterChainProxy - Securing GET /
+2026-09-22 16:09:21 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:09:21 DEBUG o.s.security.web.FilterChainProxy - Secured GET /
+2026-09-22 16:09:21 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:09:21 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:09:21 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:09:27 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-22 16:09:27 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:09:27 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-22 16:09:36 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-09-22 16:09:36 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-09-22 16:09:36 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 987448026D59DE330E54404E936CC873
+2026-09-22 16:09:36 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-09-22 16:09:36 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@7e455e2a]
+2026-09-22 16:09:36 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]
+2026-09-22 16:09:36 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:09:36 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:09:36 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:09:43 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:09:43 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:09:43 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:09:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:09:56 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:09:56 DEBUG o.s.security.web.FilterChainProxy - Secured GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:09:56 WARN  o.s.web.servlet.PageNotFound - No mapping for GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:09:56 WARN  o.s.web.servlet.PageNotFound - No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.
+2026-09-22 16:09:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-09-22 16:09:56 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-09-22 16:09:56 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:10:55 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:10:55 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:10:56 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:10:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:10:56 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:10:56 DEBUG o.s.security.web.FilterChainProxy - Secured GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:10:56 WARN  o.s.web.servlet.PageNotFound - No mapping for GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:10:56 WARN  o.s.web.servlet.PageNotFound - No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.
+2026-09-22 16:10:56 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-09-22 16:10:56 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-09-22 16:10:56 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:13:16 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:13:16 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:13:16 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:13:20 DEBUG o.s.security.web.FilterChainProxy - Securing GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:13:20 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:13:20 DEBUG o.s.security.web.FilterChainProxy - Secured GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:13:20 WARN  o.s.web.servlet.PageNotFound - No mapping for GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-22 16:13:20 WARN  o.s.web.servlet.PageNotFound - No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.
+2026-09-22 16:13:20 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-09-22 16:13:20 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-09-22 16:13:20 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@6ba360c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=987448026D59DE330E54404E936CC873], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:09:36.441385300Z]]]]
+2026-09-22 16:19:32 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 4656 (C:\Users\user\IdeaProjects\job-search_70\target\classes started by user in C:\Users\user\IdeaProjects\job-search_70)
+2026-09-22 16:19:32 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-22 16:19:39 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-22 16:19:39 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-22 16:19:40 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-22 16:19:42 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-22 16:19:44 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-22 16:19:44 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-22 16:19:44 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-22 16:19:45 INFO  com.example.demo.DemoApplication - Started DemoApplication in 13.982 seconds (process running for 15.584)
+2026-09-22 16:19:45 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-22 16:19:45 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-22 16:20:12 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:20:12 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:12 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:12 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:20:30 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:20:31 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:31 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:31 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:20:40 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:20:40 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:40 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:40 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:20:42 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:20:42 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:42 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:42 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:20:45 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:20:45 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:45 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:45 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=0&sort=date_desc
+2026-09-22 16:20:46 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:20:46 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:46 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:46 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=1&sort=date_desc
+2026-09-22 16:20:47 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:20:47 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:47 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:47 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=2&sort=date_desc
+2026-09-22 16:20:49 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:20:49 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:20:49 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:20:49 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:11 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:11 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:11 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:11 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:14 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:14 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:14 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:14 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:15 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:15 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:15 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:15 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:15 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:15 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:16 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:16 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:16 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:16 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:16 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:16 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:16 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:16 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:17 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:17 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:17 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:17 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:17 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:17 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:17 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:17 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:17 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:17 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:17 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:17 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:18 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:18 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:18 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:18 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies?page=3&sort=date_desc
+2026-09-22 16:21:23 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-22 16:21:23 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:23 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id B0941B1168EAFB01310D602E10C2EE5F
+2026-09-22 16:21:23 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/vacancies/1?continue to session
+2026-09-22 16:21:23 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-22 16:21:23 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-22 16:21:23 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-22 16:21:23 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-22 16:21:38 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-09-22 16:21:39 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-09-22 16:21:39 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 8F3C7374FFA1E465388D6E1C50EA1CEC
+2026-09-22 16:21:39 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-09-22 16:21:39 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@62c06851, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8F3C7374FFA1E465388D6E1C50EA1CEC], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:21:39.004522700Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@1f694f27]
+2026-09-22 16:21:39 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@62c06851, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8F3C7374FFA1E465388D6E1C50EA1CEC], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:21:39.004522700Z]]]
+2026-09-22 16:21:39 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-22 16:21:39 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-22 16:21:46 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@62c06851, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8F3C7374FFA1E465388D6E1C50EA1CEC], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-22T11:21:39.004522700Z]]]]

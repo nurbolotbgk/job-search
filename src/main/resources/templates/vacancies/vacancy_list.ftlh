@@ -96,7 +96,7 @@
                     <input type="text"
                            name="name"
                            class="form-control"
-                           placeholder="Например: Java">
+                           placeholder="Например: Айти специалист">
 
                 </div>
 
@@ -300,7 +300,7 @@
 
                     const vacancyName = vacancy.dataset.name.toLowerCase();
 
-                    const vacancySalary = Number(vacancy.dataset.salary);
+                    const vacancySalary = Number(vacancy.dataset.salary.replace(/\s/g, ''));
 
                     const filterName = filter.name.toLowerCase();
 
