@@ -128,7 +128,9 @@
 
         <#list vacancies as vacancy>
 
-            <div class="col-12 mb-3">
+            <div class="col-12 mb-3 vacancy-item"
+                 data-name="${vacancy.name!}"
+                 data-salary="${vacancy.salary!0}">
 
                 <div class="card shadow-sm">
 
@@ -295,6 +297,40 @@
 
                 console.log(filter);
             });
+
+
+            function applyFilter(filter) {
+
+                const vacancies =
+                    document.querySelectorAll('.vacancy-item');
+
+                vacancies.forEach(function (vacancy) {
+
+                    const vacancyName =
+                        vacancy.dataset.name.toLowerCase();
+
+                    const vacancySalary =
+                        Number(vacancy.dataset.salary);
+
+                    const filterName =
+                        filter.name.toLowerCase();
+
+                    const minSalary =
+                        Number(filter.minSalary) || 0;
+
+                    const nameMatches =
+                        vacancyName.includes(filterName);
+
+                    const salaryMatches =
+                        vacancySalary >= minSalary;
+
+                    if (nameMatches && salaryMatches) {
+                        vacancy.style.display = '';
+                    } else {
+                        vacancy.style.display = 'none';
+                    }
+                });
+            }
 
         });
     </script>
