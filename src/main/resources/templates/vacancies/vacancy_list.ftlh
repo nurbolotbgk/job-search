@@ -274,55 +274,41 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 
-            const filterForm =
-                document.getElementById('vacancy-filter');
+            const filterForm = document.getElementById('vacancy-filter');
 
             filterForm.addEventListener('submit', function (event) {
 
                 event.preventDefault();
 
-                const formData =
-                    new FormData(filterForm);
+                const formData = new FormData(filterForm);
 
-                const filter =
-                    Object.fromEntries(formData);
+                const filter = Object.fromEntries(formData);
 
-                const filterAsJSON =
-                    JSON.stringify(filter);
+                const filterAsJSON = JSON.stringify(filter);
 
-                localStorage.setItem(
-                    'vacancyFilter',
-                    filterAsJSON
-                );
+                localStorage.setItem('vacancyFilter', filterAsJSON);
 
-                console.log(filter);
+                applyFilter(filter);
             });
 
 
             function applyFilter(filter) {
 
-                const vacancies =
-                    document.querySelectorAll('.vacancy-item');
+                const vacancies = document.querySelectorAll('.vacancy-item');
 
                 vacancies.forEach(function (vacancy) {
 
-                    const vacancyName =
-                        vacancy.dataset.name.toLowerCase();
+                    const vacancyName = vacancy.dataset.name.toLowerCase();
 
-                    const vacancySalary =
-                        Number(vacancy.dataset.salary);
+                    const vacancySalary = Number(vacancy.dataset.salary);
 
-                    const filterName =
-                        filter.name.toLowerCase();
+                    const filterName = filter.name.toLowerCase();
 
-                    const minSalary =
-                        Number(filter.minSalary) || 0;
+                    const minSalary = Number(filter.minSalary) || 0;
 
-                    const nameMatches =
-                        vacancyName.includes(filterName);
+                    const nameMatches = vacancyName.includes(filterName);
 
-                    const salaryMatches =
-                        vacancySalary >= minSalary;
+                    const salaryMatches = vacancySalary >= minSalary;
 
                     if (nameMatches && salaryMatches) {
                         vacancy.style.display = '';
@@ -332,6 +318,18 @@
                 });
             }
 
+            const savedFilterAsJSON = localStorage.getItem('vacancyFilter');
+
+            if (savedFilterAsJSON) {
+
+                const savedFilter = JSON.parse(savedFilterAsJSON);
+
+                filterForm.elements['name'].value = savedFilter.name;
+
+                filterForm.elements['minSalary'].value = savedFilter.minSalary;
+
+                applyFilter(savedFilter);
+            }
         });
     </script>
 
