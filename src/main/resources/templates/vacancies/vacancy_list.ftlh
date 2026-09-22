@@ -83,6 +83,48 @@
 
         </form>
 
+        <form id="vacancy-filter" class="mb-4">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Название вакансии
+                    </label>
+
+                    <input type="text"
+                           name="name"
+                           class="form-control"
+                           placeholder="Например: Java">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Минимальная зарплата
+                    </label>
+
+                    <input type="number"
+                           name="minSalary"
+                           class="form-control"
+                           min="0">
+
+                </div>
+
+                <div class="col-md-4 d-flex align-items-end">
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Найти
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
 
         <#list vacancies as vacancy>
 
