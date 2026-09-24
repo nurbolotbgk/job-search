@@ -95,8 +95,8 @@
                             <@spring.formInput
                             "resumeFormDto.salary"
                             'type="number"
-                                 step="0.01"
-                                 class="form-control"'
+                             step="0.01"
+                             class="form-control"'
                             />
 
                             <@spring.showErrors
@@ -152,7 +152,9 @@
                                             </span>
                                         </h5>
 
+
                                         <div class="mb-3">
+
                                             <label class="form-label">
                                                 <@spring.message "resume.experience.years"/>
                                             </label>
@@ -160,14 +162,20 @@
                                             <@spring.formInput
                                             "resumeFormDto.workExperiences[${workExperience_index}].years"
                                             'type="number"
-                                            min="0"
-                                            class="form-control"'
+                                             min="0"
+                                             class="form-control"'
                                             />
 
-                                            <@spring.showErrors "<br>" "text-danger"/>
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"
+                                            />
+
                                         </div>
 
+
                                         <div class="mb-3">
+
                                             <label class="form-label">
                                                 <@spring.message "resume.experience.company"/>
                                             </label>
@@ -177,10 +185,16 @@
                                             'class="form-control"'
                                             />
 
-                                            <@spring.showErrors "<br>" "text-danger"/>
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"
+                                            />
+
                                         </div>
 
+
                                         <div class="mb-3">
+
                                             <label class="form-label">
                                                 <@spring.message "resume.experience.position"/>
                                             </label>
@@ -190,10 +204,16 @@
                                             'class="form-control"'
                                             />
 
-                                            <@spring.showErrors "<br>" "text-danger"/>
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"
+                                            />
+
                                         </div>
 
+
                                         <div class="mb-3">
+
                                             <label class="form-label">
                                                 <@spring.message "resume.experience.responsibilities"/>
                                             </label>
@@ -203,7 +223,14 @@
                                             'class="form-control"
                                              rows="3"'
                                             />
+
                                         </div>
+
+
+                                        <button type="button"
+                                                class="btn btn-outline-danger remove-work-experience">
+                                            <@spring.message "resume.remove"/>
+                                        </button>
 
                                     </div>
 
@@ -228,123 +255,128 @@
                             <@spring.message "resume.section.education"/>
                         </h4>
 
+
                         <div id="educations-container">
-                        <#list resumeFormDto.educations as education>
 
-                            <div class="card mb-4 education-item">
+                            <#list resumeFormDto.educations as education>
 
-                                <div class="card-body">
+                                <div class="card mb-4 education-item">
 
-                                    <h5 class="mb-3">
-                                        <@spring.message "resume.education.number"/>${education_index + 1}
-                                    </h5>
+                                    <div class="card-body">
 
-
-                                    <div class="mb-3">
-
-                                        <label class="form-label">
-                                            <@spring.message "resume.education.institution"/>
-                                        </label>
-
-                                        <@spring.formInput
-                                        "resumeFormDto.educations[${education_index}].institution"
-                                        'class="form-control"'
-                                        />
-
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
-
-                                    </div>
-
-
-                                    <div class="mb-3">
-
-                                        <label class="form-label">
-                                            <@spring.message "resume.education.program"/>
-                                        </label>
-
-                                        <@spring.formInput
-                                        "resumeFormDto.educations[${education_index}].program"
-                                        'class="form-control"'
-                                        />
-
-                                    </div>
-
-
-                                    <div class="mb-3">
-                                        <label class="form-label">
-                                            <@spring.message "resume.education.start"/>
-                                            <span class="text-muted">
-                                                <@spring.message "resume.education.date.hint"/>
+                                        <h5 class="mb-3">
+                                            <@spring.message "resume.education.number"/>
+                                            <span class="education-number">
+                                                ${education_index + 1}
                                             </span>
-                                        </label>
+                                        </h5>
 
-                                        <input type="date"
-                                               class="form-control"
-                                               name="educations[${education_index}].startDate">
 
-                                        <div class="form-text">
-                                            <@spring.message "resume.education.date.format"/>
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "resume.education.institution"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "resumeFormDto.educations[${education_index}].institution"
+                                            'class="form-control"'
+                                            />
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"
+                                            />
+
                                         </div>
 
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
-                                    </div>
 
+                                        <div class="mb-3">
 
-                                    <div class="mb-3">
-                                        <label class="form-label">
-                                            <@spring.message "resume.education.end"/>
-                                            <span class="text-muted">
-                                                <@spring.message "resume.education.date.hint"/>
-                                            </span>
-                                        </label>
+                                            <label class="form-label">
+                                                <@spring.message "resume.education.program"/>
+                                            </label>
 
-                                        <input type="date"
-                                               class="form-control"
-                                               name="educations[${education_index}].endDate">
+                                            <@spring.formInput
+                                            "resumeFormDto.educations[${education_index}].program"
+                                            'class="form-control"'
+                                            />
 
-                                        <div class="form-text">
-                                            <@spring.message "resume.education.date.format"/>
                                         </div>
 
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
-                                    </div>
 
-                                    <div class="mb-3">
+                                        <div class="mb-3">
 
-                                        <label class="form-label">
-                                            <@spring.message "resume.education.degree"/>
-                                        </label>
+                                            <label class="form-label">
+                                                <@spring.message "resume.education.start"/>
+                                                <span class="text-muted">
+                                                    <@spring.message "resume.education.date.hint"/>
+                                                </span>
+                                            </label>
 
-                                        <@spring.formInput
-                                        "resumeFormDto.educations[${education_index}].degree"
-                                        'class="form-control"'
-                                        />
+                                            <input type="date"
+                                                   class="form-control"
+                                                   name="educations[${education_index}].startDate">
+
+                                            <div class="form-text">
+                                                <@spring.message "resume.education.date.format"/>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "resume.education.end"/>
+                                                <span class="text-muted">
+                                                    <@spring.message "resume.education.date.hint"/>
+                                                </span>
+                                            </label>
+
+                                            <input type="date"
+                                                   class="form-control"
+                                                   name="educations[${education_index}].endDate">
+
+                                            <div class="form-text">
+                                                <@spring.message "resume.education.date.format"/>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "resume.education.degree"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "resumeFormDto.educations[${education_index}].degree"
+                                            'class="form-control"'
+                                            />
+
+                                        </div>
+
+
+                                        <button type="button"
+                                                class="btn btn-outline-danger remove-education">
+                                            <@spring.message "resume.remove"/>
+                                        </button>
 
                                     </div>
 
                                 </div>
 
-                            </div>
+                            </#list>
 
-                        </#list>
                         </div>
 
 
                         <button type="button"
                                 id="add-education"
                                 class="btn btn-outline-primary mb-4">
-
                             <@spring.message "resume.education.add"/>
-
                         </button>
 
 
@@ -355,105 +387,109 @@
                             <@spring.message "resume.section.contacts"/>
                         </h4>
 
+
                         <div id="contacts-container">
-                        <#list resumeFormDto.contacts as contact>
 
-                            <div class="card mb-4 contact-item">
+                            <#list resumeFormDto.contacts as contact>
 
-                                <div class="card-body">
+                                <div class="card mb-4 contact-item">
 
-                                    <h5 class="mb-3">
-                                        <@spring.message "resume.contact.number"/>${contact_index + 1}
-                                    </h5>
+                                    <div class="card-body">
 
-
-                                    <div class="mb-3">
-
-                                        <label class="form-label">
-                                            <@spring.message "resume.contact.type"/>
-                                        </label>
-
-                                        <select name="contacts[${contact_index}].typeId"
-                                                class="form-select">
-
-                                            <option value="1"
-                                                    <#if contact.typeId??
-                                            && contact.typeId == 1>
-                                            selected
-                                                    </#if>>
-                                                Telegram
-                                            </option>
-
-                                            <option value="2"
-                                                    <#if contact.typeId??
-                                            && contact.typeId == 2>
-                                            selected
-                                                    </#if>>
-                                                Mail
-                                            </option>
-
-                                            <option value="3"
-                                                    <#if contact.typeId??
-                                            && contact.typeId == 3>
-                                            selected
-                                                    </#if>>
-                                                Facebook
-                                            </option>
-
-                                            <option value="4"
-                                                    <#if contact.typeId??
-                                            && contact.typeId == 4>
-                                            selected
-                                                    </#if>>
-                                                Whatsapp
-                                            </option>
-
-                                            <option value="5"
-                                                    <#if contact.typeId??
-                                            && contact.typeId == 5>
-                                            selected
-                                                    </#if>>
-                                                Linkedin
-                                            </option>
-
-                                        </select>
-
-                                        <@spring.bind
-                                        "resumeFormDto.contacts[${contact_index}].typeId"
-                                        />
-
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
-
-                                    </div>
+                                        <h5 class="mb-3">
+                                            <@spring.message "resume.contact.number"/>
+                                            <span class="contact-number">
+                                                ${contact_index + 1}
+                                            </span>
+                                        </h5>
 
 
-                                    <div class="mb-3">
+                                        <div class="mb-3">
 
-                                        <label class="form-label">
-                                            <@spring.message "resume.contact.value"/>
-                                        </label>
+                                            <label class="form-label">
+                                                <@spring.message "resume.contact.type"/>
+                                            </label>
 
-                                        <@spring.formInput
-                                        "resumeFormDto.contacts[${contact_index}].contactValue"
-                                        'class="form-control"'
-                                        />
+                                            <select name="contacts[${contact_index}].typeId"
+                                                    class="form-select">
 
-                                        <@spring.showErrors
-                                        "<br>"
-                                        "text-danger"
-                                        />
+                                                <option value="1"
+                                                        <#if contact.typeId??
+                                                && contact.typeId == 1>
+                                                selected
+                                                        </#if>>
+                                                    Telegram
+                                                </option>
+
+                                                <option value="2"
+                                                        <#if contact.typeId??
+                                                && contact.typeId == 2>
+                                                selected
+                                                        </#if>>
+                                                    Mail
+                                                </option>
+
+                                                <option value="3"
+                                                        <#if contact.typeId??
+                                                && contact.typeId == 3>
+                                                selected
+                                                        </#if>>
+                                                    Facebook
+                                                </option>
+
+                                                <option value="4"
+                                                        <#if contact.typeId??
+                                                && contact.typeId == 4>
+                                                selected
+                                                        </#if>>
+                                                    Whatsapp
+                                                </option>
+
+                                                <option value="5"
+                                                        <#if contact.typeId??
+                                                && contact.typeId == 5>
+                                                selected
+                                                        </#if>>
+                                                    Linkedin
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "resume.contact.value"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "resumeFormDto.contacts[${contact_index}].contactValue"
+                                            'class="form-control"'
+                                            />
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"
+                                            />
+
+                                        </div>
+
+
+                                        <button type="button"
+                                                class="btn btn-outline-danger remove-contact">
+                                            <@spring.message "resume.remove"/>
+                                        </button>
 
                                     </div>
 
                                 </div>
 
-                            </div>
+                            </#list>
 
-                        </#list>
                         </div>
+
 
                         <button type="button"
                                 id="add-contact"
@@ -469,16 +505,12 @@
 
                             <button type="submit"
                                     class="btn btn-primary">
-
                                 <@spring.message "resume.create.button"/>
-
                             </button>
 
                             <a href="/profile"
                                class="btn btn-outline-secondary">
-
                                 <@spring.message "resume.cancel"/>
-
                             </a>
 
                         </div>
@@ -493,10 +525,33 @@
         </div>
 
     </div>
+
+
     <script>
         'use strict';
 
         document.addEventListener('DOMContentLoaded', function () {
+
+            const messages = {
+                experienceNumber: '<@spring.message "resume.experience.number"/>',
+                experienceYears: '<@spring.message "resume.experience.years"/>',
+                experienceCompany: '<@spring.message "resume.experience.company"/>',
+                experiencePosition: '<@spring.message "resume.experience.position"/>',
+                experienceResponsibilities: '<@spring.message "resume.experience.responsibilities"/>',
+
+                educationNumber: '<@spring.message "resume.education.number"/>',
+                educationInstitution: '<@spring.message "resume.education.institution"/>',
+                educationProgram: '<@spring.message "resume.education.program"/>',
+                educationStart: '<@spring.message "resume.education.start"/>',
+                educationEnd: '<@spring.message "resume.education.end"/>',
+                educationDegree: '<@spring.message "resume.education.degree"/>',
+
+                contactNumber: '<@spring.message "resume.contact.number"/>',
+                contactType: '<@spring.message "resume.contact.type"/>',
+                contactValue: '<@spring.message "resume.contact.value"/>',
+
+                remove: '<@spring.message "resume.remove"/>'
+            };
 
             const workContainer =
                 document.getElementById('work-experiences-container');
@@ -520,9 +575,116 @@
                 document.getElementById('resume-form');
 
 
-            // ========================================
-            // ДОБАВЛЕНИЕ ОПЫТА РАБОТЫ
-            // ========================================
+            function updateWorkExperienceNumbers() {
+
+                const items =
+                    workContainer.querySelectorAll('.work-experience-item');
+
+                items.forEach(function (item, index) {
+
+                    const number =
+                        item.querySelector('.work-experience-number');
+
+                    number.textContent = index + 1;
+                });
+            }
+
+
+            function updateEducationNumbers() {
+
+                const items =
+                    educationContainer.querySelectorAll('.education-item');
+
+                items.forEach(function (item, index) {
+
+                    const number =
+                        item.querySelector('.education-number');
+
+                    number.textContent = index + 1;
+                });
+            }
+
+
+            function updateContactNumbers() {
+
+                const items =
+                    contactsContainer.querySelectorAll('.contact-item');
+
+                items.forEach(function (item, index) {
+
+                    const number =
+                        item.querySelector('.contact-number');
+
+                    number.textContent = index + 1;
+                });
+            }
+
+
+            function addRemoveWorkHandler(button) {
+
+                button.addEventListener('click', function () {
+
+                    const block =
+                        button.closest('.work-experience-item');
+
+                    block.remove();
+
+                    updateWorkExperienceNumbers();
+                });
+            }
+
+
+            function addRemoveEducationHandler(button) {
+
+                button.addEventListener('click', function () {
+
+                    const block =
+                        button.closest('.education-item');
+
+                    block.remove();
+
+                    updateEducationNumbers();
+                });
+            }
+
+
+            function addRemoveContactHandler(button) {
+
+                button.addEventListener('click', function () {
+
+                    const block =
+                        button.closest('.contact-item');
+
+                    block.remove();
+
+                    updateContactNumbers();
+                });
+            }
+
+
+            document
+                .querySelectorAll('.remove-work-experience')
+                .forEach(function (button) {
+
+                    addRemoveWorkHandler(button);
+                });
+
+
+            document
+                .querySelectorAll('.remove-education')
+                .forEach(function (button) {
+
+                    addRemoveEducationHandler(button);
+                });
+
+
+            document
+                .querySelectorAll('.remove-contact')
+                .forEach(function (button) {
+
+                    addRemoveContactHandler(button);
+                });
+
 
             addWorkButton.addEventListener('click', function () {
 
@@ -539,13 +701,16 @@
                     '<div class="card-body">' +
 
                     '<h5 class="mb-3">' +
-                    'Опыт работы №' + (index + 1) +
+                    messages.experienceNumber +
+                    '<span class="work-experience-number">' +
+                    (index + 1) +
+                    '</span>' +
                     '</h5>' +
 
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Количество лет' +
+                    messages.experienceYears +
                     '</label>' +
 
                     '<input type="number" ' +
@@ -561,7 +726,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Компания' +
+                    messages.experienceCompany +
                     '</label>' +
 
                     '<input type="text" ' +
@@ -576,7 +741,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Должность' +
+                    messages.experiencePosition +
                     '</label>' +
 
                     '<input type="text" ' +
@@ -591,7 +756,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Обязанности' +
+                    messages.experienceResponsibilities +
                     '</label>' +
 
                     '<textarea class="form-control" ' +
@@ -603,16 +768,22 @@
 
                     '</div>' +
 
+
+                    '<button type="button" ' +
+                    'class="btn btn-outline-danger remove-work-experience">' +
+                    messages.remove +
+                    '</button>' +
+
                     '</div>';
 
                 workContainer.append(block);
+
+                const removeButton =
+                    block.querySelector('.remove-work-experience');
+
+                addRemoveWorkHandler(removeButton);
             });
 
-
-
-            // ========================================
-            // ДОБАВЛЕНИЕ ОБРАЗОВАНИЯ
-            // ========================================
 
             addEducationButton.addEventListener('click', function () {
 
@@ -629,14 +800,17 @@
                     '<div class="card-body">' +
 
                     '<h5 class="mb-3">' +
-                    'Образование №' + (index + 1) +
+                    messages.educationNumber +
+                    '<span class="education-number">' +
+                    (index + 1) +
+                    '</span>' +
                     '</h5>' +
 
 
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Учебное заведение' +
+                    messages.educationInstitution +
                     '</label>' +
 
                     '<input type="text" ' +
@@ -651,7 +825,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Программа' +
+                    messages.educationProgram +
                     '</label>' +
 
                     '<input type="text" ' +
@@ -666,7 +840,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Дата начала' +
+                    messages.educationStart +
                     '</label>' +
 
                     '<input type="date" ' +
@@ -681,7 +855,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Дата окончания' +
+                    messages.educationEnd +
                     '</label>' +
 
                     '<input type="date" ' +
@@ -696,7 +870,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Степень' +
+                    messages.educationDegree +
                     '</label>' +
 
                     '<input type="text" ' +
@@ -707,16 +881,22 @@
 
                     '</div>' +
 
+
+                    '<button type="button" ' +
+                    'class="btn btn-outline-danger remove-education">' +
+                    messages.remove +
+                    '</button>' +
+
                     '</div>';
 
                 educationContainer.append(block);
+
+                const removeButton =
+                    block.querySelector('.remove-education');
+
+                addRemoveEducationHandler(removeButton);
             });
 
-
-
-            // ========================================
-            // ДОБАВЛЕНИЕ КОНТАКТА
-            // ========================================
 
             addContactButton.addEventListener('click', function () {
 
@@ -733,14 +913,17 @@
                     '<div class="card-body">' +
 
                     '<h5 class="mb-3">' +
-                    'Контакт №' + (index + 1) +
+                    messages.contactNumber +
+                    '<span class="contact-number">' +
+                    (index + 1) +
+                    '</span>' +
                     '</h5>' +
 
 
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Тип контакта' +
+                    messages.contactType +
                     '</label>' +
 
                     '<select class="form-select" ' +
@@ -762,7 +945,7 @@
                     '<div class="mb-3">' +
 
                     '<label class="form-label">' +
-                    'Контакт' +
+                    messages.contactValue +
                     '</label>' +
 
                     '<input type="text" ' +
@@ -773,25 +956,27 @@
 
                     '</div>' +
 
+
+                    '<button type="button" ' +
+                    'class="btn btn-outline-danger remove-contact">' +
+                    messages.remove +
+                    '</button>' +
+
                     '</div>';
 
                 contactsContainer.append(block);
+
+                const removeButton =
+                    block.querySelector('.remove-contact');
+
+                addRemoveContactHandler(removeButton);
             });
 
-
-
-            // ========================================
-            // СОХРАНЕНИЕ РЕЗЮМЕ
-            // ========================================
 
             form.addEventListener('submit', async function (event) {
 
                 event.preventDefault();
 
-
-                // -------------------------
-                // Опыт работы
-                // -------------------------
 
                 const workExperiences = [];
 
@@ -825,11 +1010,6 @@
                         });
                     });
 
-
-
-                // -------------------------
-                // Образование
-                // -------------------------
 
                 const educations = [];
 
@@ -877,11 +1057,6 @@
                     });
 
 
-
-                // -------------------------
-                // Контакты
-                // -------------------------
-
                 const contacts = [];
 
                 document
@@ -904,11 +1079,6 @@
                         });
                     });
 
-
-
-                // ========================================
-                // ОБЩИЙ ОБЪЕКТ
-                // ========================================
 
                 const data = {
 
@@ -950,10 +1120,6 @@
                 console.log(data);
 
 
-                // ========================================
-                // HEADERS
-                // ========================================
-
                 const headers = {
                     'Content-Type': 'application/json'
                 };
@@ -966,10 +1132,6 @@
 
                 </#if>
 
-
-                // ========================================
-                // FETCH
-                // ========================================
 
                 try {
 
@@ -986,13 +1148,11 @@
 
                     if (!response.ok) {
 
-                        const errorText = await response.text();
-
-                        console.error('STATUS:', response.status);
-                        console.error('RESPONSE:', errorText);
+                        const errors =
+                            await response.json();
 
                         throw new Error(
-                            'Ошибка создания резюме. Status: ' + response.status
+                            errors.join('\n')
                         );
                     }
 
@@ -1002,10 +1162,14 @@
 
                 } catch (error) {
 
-                    console.error('FETCH ERROR:', error);
+                    console.error(
+                        'FETCH ERROR:',
+                        error
+                    );
 
                     alert(
-                        'Не удалось сохранить резюме: ' + error.message
+                        'Не удалось сохранить резюме: ' +
+                        error.message
                     );
                 }
 
@@ -1013,4 +1177,5 @@
 
         });
     </script>
+
 </@layout.layout>

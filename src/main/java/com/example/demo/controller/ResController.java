@@ -9,6 +9,7 @@ import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -68,7 +69,20 @@ public class ResController {
 
     @PostMapping("/create")
     @ResponseBody
-    public void create(@Valid @RequestBody ResumeFormDto resumeFormDto) {
+    public ResponseEntity<?> create(@Valid @RequestBody ResumeFormDto resumeFormDto, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+
+            List<String> errors = bindingResult
+                    .getFieldErrors()
+                    .stream()
+                    .map(error -> error.getDefaultMessage())
+                    .toList();
+
+            return ResponseEntity
+                    .badRequest()
+                    .body(errors);
+        }
 
         UserDto currentUser = userService.getCurrentUser();
 
@@ -99,6 +113,8 @@ public class ResController {
                 .build();
 
         resumeService.save(resumeDto);
+
+        return ResponseEntity.ok().build();
     }
 
 

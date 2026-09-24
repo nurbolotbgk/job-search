@@ -120,14 +120,14 @@
 
                     <li>
                         <a class="dropdown-item"
-                           href="/language?lang=ru">
+                           href="?lang=ru">
                             <@spring.message "nav.language.ru"/>
                         </a>
                     </li>
 
                     <li>
                         <a class="dropdown-item"
-                           href="/language?lang=en">
+                           href="?lang=en">
                             <@spring.message "nav.language.en"/>
                         </a>
                     </li>
@@ -204,6 +204,28 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <script>
+        document
+            .querySelectorAll('.language-link')
+            .forEach(function (link) {
+
+                link.addEventListener('click', function (event) {
+
+                    event.preventDefault();
+
+                    const url = new URL(link.href);
+
+                    url.searchParams.set(
+                        'redirect',
+                        window.location.pathname
+                    );
+
+                    window.location.href = url.toString();
+                });
+
+            });
     </script>
 
     </body>
