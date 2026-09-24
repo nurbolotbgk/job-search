@@ -2351,3 +2351,37 @@ org.springframework.context.NoSuchMessageException: No message found under code 
 2026-09-24 15:56:04 DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile/edit
 2026-09-24 15:56:04 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@7a9997ee, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=1340C5225655002449055D65457E04E7], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-24T10:54:52.566305600Z]]]]
 2026-09-24 15:56:04 DEBUG o.s.security.web.FilterChainProxy - Secured GET /profile/edit
+2026-09-24 16:18:50 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 18412 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-24 16:18:50 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-24 16:18:58 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-24 16:18:58 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-24 16:18:59 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-24 16:19:00 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-24 16:19:01 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-24 16:19:01 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-24 16:19:02 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-24 16:19:03 INFO  com.example.demo.DemoApplication - Started DemoApplication in 13.344 seconds (process running for 14.4)
+2026-09-24 16:19:03 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-24 16:19:03 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-24 16:19:59 DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile
+2026-09-24 16:19:59 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-24 16:19:59 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id EF0068C3556729F1DAB5CB9973036C40
+2026-09-24 16:20:00 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/profile?continue to session
+2026-09-24 16:20:00 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-24 16:20:00 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-24 16:20:00 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-24 16:20:00 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-24 16:25:31 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/register
+2026-09-24 16:25:31 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-24 16:25:31 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/register

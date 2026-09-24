@@ -22,7 +22,7 @@
                         </#if>
 
                         <div class="mb-3">
-                            <label class="form-label">
+                            <label class="form-label" id="nameLabel">
                                 <@spring.message "register.name"/>
                             </label>
 
@@ -156,5 +156,27 @@
 
         </div>
     </div>
+
+    <script>
+        const applicantRadio = document.getElementById('applicant');
+        const employerRadio = document.getElementById('employer');
+        const nameLabel = document.getElementById('nameLabel');
+
+        const applicantName = '<@spring.message "register.name"/>';
+        const companyName = '<@spring.message "register.company.name"/>';
+
+        function updateNameLabel() {
+            if (employerRadio.checked) {
+                nameLabel.textContent = companyName;
+            } else {
+                nameLabel.textContent = applicantName;
+            }
+        }
+
+        applicantRadio.addEventListener('change', updateNameLabel);
+        employerRadio.addEventListener('change', updateNameLabel);
+
+        updateNameLabel();
+    </script>
 
 </@layout.layout>
