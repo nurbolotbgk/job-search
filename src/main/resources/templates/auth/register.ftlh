@@ -13,7 +13,7 @@
                         <@spring.message "register.title"/>
                     </h2>
 
-                    <form action="/auth/register" method="post">
+                    <form action="/auth/register" method="post" enctype="multipart/form-data">
 
                         <#if _csrf??>
                             <input type="hidden"
@@ -142,6 +142,18 @@
 
                             </div>
 
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="file" class="form-label">
+                                <@spring.message "register.avatar"/>
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   id="file"
+                                   name="file"
+                                   accept="image/*">
                         </div>
 
                         <button type="submit"

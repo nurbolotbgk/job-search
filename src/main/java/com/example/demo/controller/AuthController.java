@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.User;
+import com.example.demo.service.ImageService;
 import com.example.demo.service.UserService;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.UnsupportedEncodingException;
 
@@ -32,6 +34,8 @@ public class AuthController {
 
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
+    private final ImageService imageService;
+
 
     @GetMapping("/register")
     public String registerPage(Model model) {
@@ -40,9 +44,16 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid UserDto userDto, BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) {
+    public String register(@Valid UserDto userDto, BindingResult bindingResult, @RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         if (bindingResult.hasErrors()) {
             return "auth/register";
+        }
+
+        if (!file.isEmpty()) {
+            String fileName = imageService.save(file);
+            userDto.setAvatar(fileName);
+        } else {
+            userDto.setAvatar("food.jpg");
         }
 
         String password = userDto.getPassword();
