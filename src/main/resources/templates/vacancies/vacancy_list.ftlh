@@ -83,10 +83,54 @@
 
         </form>
 
+        <form id="vacancy-filter" class="mb-4">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Название вакансии
+                    </label>
+
+                    <input type="text"
+                           name="name"
+                           class="form-control"
+                           placeholder="Например: Айти специалист">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Минимальная зарплата
+                    </label>
+
+                    <input type="number"
+                           name="minSalary"
+                           class="form-control"
+                           min="0">
+
+                </div>
+
+                <div class="col-md-4 d-flex align-items-end">
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Найти
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
 
         <#list vacancies as vacancy>
 
-            <div class="col-12 mb-3">
+            <div class="col-12 mb-3 vacancy-item"
+                 data-name="${vacancy.name!}"
+                 data-salary="${vacancy.salary!0}">
 
                 <div class="card shadow-sm">
 
@@ -233,5 +277,69 @@
         </#if>
 
     </div>
+
+    <script>
+        'use strict';
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const filterForm = document.getElementById('vacancy-filter');
+
+            filterForm.addEventListener('submit', function (event) {
+
+                event.preventDefault();
+
+                const formData = new FormData(filterForm);
+
+                const filter = Object.fromEntries(formData);
+
+                const filterAsJSON = JSON.stringify(filter);
+
+                localStorage.setItem('vacancyFilter', filterAsJSON);
+
+                applyFilter(filter);
+            });
+
+
+            function applyFilter(filter) {
+
+                const vacancies = document.querySelectorAll('.vacancy-item');
+
+                vacancies.forEach(function (vacancy) {
+
+                    const vacancyName = vacancy.dataset.name.toLowerCase();
+
+                    const vacancySalary = Number(vacancy.dataset.salary.replace(/\s/g, ''));
+
+                    const filterName = filter.name.toLowerCase();
+
+                    const minSalary = Number(filter.minSalary) || 0;
+
+                    const nameMatches = vacancyName.includes(filterName);
+
+                    const salaryMatches = vacancySalary >= minSalary;
+
+                    if (nameMatches && salaryMatches) {
+                        vacancy.style.display = '';
+                    } else {
+                        vacancy.style.display = 'none';
+                    }
+                });
+            }
+
+            const savedFilterAsJSON = localStorage.getItem('vacancyFilter');
+
+            if (savedFilterAsJSON) {
+
+                const savedFilter = JSON.parse(savedFilterAsJSON);
+
+                filterForm.elements['name'].value = savedFilter.name;
+
+                filterForm.elements['minSalary'].value = savedFilter.minSalary;
+
+                applyFilter(savedFilter);
+            }
+        });
+    </script>
 
 </@layout.layout>
