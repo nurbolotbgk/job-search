@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Data
@@ -48,4 +49,12 @@ public class ResumeDto {
     private List<WorkExperienceInfoDto> workExperiences;
     private List<EducationInfoDto> educations;
     private List<ContactInfoDto> contacts;
+
+    public String getFormattedUpdateTime() {
+        if (updateTime == null) {
+            return "";
+        }
+
+        return updateTime.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"));
+    }
 }

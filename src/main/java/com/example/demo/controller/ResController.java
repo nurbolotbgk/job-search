@@ -262,10 +262,8 @@ public class ResController {
 
 
     @PostMapping("/{id}/edit/add-contact")
-    public String addContactEdit(
-            @PathVariable Long id,
-            @ModelAttribute("resumeFormDto") ResumeFormDto resumeFormDto,
-            Model model
+    public String addContactEdit(@PathVariable Long id, @ModelAttribute("resumeFormDto") ResumeFormDto resumeFormDto,
+                                 Model model
     ) {
 
         if (resumeFormDto.getContacts() == null) {
@@ -276,11 +274,22 @@ public class ResController {
                 .add(new ContactInfoDto());
 
         model.addAttribute("resumeId", id);
-        model.addAttribute(
-                "categories",
-                categoryService.getAllCategories()
-        );
+        model.addAttribute("categories", categoryService.getAllCategories());
 
         return "resumes/edit_resume";
+    }
+
+    @PostMapping("/{id}/update-time")
+    public String updateTime(@PathVariable Long id) {
+        UserDto currentUser = userService.getCurrentUser();
+        resumeService.updateTime(id, currentUser.getId());
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/{id}/toggle-active")
+    public String toggleActive(@PathVariable Long id) {
+        UserDto currentUser = userService.getCurrentUser();
+        resumeService.toggleActive(id, currentUser.getId());
+        return "redirect:/profile";
     }
 }

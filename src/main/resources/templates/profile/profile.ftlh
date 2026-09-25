@@ -236,6 +236,15 @@
                                             ${resume.name!}
                                         </h5>
 
+                                        <#if resume.updateTime??>
+                                            <p class="card-text mb-2">
+                                                <strong>
+                                                    <@spring.message "profile.resume.updated"/>
+                                                </strong>
+                                                ${resume.formattedUpdateTime}
+                                            </p>
+                                        </#if>
+
                                         <p class="card-text mb-2">
                                             <@spring.message "profile.desired.salary"/>
                                             ${resume.salary!}
@@ -263,6 +272,45 @@
                                                class="btn btn-outline-primary btn-sm">
                                                 <@spring.message "profile.resume.edit"/>
                                             </a>
+
+                                            <form action="/resumes/${resume.id}/update-time"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-success btn-sm">
+                                                    <@spring.message "profile.resume.update"/>
+                                                </button>
+
+                                            </form>
+
+                                            <form action="/resumes/${resume.id}/toggle-active"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-warning btn-sm">
+
+                                                    <#if resume.active>
+                                                        <@spring.message "profile.resume.unpublish"/>
+                                                    <#else>
+                                                        <@spring.message "profile.resume.publish"/>
+                                                    </#if>
+
+                                                </button>
+                                            </form>
 
                                         </div>
 
