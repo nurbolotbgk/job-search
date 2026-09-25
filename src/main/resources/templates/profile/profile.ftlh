@@ -60,10 +60,151 @@
                         ${user.phoneNumber!}
                     </div>
 
-                    <a href="/profile/edit"
-                       class="btn btn-primary">
+
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editProfileModal">
                         <@spring.message "profile.edit"/>
-                    </a>
+                    </button>
+
+
+
+                    <div class="modal fade"
+                         id="editProfileModal"
+                         tabindex="-1"
+                         aria-labelledby="editProfileModalLabel"
+                         aria-hidden="true">
+
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+
+                                <form action="/profile/edit"
+                                      method="post"
+                                      enctype="multipart/form-data">
+
+                                    <#if _csrf??>
+                                        <input type="hidden"
+                                               name="${_csrf.parameterName}"
+                                               value="${_csrf.token}">
+                                    </#if>
+
+
+                                    <div class="modal-header">
+
+                                        <h5 class="modal-title"
+                                            id="editProfileModalLabel">
+                                            <@spring.message "profile.edit.title"/>
+                                        </h5>
+
+                                        <button type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                        </button>
+
+                                    </div>
+
+
+                                    <div class="modal-body">
+
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "profile.name"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.name"
+                                            'class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "profile.surname"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.surname"
+                                            'class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "profile.age"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.age"
+                                            'type="number" class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "profile.phone"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.phoneNumber"
+                                            'class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label class="form-label">
+                                                <@spring.message "profile.edit.photo"/>
+                                            </label>
+
+                                            <input type="file"
+                                                   class="form-control"
+                                                   name="file"
+                                                   accept="image/*">
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="modal-footer">
+
+                                        <button type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-dismiss="modal">
+                                            <@spring.message "profile.edit.cancel"/>
+                                        </button>
+
+                                        <button type="submit"
+                                                class="btn btn-primary">
+                                            <@spring.message "profile.edit.save"/>
+                                        </button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
 
                     <#if user.roleId == 1>
@@ -185,6 +326,7 @@
                             </p>
 
                         </#if>
+
 
 
                     <#elseif user.roleId == 2>
@@ -332,5 +474,15 @@
 
         </div>
     </div>
+
+    <#if openEditModal?? && openEditModal>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const modalElement = document.getElementById('editProfileModal');
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
+            });
+        </script>
+    </#if>
 
 </@layout.layout>

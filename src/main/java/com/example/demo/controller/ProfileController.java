@@ -37,14 +37,20 @@ public class ProfileController {
 
         model.addAttribute("user", currentUser);
 
+        EditUserDto editUserDto = EditUserDto.builder()
+                .name(currentUser.getName())
+                .surname(currentUser.getSurname())
+                .age(currentUser.getAge())
+                .phoneNumber(currentUser.getPhoneNumber())
+                .avatar(currentUser.getAvatar())
+                .build();
+
+        model.addAttribute("editUserDto", editUserDto);
+
         if (currentUser.getRoleId() == 1) {
-
             Page<ResumeDto> resumes = resumeService.getResumesMadeByUser(currentUser.getId(), page, 5);
-
             model.addAttribute("resumes", resumes.getContent());
-
             model.addAttribute("currentPage", page);
-
             model.addAttribute("totalPages", resumes.getTotalPages());
 
         } else if (currentUser.getRoleId() == 2) {
@@ -61,32 +67,42 @@ public class ProfileController {
     }
 
 
-    @GetMapping("/edit")
-    public String edit(Model model) {
-
-        UserDto currentUser = userService.getCurrentUser();
-
-        EditUserDto editUserDto = EditUserDto.builder()
-                .name(currentUser.getName())
-                .surname(currentUser.getSurname())
-                .age(currentUser.getAge())
-                .phoneNumber(currentUser.getPhoneNumber())
-                .avatar(currentUser.getAvatar())
-                .build();
-
-        model.addAttribute("editUserDto", editUserDto);
-        return "profile/edit_profile";
-    }
-
 
     @PostMapping("/edit")
-    public String edit(@Valid EditUserDto editUserDto, BindingResult bindingResult, @RequestParam("file") MultipartFile file) {
-
-        if (bindingResult.hasErrors()) {
-            return "profile/edit_profile";
-        }
+    public String edit(@Valid EditUserDto editUserDto,
+                       BindingResult bindingResult,
+                       @RequestParam("file") MultipartFile file,
+                       @RequestParam(defaultValue = "0") int page,
+                       Model model) {
 
         UserDto currentUser = userService.getCurrentUser();
+
+        if (bindingResult.hasErrors()) {
+
+            model.addAttribute("user", currentUser);
+            model.addAttribute("openEditModal", true);
+
+            if (currentUser.getRoleId() == 1) {
+
+                Page<ResumeDto> resumes =
+                        resumeService.getResumesMadeByUser(currentUser.getId(), page, 5);
+
+                model.addAttribute("resumes", resumes.getContent());
+                model.addAttribute("currentPage", page);
+                model.addAttribute("totalPages", resumes.getTotalPages());
+
+            } else if (currentUser.getRoleId() == 2) {
+
+                Page<VacancyDto> vacancies =
+                        vacancyService.getVacanciesByUserId(currentUser.getId(), page, 5);
+
+                model.addAttribute("vacancies", vacancies.getContent());
+                model.addAttribute("currentPage", page);
+                model.addAttribute("totalPages", vacancies.getTotalPages());
+            }
+
+            return "profile/profile";
+        }
 
         if (!file.isEmpty()) {
             String fileName = imageService.save(file);
@@ -94,6 +110,7 @@ public class ProfileController {
         } else {
             editUserDto.setAvatar(currentUser.getAvatar());
         }
+
         userService.update(currentUser.getId(), editUserDto);
 
         return "redirect:/profile";
