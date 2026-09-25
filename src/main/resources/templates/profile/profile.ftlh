@@ -427,6 +427,15 @@
                                             ${vacancy.expTo!}
                                         </p>
 
+                                        <#if vacancy.updateTime??>
+                                            <p class="card-text mb-2">
+                                                <strong>
+                                                    <@spring.message "profile.vacancy.updated"/>
+                                                </strong>
+                                                ${vacancy.updateTime}
+                                            </p>
+                                        </#if>
+
 
                                         <#if vacancy.active?? && vacancy.active>
 
@@ -449,6 +458,44 @@
                                                class="btn btn-outline-primary btn-sm">
                                                 <@spring.message "profile.vacancy.edit"/>
                                             </a>
+
+                                            <form action="/vacancies/${vacancy.id}/update-time"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-success btn-sm">
+                                                    <@spring.message "profile.vacancy.update"/>
+                                                </button>
+                                            </form>
+
+                                            <form action="/vacancies/${vacancy.id}/toggle-active"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-warning btn-sm">
+
+                                                    <#if vacancy.active>
+                                                        <@spring.message "profile.vacancy.unpublish"/>
+                                                    <#else>
+                                                        <@spring.message "profile.vacancy.publish"/>
+                                                    </#if>
+
+                                                </button>
+                                            </form>
 
                                         </div>
 

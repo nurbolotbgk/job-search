@@ -20,6 +20,10 @@ public interface VacancyService {
 
     void update(Long id, VacancyDto dto);
 
+    void updateTime(Long id, Long userId);
+
+    void toggleActive(Long id, Long userId);
+
     void deleteById(Long id);
 
     VacancyDto findById(Long id);

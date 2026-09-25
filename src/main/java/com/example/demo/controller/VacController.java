@@ -177,4 +177,22 @@ public class VacController {
 
         return "vacancies/vacancy_details";
     }
+
+    @PostMapping("/{id}/update-time")
+    public String updateTime(@PathVariable Long id) {
+
+        UserDto currentUser = userService.getCurrentUser();
+        vacancyService.updateTime(id, currentUser.getId());
+
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/{id}/toggle-active")
+    public String toggleActive(@PathVariable Long id) {
+
+        UserDto currentUser = userService.getCurrentUser();
+        vacancyService.toggleActive(id, currentUser.getId());
+
+        return "redirect:/profile";
+    }
 }
