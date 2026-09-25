@@ -2518,3 +2518,382 @@ java.lang.IllegalStateException: Neither BindingResult nor plain target object f
 2026-09-25 15:51:19 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
 2026-09-25 15:51:19 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@76a1c028, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=5A210C03E43FE1B51C6D7586AC7BED94], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T10:45:08.032562900Z]]]]
 2026-09-25 15:51:19 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies/1
+2026-09-25 16:48:20 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 18844 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 16:48:20 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 16:48:21 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+2026-09-25 16:48:21 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:452)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'respondedApplicantController' for bean class [com.example.demo.controller.RespondedApplicantController] conflicts with existing, non-compatible bean definition of same name and class [com.example.demo.controller.api.RespondedApplicantController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:363)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:290)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:349)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:285)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	... 13 common frames omitted
+2026-09-25 16:51:24 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 4124 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 16:51:24 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 16:51:25 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+2026-09-25 16:51:25 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:452)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'respondedApplicantController' for bean class [com.example.demo.controller.RespondedApplicantController] conflicts with existing, non-compatible bean definition of same name and class [com.example.demo.controller.api.RespondedApplicantController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:363)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:290)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:349)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:285)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	... 13 common frames omitted
+2026-09-25 16:52:54 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 12412 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 16:52:54 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 16:52:54 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+2026-09-25 16:52:55 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:452)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'respondedApplicantController' for bean class [com.example.demo.controller.RespondedApplicantController] conflicts with existing, non-compatible bean definition of same name and class [com.example.demo.controller.api.RespondedApplicantController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:363)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:290)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:349)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:285)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	... 13 common frames omitted
+2026-09-25 16:53:44 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 3312 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 16:53:44 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 16:53:44 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+2026-09-25 16:53:45 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.example.demo.DemoApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:452)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'respondedApplicantController' for bean class [com.example.demo.controller.RespondedApplicantController] conflicts with existing, non-compatible bean definition of same name and class [com.example.demo.controller.api.RespondedApplicantController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:363)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:290)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:349)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:285)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	... 13 common frames omitted
+2026-09-25 17:04:26 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 16088 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 17:04:26 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 17:04:31 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-25 17:04:31 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-25 17:04:32 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-25 17:04:34 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-25 17:04:36 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-25 17:04:36 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-25 17:04:36 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-25 17:04:37 INFO  com.example.demo.DemoApplication - Started DemoApplication in 11.809 seconds (process running for 12.683)
+2026-09-25 17:04:37 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-25 17:04:37 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-25 17:05:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-25 17:05:32 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:05:32 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 74CA23E072FA3ECC11113BDB33798D43
+2026-09-25 17:05:32 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/vacancies/1?continue to session
+2026-09-25 17:05:32 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-25 17:05:32 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-25 17:05:32 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:05:32 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-25 17:05:42 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-09-25 17:05:44 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-09-25 17:05:45 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 0F395429864B8A64197EED49AFB7EC20
+2026-09-25 17:05:45 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-09-25 17:05:45 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@178f2a41, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=0F395429864B8A64197EED49AFB7EC20], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:05:44.988354700Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@76d10687]
+2026-09-25 17:05:45 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@178f2a41, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=0F395429864B8A64197EED49AFB7EC20], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:05:44.988354700Z]]]
+2026-09-25 17:05:45 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-25 17:05:45 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-25 17:05:58 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@178f2a41, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=0F395429864B8A64197EED49AFB7EC20], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:05:44.988354700Z]]]]
+2026-09-25 17:06:23 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-25 17:06:23 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@178f2a41, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=0F395429864B8A64197EED49AFB7EC20], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:05:44.988354700Z]]]]
+2026-09-25 17:06:23 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies/1
+2026-09-25 17:25:35 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 2852 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 17:25:35 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 17:25:40 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-25 17:25:40 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-25 17:25:40 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-25 17:25:41 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-25 17:25:42 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-25 17:25:42 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-25 17:25:42 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-25 17:25:43 INFO  com.example.demo.DemoApplication - Started DemoApplication in 7.894 seconds (process running for 11.737)
+2026-09-25 17:25:43 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-25 17:25:43 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-25 17:25:53 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-25 17:25:53 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:25:53 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 09EF4A127BDD733731C312E306E4E910
+2026-09-25 17:25:53 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/vacancies/1?continue to session
+2026-09-25 17:25:53 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-25 17:25:53 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-25 17:25:53 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:25:53 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-25 17:25:53 DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2026-09-25 17:25:53 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:25:53 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-25 17:25:53 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-25 17:25:53 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:25:53 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-25 17:25:59 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-09-25 17:26:00 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-09-25 17:26:00 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from ED656BE5842A16E8058C7F6F6600DDF0
+2026-09-25 17:26:00 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-09-25 17:26:00 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@74647050, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ED656BE5842A16E8058C7F6F6600DDF0], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:26:00.149551300Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@2008feea]
+2026-09-25 17:26:00 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@74647050, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ED656BE5842A16E8058C7F6F6600DDF0], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:26:00.149551300Z]]]
+2026-09-25 17:26:00 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-25 17:26:00 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-25 17:26:00 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@74647050, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ED656BE5842A16E8058C7F6F6600DDF0], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:26:00.149551300Z]]]]
+2026-09-25 17:26:00 DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2026-09-25 17:26:00 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@74647050, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ED656BE5842A16E8058C7F6F6600DDF0], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:26:00.149551300Z]]]]
+2026-09-25 17:26:00 DEBUG o.s.security.web.FilterChainProxy - Secured GET /favicon.ico
+2026-09-25 17:26:00 WARN  o.s.web.servlet.PageNotFound - No mapping for GET /favicon.ico
+2026-09-25 17:26:00 WARN  o.s.web.servlet.PageNotFound - No endpoint GET /favicon.ico.
+2026-09-25 17:26:00 DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-09-25 17:26:00 DEBUG o.s.security.web.FilterChainProxy - Secured GET /error
+2026-09-25 17:26:00 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@74647050, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ED656BE5842A16E8058C7F6F6600DDF0], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:26:00.149551300Z]]]]
+2026-09-25 17:26:04 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-25 17:26:04 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@74647050, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=ED656BE5842A16E8058C7F6F6600DDF0], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:26:00.149551300Z]]]]
+2026-09-25 17:26:04 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies/1
+2026-09-25 17:28:32 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 4864 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 17:28:32 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 17:28:36 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-25 17:28:37 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-25 17:28:37 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-25 17:28:38 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-25 17:28:39 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-25 17:28:40 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-25 17:28:40 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-25 17:28:40 INFO  com.example.demo.DemoApplication - Started DemoApplication in 8.467 seconds (process running for 13.204)
+2026-09-25 17:28:40 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-25 17:28:40 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-25 17:29:01 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-25 17:29:01 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:29:01 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 0CB25F956809F4520EDBD28395189972
+2026-09-25 17:29:01 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/vacancies/1?continue to session
+2026-09-25 17:29:01 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-25 17:29:02 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-25 17:29:02 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:29:02 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-25 17:29:07 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-09-25 17:29:08 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-09-25 17:29:08 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 2179C2128A60F0807520397551DC9C2E
+2026-09-25 17:29:08 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-09-25 17:29:08 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@242d111e, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=2179C2128A60F0807520397551DC9C2E], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:29:08.072349Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@653f5a81]
+2026-09-25 17:29:08 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@242d111e, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=2179C2128A60F0807520397551DC9C2E], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:29:08.072349Z]]]
+2026-09-25 17:29:08 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-25 17:29:08 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-25 17:29:08 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@242d111e, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=2179C2128A60F0807520397551DC9C2E], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:29:08.072349Z]]]]
+2026-09-25 17:29:09 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-25 17:29:09 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@242d111e, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=2179C2128A60F0807520397551DC9C2E], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:29:08.072349Z]]]]
+2026-09-25 17:29:09 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies/1
+2026-09-25 17:29:33 DEBUG o.s.security.web.FilterChainProxy - Securing POST /responded-applicants/createResponse
+2026-09-25 17:29:33 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@242d111e, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=2179C2128A60F0807520397551DC9C2E], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:29:08.072349Z]]]]
+2026-09-25 17:29:33 DEBUG o.s.security.web.FilterChainProxy - Secured POST /responded-applicants/createResponse
+2026-09-25 17:29:37 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies/1
+2026-09-25 17:29:37 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@242d111e, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=2179C2128A60F0807520397551DC9C2E], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:29:08.072349Z]]]]
+2026-09-25 17:29:37 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies/1
+2026-09-25 17:39:33 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 5000 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 17:39:33 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 17:39:36 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-25 17:39:36 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-25 17:39:37 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.3.232
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-25 17:39:38 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-25 17:39:38 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-25 17:39:38 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-25 17:39:38 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-25 17:39:39 INFO  com.example.demo.DemoApplication - Started DemoApplication in 6.631 seconds (process running for 7.131)
+2026-09-25 17:39:39 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-25 17:39:39 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-25 17:43:37 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 5336 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 17:43:37 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 17:43:41 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-25 17:43:41 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-25 17:43:41 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-25 17:43:42 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-25 17:43:43 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-25 17:43:43 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-25 17:43:43 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-25 17:43:44 INFO  com.example.demo.DemoApplication - Started DemoApplication in 6.929 seconds (process running for 7.449)
+2026-09-25 17:43:44 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-25 17:43:44 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-25 17:46:03 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 14592 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 17:46:03 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 17:46:06 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-25 17:46:06 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-25 17:46:08 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-25 17:46:09 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-25 17:46:10 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-25 17:46:10 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-25 17:46:10 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-25 17:46:10 INFO  com.example.demo.DemoApplication - Started DemoApplication in 7.423 seconds (process running for 7.814)
+2026-09-25 17:46:10 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-25 17:46:10 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-25 17:46:25 DEBUG o.s.security.web.FilterChainProxy - Securing GET /messages/3
+2026-09-25 17:46:25 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:46:25 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id AD8338190A8B5DB8C36B9D780BD80323
+2026-09-25 17:46:25 DEBUG o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8080/messages/3?continue to session
+2026-09-25 17:46:25 DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /auth/login
+2026-09-25 17:46:25 DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/login
+2026-09-25 17:46:25 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-09-25 17:46:25 DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/login
+2026-09-25 17:46:39 DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-09-25 17:46:40 DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-09-25 17:46:40 DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 89AE3065A6D5FBFF1AC6CD27E8D9219B
+2026-09-25 17:46:40 DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2026-09-25 17:46:40 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@108e634c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=89AE3065A6D5FBFF1AC6CD27E8D9219B], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:46:40.174997700Z]]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@4e5a531f]
+2026-09-25 17:46:40 DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@108e634c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=89AE3065A6D5FBFF1AC6CD27E8D9219B], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:46:40.174997700Z]]]
+2026-09-25 17:46:40 DEBUG o.s.security.web.FilterChainProxy - Securing GET /vacancies
+2026-09-25 17:46:40 DEBUG o.s.security.web.FilterChainProxy - Secured GET /vacancies
+2026-09-25 17:46:40 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@108e634c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=89AE3065A6D5FBFF1AC6CD27E8D9219B], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:46:40.174997700Z]]]]
+2026-09-25 17:46:44 DEBUG o.s.security.web.FilterChainProxy - Securing GET /messages/3
+2026-09-25 17:46:44 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@108e634c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=89AE3065A6D5FBFF1AC6CD27E8D9219B], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:46:40.174997700Z]]]]
+2026-09-25 17:46:44 DEBUG o.s.security.web.FilterChainProxy - Secured GET /messages/3
+2026-09-25 17:46:57 DEBUG o.s.security.web.FilterChainProxy - Securing POST /messages/3
+2026-09-25 17:46:57 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@108e634c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=89AE3065A6D5FBFF1AC6CD27E8D9219B], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:46:40.174997700Z]]]]
+2026-09-25 17:46:57 DEBUG o.s.security.web.FilterChainProxy - Secured POST /messages/3
+2026-09-25 17:46:57 DEBUG o.s.security.web.FilterChainProxy - Securing GET /messages/3
+2026-09-25 17:46:57 DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=com.example.demo.model.User@108e634c, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=89AE3065A6D5FBFF1AC6CD27E8D9219B], Granted Authorities=[ROLE_APPLICANT, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-09-25T12:46:40.174997700Z]]]]
+2026-09-25 17:46:57 DEBUG o.s.security.web.FilterChainProxy - Secured GET /messages/3
+2026-09-25 17:53:40 INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.12 with PID 9364 (C:\Users\user\IdeaProjects\job-search_71\target\classes started by user in C:\Users\user\IdeaProjects\job-search_71)
+2026-09-25 17:53:40 INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-25 17:53:44 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-25 17:53:44 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-09-25 17:53:44 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-25 17:53:45 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-25 17:53:46 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-25 17:53:46 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-25 17:53:46 DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-09-25 17:53:47 INFO  com.example.demo.DemoApplication - Started DemoApplication in 7.368 seconds (process running for 8.162)
+2026-09-25 17:53:47 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-25 17:53:47 WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'

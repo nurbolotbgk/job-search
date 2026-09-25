@@ -119,6 +119,15 @@
                             <@spring.message "vacancy.details.other.vacancies"/>
                         </a>
 
+                        <#if currentUser?? && currentUser.roleId == 1>
+                            <button type="button"
+                                    class="btn btn-success"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#responseModal">
+                                <@spring.message "vacancy.details.respond"/>
+                            </button>
+                        </#if>
+
                     </div>
 
                 </div>
@@ -128,5 +137,130 @@
         </div>
 
     </div>
+
+    <#if currentUser?? && currentUser.roleId == 1>
+
+        <div class="modal fade"
+             id="responseModal"
+             tabindex="-1"
+             aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <@spring.message "vacancy.response.title"/>
+                        </h5>
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <#if resumes?? && resumes?size gt 0>
+
+                            <label for="resumeId"
+                                   class="form-label">
+                                <@spring.message "vacancy.response.select.resume"/>
+                            </label>
+
+                            <select id="resumeId"
+                                    class="form-select">
+
+                                <#list resumes as resume>
+                                    <option value="${resume.id}">
+                                        ${resume.name}
+                                    </option>
+                                </#list>
+
+                            </select>
+
+                        <#else>
+
+                            <div class="alert alert-warning mb-0">
+                                <@spring.message "vacancy.response.no.resumes"/>
+                            </div>
+
+                        </#if>
+
+                    </div>
+
+                    <#if resumes?? && resumes?size gt 0>
+
+                        <div class="modal-footer">
+
+                            <button type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal">
+                                <@spring.message "vacancy.response.cancel"/>
+                            </button>
+
+                            <button type="button"
+                                    id="sendResponseButton"
+                                    class="btn btn-success">
+                                <@spring.message "vacancy.response.send"/>
+                            </button>
+
+                        </div>
+
+                    </#if>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </#if>
+
+    <#if currentUser?? && currentUser.roleId == 1 && resumes?? && resumes?size gt 0>
+
+        <script>
+            document.getElementById('sendResponseButton')
+                .addEventListener('click', function () {
+
+                    const resumeId =
+                        document.getElementById('resumeId').value;
+
+                    const vacancyId = ${vacancy.id};
+
+                    fetch('/responded-applicants/createResponse', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                            <#if _csrf??>
+                            ,
+                            '${_csrf.headerName}': '${_csrf.token}'
+                            </#if>
+                        },
+                        body: JSON.stringify({
+                            resumeId: Number(resumeId),
+                            vacancyId: Number(vacancyId)
+                        })
+                    })
+                        .then(response => {
+
+                            if (response.ok) {
+                                alert('Отклик успешно отправлен');
+                                location.reload();
+                            } else {
+                                alert('Не удалось отправить отклик');
+                            }
+
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            alert('Ошибка при отправке отклика');
+                        });
+
+                });
+        </script>
+
+    </#if>
 
 </@layout.layout>

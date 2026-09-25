@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.ResumeDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.dto.VacancyDto;
 import com.example.demo.dto.VacancyFormDto;
 import com.example.demo.exception.VacancyNotFoundException;
 import com.example.demo.service.CategoryService;
+import com.example.demo.service.ResumeService;
 import com.example.demo.service.UserService;
 import com.example.demo.service.VacancyService;
 import jakarta.validation.Valid;
@@ -15,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/vacancies")
 @RequiredArgsConstructor
@@ -23,6 +27,7 @@ public class VacController {
     private final VacancyService vacancyService;
     private final UserService userService;
     private final CategoryService categoryService;
+    private final ResumeService resumeService;
 
     @GetMapping
     public String getAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "date_desc") String sort, Model model) {
@@ -159,21 +164,25 @@ public class VacController {
     }
 
     @GetMapping("/{id}")
-    public String vacancyDetails(
-            @PathVariable Long id,
-            Model model
-    ) {
+    public String vacancyDetails(@PathVariable Long id, Model model) {
 
-        VacancyDto vacancy =
-                vacancyService.findById(id);
+        VacancyDto vacancy = vacancyService.findById(id);
 
         UserDto employer =
-                userService.findEmployerById(
-                        vacancy.getUserId()
-                );
+                userService.findEmployerById(vacancy.getUserId());
+
+        UserDto currentUser = userService.getCurrentUser();
 
         model.addAttribute("vacancy", vacancy);
         model.addAttribute("employer", employer);
+        model.addAttribute("currentUser", currentUser);
+
+        if (currentUser.getRoleId() == 1) {
+            List<ResumeDto> resumes =
+                    resumeService.getResumesMadeByUser(currentUser.getId());
+
+            model.addAttribute("resumes", resumes);
+        }
 
         return "vacancies/vacancy_details";
     }

@@ -18,7 +18,7 @@ public class RespondedApplicantController {
 
 
     @PostMapping("/createResponse")
-    public ResponseEntity<Void> createUser(@Valid @RequestBody RespondedApplicantDto dto) {
+    public ResponseEntity<Void> createResponse(@Valid @RequestBody RespondedApplicantDto dto) {
         respondedApplicantService.createResponse(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

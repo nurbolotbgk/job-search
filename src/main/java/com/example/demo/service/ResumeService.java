@@ -30,4 +30,6 @@ public interface ResumeService {
     void toggleActive(Long id, Long userId);
 
     void deleteById(long id);
+
+    List<ResumeDto> getResumesMadeByUser(Long userId);
 }

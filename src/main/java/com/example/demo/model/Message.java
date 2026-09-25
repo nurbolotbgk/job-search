@@ -24,4 +24,8 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "responded_applicant_id")
     private RespondedApplicant respondedApplicant;
+
+    @ManyToOne
+    @JoinColumn(name = "sender_id")
+    private User sender;
 }

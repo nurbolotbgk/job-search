@@ -1,37 +1,37 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.EditUserDto;
-import com.example.demo.dto.ResumeDto;
-import com.example.demo.dto.UserDto;
-import com.example.demo.dto.VacancyDto;
-import com.example.demo.service.ImageService;
-import com.example.demo.service.ResumeService;
-import com.example.demo.service.UserService;
-import com.example.demo.service.VacancyService;
-import jakarta.servlet.http.HttpServletRequest;
+import com.example.demo.dto.*;
+import com.example.demo.service.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 
 @Controller
 @RequestMapping("/profile")
 @RequiredArgsConstructor
 public class ProfileController {
+
     private final UserService userService;
     private final ImageService imageService;
     private final ResumeService resumeService;
     private final VacancyService vacancyService;
+    private final RespondedApplicantService respondedApplicantService;
+
 
     @GetMapping
-    public String profile(@RequestParam(defaultValue = "0") int page, Model model, HttpSession session) {
+    public String profile(
+            @RequestParam(defaultValue = "0") int page,
+            Model model,
+            HttpSession session
+    ) {
 
         UserDto currentUser = userService.getCurrentUser();
 
@@ -47,19 +47,39 @@ public class ProfileController {
 
         model.addAttribute("editUserDto", editUserDto);
 
+
         if (currentUser.getRoleId() == 1) {
-            Page<ResumeDto> resumes = resumeService.getResumesMadeByUser(currentUser.getId(), page, 5);
+
+            Page<ResumeDto> resumes =
+                    resumeService.getResumesMadeByUser(
+                            currentUser.getId(),
+                            page,
+                            5
+                    );
+
             model.addAttribute("resumes", resumes.getContent());
             model.addAttribute("currentPage", page);
             model.addAttribute("totalPages", resumes.getTotalPages());
 
+
+            List<RespondedApplicantDto> responses =
+                    respondedApplicantService.getResponsesByUserId(
+                            currentUser.getId()
+                    );
+
+            model.addAttribute("responses", responses);
+
         } else if (currentUser.getRoleId() == 2) {
-            Page<VacancyDto> vacancies = vacancyService.getVacanciesByUserId(currentUser.getId(), page, 5);
+
+            Page<VacancyDto> vacancies =
+                    vacancyService.getVacanciesByUserId(
+                            currentUser.getId(),
+                            page,
+                            5
+                    );
 
             model.addAttribute("vacancies", vacancies.getContent());
-
             model.addAttribute("currentPage", page);
-
             model.addAttribute("totalPages", vacancies.getTotalPages());
         }
 
@@ -67,13 +87,14 @@ public class ProfileController {
     }
 
 
-
     @PostMapping("/edit")
-    public String edit(@Valid EditUserDto editUserDto,
-                       BindingResult bindingResult,
-                       @RequestParam("file") MultipartFile file,
-                       @RequestParam(defaultValue = "0") int page,
-                       Model model) {
+    public String edit(
+            @Valid EditUserDto editUserDto,
+            BindingResult bindingResult,
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(defaultValue = "0") int page,
+            Model model
+    ) {
 
         UserDto currentUser = userService.getCurrentUser();
 
@@ -82,19 +103,36 @@ public class ProfileController {
             model.addAttribute("user", currentUser);
             model.addAttribute("openEditModal", true);
 
+
             if (currentUser.getRoleId() == 1) {
 
                 Page<ResumeDto> resumes =
-                        resumeService.getResumesMadeByUser(currentUser.getId(), page, 5);
+                        resumeService.getResumesMadeByUser(
+                                currentUser.getId(),
+                                page,
+                                5
+                        );
 
                 model.addAttribute("resumes", resumes.getContent());
                 model.addAttribute("currentPage", page);
                 model.addAttribute("totalPages", resumes.getTotalPages());
 
+
+                List<RespondedApplicantDto> responses =
+                        respondedApplicantService.getResponsesByUserId(
+                                currentUser.getId()
+                        );
+
+                model.addAttribute("responses", responses);
+
             } else if (currentUser.getRoleId() == 2) {
 
                 Page<VacancyDto> vacancies =
-                        vacancyService.getVacanciesByUserId(currentUser.getId(), page, 5);
+                        vacancyService.getVacanciesByUserId(
+                                currentUser.getId(),
+                                page,
+                                5
+                        );
 
                 model.addAttribute("vacancies", vacancies.getContent());
                 model.addAttribute("currentPage", page);
@@ -104,23 +142,38 @@ public class ProfileController {
             return "profile/profile";
         }
 
+
         if (!file.isEmpty()) {
+
             String fileName = imageService.save(file);
             editUserDto.setAvatar(fileName);
+
         } else {
+
             editUserDto.setAvatar(currentUser.getAvatar());
         }
 
-        userService.update(currentUser.getId(), editUserDto);
+
+        userService.update(
+                currentUser.getId(),
+                editUserDto
+        );
 
         return "redirect:/profile";
     }
 
+
     @GetMapping("/{id}")
-    public String profileById(@PathVariable Long id, Model model) {
-        model.addAttribute("user", userService.findUserById(id));
+    public String profileById(
+            @PathVariable Long id,
+            Model model
+    ) {
+
+        model.addAttribute(
+                "user",
+                userService.findUserById(id)
+        );
+
         return "profile/profile";
     }
-
-
 }

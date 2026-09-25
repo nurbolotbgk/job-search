@@ -237,4 +237,24 @@ public class ResumeServiceImpl implements ResumeService {
 
         resumeRepository.deleteById(id);
     }
+
+    @Override
+    public List<ResumeDto> getResumesMadeByUser(Long userId) {
+
+        List<Resume> resumes =
+                resumeRepository.findByUser_IdAndActiveTrue(userId);
+
+        return resumes.stream()
+                .map(r -> ResumeDto.builder()
+                        .id(r.getId())
+                        .name(r.getName())
+                        .salary(r.getSalary())
+                        .active(r.getActive())
+                        .createdDate(r.getCreatedDate())
+                        .updateTime(r.getUpdateTime())
+                        .userId(r.getUser().getId())
+                        .categoryId(r.getCategory().getId())
+                        .build())
+                .toList();
+    }
 }
