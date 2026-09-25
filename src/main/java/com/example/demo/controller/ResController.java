@@ -9,6 +9,7 @@ import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -68,7 +69,20 @@ public class ResController {
 
     @PostMapping("/create")
     @ResponseBody
-    public void create(@Valid @RequestBody ResumeFormDto resumeFormDto) {
+    public ResponseEntity<?> create(@Valid @RequestBody ResumeFormDto resumeFormDto, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+
+            List<String> errors = bindingResult
+                    .getFieldErrors()
+                    .stream()
+                    .map(error -> error.getDefaultMessage())
+                    .toList();
+
+            return ResponseEntity
+                    .badRequest()
+                    .body(errors);
+        }
 
         UserDto currentUser = userService.getCurrentUser();
 
@@ -99,6 +113,8 @@ public class ResController {
                 .build();
 
         resumeService.save(resumeDto);
+
+        return ResponseEntity.ok().build();
     }
 
 
@@ -246,10 +262,8 @@ public class ResController {
 
 
     @PostMapping("/{id}/edit/add-contact")
-    public String addContactEdit(
-            @PathVariable Long id,
-            @ModelAttribute("resumeFormDto") ResumeFormDto resumeFormDto,
-            Model model
+    public String addContactEdit(@PathVariable Long id, @ModelAttribute("resumeFormDto") ResumeFormDto resumeFormDto,
+                                 Model model
     ) {
 
         if (resumeFormDto.getContacts() == null) {
@@ -260,11 +274,22 @@ public class ResController {
                 .add(new ContactInfoDto());
 
         model.addAttribute("resumeId", id);
-        model.addAttribute(
-                "categories",
-                categoryService.getAllCategories()
-        );
+        model.addAttribute("categories", categoryService.getAllCategories());
 
         return "resumes/edit_resume";
+    }
+
+    @PostMapping("/{id}/update-time")
+    public String updateTime(@PathVariable Long id) {
+        UserDto currentUser = userService.getCurrentUser();
+        resumeService.updateTime(id, currentUser.getId());
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/{id}/toggle-active")
+    public String toggleActive(@PathVariable Long id) {
+        UserDto currentUser = userService.getCurrentUser();
+        resumeService.toggleActive(id, currentUser.getId());
+        return "redirect:/profile";
     }
 }

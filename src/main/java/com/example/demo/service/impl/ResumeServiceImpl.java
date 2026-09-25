@@ -171,6 +171,21 @@ public class ResumeServiceImpl implements ResumeService {
         contactInfoService.saveAll(savedResume, dto.getContacts());
     }
 
+    @Transactional
+    @Override
+    public void updateTime(Long id, Long userId) {
+        Resume resume = resumeRepository.findById(id)
+                .orElseThrow(ResumeNotFoundException::new);
+
+        if (!resume.getUser().getId().equals(userId)) {
+            throw new ResumeNotFoundException();
+        }
+
+        resume.setUpdateTime(LocalDateTime.now());
+
+        resumeRepository.save(resume);
+    }
+
     @Override
     @Transactional
     public void update(ResumeDto dto) {
@@ -195,6 +210,24 @@ public class ResumeServiceImpl implements ResumeService {
         contactInfoService.replaceAll(savedResume, dto.getContacts());
     }
 
+
+    @Transactional
+    @Override
+    public void toggleActive(Long id, Long userId) {
+
+        Resume resume = resumeRepository.findById(id)
+                .orElseThrow(ResumeNotFoundException::new);
+
+        if (!resume.getUser().getId().equals(userId)) {
+            throw new ResumeNotFoundException();
+        }
+
+        resume.setActive(!resume.getActive());
+
+        resumeRepository.save(resume);
+    }
+
+
     @Override
     public void deleteById(long id) {
 
@@ -203,5 +236,25 @@ public class ResumeServiceImpl implements ResumeService {
         }
 
         resumeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ResumeDto> getResumesMadeByUser(Long userId) {
+
+        List<Resume> resumes =
+                resumeRepository.findByUser_IdAndActiveTrue(userId);
+
+        return resumes.stream()
+                .map(r -> ResumeDto.builder()
+                        .id(r.getId())
+                        .name(r.getName())
+                        .salary(r.getSalary())
+                        .active(r.getActive())
+                        .createdDate(r.getCreatedDate())
+                        .updateTime(r.getUpdateTime())
+                        .userId(r.getUser().getId())
+                        .categoryId(r.getCategory().getId())
+                        .build())
+                .toList();
     }
 }

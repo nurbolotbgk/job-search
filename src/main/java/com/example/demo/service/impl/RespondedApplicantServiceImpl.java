@@ -11,6 +11,8 @@ import com.example.demo.service.VacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class RespondedApplicantServiceImpl implements RespondedApplicantService {
@@ -32,5 +34,22 @@ public class RespondedApplicantServiceImpl implements RespondedApplicantService 
         respondedApplicant.setVacancy(vacancy);
 
         respondedApplicantRepository.save(respondedApplicant);
+    }
+
+    @Override
+    public List<RespondedApplicantDto> getResponsesByUserId(Long userId) {
+
+        return respondedApplicantRepository
+                .findByResume_User_Id(userId)
+                .stream()
+                .map(response -> RespondedApplicantDto.builder()
+                        .id(response.getId())
+                        .resumeId(response.getResume().getId())
+                        .resumeName(response.getResume().getName())
+                        .vacancyId(response.getVacancy().getId())
+                        .vacancyName(response.getVacancy().getName())
+                        .confirmation(response.isConfirmation())
+                        .build())
+                .toList();
     }
 }

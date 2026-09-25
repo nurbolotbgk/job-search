@@ -7,4 +7,6 @@ import java.util.List;
 public interface RespondedApplicantService {
 
     void createResponse(RespondedApplicantDto dto);
+
+    List<RespondedApplicantDto> getResponsesByUserId(Long userId);
 }

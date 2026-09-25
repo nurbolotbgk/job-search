@@ -51,6 +51,8 @@ public class VacancyDto {
 
     private LocalDateTime updateTime;
 
+    private String companyName;
+
     @Positive(message = "{validation.vacancy.id.positive}")
     private Long id;
 }

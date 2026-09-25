@@ -13,7 +13,7 @@
                         <@spring.message "register.title"/>
                     </h2>
 
-                    <form action="/auth/register" method="post">
+                    <form action="/auth/register" method="post" enctype="multipart/form-data">
 
                         <#if _csrf??>
                             <input type="hidden"
@@ -22,7 +22,7 @@
                         </#if>
 
                         <div class="mb-3">
-                            <label class="form-label">
+                            <label class="form-label" id="nameLabel">
                                 <@spring.message "register.name"/>
                             </label>
 
@@ -144,6 +144,18 @@
 
                         </div>
 
+                        <div class="mb-3">
+                            <label for="file" class="form-label">
+                                <@spring.message "register.avatar"/>
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   id="file"
+                                   name="file"
+                                   accept="image/*">
+                        </div>
+
                         <button type="submit"
                                 class="btn btn-primary w-100">
                             <@spring.message "register.button"/>
@@ -156,5 +168,27 @@
 
         </div>
     </div>
+
+    <script>
+        const applicantRadio = document.getElementById('applicant');
+        const employerRadio = document.getElementById('employer');
+        const nameLabel = document.getElementById('nameLabel');
+
+        const applicantName = '<@spring.message "register.name"/>';
+        const companyName = '<@spring.message "register.company.name"/>';
+
+        function updateNameLabel() {
+            if (employerRadio.checked) {
+                nameLabel.textContent = companyName;
+            } else {
+                nameLabel.textContent = applicantName;
+            }
+        }
+
+        applicantRadio.addEventListener('change', updateNameLabel);
+        employerRadio.addEventListener('change', updateNameLabel);
+
+        updateNameLabel();
+    </script>
 
 </@layout.layout>

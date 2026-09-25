@@ -13,6 +13,7 @@
                         <@spring.message "profile.title"/>
                     </h2>
 
+
                     <div class="text-center mb-4">
 
                         <#if user.avatar?? && user.avatar?has_content>
@@ -60,10 +61,160 @@
                         ${user.phoneNumber!}
                     </div>
 
-                    <a href="/profile/edit"
-                       class="btn btn-primary">
+
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editProfileModal">
                         <@spring.message "profile.edit"/>
-                    </a>
+                    </button>
+
+
+                    <div class="modal fade"
+                         id="editProfileModal"
+                         tabindex="-1"
+                         aria-labelledby="editProfileModalLabel"
+                         aria-hidden="true">
+
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+
+                                <form action="/profile/edit"
+                                      method="post"
+                                      enctype="multipart/form-data">
+
+                                    <#if _csrf??>
+                                        <input type="hidden"
+                                               name="${_csrf.parameterName}"
+                                               value="${_csrf.token}">
+                                    </#if>
+
+
+                                    <div class="modal-header">
+
+                                        <h5 class="modal-title"
+                                            id="editProfileModalLabel">
+                                            <@spring.message "profile.edit.title"/>
+                                        </h5>
+
+                                        <button type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                        </button>
+
+                                    </div>
+
+
+                                    <div class="modal-body">
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "profile.name"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.name"
+                                            'class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+
+                                        </div>
+
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "profile.surname"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.surname"
+                                            'class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+
+                                        </div>
+
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "profile.age"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.age"
+                                            'type="number" class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+
+                                        </div>
+
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "profile.phone"/>
+                                            </label>
+
+                                            <@spring.formInput
+                                            "editUserDto.phoneNumber"
+                                            'class="form-control"'/>
+
+                                            <@spring.showErrors
+                                            "<br>"
+                                            "text-danger"/>
+
+                                        </div>
+
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label">
+                                                <@spring.message "profile.edit.photo"/>
+                                            </label>
+
+                                            <input type="file"
+                                                   class="form-control"
+                                                   name="file"
+                                                   accept="image/*">
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="modal-footer">
+
+                                        <button type="button"
+                                                class="btn btn-outline-secondary"
+                                                data-bs-dismiss="modal">
+                                            <@spring.message "profile.edit.cancel"/>
+                                        </button>
+
+                                        <button type="submit"
+                                                class="btn btn-primary">
+                                            <@spring.message "profile.edit.save"/>
+                                        </button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
 
                     <#if user.roleId == 1>
@@ -89,15 +240,35 @@
                             <#list resumes as resume>
 
                                 <div class="card mb-3">
+
                                     <div class="card-body">
 
                                         <h5 class="card-title">
                                             ${resume.name!}
                                         </h5>
 
+
+                                        <#if resume.updateTime??>
+
+                                            <p class="card-text mb-2">
+
+                                                <strong>
+                                                    <@spring.message "profile.resume.updated"/>
+                                                </strong>
+
+                                                ${resume.formattedUpdateTime}
+
+                                            </p>
+
+                                        </#if>
+
+
                                         <p class="card-text mb-2">
+
                                             <@spring.message "profile.desired.salary"/>
+
                                             ${resume.salary!}
+
                                         </p>
 
 
@@ -123,9 +294,52 @@
                                                 <@spring.message "profile.resume.edit"/>
                                             </a>
 
+
+                                            <form action="/resumes/${resume.id}/update-time"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-success btn-sm">
+                                                    <@spring.message "profile.resume.update"/>
+                                                </button>
+
+                                            </form>
+
+
+                                            <form action="/resumes/${resume.id}/toggle-active"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-warning btn-sm">
+
+                                                    <#if resume.active>
+                                                        <@spring.message "profile.resume.unpublish"/>
+                                                    <#else>
+                                                        <@spring.message "profile.resume.publish"/>
+                                                    </#if>
+
+                                                </button>
+
+                                            </form>
+
                                         </div>
 
                                     </div>
+
                                 </div>
 
                             </#list>
@@ -134,15 +348,18 @@
                             <#if totalPages?? && totalPages gt 1>
 
                                 <nav class="mt-4">
+
                                     <ul class="pagination justify-content-center">
 
                                         <#if currentPage gt 0>
 
                                             <li class="page-item">
+
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage - 1}">
                                                     <@spring.message "pagination.previous"/>
                                                 </a>
+
                                             </li>
 
                                         </#if>
@@ -165,18 +382,22 @@
                                         <#if currentPage lt totalPages - 1>
 
                                             <li class="page-item">
+
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage + 1}">
                                                     <@spring.message "pagination.next"/>
                                                 </a>
+
                                             </li>
 
                                         </#if>
 
                                     </ul>
+
                                 </nav>
 
                             </#if>
+
 
                         <#else>
 
@@ -187,9 +408,54 @@
                         </#if>
 
 
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">
+                            Мои отклики
+                        </h4>
+
+
+                        <#if responses?? && responses?size gt 0>
+
+                            <#list responses as response>
+
+                                <div class="card mb-3">
+
+                                    <div class="card-body">
+
+                                        <h5 class="card-title">
+                                            ${response.vacancyName!}
+                                        </h5>
+
+                                        <p class="mb-2">
+                                            <strong>Резюме:</strong>
+                                            ${response.resumeName!}
+                                        </p>
+
+                                        <a href="/messages/${response.id}"
+                                           class="btn btn-outline-primary btn-sm">
+                                            Перейти в чат
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </#list>
+
+                        <#else>
+
+                            <p class="text-muted">
+                                Вы пока не откликались на вакансии.
+                            </p>
+
+                        </#if>
+
+
                     <#elseif user.roleId == 2>
 
                         <hr class="my-4">
+
 
                         <div class="d-flex justify-content-between align-items-center mb-3">
 
@@ -210,24 +476,32 @@
                             <#list vacancies as vacancy>
 
                                 <div class="card mb-3">
+
                                     <div class="card-body">
 
                                         <h5 class="card-title">
                                             ${vacancy.name!}
                                         </h5>
 
+
                                         <p class="card-text mb-2">
                                             ${vacancy.description!}
                                         </p>
 
+
                                         <p class="card-text mb-2">
+
                                             <strong>
                                                 <@spring.message "profile.vacancy.salary"/>
                                             </strong>
+
                                             ${vacancy.salary!}
+
                                         </p>
 
+
                                         <p class="card-text mb-2">
+
                                             <strong>
                                                 <@spring.message "profile.vacancy.experience"/>
                                             </strong>
@@ -235,7 +509,23 @@
                                             ${vacancy.expFrom!}
                                             -
                                             ${vacancy.expTo!}
+
                                         </p>
+
+
+                                        <#if vacancy.updateTime??>
+
+                                            <p class="card-text mb-2">
+
+                                                <strong>
+                                                    <@spring.message "profile.vacancy.updated"/>
+                                                </strong>
+
+                                                ${vacancy.updateTime}
+
+                                            </p>
+
+                                        </#if>
 
 
                                         <#if vacancy.active?? && vacancy.active>
@@ -260,9 +550,52 @@
                                                 <@spring.message "profile.vacancy.edit"/>
                                             </a>
 
+
+                                            <form action="/vacancies/${vacancy.id}/update-time"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-success btn-sm">
+                                                    <@spring.message "profile.vacancy.update"/>
+                                                </button>
+
+                                            </form>
+
+
+                                            <form action="/vacancies/${vacancy.id}/toggle-active"
+                                                  method="post"
+                                                  class="d-inline">
+
+                                                <#if _csrf??>
+                                                    <input type="hidden"
+                                                           name="${_csrf.parameterName}"
+                                                           value="${_csrf.token}">
+                                                </#if>
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-warning btn-sm">
+
+                                                    <#if vacancy.active>
+                                                        <@spring.message "profile.vacancy.unpublish"/>
+                                                    <#else>
+                                                        <@spring.message "profile.vacancy.publish"/>
+                                                    </#if>
+
+                                                </button>
+
+                                            </form>
+
                                         </div>
 
                                     </div>
+
                                 </div>
 
                             </#list>
@@ -277,10 +610,12 @@
                                         <#if currentPage gt 0>
 
                                             <li class="page-item">
+
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage - 1}">
                                                     <@spring.message "pagination.previous"/>
                                                 </a>
+
                                             </li>
 
                                         </#if>
@@ -303,10 +638,12 @@
                                         <#if currentPage lt totalPages - 1>
 
                                             <li class="page-item">
+
                                                 <a class="page-link"
                                                    href="/profile?page=${currentPage + 1}">
                                                     <@spring.message "pagination.next"/>
                                                 </a>
+
                                             </li>
 
                                         </#if>
@@ -316,6 +653,7 @@
                                 </nav>
 
                             </#if>
+
 
                         <#else>
 
@@ -332,5 +670,26 @@
 
         </div>
     </div>
+
+
+    <#if openEditModal?? && openEditModal>
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function () {
+
+                const modalElement =
+                    document.getElementById('editProfileModal');
+
+                const modal =
+                    new bootstrap.Modal(modalElement);
+
+                modal.show();
+
+            });
+
+        </script>
+
+    </#if>
 
 </@layout.layout>

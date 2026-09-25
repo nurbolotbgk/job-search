@@ -146,7 +146,9 @@
 
                                 <p class="text-muted mb-2">
                                     <#if vacancy.companyName??>
-                                        ${vacancy.companyName}
+                                        <a href="/companies/${vacancy.userId}">
+                                            ${vacancy.companyName}
+                                        </a>
                                     <#else>
                                         <@spring.message "vacancies.company.not.specified"/>
                                     </#if>
@@ -175,6 +177,13 @@
                                 <@spring.message "vacancies.description.empty"/>
                             </#if>
                         </p>
+
+                        <#if vacancy.createdDate??>
+                            <p class="text-muted mb-2">
+                                <@spring.message "vacancies.published"/>
+                                ${vacancy.createdDate}
+                            </p>
+                        </#if>
 
                         <p class="text-muted mb-0">
                             <@spring.message "vacancies.experience"/>

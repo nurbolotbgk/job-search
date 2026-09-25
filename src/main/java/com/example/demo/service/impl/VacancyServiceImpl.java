@@ -10,6 +10,7 @@ import com.example.demo.repository.VacancyRepository;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.UserService;
 import com.example.demo.service.VacancyService;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -48,6 +49,7 @@ public class VacancyServiceImpl implements VacancyService {
                         .expTo(v.getExpTo())
                         .active(v.getActive())
                         .userId(v.getUser().getId())
+                        .companyName(v.getUser().getName())
                         .createdDate(v.getCreatedDate())
                         .updateTime(v.getUpdateTime())
                         .build())
@@ -64,7 +66,7 @@ public class VacancyServiceImpl implements VacancyService {
             Pageable pageable = PageRequest.of(
                     page,
                     size,
-                    Sort.by("createdDate").ascending()
+                    Sort.by("updateTime").ascending()
             );
 
             vacancies = vacancyRepository.findByActiveTrue(pageable);
@@ -88,7 +90,7 @@ public class VacancyServiceImpl implements VacancyService {
             Pageable pageable = PageRequest.of(
                     page,
                     size,
-                    Sort.by("createdDate").descending()
+                    Sort.by("updateTime").descending()
             );
 
             vacancies = vacancyRepository.findByActiveTrue(pageable);
@@ -104,6 +106,7 @@ public class VacancyServiceImpl implements VacancyService {
                 .expTo(v.getExpTo())
                 .active(v.getActive())
                 .userId(v.getUser().getId())
+                .companyName(v.getUser().getName())
                 .createdDate(v.getCreatedDate())
                 .updateTime(v.getUpdateTime())
                 .build());
@@ -119,7 +122,7 @@ public class VacancyServiceImpl implements VacancyService {
         Pageable pageable = PageRequest.of(
                 page,
                 size,
-                Sort.by("createdDate").descending()
+                Sort.by("updateTime").descending()
         );
 
         Page<Vacancy> vacancies =
@@ -135,6 +138,7 @@ public class VacancyServiceImpl implements VacancyService {
                 .expTo(v.getExpTo())
                 .active(v.getActive())
                 .userId(v.getUser().getId())
+                .companyName(v.getUser().getName())
                 .createdDate(v.getCreatedDate())
                 .updateTime(v.getUpdateTime())
                 .build());
@@ -161,6 +165,7 @@ public class VacancyServiceImpl implements VacancyService {
                         .expTo(e.getExpTo())
                         .active(e.getActive())
                         .userId(e.getUser().getId())
+                        .companyName(e.getUser().getName())
                         .createdDate(e.getCreatedDate())
                         .updateTime(e.getUpdateTime())
                         .build())
@@ -219,8 +224,40 @@ public class VacancyServiceImpl implements VacancyService {
         vacancy.setExpTo(dto.getExpTo());
         vacancy.setActive(dto.getActive());
         vacancy.setUpdateTime(LocalDateTime.now());
+
         vacancy.setCategory(category);
 
+        vacancyRepository.save(vacancy);
+    }
+
+    @Override
+    @Transactional
+    public void updateTime(Long id, Long userId) {
+
+        Vacancy vacancy = vacancyRepository.findById(id)
+                .orElseThrow(VacancyNotFoundException::new);
+
+        if (!vacancy.getUser().getId().equals(userId)) {
+            throw new VacancyNotFoundException();
+        }
+
+        vacancy.setUpdateTime(LocalDateTime.now());
+        vacancyRepository.save(vacancy);
+    }
+
+
+    @Override
+    @Transactional
+    public void toggleActive(Long id, Long userId) {
+
+        Vacancy vacancy = vacancyRepository.findById(id)
+                .orElseThrow(VacancyNotFoundException::new);
+
+        if (!vacancy.getUser().getId().equals(userId)) {
+            throw new VacancyNotFoundException();
+        }
+
+        vacancy.setActive(!vacancy.getActive());
         vacancyRepository.save(vacancy);
     }
 
@@ -250,6 +287,7 @@ public class VacancyServiceImpl implements VacancyService {
                 .expTo(vacancy.getExpTo())
                 .active(vacancy.getActive())
                 .userId(vacancy.getUser().getId())
+                .companyName(vacancy.getUser().getName())
                 .createdDate(vacancy.getCreatedDate())
                 .updateTime(vacancy.getUpdateTime())
                 .build();
